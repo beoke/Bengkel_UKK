@@ -23,4 +23,10 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Admin\Dal\" />
+    <Folder Include="Admin\Model\" />
+    <Folder Include="Asset\" />
+  </ItemGroup>
+
 </Project>

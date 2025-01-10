@@ -1,3 +1,5 @@
+using Bengkel_UKK.Admin;
+
 namespace Bengkel_UKK
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace Bengkel_UKK
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Login_Form());
+            Application.Run(new Dashboard_Admin());
         }
     }
 }

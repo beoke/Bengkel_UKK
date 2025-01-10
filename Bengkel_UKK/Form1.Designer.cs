@@ -125,6 +125,7 @@
             Text_Password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Text_Password.Location = new Point(42, 210);
             Text_Password.Name = "Text_Password";
+            Text_Password.PasswordChar = '*';
             Text_Password.Size = new Size(219, 29);
             Text_Password.TabIndex = 2;
             // 
@@ -143,7 +144,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.Location = new Point(120, 20);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(67, 51);
