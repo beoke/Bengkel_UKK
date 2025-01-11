@@ -53,9 +53,9 @@
             flowLayoutPanel1.Controls.Add(DataKendaraan_button);
             flowLayoutPanel1.Controls.Add(DataPelanggan_button);
             flowLayoutPanel1.Controls.Add(DataKaryawan_button);
-            flowLayoutPanel1.Location = new Point(1, 50);
+            flowLayoutPanel1.Location = new Point(0, 50);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(282, 52);
+            flowLayoutPanel1.Size = new Size(284, 52);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // DataSet_Button
@@ -123,9 +123,9 @@
             Riwayat_button.FlatAppearance.BorderSize = 0;
             Riwayat_button.FlatStyle = FlatStyle.Flat;
             Riwayat_button.Font = new Font("DFGothic-EB", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            Riwayat_button.Location = new Point(1, 102);
+            Riwayat_button.Location = new Point(0, 102);
             Riwayat_button.Name = "Riwayat_button";
-            Riwayat_button.Size = new Size(278, 50);
+            Riwayat_button.Size = new Size(284, 50);
             Riwayat_button.TabIndex = 6;
             Riwayat_button.Text = "Riwayat ";
             Riwayat_button.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@
             Dashboard_Button.Font = new Font("DFGothic-EB", 18F, FontStyle.Bold, GraphicsUnit.Point);
             Dashboard_Button.Location = new Point(1, 0);
             Dashboard_Button.Name = "Dashboard_Button";
-            Dashboard_Button.Size = new Size(282, 50);
+            Dashboard_Button.Size = new Size(283, 50);
             Dashboard_Button.TabIndex = 1;
             Dashboard_Button.Text = "Dashboard";
             Dashboard_Button.TextAlign = ContentAlignment.MiddleLeft;
