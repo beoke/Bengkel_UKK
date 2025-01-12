@@ -12,7 +12,6 @@ namespace Bengkel_UKK.Admin
 {
     public partial class Dashboard_Admin : Form
     {
-        private bool isDataSetButtonClicked = false; // Status apakah tombol DataSet sedang diklik
         private bool isFlowLayoutExpanded = false;
         private System.Windows.Forms.Timer resizeTimer;
         private int targetHeight;
@@ -25,28 +24,13 @@ namespace Bengkel_UKK.Admin
             InitializeComponent();
 
             // Timer untuk animasi
-            resizeTimer = new System.Windows.Forms.Timer();
-            resizeTimer.Interval = 8; // Interval waktu antara setiap langkah animasi (dalam milidetik)
-            evenbutton();
-            PositionRiwayatButton();
+            resizeTimer = new System.Windows.Forms.Timer { Interval = 8 }; // Interval animasi
+            InitializeEventHandlers();
             Menu_label.Text = "Dashboard";
+            PositionRiwayatButton(); // Inisialisasi posisi tombol Riwayat
         }
 
-        private void PositionRiwayatButton()
-        {
-            if (isFlowLayoutExpanded)
-            {
-                // Ketika FlowLayoutPanel diperluas, atur lokasi Riwayat_button di (0, 250)
-                Riwayat_button.Location = new Point(0, 250);
-            }
-            else
-            {
-                // Ketika FlowLayoutPanel ditutup, kembalikan lokasi Riwayat_button ke (0, 100)
-                Riwayat_button.Location = new Point(0, 100);
-            }
-        }
-
-        private void evenbutton()
+        private void InitializeEventHandlers()
         {
             DataSet_Button.Click += DataSet_Button_Click;
             resizeTimer.Tick += ResizeTimer_Tick;
@@ -56,7 +40,13 @@ namespace Bengkel_UKK.Admin
             DataKendaraan_button.Click += DataKendaraan_button_Click;
         }
 
-        #region ---- DATA KENDARAAN,PELANGGAN,KARYAWAN ---- 
+        private void PositionRiwayatButton()
+        {
+            // Menyesuaikan posisi tombol Riwayat agar selalu di bawah FlowLayoutPanel
+            Riwayat_button.Location = new Point(0, flowLayoutPanel1.Bottom + 0);
+        }
+
+        #region ---- EVENT HANDLER ----
         private void DataKendaraan_button_Click(object? sender, EventArgs e)
         {
             Menu_label.Text = "Data Kendaraan";
@@ -71,73 +61,67 @@ namespace Bengkel_UKK.Admin
         {
             Menu_label.Text = "Data Karyawan";
         }
-        #endregion
 
-        // ---- Button Dashboard ----
         private void Dashboard_Button_Click(object? sender, EventArgs e)
         {
             Menu_label.Text = "Dashboard";
         }
+        #endregion
 
-        #region ---- ANIMASI BERJALAN BUTTON ----
+        #region ---- ANIMASI FLOWLAYOUTPANEL ----
         private void DataSet_Button_Click(object? sender, EventArgs e)
         {
-            isDataSetButtonClicked = !isDataSetButtonClicked;
-
             if (isFlowLayoutExpanded)
-            {
-                AnimateFlowLayoutPanelCollapse(); // Menutup panel
-            }
+                AnimateFlowLayoutPanelCollapse();
             else
-            {
-                AnimateFlowLayoutPanelExpand(); // Membuka panel
-            }
+                AnimateFlowLayoutPanelExpand();
         }
 
         private void ResizeTimer_Tick(object? sender, EventArgs e)
         {
             if (currentStep < steps)
             {
-                int previousHeight = flowLayoutPanel1.Height; // Simpan tinggi sebelumnya
-                flowLayoutPanel1.Height += stepHeight;       // Perbarui tinggi panel
-
+                flowLayoutPanel1.Height += stepHeight; // Perbarui tinggi panel
                 currentStep++;
+
+                // Selalu sesuaikan posisi Riwayat_button
+                PositionRiwayatButton();
             }
             else
             {
-                flowLayoutPanel1.Height = targetHeight;
+                flowLayoutPanel1.Height = targetHeight; // Tetapkan tinggi akhir panel
                 resizeTimer.Stop();
 
-                // Atur posisi Riwayat_button setelah animasi selesai
+                // Pastikan posisi Riwayat_button sesuai
                 PositionRiwayatButton();
             }
         }
 
         private void AnimateFlowLayoutPanelExpand()
         {
-            int animationDuration = 100; // Durasi animasi dalam ms
-            targetHeight = 200; // Target tinggi saat panel diperluas
-            steps = animationDuration / resizeTimer.Interval; // Menghitung jumlah langkah berdasarkan interval dan durasi
-            stepHeight = (targetHeight - flowLayoutPanel1.Height) / steps; // Menghitung perubahan per langkah
-            currentStep = 0;
-
-            resizeTimer.Start(); // Mulai animasi
+            StartAnimation(200); // Target tinggi saat panel diperluas
             isFlowLayoutExpanded = true;
         }
 
         private void AnimateFlowLayoutPanelCollapse()
         {
+            StartAnimation(50); // Target tinggi saat panel ditutup
+            isFlowLayoutExpanded = false;
+        }
+
+        private void StartAnimation(int newTargetHeight)
+        {
             int animationDuration = 100; // Durasi animasi dalam ms
-            targetHeight = 50; // Target tinggi saat panel ditutup
-            steps = animationDuration / resizeTimer.Interval; // Menghitung jumlah langkah berdasarkan interval dan durasi
-            stepHeight = (flowLayoutPanel1.Height - targetHeight) / steps; // Menghitung perubahan per langkah
-            currentStep = 100;
+            targetHeight = newTargetHeight;
+            steps = animationDuration / resizeTimer.Interval; // Jumlah langkah animasi
+            stepHeight = (targetHeight - flowLayoutPanel1.Height) / steps; // Perubahan tinggi per langkah
+            currentStep = 0;
 
             resizeTimer.Start(); // Mulai animasi
-            isFlowLayoutExpanded = false;
         }
         #endregion
     }
+
 
 
 }
