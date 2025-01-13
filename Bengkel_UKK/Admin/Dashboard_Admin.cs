@@ -19,6 +19,7 @@ namespace Bengkel_UKK.Admin
         private int steps;
         private int currentStep;
 
+
         public Dashboard_Admin()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace Bengkel_UKK.Admin
             DataPelanggan_button.Click += DataPelanggan_button_Click;
             DataKendaraan_button.Click += DataKendaraan_button_Click;
         }
+ 
 
         private void PositionRiwayatButton()
         {

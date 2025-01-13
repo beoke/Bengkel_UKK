@@ -64,6 +64,8 @@
             DataSet_Button.FlatAppearance.BorderSize = 0;
             DataSet_Button.FlatStyle = FlatStyle.Flat;
             DataSet_Button.Font = new Font("DFGothic-EB", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            DataSet_Button.Image = (Image)resources.GetObject("DataSet_Button.Image");
+            DataSet_Button.ImageAlign = ContentAlignment.MiddleRight;
             DataSet_Button.Location = new Point(0, 0);
             DataSet_Button.Margin = new Padding(0);
             DataSet_Button.Name = "DataSet_Button";
@@ -128,6 +130,7 @@
             Riwayat_button.Size = new Size(284, 50);
             Riwayat_button.TabIndex = 6;
             Riwayat_button.Text = "Riwayat ";
+            Riwayat_button.TextAlign = ContentAlignment.MiddleLeft;
             Riwayat_button.UseVisualStyleBackColor = false;
             // 
             // PanelMenu_panel
@@ -160,15 +163,15 @@
             // 
             PanelForm_panel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelForm_panel.BackColor = SystemColors.HotTrack;
-            PanelForm_panel.Location = new Point(283, 77);
+            PanelForm_panel.Location = new Point(285, 77);
             PanelForm_panel.Name = "PanelForm_panel";
-            PanelForm_panel.Size = new Size(795, 515);
+            PanelForm_panel.Size = new Size(793, 515);
             PanelForm_panel.TabIndex = 2;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = SystemColors.AppWorkspace;
+            panel1.BackColor = SystemColors.GrayText;
             panel1.Controls.Add(Menu_label);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
