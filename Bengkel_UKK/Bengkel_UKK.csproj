@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Properties\Asset\**" />
+    <EmbeddedResource Remove="Properties\Asset\**" />
+    <None Remove="Properties\Asset\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -26,7 +32,6 @@
   <ItemGroup>
     <Folder Include="Admin\Dal\" />
     <Folder Include="Admin\Model\" />
-    <Folder Include="Asset\" />
   </ItemGroup>
 
 </Project>
