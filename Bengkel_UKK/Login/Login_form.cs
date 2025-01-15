@@ -24,7 +24,7 @@ namespace Bengkel_UKK.Login
 
         private void Login_form_Load(object sender, EventArgs e)
         {
-            SmoothRoundedPanel(panel1, 25, Color.FromArgb(254, 228, 216)); // Sudut lebih halus
+            SmoothRoundedPanel(panel1, 25, Color.FromArgb(254, 228, 216)); 
             SmoothRoundedPanel(panel2, 25, Color.FromArgb(254, 228, 216));
             SmoothRoundedPanel(panel3, 25, Color.FromArgb(248, 81, 0));
 
@@ -38,7 +38,6 @@ namespace Bengkel_UKK.Login
 
         private void Lihat_button_Click(object? sender, EventArgs e)
         {
-            // Toggle visibility password
             isPasswordVisible = !isPasswordVisible;
 
             if (isPasswordVisible)
