@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel1 = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            SideBar_Layout = new FlowLayoutPanel();
             panelDashoard = new Panel();
             Dashboard_button = new Button();
             panel2 = new Panel();
             button1 = new Button();
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            Data_flowLayOut = new FlowLayoutPanel();
             panel3 = new Panel();
             button2 = new Button();
             panel4 = new Panel();
@@ -48,11 +49,13 @@
             button5 = new Button();
             panel7 = new Panel();
             button6 = new Button();
+            MenuTransition = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
+            SideBar_Layout.SuspendLayout();
             panelDashoard.SuspendLayout();
             panel2.SuspendLayout();
+            Data_flowLayOut.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
@@ -90,15 +93,15 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // flowLayoutPanel1
+            // SideBar_Layout
             // 
-            flowLayoutPanel1.BackColor = Color.Red;
-            flowLayoutPanel1.Controls.Add(panelDashoard);
-            flowLayoutPanel1.Dock = DockStyle.Left;
-            flowLayoutPanel1.Location = new Point(0, 55);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(238, 395);
-            flowLayoutPanel1.TabIndex = 1;
+            SideBar_Layout.BackColor = Color.Red;
+            SideBar_Layout.Controls.Add(panelDashoard);
+            SideBar_Layout.Dock = DockStyle.Left;
+            SideBar_Layout.Location = new Point(0, 55);
+            SideBar_Layout.Name = "SideBar_Layout";
+            SideBar_Layout.Size = new Size(238, 395);
+            SideBar_Layout.TabIndex = 1;
             // 
             // panelDashoard
             // 
@@ -134,7 +137,8 @@
             panel2.BackColor = Color.Black;
             panel2.BackgroundImageLayout = ImageLayout.None;
             panel2.Controls.Add(button1);
-            panel2.Location = new Point(259, 246);
+            panel2.Location = new Point(0, 153);
+            panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
             panel2.Size = new Size(234, 51);
             panel2.TabIndex = 3;
@@ -154,16 +158,20 @@
             button1.Padding = new Padding(15, 0, 0, 0);
             button1.Size = new Size(234, 51);
             button1.TabIndex = 0;
-            button1.Text = "            MENU\r\n";
+            button1.Text = "            Sub Menu 3";
             button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
             // 
-            // flowLayoutPanel2
+            // Data_flowLayOut
             // 
-            flowLayoutPanel2.Location = new Point(259, 61);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(234, 166);
-            flowLayoutPanel2.TabIndex = 6;
+            Data_flowLayOut.Controls.Add(panel7);
+            Data_flowLayOut.Controls.Add(panel6);
+            Data_flowLayOut.Controls.Add(panel5);
+            Data_flowLayOut.Controls.Add(panel2);
+            Data_flowLayOut.Location = new Point(259, 61);
+            Data_flowLayOut.Name = "Data_flowLayOut";
+            Data_flowLayOut.Size = new Size(234, 207);
+            Data_flowLayOut.TabIndex = 6;
             // 
             // panel3
             // 
@@ -191,7 +199,7 @@
             button2.Padding = new Padding(15, 0, 0, 0);
             button2.Size = new Size(234, 51);
             button2.TabIndex = 0;
-            button2.Text = "            MENU\r\n";
+            button2.Text = "            INFORMASI";
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             // 
@@ -221,7 +229,7 @@
             button3.Padding = new Padding(15, 0, 0, 0);
             button3.Size = new Size(234, 51);
             button3.TabIndex = 0;
-            button3.Text = "            MENU\r\n";
+            button3.Text = "            LOGOUT";
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             // 
@@ -231,7 +239,8 @@
             panel5.BackgroundImageLayout = ImageLayout.None;
             panel5.Controls.Add(button4);
             panel5.ForeColor = Color.Red;
-            panel5.Location = new Point(518, 246);
+            panel5.Location = new Point(0, 102);
+            panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Size = new Size(234, 51);
             panel5.TabIndex = 5;
@@ -251,7 +260,7 @@
             button4.Padding = new Padding(15, 0, 0, 0);
             button4.Size = new Size(234, 51);
             button4.TabIndex = 0;
-            button4.Text = "            MENU\r\n";
+            button4.Text = "            Sub Menu 2";
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = false;
             // 
@@ -261,7 +270,8 @@
             panel6.BackgroundImageLayout = ImageLayout.None;
             panel6.Controls.Add(button5);
             panel6.ForeColor = Color.Red;
-            panel6.Location = new Point(518, 303);
+            panel6.Location = new Point(0, 51);
+            panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Size = new Size(234, 51);
             panel6.TabIndex = 7;
@@ -281,7 +291,7 @@
             button5.Padding = new Padding(15, 0, 0, 0);
             button5.Size = new Size(234, 51);
             button5.TabIndex = 0;
-            button5.Text = "            MENU\r\n";
+            button5.Text = "            Sub Menu 1";
             button5.TextAlign = ContentAlignment.MiddleLeft;
             button5.UseVisualStyleBackColor = false;
             // 
@@ -291,7 +301,8 @@
             panel7.BackgroundImageLayout = ImageLayout.None;
             panel7.Controls.Add(button6);
             panel7.ForeColor = Color.Red;
-            panel7.Location = new Point(518, 360);
+            panel7.Location = new Point(0, 0);
+            panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Size = new Size(234, 51);
             panel7.TabIndex = 8;
@@ -307,11 +318,12 @@
             button6.Image = (Image)resources.GetObject("button6.Image");
             button6.ImageAlign = ContentAlignment.MiddleLeft;
             button6.Location = new Point(0, 0);
+            button6.Margin = new Padding(0);
             button6.Name = "button6";
             button6.Padding = new Padding(15, 0, 0, 0);
             button6.Size = new Size(234, 51);
             button6.TabIndex = 0;
-            button6.Text = "            MENU\r\n";
+            button6.Text = "            Data";
             button6.TextAlign = ContentAlignment.MiddleLeft;
             button6.UseVisualStyleBackColor = false;
             // 
@@ -320,23 +332,20 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(897, 450);
-            Controls.Add(panel7);
-            Controls.Add(panel6);
-            Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(panel3);
-            Controls.Add(flowLayoutPanel2);
-            Controls.Add(panel2);
-            Controls.Add(flowLayoutPanel1);
+            Controls.Add(Data_flowLayOut);
+            Controls.Add(SideBar_Layout);
             Controls.Add(panel1);
             Name = "Dashboard";
             Text = "Dashboard";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
+            SideBar_Layout.ResumeLayout(false);
             panelDashoard.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            Data_flowLayOut.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
@@ -350,12 +359,12 @@
         private Panel panel1;
         private Label label1;
         private PictureBox pictureBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel SideBar_Layout;
         private Panel panelDashoard;
         private Button Dashboard_button;
         private Panel panel2;
         private Button button1;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel Data_flowLayOut;
         private Panel panel3;
         private Button button2;
         private Panel panel4;
@@ -366,5 +375,6 @@
         private Button button5;
         private Panel panel7;
         private Button button6;
+        private System.Windows.Forms.Timer MenuTransition;
     }
 }

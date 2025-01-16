@@ -17,6 +17,14 @@ namespace Bengkel_UKK.Admin
             InitializeComponent();
         }
 
+        bool menuExpand = false;
+        private void MenuTransition_Tick (object sender, EventArgs e)
+        {
+            if (menuExpand == false)
+            {
+
+            }
+        }
 
     }
 }
