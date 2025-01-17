@@ -39,16 +39,16 @@
             panel2 = new Panel();
             button1 = new Button();
             Data_flowLayOut = new FlowLayoutPanel();
+            panel7 = new Panel();
+            button6 = new Button();
+            panel6 = new Panel();
+            button5 = new Button();
+            panel5 = new Panel();
+            button4 = new Button();
             panel3 = new Panel();
             button2 = new Button();
             panel4 = new Panel();
             button3 = new Button();
-            panel5 = new Panel();
-            button4 = new Button();
-            panel6 = new Panel();
-            button5 = new Button();
-            panel7 = new Panel();
-            button6 = new Button();
             MenuTransition = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -56,11 +56,11 @@
             panelDashoard.SuspendLayout();
             panel2.SuspendLayout();
             Data_flowLayOut.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            panel5.SuspendLayout();
-            panel6.SuspendLayout();
-            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -170,8 +170,102 @@
             Data_flowLayOut.Controls.Add(panel2);
             Data_flowLayOut.Location = new Point(259, 61);
             Data_flowLayOut.Name = "Data_flowLayOut";
-            Data_flowLayOut.Size = new Size(234, 207);
+            Data_flowLayOut.Size = new Size(234, 204);
             Data_flowLayOut.TabIndex = 6;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.Black;
+            panel7.BackgroundImageLayout = ImageLayout.None;
+            panel7.Controls.Add(button6);
+            panel7.ForeColor = Color.Red;
+            panel7.Location = new Point(0, 0);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(234, 51);
+            panel7.TabIndex = 8;
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button6.BackColor = Color.Red;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.ForeColor = SystemColors.ActiveCaptionText;
+            button6.Image = (Image)resources.GetObject("button6.Image");
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(0, 0);
+            button6.Margin = new Padding(0);
+            button6.Name = "button6";
+            button6.Padding = new Padding(15, 0, 0, 0);
+            button6.Size = new Size(234, 51);
+            button6.TabIndex = 0;
+            button6.Text = "            Data";
+            button6.TextAlign = ContentAlignment.MiddleLeft;
+            button6.UseVisualStyleBackColor = false;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.Black;
+            panel6.BackgroundImageLayout = ImageLayout.None;
+            panel6.Controls.Add(button5);
+            panel6.ForeColor = Color.Red;
+            panel6.Location = new Point(0, 51);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(234, 51);
+            panel6.TabIndex = 7;
+            // 
+            // button5
+            // 
+            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button5.BackColor = Color.Red;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button5.ForeColor = SystemColors.ActiveCaptionText;
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(0, 0);
+            button5.Name = "button5";
+            button5.Padding = new Padding(15, 0, 0, 0);
+            button5.Size = new Size(234, 51);
+            button5.TabIndex = 0;
+            button5.Text = "            Sub Menu 1";
+            button5.TextAlign = ContentAlignment.MiddleLeft;
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.Black;
+            panel5.BackgroundImageLayout = ImageLayout.None;
+            panel5.Controls.Add(button4);
+            panel5.ForeColor = Color.Red;
+            panel5.Location = new Point(0, 102);
+            panel5.Margin = new Padding(0);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(234, 51);
+            panel5.TabIndex = 5;
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button4.BackColor = Color.Red;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.ForeColor = SystemColors.ActiveCaptionText;
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.ImageAlign = ContentAlignment.MiddleLeft;
+            button4.Location = new Point(0, 0);
+            button4.Name = "button4";
+            button4.Padding = new Padding(15, 0, 0, 0);
+            button4.Size = new Size(234, 51);
+            button4.TabIndex = 0;
+            button4.Text = "            Sub Menu 2";
+            button4.TextAlign = ContentAlignment.MiddleLeft;
+            button4.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -233,100 +327,6 @@
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Black;
-            panel5.BackgroundImageLayout = ImageLayout.None;
-            panel5.Controls.Add(button4);
-            panel5.ForeColor = Color.Red;
-            panel5.Location = new Point(0, 102);
-            panel5.Margin = new Padding(0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(234, 51);
-            panel5.TabIndex = 5;
-            // 
-            // button4
-            // 
-            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button4.BackColor = Color.Red;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button4.ForeColor = SystemColors.ActiveCaptionText;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(0, 0);
-            button4.Name = "button4";
-            button4.Padding = new Padding(15, 0, 0, 0);
-            button4.Size = new Size(234, 51);
-            button4.TabIndex = 0;
-            button4.Text = "            Sub Menu 2";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.Black;
-            panel6.BackgroundImageLayout = ImageLayout.None;
-            panel6.Controls.Add(button5);
-            panel6.ForeColor = Color.Red;
-            panel6.Location = new Point(0, 51);
-            panel6.Margin = new Padding(0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(234, 51);
-            panel6.TabIndex = 7;
-            // 
-            // button5
-            // 
-            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button5.BackColor = Color.Red;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.ForeColor = SystemColors.ActiveCaptionText;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(0, 0);
-            button5.Name = "button5";
-            button5.Padding = new Padding(15, 0, 0, 0);
-            button5.Size = new Size(234, 51);
-            button5.TabIndex = 0;
-            button5.Text = "            Sub Menu 1";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.Black;
-            panel7.BackgroundImageLayout = ImageLayout.None;
-            panel7.Controls.Add(button6);
-            panel7.ForeColor = Color.Red;
-            panel7.Location = new Point(0, 0);
-            panel7.Margin = new Padding(0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(234, 51);
-            panel7.TabIndex = 8;
-            // 
-            // button6
-            // 
-            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button6.BackColor = Color.Red;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = SystemColors.ActiveCaptionText;
-            button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(0, 0);
-            button6.Margin = new Padding(0);
-            button6.Name = "button6";
-            button6.Padding = new Padding(15, 0, 0, 0);
-            button6.Size = new Size(234, 51);
-            button6.TabIndex = 0;
-            button6.Text = "            Data";
-            button6.TextAlign = ContentAlignment.MiddleLeft;
-            button6.UseVisualStyleBackColor = false;
-            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -346,11 +346,11 @@
             panelDashoard.ResumeLayout(false);
             panel2.ResumeLayout(false);
             Data_flowLayOut.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel5.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
