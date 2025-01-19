@@ -117,34 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="DataSet_Button.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qQAAAKkBq7NRIgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADrSURBVEhLtZTL
-        igIxFAVL8VNEfP6Ez18XEcSdrmcxM+7VZctt0xBz0+nbGhclcpJULQQpioJvoobcqCE3asjN8wM6QC88
-        fBeg631nAJyAP2ATXm4LMAd+gCPQl2EHyIlw/yTi5FfPt5Vx7w1VZB0+biIiFw5yMAR+I5FVKKmjRn4B
-        ZtWFkfsNWkdS8vLcuxiL3IBlKLXKXwINkcU7chVwD8fAfypilUcDDRERm+W1AReZRCIiNsuTgUTELG8M
-        uMjUiVrLTYHyko6Y5OXbcKjDRc4Ok7x8Fw4p5G/Y/yu2oIbcqCE3asiNGnLzAPx8Us5uz+BIAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="DataKendaraan_button.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHzSURBVEhLrdXN
-        q05RFMfxT9yRCbdrYMJUZKAYoJh5m4iUyNsIGXkrQhgoEkYMMPB6uwyURGYmFPIef4IM/AGMDLS0ts6z
-        O+qc595frdr77LXWd5+11z4HFuIV3k/SPuOgFj3GyobNxqbaqYOm4wXm1AtBj6STBYRK/IACULQfL1te
-        v4+9wXmM1IBleITFmIF5aTHuo0h8Njf7VwWwB/twMhPvSItxXy3FtTIpgL1pfRUbqrUE18tkWEA0QliJ
-        b2poQCnZgoZ/xA8krOddAJEwShFBERwxbYDSpp0A4Vh6ugSEXcRPfMSnHMezsh6+nQDNeQTcxevs8UXY
-        hq05vpD9Hz69AR8y4Dd24hC+4Unad5zA7vTpBBivACvwFJtxp+UMYufRUc/SdwDwDtMqQCRtAo5kSd5i
-        VgtgNEu0HYdrwG3sqgDRMeXjF+PLWJ4H27Yeis917P5SDRjD8QagtGPTIngDvrasFfuCjek7ACgqgOj5
-        clDF4oLdxGnca1mPM4vSRDWiTK2A9bhSP2zoOVYlIGCrsQa38DDL9Ss3GM1wqk4QB30jDzUOrmmRdG6u
-        bcnEcbnC1uV9+IG1efnikz+zBnRRdMvVrPNEWiQ8hzO4nxcvnsWbDK34qczPJP/+XDiW0CmB/E8FcgAP
-        6sWp0tG8eKN/ADgeqyjbKmdtAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>
