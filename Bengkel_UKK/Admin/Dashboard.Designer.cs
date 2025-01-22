@@ -35,8 +35,7 @@
             label1 = new Label();
             Hamburger_button = new PictureBox();
             SideBar_Layout = new FlowLayoutPanel();
-            dashboard_panel = new Panel();
-            Dashboard_button = new Button();
+            laporan_button = new Button();
             Data_flowLayOut = new FlowLayoutPanel();
             Data_panel = new Panel();
             data_button = new Button();
@@ -46,27 +45,20 @@
             pelanggan_button = new Button();
             sub3_panel = new Panel();
             kendaraan_button = new Button();
-            Riwayat_panel = new Panel();
             riwayat_button = new Button();
-            panel4 = new Panel();
-            laporan_button = new Button();
-            panel2 = new Panel();
             invoice_button = new Button();
+            Dashboard_button = new Button();
             MenuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
             panelmdi = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Hamburger_button).BeginInit();
             SideBar_Layout.SuspendLayout();
-            dashboard_panel.SuspendLayout();
             Data_flowLayOut.SuspendLayout();
             Data_panel.SuspendLayout();
             sub1_panel.SuspendLayout();
             sub2_panel.SuspendLayout();
             sub3_panel.SuspendLayout();
-            Riwayat_panel.SuspendLayout();
-            panel4.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -122,12 +114,13 @@
             // 
             // SideBar_Layout
             // 
+            SideBar_Layout.AutoScroll = true;
             SideBar_Layout.BackColor = Color.White;
-            SideBar_Layout.Controls.Add(dashboard_panel);
+            SideBar_Layout.Controls.Add(Dashboard_button);
             SideBar_Layout.Controls.Add(Data_flowLayOut);
-            SideBar_Layout.Controls.Add(Riwayat_panel);
-            SideBar_Layout.Controls.Add(panel4);
-            SideBar_Layout.Controls.Add(panel2);
+            SideBar_Layout.Controls.Add(riwayat_button);
+            SideBar_Layout.Controls.Add(invoice_button);
+            SideBar_Layout.Controls.Add(laporan_button);
             SideBar_Layout.Dock = DockStyle.Left;
             SideBar_Layout.Location = new Point(0, 55);
             SideBar_Layout.Margin = new Padding(0);
@@ -135,34 +128,24 @@
             SideBar_Layout.Size = new Size(234, 530);
             SideBar_Layout.TabIndex = 1;
             // 
-            // dashboard_panel
+            // laporan_button
             // 
-            dashboard_panel.BackColor = Color.Black;
-            dashboard_panel.BackgroundImageLayout = ImageLayout.None;
-            dashboard_panel.Controls.Add(Dashboard_button);
-            dashboard_panel.Location = new Point(3, 3);
-            dashboard_panel.Name = "dashboard_panel";
-            dashboard_panel.Size = new Size(234, 51);
-            dashboard_panel.TabIndex = 2;
-            // 
-            // Dashboard_button
-            // 
-            Dashboard_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Dashboard_button.BackColor = Color.White;
-            Dashboard_button.FlatAppearance.BorderSize = 0;
-            Dashboard_button.FlatStyle = FlatStyle.Flat;
-            Dashboard_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Dashboard_button.ForeColor = SystemColors.ActiveCaptionText;
-            Dashboard_button.Image = (Image)resources.GetObject("Dashboard_button.Image");
-            Dashboard_button.ImageAlign = ContentAlignment.MiddleLeft;
-            Dashboard_button.Location = new Point(0, 0);
-            Dashboard_button.Name = "Dashboard_button";
-            Dashboard_button.Padding = new Padding(15, 0, 0, 0);
-            Dashboard_button.Size = new Size(234, 51);
-            Dashboard_button.TabIndex = 0;
-            Dashboard_button.Text = "            DASHBOARD";
-            Dashboard_button.TextAlign = ContentAlignment.MiddleLeft;
-            Dashboard_button.UseVisualStyleBackColor = false;
+            laporan_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            laporan_button.BackColor = Color.White;
+            laporan_button.FlatAppearance.BorderSize = 0;
+            laporan_button.FlatStyle = FlatStyle.Flat;
+            laporan_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            laporan_button.ForeColor = SystemColors.ActiveCaptionText;
+            laporan_button.Image = (Image)resources.GetObject("laporan_button.Image");
+            laporan_button.ImageAlign = ContentAlignment.MiddleLeft;
+            laporan_button.Location = new Point(3, 225);
+            laporan_button.Name = "laporan_button";
+            laporan_button.Padding = new Padding(15, 0, 0, 0);
+            laporan_button.Size = new Size(231, 51);
+            laporan_button.TabIndex = 0;
+            laporan_button.Text = "            LAPORAN ";
+            laporan_button.TextAlign = ContentAlignment.MiddleLeft;
+            laporan_button.UseVisualStyleBackColor = false;
             // 
             // Data_flowLayOut
             // 
@@ -172,7 +155,7 @@
             Data_flowLayOut.Controls.Add(sub3_panel);
             Data_flowLayOut.Location = new Point(3, 60);
             Data_flowLayOut.Name = "Data_flowLayOut";
-            Data_flowLayOut.Size = new Size(234, 51);
+            Data_flowLayOut.Size = new Size(231, 51);
             Data_flowLayOut.TabIndex = 6;
             // 
             // Data_panel
@@ -299,18 +282,6 @@
             kendaraan_button.TextAlign = ContentAlignment.MiddleLeft;
             kendaraan_button.UseVisualStyleBackColor = false;
             // 
-            // Riwayat_panel
-            // 
-            Riwayat_panel.BackColor = Color.Black;
-            Riwayat_panel.BackgroundImageLayout = ImageLayout.None;
-            Riwayat_panel.Controls.Add(riwayat_button);
-            Riwayat_panel.ForeColor = Color.Red;
-            Riwayat_panel.Location = new Point(0, 114);
-            Riwayat_panel.Margin = new Padding(0);
-            Riwayat_panel.Name = "Riwayat_panel";
-            Riwayat_panel.Size = new Size(231, 51);
-            Riwayat_panel.TabIndex = 4;
-            // 
             // riwayat_button
             // 
             riwayat_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -321,7 +292,7 @@
             riwayat_button.ForeColor = SystemColors.ActiveCaptionText;
             riwayat_button.Image = (Image)resources.GetObject("riwayat_button.Image");
             riwayat_button.ImageAlign = ContentAlignment.MiddleLeft;
-            riwayat_button.Location = new Point(0, 0);
+            riwayat_button.Location = new Point(0, 114);
             riwayat_button.Margin = new Padding(0);
             riwayat_button.Name = "riwayat_button";
             riwayat_button.Padding = new Padding(15, 0, 0, 0);
@@ -330,47 +301,6 @@
             riwayat_button.Text = "            RIWAYAT";
             riwayat_button.TextAlign = ContentAlignment.MiddleLeft;
             riwayat_button.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.Black;
-            panel4.BackgroundImageLayout = ImageLayout.None;
-            panel4.Controls.Add(laporan_button);
-            panel4.ForeColor = Color.Red;
-            panel4.Location = new Point(3, 168);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(234, 51);
-            panel4.TabIndex = 8;
-            // 
-            // laporan_button
-            // 
-            laporan_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            laporan_button.BackColor = Color.White;
-            laporan_button.FlatAppearance.BorderSize = 0;
-            laporan_button.FlatStyle = FlatStyle.Flat;
-            laporan_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            laporan_button.ForeColor = SystemColors.ActiveCaptionText;
-            laporan_button.Image = (Image)resources.GetObject("laporan_button.Image");
-            laporan_button.ImageAlign = ContentAlignment.MiddleLeft;
-            laporan_button.Location = new Point(0, 0);
-            laporan_button.Name = "laporan_button";
-            laporan_button.Padding = new Padding(15, 0, 0, 0);
-            laporan_button.Size = new Size(234, 51);
-            laporan_button.TabIndex = 0;
-            laporan_button.Text = "            LAPORAN ";
-            laporan_button.TextAlign = ContentAlignment.MiddleLeft;
-            laporan_button.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Black;
-            panel2.BackgroundImageLayout = ImageLayout.None;
-            panel2.Controls.Add(invoice_button);
-            panel2.ForeColor = Color.Red;
-            panel2.Location = new Point(3, 225);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(234, 51);
-            panel2.TabIndex = 6;
             // 
             // invoice_button
             // 
@@ -382,14 +312,33 @@
             invoice_button.ForeColor = SystemColors.ActiveCaptionText;
             invoice_button.Image = (Image)resources.GetObject("invoice_button.Image");
             invoice_button.ImageAlign = ContentAlignment.MiddleLeft;
-            invoice_button.Location = new Point(0, 0);
+            invoice_button.Location = new Point(3, 168);
             invoice_button.Name = "invoice_button";
             invoice_button.Padding = new Padding(15, 0, 0, 0);
-            invoice_button.Size = new Size(234, 51);
+            invoice_button.Size = new Size(231, 51);
             invoice_button.TabIndex = 0;
             invoice_button.Text = "            INVOICE";
             invoice_button.TextAlign = ContentAlignment.MiddleLeft;
             invoice_button.UseVisualStyleBackColor = false;
+            // 
+            // Dashboard_button
+            // 
+            Dashboard_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Dashboard_button.BackColor = Color.White;
+            Dashboard_button.FlatAppearance.BorderSize = 0;
+            Dashboard_button.FlatStyle = FlatStyle.Flat;
+            Dashboard_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Dashboard_button.ForeColor = SystemColors.ActiveCaptionText;
+            Dashboard_button.Image = (Image)resources.GetObject("Dashboard_button.Image");
+            Dashboard_button.ImageAlign = ContentAlignment.MiddleLeft;
+            Dashboard_button.Location = new Point(3, 3);
+            Dashboard_button.Name = "Dashboard_button";
+            Dashboard_button.Padding = new Padding(15, 0, 0, 0);
+            Dashboard_button.Size = new Size(231, 51);
+            Dashboard_button.TabIndex = 0;
+            Dashboard_button.Text = "            DASHBOARD";
+            Dashboard_button.TextAlign = ContentAlignment.MiddleLeft;
+            Dashboard_button.UseVisualStyleBackColor = false;
             // 
             // MenuTransition
             // 
@@ -425,15 +374,11 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Hamburger_button).EndInit();
             SideBar_Layout.ResumeLayout(false);
-            dashboard_panel.ResumeLayout(false);
             Data_flowLayOut.ResumeLayout(false);
             Data_panel.ResumeLayout(false);
             sub1_panel.ResumeLayout(false);
             sub2_panel.ResumeLayout(false);
             sub3_panel.ResumeLayout(false);
-            Riwayat_panel.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -443,12 +388,10 @@
         private Label label1;
         private PictureBox Hamburger_button;
         private FlowLayoutPanel SideBar_Layout;
-        private Panel dashboard_panel;
         private Button Dashboard_button;
         private Panel sub3_panel;
         private Button kendaraan_button;
         private FlowLayoutPanel Data_flowLayOut;
-        private Panel Riwayat_panel;
         private Button riwayat_button;
         private Panel sub2_panel;
         private Button pelanggan_button;
@@ -459,9 +402,7 @@
         private System.Windows.Forms.Timer MenuTransition;
         private System.Windows.Forms.Timer sidebarTransition;
         private Panel panelmdi;
-        private Panel panel4;
         private Button laporan_button;
-        private Panel panel2;
         private Button invoice_button;
         private Button logout_button;
     }

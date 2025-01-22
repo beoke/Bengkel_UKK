@@ -30,7 +30,6 @@ namespace Bengkel_UKK.Admin
             evenbutton();
             mdiProp();
             OpenChildForm(new form_Dashboard());
-
         }
 
         private void mdiProp()
