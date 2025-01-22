@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             panel1 = new Panel();
+            logout_button = new Button();
             label1 = new Label();
             Hamburger_button = new PictureBox();
             SideBar_Layout = new FlowLayoutPanel();
@@ -47,8 +48,10 @@
             kendaraan_button = new Button();
             Riwayat_panel = new Panel();
             riwayat_button = new Button();
-            logout_panel = new Panel();
-            logout_button = new Button();
+            panel4 = new Panel();
+            laporan_button = new Button();
+            panel2 = new Panel();
+            invoice_button = new Button();
             MenuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
             panelmdi = new Panel();
@@ -62,12 +65,14 @@
             sub2_panel.SuspendLayout();
             sub3_panel.SuspendLayout();
             Riwayat_panel.SuspendLayout();
-            logout_panel.SuspendLayout();
+            panel4.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(logout_button);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(Hamburger_button);
             panel1.Dock = DockStyle.Top;
@@ -75,6 +80,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(897, 55);
             panel1.TabIndex = 0;
+            // 
+            // logout_button
+            // 
+            logout_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            logout_button.BackColor = SystemColors.ButtonHighlight;
+            logout_button.FlatAppearance.BorderSize = 0;
+            logout_button.FlatStyle = FlatStyle.Flat;
+            logout_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            logout_button.ForeColor = SystemColors.ActiveCaptionText;
+            logout_button.Image = (Image)resources.GetObject("logout_button.Image");
+            logout_button.ImageAlign = ContentAlignment.MiddleLeft;
+            logout_button.Location = new Point(751, 2);
+            logout_button.Name = "logout_button";
+            logout_button.Padding = new Padding(15, 0, 0, 0);
+            logout_button.Size = new Size(146, 51);
+            logout_button.TabIndex = 0;
+            logout_button.Text = "           LOGOUT";
+            logout_button.TextAlign = ContentAlignment.MiddleLeft;
+            logout_button.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -89,24 +113,26 @@
             // Hamburger_button
             // 
             Hamburger_button.Image = (Image)resources.GetObject("Hamburger_button.Image");
-            Hamburger_button.Location = new Point(12, 8);
+            Hamburger_button.Location = new Point(3, 2);
             Hamburger_button.Name = "Hamburger_button";
-            Hamburger_button.Size = new Size(44, 35);
+            Hamburger_button.Size = new Size(63, 53);
             Hamburger_button.SizeMode = PictureBoxSizeMode.CenterImage;
             Hamburger_button.TabIndex = 0;
             Hamburger_button.TabStop = false;
             // 
             // SideBar_Layout
             // 
-            SideBar_Layout.BackColor = Color.Red;
+            SideBar_Layout.BackColor = Color.White;
             SideBar_Layout.Controls.Add(dashboard_panel);
             SideBar_Layout.Controls.Add(Data_flowLayOut);
             SideBar_Layout.Controls.Add(Riwayat_panel);
-            SideBar_Layout.Controls.Add(logout_panel);
+            SideBar_Layout.Controls.Add(panel4);
+            SideBar_Layout.Controls.Add(panel2);
             SideBar_Layout.Dock = DockStyle.Left;
             SideBar_Layout.Location = new Point(0, 55);
+            SideBar_Layout.Margin = new Padding(0);
             SideBar_Layout.Name = "SideBar_Layout";
-            SideBar_Layout.Size = new Size(234, 395);
+            SideBar_Layout.Size = new Size(234, 530);
             SideBar_Layout.TabIndex = 1;
             // 
             // dashboard_panel
@@ -122,7 +148,7 @@
             // Dashboard_button
             // 
             Dashboard_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Dashboard_button.BackColor = Color.Red;
+            Dashboard_button.BackColor = Color.White;
             Dashboard_button.FlatAppearance.BorderSize = 0;
             Dashboard_button.FlatStyle = FlatStyle.Flat;
             Dashboard_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -164,7 +190,7 @@
             // data_button
             // 
             data_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            data_button.BackColor = Color.Red;
+            data_button.BackColor = Color.White;
             data_button.FlatAppearance.BorderSize = 0;
             data_button.FlatStyle = FlatStyle.Flat;
             data_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -282,13 +308,13 @@
             Riwayat_panel.Location = new Point(0, 114);
             Riwayat_panel.Margin = new Padding(0);
             Riwayat_panel.Name = "Riwayat_panel";
-            Riwayat_panel.Size = new Size(234, 51);
+            Riwayat_panel.Size = new Size(231, 51);
             Riwayat_panel.TabIndex = 4;
             // 
             // riwayat_button
             // 
             riwayat_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            riwayat_button.BackColor = Color.Red;
+            riwayat_button.BackColor = Color.White;
             riwayat_button.FlatAppearance.BorderSize = 0;
             riwayat_button.FlatStyle = FlatStyle.Flat;
             riwayat_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -299,41 +325,71 @@
             riwayat_button.Margin = new Padding(0);
             riwayat_button.Name = "riwayat_button";
             riwayat_button.Padding = new Padding(15, 0, 0, 0);
-            riwayat_button.Size = new Size(234, 51);
+            riwayat_button.Size = new Size(231, 51);
             riwayat_button.TabIndex = 0;
             riwayat_button.Text = "            RIWAYAT";
             riwayat_button.TextAlign = ContentAlignment.MiddleLeft;
             riwayat_button.UseVisualStyleBackColor = false;
             // 
-            // logout_panel
+            // panel4
             // 
-            logout_panel.BackColor = Color.Black;
-            logout_panel.BackgroundImageLayout = ImageLayout.None;
-            logout_panel.Controls.Add(logout_button);
-            logout_panel.ForeColor = Color.Red;
-            logout_panel.Location = new Point(3, 168);
-            logout_panel.Name = "logout_panel";
-            logout_panel.Size = new Size(234, 51);
-            logout_panel.TabIndex = 5;
+            panel4.BackColor = Color.Black;
+            panel4.BackgroundImageLayout = ImageLayout.None;
+            panel4.Controls.Add(laporan_button);
+            panel4.ForeColor = Color.Red;
+            panel4.Location = new Point(3, 168);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(234, 51);
+            panel4.TabIndex = 8;
             // 
-            // logout_button
+            // laporan_button
             // 
-            logout_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            logout_button.BackColor = Color.Red;
-            logout_button.FlatAppearance.BorderSize = 0;
-            logout_button.FlatStyle = FlatStyle.Flat;
-            logout_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            logout_button.ForeColor = SystemColors.ActiveCaptionText;
-            logout_button.Image = (Image)resources.GetObject("logout_button.Image");
-            logout_button.ImageAlign = ContentAlignment.MiddleLeft;
-            logout_button.Location = new Point(0, 0);
-            logout_button.Name = "logout_button";
-            logout_button.Padding = new Padding(15, 0, 0, 0);
-            logout_button.Size = new Size(234, 51);
-            logout_button.TabIndex = 0;
-            logout_button.Text = "            LOGOUT";
-            logout_button.TextAlign = ContentAlignment.MiddleLeft;
-            logout_button.UseVisualStyleBackColor = false;
+            laporan_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            laporan_button.BackColor = Color.White;
+            laporan_button.FlatAppearance.BorderSize = 0;
+            laporan_button.FlatStyle = FlatStyle.Flat;
+            laporan_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            laporan_button.ForeColor = SystemColors.ActiveCaptionText;
+            laporan_button.Image = (Image)resources.GetObject("laporan_button.Image");
+            laporan_button.ImageAlign = ContentAlignment.MiddleLeft;
+            laporan_button.Location = new Point(0, 0);
+            laporan_button.Name = "laporan_button";
+            laporan_button.Padding = new Padding(15, 0, 0, 0);
+            laporan_button.Size = new Size(234, 51);
+            laporan_button.TabIndex = 0;
+            laporan_button.Text = "            LAPORAN ";
+            laporan_button.TextAlign = ContentAlignment.MiddleLeft;
+            laporan_button.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Black;
+            panel2.BackgroundImageLayout = ImageLayout.None;
+            panel2.Controls.Add(invoice_button);
+            panel2.ForeColor = Color.Red;
+            panel2.Location = new Point(3, 225);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(234, 51);
+            panel2.TabIndex = 6;
+            // 
+            // invoice_button
+            // 
+            invoice_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            invoice_button.BackColor = Color.White;
+            invoice_button.FlatAppearance.BorderSize = 0;
+            invoice_button.FlatStyle = FlatStyle.Flat;
+            invoice_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            invoice_button.ForeColor = SystemColors.ActiveCaptionText;
+            invoice_button.Image = (Image)resources.GetObject("invoice_button.Image");
+            invoice_button.ImageAlign = ContentAlignment.MiddleLeft;
+            invoice_button.Location = new Point(0, 0);
+            invoice_button.Name = "invoice_button";
+            invoice_button.Padding = new Padding(15, 0, 0, 0);
+            invoice_button.Size = new Size(234, 51);
+            invoice_button.TabIndex = 0;
+            invoice_button.Text = "            INVOICE";
+            invoice_button.TextAlign = ContentAlignment.MiddleLeft;
+            invoice_button.UseVisualStyleBackColor = false;
             // 
             // MenuTransition
             // 
@@ -349,14 +405,14 @@
             panelmdi.Dock = DockStyle.Fill;
             panelmdi.Location = new Point(234, 55);
             panelmdi.Name = "panelmdi";
-            panelmdi.Size = new Size(663, 395);
+            panelmdi.Size = new Size(663, 530);
             panelmdi.TabIndex = 3;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(897, 450);
+            ClientSize = new Size(897, 585);
             Controls.Add(panelmdi);
             Controls.Add(SideBar_Layout);
             Controls.Add(panel1);
@@ -376,7 +432,8 @@
             sub2_panel.ResumeLayout(false);
             sub3_panel.ResumeLayout(false);
             Riwayat_panel.ResumeLayout(false);
-            logout_panel.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -393,8 +450,6 @@
         private FlowLayoutPanel Data_flowLayOut;
         private Panel Riwayat_panel;
         private Button riwayat_button;
-        private Panel logout_panel;
-        private Button logout_button;
         private Panel sub2_panel;
         private Button pelanggan_button;
         private Panel sub1_panel;
@@ -404,5 +459,10 @@
         private System.Windows.Forms.Timer MenuTransition;
         private System.Windows.Forms.Timer sidebarTransition;
         private Panel panelmdi;
+        private Panel panel4;
+        private Button laporan_button;
+        private Panel panel2;
+        private Button invoice_button;
+        private Button logout_button;
     }
 }

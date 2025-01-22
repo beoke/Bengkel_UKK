@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace Bengkel_UKK.Admin
 {
-    public partial class form_Dashboard : Form
+    public partial class form_invoice : Form
     {
-        public form_Dashboard()
+        public form_invoice()
         {
             InitializeComponent();
         }
-
- 
     }
 }

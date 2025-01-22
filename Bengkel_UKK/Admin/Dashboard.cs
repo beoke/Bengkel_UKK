@@ -29,7 +29,8 @@ namespace Bengkel_UKK.Admin
             InitializeComponent();
             evenbutton();
             mdiProp();
-           // this.FormBorderStyle = FormBorderStyle.None; 
+            OpenChildForm(new form_Dashboard());
+
         }
 
         private void mdiProp()
@@ -65,7 +66,23 @@ namespace Bengkel_UKK.Admin
             pelanggan_button.Click += Pelanggan_button_Click;
             kendaraan_button.Click += Kendaraan_button_Click;
             riwayat_button.Click += Riwayat_button_Click;
+            laporan_button.Click += Laporan_button_Click;
+            invoice_button.Click += Invoice_button_Click;
         }
+
+        #region Invoice
+        private void Invoice_button_Click(object? sender, EventArgs e)
+        {
+            OpenChildForm(new form_invoice());
+        }
+        #endregion 
+
+        #region Laporan
+        private void Laporan_button_Click(object? sender, EventArgs e)
+        {
+            OpenChildForm(new form_laporan());
+        }
+        #endregion 
 
         #region Riwayat
         private void Riwayat_button_Click(object? sender, EventArgs e)
@@ -98,17 +115,6 @@ namespace Bengkel_UKK.Admin
         #region dashboard
         private void Dashboard_button_Click(object? sender, EventArgs e)
         {
-            /*if (dashboard == null) 
-            {
-                dashboard = new form_Dashboard();
-                dashboard.FormClosed += Dashboard_FormClosed;
-                dashboard.MdiParent = this;
-                dashboard.Show();
-            }
-            else
-            {
-                dashboard.Activate();
-            }*/
             OpenChildForm(new form_Dashboard());
         }
 
