@@ -56,7 +56,6 @@ namespace Bengkel_UKK.Admin
         }
         private void evenbutton()
         {
-            data_button.Click += Data_button_Click;
             MenuTransition.Tick += MenuTransition_Tick;
             sidebarTransition.Tick += SidebarTransition_Tick;
             Hamburger_button.Click += Hamburger_button_Click;
@@ -158,24 +157,7 @@ namespace Bengkel_UKK.Admin
 
         private void MenuTransition_Tick (object sender, EventArgs e)
         {
-            if (menuExpand == false)
-            {
-                Data_flowLayOut.Height += 10;
-                if (Data_flowLayOut.Height >= 204)
-                {
-                    MenuTransition.Stop();
-                    menuExpand = true ;
 
-                }
-            }else
-            {
-                Data_flowLayOut.Height -= 10;
-                if(Data_flowLayOut.Height <= 51)
-                {
-                    MenuTransition.Stop();
-                    menuExpand = false ;
-                }
-            }
         }
         #endregion
     }
