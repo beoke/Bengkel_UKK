@@ -41,22 +41,27 @@
             pictureBox3 = new PictureBox();
             label5 = new Label();
             label6 = new Label();
+            panel4 = new Panel();
+            panel5 = new Panel();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel4.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.RosyBrown;
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(231, 12);
+            panel1.Location = new Point(19, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(346, 211);
             panel1.TabIndex = 0;
@@ -94,14 +99,14 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.None;
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.RosyBrown;
             panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label4);
-            panel2.Location = new Point(598, 12);
+            panel2.Location = new Point(383, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(346, 211);
+            panel2.Size = new Size(327, 211);
             panel2.TabIndex = 3;
             // 
             // pictureBox2
@@ -137,12 +142,12 @@
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.None;
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel3.BackColor = Color.RosyBrown;
             panel3.Controls.Add(pictureBox3);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label6);
-            panel3.Location = new Point(976, 12);
+            panel3.Location = new Point(733, 12);
             panel3.Name = "panel3";
             panel3.Size = new Size(346, 211);
             panel3.TabIndex = 3;
@@ -178,14 +183,44 @@
             label6.TabIndex = 0;
             label6.Text = "0";
             // 
+            // panel4
+            // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel4.Controls.Add(panel2);
+            panel4.Controls.Add(panel1);
+            panel4.Controls.Add(panel3);
+            panel4.Location = new Point(218, 26);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1103, 249);
+            panel4.TabIndex = 4;
+            // 
+            // panel5
+            // 
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel5.BackColor = SystemColors.ActiveCaption;
+            panel5.Controls.Add(dataGridView1);
+            panel5.Location = new Point(1, 290);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(1331, 410);
+            panel5.TabIndex = 5;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(1328, 344);
+            dataGridView1.TabIndex = 0;
+            // 
             // form_Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1326, 693);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            ClientSize = new Size(1333, 700);
+            Controls.Add(panel5);
+            Controls.Add(panel4);
             FormBorderStyle = FormBorderStyle.None;
             Name = "form_Dashboard";
             Text = "formDashboard";
@@ -198,6 +233,9 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel4.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -215,5 +253,8 @@
         private PictureBox pictureBox3;
         private Label label5;
         private Label label6;
+        private Panel panel4;
+        private Panel panel5;
+        private DataGridView dataGridView1;
     }
 }

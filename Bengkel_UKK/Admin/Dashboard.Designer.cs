@@ -42,7 +42,6 @@
             riwayat_button = new Button();
             invoice_button = new Button();
             laporan_button = new Button();
-            MenuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
             panelmdi = new Panel();
             panel1.SuspendLayout();
@@ -59,7 +58,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(897, 55);
+            panel1.Size = new Size(1323, 55);
             panel1.TabIndex = 0;
             // 
             // logout_button
@@ -72,7 +71,7 @@
             logout_button.ForeColor = SystemColors.ActiveCaptionText;
             logout_button.Image = (Image)resources.GetObject("logout_button.Image");
             logout_button.ImageAlign = ContentAlignment.MiddleLeft;
-            logout_button.Location = new Point(751, 2);
+            logout_button.Location = new Point(1177, 2);
             logout_button.Name = "logout_button";
             logout_button.Padding = new Padding(15, 0, 0, 0);
             logout_button.Size = new Size(146, 51);
@@ -115,7 +114,7 @@
             SideBar_Layout.Location = new Point(0, 55);
             SideBar_Layout.Margin = new Padding(0);
             SideBar_Layout.Name = "SideBar_Layout";
-            SideBar_Layout.Size = new Size(234, 530);
+            SideBar_Layout.Size = new Size(234, 539);
             SideBar_Layout.TabIndex = 1;
             // 
             // Dashboard_button
@@ -252,10 +251,6 @@
             laporan_button.TextAlign = ContentAlignment.MiddleLeft;
             laporan_button.UseVisualStyleBackColor = false;
             // 
-            // MenuTransition
-            // 
-            MenuTransition.Interval = 10;
-            // 
             // sidebarTransition
             // 
             sidebarTransition.Interval = 10;
@@ -266,14 +261,14 @@
             panelmdi.Dock = DockStyle.Fill;
             panelmdi.Location = new Point(234, 55);
             panelmdi.Name = "panelmdi";
-            panelmdi.Size = new Size(663, 530);
+            panelmdi.Size = new Size(1089, 539);
             panelmdi.TabIndex = 3;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(897, 585);
+            ClientSize = new Size(1323, 594);
             Controls.Add(panelmdi);
             Controls.Add(SideBar_Layout);
             Controls.Add(panel1);
@@ -300,7 +295,6 @@
         private Button riwayat_button;
         private Button pelanggan_button;
         private Button karyawan_button;
-        private System.Windows.Forms.Timer MenuTransition;
         private System.Windows.Forms.Timer sidebarTransition;
         private Panel panelmdi;
         private Button laporan_button;
