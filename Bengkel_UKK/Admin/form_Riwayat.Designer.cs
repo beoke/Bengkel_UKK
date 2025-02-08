@@ -58,7 +58,7 @@
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 4;
-            button1.Text = "button1";
+            button1.Text = "Tambah";
             button1.UseVisualStyleBackColor = true;
             // 
             // form_Riwayat
