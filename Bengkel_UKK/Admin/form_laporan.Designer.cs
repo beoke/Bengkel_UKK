@@ -28,25 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            button1 = new Button();
+            panel1 = new Panel();
+            label2 = new Label();
             SuspendLayout();
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(322, 188);
-            label1.Name = "label1";
-            label1.Size = new Size(81, 25);
-            label1.TabIndex = 0;
-            label1.Text = "laporan";
+            button1.Location = new Point(23, 63);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 7;
+            button1.Text = "Tambah";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Location = new Point(12, 104);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1077, 520);
+            panel1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(12, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 32);
+            label2.TabIndex = 5;
+            label2.Text = "Laporan";
             // 
             // form_laporan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            ClientSize = new Size(1101, 680);
+            Controls.Add(button1);
+            Controls.Add(panel1);
+            Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "form_laporan";
             Text = "form_laporan";
@@ -56,6 +78,8 @@
 
         #endregion
 
-        private Label label1;
+        private Button button1;
+        private Panel panel1;
+        private Label label2;
     }
 }
