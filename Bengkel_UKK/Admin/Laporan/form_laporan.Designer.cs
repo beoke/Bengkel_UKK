@@ -48,7 +48,7 @@
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Location = new Point(12, 104);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1077, 520);
+            panel1.Size = new Size(1077, 564);
             panel1.TabIndex = 6;
             // 
             // label2

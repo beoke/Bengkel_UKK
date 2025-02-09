@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Admin\Dal\" />
-    <Folder Include="Admin\Model\" />
+    <Folder Include="Admin\Admin_Dal\" />
+    <Folder Include="Admin\Admin_model\" />
   </ItemGroup>
 
 </Project>
