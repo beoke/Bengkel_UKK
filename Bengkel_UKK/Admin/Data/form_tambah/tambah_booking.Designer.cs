@@ -179,7 +179,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(518, 291);
+            ClientSize = new Size(516, 291);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "tambah_booking";

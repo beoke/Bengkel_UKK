@@ -28,25 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button_tambah = new Button();
+            panel1 = new Panel();
             label1 = new Label();
             SuspendLayout();
+            // 
+            // button_tambah
+            // 
+            button_tambah.Location = new Point(36, 67);
+            button_tambah.Name = "button_tambah";
+            button_tambah.Size = new Size(83, 23);
+            button_tambah.TabIndex = 7;
+            button_tambah.Text = "Tambah";
+            button_tambah.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Location = new Point(25, 108);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1028, 535);
+            panel1.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(274, 188);
+            label1.Location = new Point(36, 19);
             label1.Name = "label1";
-            label1.Size = new Size(230, 32);
-            label1.TabIndex = 2;
-            label1.Text = "DATA PELANGGAN";
+            label1.Size = new Size(134, 32);
+            label1.TabIndex = 5;
+            label1.Text = "Pelanggan";
             // 
             // form_DataPelanggan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gold;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1084, 677);
+            Controls.Add(button_tambah);
+            Controls.Add(panel1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "form_DataPelanggan";
@@ -57,6 +79,8 @@
 
         #endregion
 
+        private Button button_tambah;
+        private Panel panel1;
         private Label label1;
     }
 }

@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            tambah_button = new Button();
             panel1 = new Panel();
             label1 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // tambah_button
             // 
-            button1.Location = new Point(34, 72);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 10;
-            button1.Text = "Tambah";
-            button1.UseVisualStyleBackColor = true;
+            tambah_button.Location = new Point(34, 72);
+            tambah_button.Name = "tambah_button";
+            tambah_button.Size = new Size(75, 23);
+            tambah_button.TabIndex = 10;
+            tambah_button.Text = "Tambah";
+            tambah_button.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -67,7 +67,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1175, 684);
-            Controls.Add(button1);
+            Controls.Add(tambah_button);
             Controls.Add(panel1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -79,7 +79,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button tambah_button;
         private Panel panel1;
         private Label label1;
     }

@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
-            pelanggan_text = new TextBox();
-            nopol_text = new TextBox();
-            label2 = new Label();
-            merk_text = new TextBox();
-            label3 = new Label();
-            tipe_text = new TextBox();
-            label4 = new Label();
-            transmisi_text = new TextBox();
-            label5 = new Label();
-            cc_text = new TextBox();
-            label6 = new Label();
+            label8 = new Label();
+            montor_picture = new PictureBox();
+            simpan_button = new Button();
+            batal_button = new Button();
             tahun_text = new TextBox();
             label7 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            montor_picture = new PictureBox();
-            label8 = new Label();
+            cc_text = new TextBox();
+            label6 = new Label();
+            transmisi_text = new TextBox();
+            label5 = new Label();
+            tipe_text = new TextBox();
+            label4 = new Label();
+            merk_text = new TextBox();
+            label3 = new Label();
+            nopol_text = new TextBox();
+            label2 = new Label();
+            pelanggan_text = new TextBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)montor_picture).BeginInit();
             SuspendLayout();
@@ -56,8 +56,8 @@
             panel1.BackColor = SystemColors.ActiveBorder;
             panel1.Controls.Add(label8);
             panel1.Controls.Add(montor_picture);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(simpan_button);
+            panel1.Controls.Add(batal_button);
             panel1.Controls.Add(tahun_text);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(cc_text);
@@ -77,113 +77,41 @@
             panel1.Size = new Size(441, 362);
             panel1.TabIndex = 0;
             // 
-            // label1
+            // label8
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(15, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(82, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Pelanggan";
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(241, 138);
+            label8.Name = "label8";
+            label8.Size = new Size(113, 21);
+            label8.TabIndex = 17;
+            label8.Text = "Gambar Motor";
             // 
-            // pelanggan_text
+            // montor_picture
             // 
-            pelanggan_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            pelanggan_text.Location = new Point(15, 40);
-            pelanggan_text.Name = "pelanggan_text";
-            pelanggan_text.Size = new Size(177, 29);
-            pelanggan_text.TabIndex = 1;
+            montor_picture.Location = new Point(241, 163);
+            montor_picture.Name = "montor_picture";
+            montor_picture.Size = new Size(172, 124);
+            montor_picture.TabIndex = 16;
+            montor_picture.TabStop = false;
             // 
-            // nopol_text
+            // simpan_button
             // 
-            nopol_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            nopol_text.Location = new Point(15, 106);
-            nopol_text.Name = "nopol_text";
-            nopol_text.Size = new Size(177, 29);
-            nopol_text.TabIndex = 3;
+            simpan_button.Location = new Point(339, 296);
+            simpan_button.Name = "simpan_button";
+            simpan_button.Size = new Size(75, 23);
+            simpan_button.TabIndex = 15;
+            simpan_button.Text = "Simpan";
+            simpan_button.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // batal_button
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(15, 82);
-            label2.Name = "label2";
-            label2.Size = new Size(81, 21);
-            label2.TabIndex = 2;
-            label2.Text = "No - Polisi";
-            // 
-            // merk_text
-            // 
-            merk_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            merk_text.Location = new Point(15, 161);
-            merk_text.Name = "merk_text";
-            merk_text.Size = new Size(177, 29);
-            merk_text.TabIndex = 5;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(15, 137);
-            label3.Name = "label3";
-            label3.Size = new Size(46, 21);
-            label3.TabIndex = 4;
-            label3.Text = "Merk";
-            // 
-            // tipe_text
-            // 
-            tipe_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tipe_text.Location = new Point(15, 224);
-            tipe_text.Name = "tipe_text";
-            tipe_text.Size = new Size(177, 29);
-            tipe_text.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(15, 200);
-            label4.Name = "label4";
-            label4.Size = new Size(39, 21);
-            label4.TabIndex = 6;
-            label4.Text = "Tipe";
-            // 
-            // transmisi_text
-            // 
-            transmisi_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            transmisi_text.Location = new Point(241, 106);
-            transmisi_text.Name = "transmisi_text";
-            transmisi_text.Size = new Size(177, 29);
-            transmisi_text.TabIndex = 9;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(241, 82);
-            label5.Name = "label5";
-            label5.Size = new Size(76, 21);
-            label5.TabIndex = 8;
-            label5.Text = "Transmisi";
-            // 
-            // cc_text
-            // 
-            cc_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cc_text.Location = new Point(15, 290);
-            cc_text.Name = "cc_text";
-            cc_text.Size = new Size(177, 29);
-            cc_text.TabIndex = 11;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(15, 266);
-            label6.Name = "label6";
-            label6.Size = new Size(30, 21);
-            label6.TabIndex = 10;
-            label6.Text = "CC";
+            batal_button.Location = new Point(258, 296);
+            batal_button.Name = "batal_button";
+            batal_button.Size = new Size(75, 23);
+            batal_button.TabIndex = 14;
+            batal_button.Text = "Batal";
+            batal_button.UseVisualStyleBackColor = true;
             // 
             // tahun_text
             // 
@@ -203,41 +131,113 @@
             label7.TabIndex = 12;
             label7.Text = "Tahun";
             // 
-            // button1
+            // cc_text
             // 
-            button1.Location = new Point(258, 296);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 14;
-            button1.Text = "Batal";
-            button1.UseVisualStyleBackColor = true;
+            cc_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cc_text.Location = new Point(15, 290);
+            cc_text.Name = "cc_text";
+            cc_text.Size = new Size(177, 29);
+            cc_text.TabIndex = 11;
             // 
-            // button2
+            // label6
             // 
-            button2.Location = new Point(339, 296);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 15;
-            button2.Text = "Simpan";
-            button2.UseVisualStyleBackColor = true;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(15, 266);
+            label6.Name = "label6";
+            label6.Size = new Size(30, 21);
+            label6.TabIndex = 10;
+            label6.Text = "CC";
             // 
-            // montor_picture
+            // transmisi_text
             // 
-            montor_picture.Location = new Point(241, 163);
-            montor_picture.Name = "montor_picture";
-            montor_picture.Size = new Size(172, 124);
-            montor_picture.TabIndex = 16;
-            montor_picture.TabStop = false;
+            transmisi_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            transmisi_text.Location = new Point(241, 106);
+            transmisi_text.Name = "transmisi_text";
+            transmisi_text.Size = new Size(177, 29);
+            transmisi_text.TabIndex = 9;
             // 
-            // label8
+            // label5
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(241, 138);
-            label8.Name = "label8";
-            label8.Size = new Size(113, 21);
-            label8.TabIndex = 17;
-            label8.Text = "Gambar Motor";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(241, 82);
+            label5.Name = "label5";
+            label5.Size = new Size(76, 21);
+            label5.TabIndex = 8;
+            label5.Text = "Transmisi";
+            // 
+            // tipe_text
+            // 
+            tipe_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tipe_text.Location = new Point(15, 224);
+            tipe_text.Name = "tipe_text";
+            tipe_text.Size = new Size(177, 29);
+            tipe_text.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(15, 200);
+            label4.Name = "label4";
+            label4.Size = new Size(39, 21);
+            label4.TabIndex = 6;
+            label4.Text = "Tipe";
+            // 
+            // merk_text
+            // 
+            merk_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            merk_text.Location = new Point(15, 161);
+            merk_text.Name = "merk_text";
+            merk_text.Size = new Size(177, 29);
+            merk_text.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(15, 137);
+            label3.Name = "label3";
+            label3.Size = new Size(46, 21);
+            label3.TabIndex = 4;
+            label3.Text = "Merk";
+            // 
+            // nopol_text
+            // 
+            nopol_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            nopol_text.Location = new Point(15, 106);
+            nopol_text.Name = "nopol_text";
+            nopol_text.Size = new Size(177, 29);
+            nopol_text.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(15, 82);
+            label2.Name = "label2";
+            label2.Size = new Size(81, 21);
+            label2.TabIndex = 2;
+            label2.Text = "No - Polisi";
+            // 
+            // pelanggan_text
+            // 
+            pelanggan_text.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            pelanggan_text.Location = new Point(15, 40);
+            pelanggan_text.Name = "pelanggan_text";
+            pelanggan_text.Size = new Size(177, 29);
+            pelanggan_text.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(15, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 21);
+            label1.TabIndex = 0;
+            label1.Text = "Pelanggan";
             // 
             // tambah_kendaraan
             // 
@@ -245,7 +245,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(468, 391);
             Controls.Add(panel1);
-            Cursor = Cursors.Default;
             FormBorderStyle = FormBorderStyle.None;
             Name = "tambah_kendaraan";
             Text = "tambah_kendaraan";
@@ -274,7 +273,7 @@
         private Label label6;
         private Label label8;
         private PictureBox montor_picture;
-        private Button button2;
-        private Button button1;
+        private Button simpan_button;
+        private Button batal_button;
     }
 }

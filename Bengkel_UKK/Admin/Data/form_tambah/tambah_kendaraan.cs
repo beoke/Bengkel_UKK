@@ -15,6 +15,16 @@ namespace Bengkel_UKK.Admin.Data
         public tambah_kendaraan()
         {
             InitializeComponent();
+            klikbutton();
+        }
+        private void klikbutton()
+        {
+            batal_button.Click += Batal_button_Click;
+        }
+
+        private void Batal_button_Click(object? sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
