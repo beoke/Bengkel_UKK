@@ -10,11 +10,24 @@ using System.Windows.Forms;
 
 namespace Bengkel_UKK.Admin.Data
 {
-    public partial class form_booking : Form
+    public partial class form_Booking : Form
     {
-        public form_booking()
+        public form_Booking()
         {
             InitializeComponent();
+            klikButton();
+        }
+        private void klikButton()
+        {
+            booking_button.Click += Booking_button_Click;
+        }
+
+        private void Booking_button_Click(object? sender, EventArgs e)
+        {
+            tambah_booking tambah = new tambah_booking();
+            tambah.StartPosition = FormStartPosition.CenterScreen;
+            tambah.ShowDialog();
+            
         }
     }
 }

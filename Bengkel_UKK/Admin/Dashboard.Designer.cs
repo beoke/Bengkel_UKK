@@ -39,6 +39,7 @@
             karyawan_button = new Button();
             pelanggan_button = new Button();
             kendaraan_button = new Button();
+            booking_button = new Button();
             riwayat_button = new Button();
             invoice_button = new Button();
             laporan_button = new Button();
@@ -58,7 +59,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1323, 55);
+            panel1.Size = new Size(1292, 55);
             panel1.TabIndex = 0;
             // 
             // logout_button
@@ -71,7 +72,7 @@
             logout_button.ForeColor = SystemColors.ActiveCaptionText;
             logout_button.Image = (Image)resources.GetObject("logout_button.Image");
             logout_button.ImageAlign = ContentAlignment.MiddleLeft;
-            logout_button.Location = new Point(1177, 2);
+            logout_button.Location = new Point(1146, 2);
             logout_button.Name = "logout_button";
             logout_button.Padding = new Padding(15, 0, 0, 0);
             logout_button.Size = new Size(146, 51);
@@ -107,6 +108,7 @@
             SideBar_Layout.Controls.Add(karyawan_button);
             SideBar_Layout.Controls.Add(pelanggan_button);
             SideBar_Layout.Controls.Add(kendaraan_button);
+            SideBar_Layout.Controls.Add(booking_button);
             SideBar_Layout.Controls.Add(riwayat_button);
             SideBar_Layout.Controls.Add(invoice_button);
             SideBar_Layout.Controls.Add(laporan_button);
@@ -114,7 +116,7 @@
             SideBar_Layout.Location = new Point(0, 55);
             SideBar_Layout.Margin = new Padding(0);
             SideBar_Layout.Name = "SideBar_Layout";
-            SideBar_Layout.Size = new Size(234, 539);
+            SideBar_Layout.Size = new Size(234, 496);
             SideBar_Layout.TabIndex = 1;
             // 
             // Dashboard_button
@@ -193,6 +195,25 @@
             kendaraan_button.TextAlign = ContentAlignment.MiddleLeft;
             kendaraan_button.UseVisualStyleBackColor = false;
             // 
+            // booking_button
+            // 
+            booking_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            booking_button.BackColor = Color.White;
+            booking_button.FlatAppearance.BorderSize = 0;
+            booking_button.FlatStyle = FlatStyle.Flat;
+            booking_button.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            booking_button.ForeColor = SystemColors.ActiveCaptionText;
+            booking_button.Image = (Image)resources.GetObject("booking_button.Image");
+            booking_button.ImageAlign = ContentAlignment.MiddleLeft;
+            booking_button.Location = new Point(3, 231);
+            booking_button.Name = "booking_button";
+            booking_button.Padding = new Padding(15, 0, 0, 0);
+            booking_button.Size = new Size(231, 51);
+            booking_button.TabIndex = 1;
+            booking_button.Text = "            BOOKING";
+            booking_button.TextAlign = ContentAlignment.MiddleLeft;
+            booking_button.UseVisualStyleBackColor = false;
+            // 
             // riwayat_button
             // 
             riwayat_button.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -203,7 +224,7 @@
             riwayat_button.ForeColor = SystemColors.ActiveCaptionText;
             riwayat_button.Image = (Image)resources.GetObject("riwayat_button.Image");
             riwayat_button.ImageAlign = ContentAlignment.MiddleLeft;
-            riwayat_button.Location = new Point(0, 228);
+            riwayat_button.Location = new Point(0, 285);
             riwayat_button.Margin = new Padding(0);
             riwayat_button.Name = "riwayat_button";
             riwayat_button.Padding = new Padding(15, 0, 0, 0);
@@ -223,7 +244,7 @@
             invoice_button.ForeColor = SystemColors.ActiveCaptionText;
             invoice_button.Image = (Image)resources.GetObject("invoice_button.Image");
             invoice_button.ImageAlign = ContentAlignment.MiddleLeft;
-            invoice_button.Location = new Point(3, 282);
+            invoice_button.Location = new Point(3, 339);
             invoice_button.Name = "invoice_button";
             invoice_button.Padding = new Padding(15, 0, 0, 0);
             invoice_button.Size = new Size(231, 51);
@@ -242,7 +263,7 @@
             laporan_button.ForeColor = SystemColors.ActiveCaptionText;
             laporan_button.Image = (Image)resources.GetObject("laporan_button.Image");
             laporan_button.ImageAlign = ContentAlignment.MiddleLeft;
-            laporan_button.Location = new Point(3, 339);
+            laporan_button.Location = new Point(3, 396);
             laporan_button.Name = "laporan_button";
             laporan_button.Padding = new Padding(15, 0, 0, 0);
             laporan_button.Size = new Size(231, 51);
@@ -257,18 +278,18 @@
             // 
             // panelmdi
             // 
-            panelmdi.BackColor = SystemColors.Highlight;
+            panelmdi.BackColor = SystemColors.Control;
             panelmdi.Dock = DockStyle.Fill;
             panelmdi.Location = new Point(234, 55);
             panelmdi.Name = "panelmdi";
-            panelmdi.Size = new Size(1089, 539);
+            panelmdi.Size = new Size(1058, 496);
             panelmdi.TabIndex = 3;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1323, 594);
+            ClientSize = new Size(1292, 551);
             Controls.Add(panelmdi);
             Controls.Add(SideBar_Layout);
             Controls.Add(panel1);
@@ -300,5 +321,6 @@
         private Button laporan_button;
         private Button invoice_button;
         private Button logout_button;
+        private Button booking_button;
     }
 }

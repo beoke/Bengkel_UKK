@@ -28,25 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
+            panel1 = new Panel();
             label1 = new Label();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(34, 64);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 7;
+            button1.Text = "Tambah";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Location = new Point(34, 109);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1107, 542);
+            panel1.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(268, 186);
+            label1.Location = new Point(34, 18);
             label1.Name = "label1";
-            label1.Size = new Size(220, 32);
-            label1.TabIndex = 1;
-            label1.Text = "DATA KARYAWAN";
+            label1.Size = new Size(151, 32);
+            label1.TabIndex = 5;
+            label1.Text = "KARYAWAN";
             // 
             // form_DataKaryawan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Tan;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1177, 678);
+            Controls.Add(button1);
+            Controls.Add(panel1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "form_DataKaryawan";
@@ -57,6 +79,8 @@
 
         #endregion
 
+        private Button button1;
+        private Panel panel1;
         private Label label1;
     }
 }

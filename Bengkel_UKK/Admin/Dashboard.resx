@@ -180,6 +180,18 @@
         vn7nA0WRIw6yz/wLAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="booking_button.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFYSURBVEhL1ZY7
+        LwZBGIUfWjqJRO0P6CUql04jbon/QEdJFB+dRohLJRoNEbR6JEKDQuPSiASJW+GWk7ybTGZnN3Z2E3GS
+        k73MzHl23p3ZLITVDHQWcBNQ54fkaRf4LuAhYBmo94OytB8IybMAOq7mQRqBQ2A6AtAHPNq5ZhIsV6t1
+        WHAAZ8BMhm8dwDEwAvSb9bAphQBPwFGG3wIzSayslEKAA+epZE0/CXkFloDFMoA8q+btQEegrRLAvL0L
+        LQy/rRTgHRgFanb9BVwCL2UBCpgDer32Uxs/GwPQSpm0F6xluGf374EBYBs4sfEqV2HAB3BuZdC11rvC
+        L2yM4KUArq+t30SVANV9EFgHrqxfpYA7axv7t4BnoMc+ww9AN7Bm4C5gA7ix860YQKz/FrAJTNn2j7G+
+        wA1+uJQAPoEVYLygh/1AXy3Ojo3xjh8YUlvgl+S31q9OSj8VSzu950j5bQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="riwayat_button.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -219,6 +231,6 @@
 </value>
   </data>
   <metadata name="sidebarTransition.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 17</value>
+    <value>18, 18</value>
   </metadata>
 </root>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bengkel_UKK.Admin.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace Bengkel_UKK.Admin
         form_DataPelanggan dataPelanggan;
         form_DataKendaraan dataKendaran;
         form_Riwayat riwayat;
-
+        form_Booking booking;
 
         bool menuExpand = false;
         bool sidebarExpand = true;
@@ -65,6 +66,12 @@ namespace Bengkel_UKK.Admin
             riwayat_button.Click += Riwayat_button_Click;
             laporan_button.Click += Laporan_button_Click;
             invoice_button.Click += Invoice_button_Click;
+            booking_button.Click += Booking_button_Click;
+        }
+
+        private void Booking_button_Click(object? sender, EventArgs e)
+        {
+            OpenChildForm(new form_Booking());
         }
 
         #region Invoice
