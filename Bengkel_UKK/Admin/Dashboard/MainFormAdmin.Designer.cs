@@ -33,17 +33,17 @@ namespace Bengkel_UKK.Admin.Dashboard
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormAdmin));
             flowLayoutPanel2 = new FlowLayoutPanel();
-            btnDashboard = new YogaButton();
-            btnBooking = new YogaButton();
-            btnKalender = new YogaButton();
-            btnProduk = new YogaButton();
-            btnRiwayat = new YogaButton();
-            btnService = new YogaButton();
-            btnPelanggan = new YogaButton();
-            btnKaryawan = new YogaButton();
+            btnDashboard = new DhafaButton();
+            btnBooking = new DhafaButton();
+            btnKalender = new DhafaButton();
+            btnProduk = new DhafaButton();
+            btnRiwayat = new DhafaButton();
+            btnService = new DhafaButton();
+            btnPelanggan = new DhafaButton();
+            btnKaryawan = new DhafaButton();
             panelLeft = new Panel();
             panelLogOut = new Panel();
-            btnLogout = new YogaButton();
+            btnLogout = new DhafaButton();
             panel2 = new Panel();
             label2 = new Label();
             label1 = new Label();
@@ -440,16 +440,16 @@ namespace Bengkel_UKK.Admin.Dashboard
 
         #endregion
         private FlowLayoutPanel flowLayoutPanel2;
-        private YogaButton btnDashboard;
-        private YogaButton btnBooking;
-        private YogaButton btnProduk;
-        private YogaButton btnRiwayat;
-        private YogaButton btnService;
-        private YogaButton btnPelanggan;
-        private YogaButton btnKaryawan;
+        private DhafaButton btnDashboard;
+        private DhafaButton btnBooking;
+        private DhafaButton btnProduk;
+        private DhafaButton btnRiwayat;
+        private DhafaButton btnService;
+        private DhafaButton btnPelanggan;
+        private DhafaButton btnKaryawan;
         private Panel panelLeft;
         private Panel panelLogOut;
-        private YogaButton btnLogout;
+        private DhafaButton btnLogout;
         private Panel panelMain;
         private Panel panelTop;
         private Panel panel2;
@@ -457,6 +457,6 @@ namespace Bengkel_UKK.Admin.Dashboard
         private RJCircularPictureBox rjCircularPictureBox1;
         private Label label2;
         private Label lblDisplay;
-        private YogaButton btnKalender;
+        private DhafaButton btnKalender;
     }
 }

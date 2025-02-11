@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bengkel_UKK.Custom_Component
 {
-    public class YogaButton : Button
+    public class DhafaButton : Button
     {
         //Fields
         private int borderSize = 0;
@@ -64,7 +64,7 @@ namespace Bengkel_UKK.Custom_Component
         }
 
         //Constructor
-        public YogaButton()
+        public DhafaButton()
         {
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
@@ -152,7 +152,7 @@ namespace Bengkel_UKK.Custom_Component
         }
     }
 
-    public class YogaPanel : Panel
+    public class DhafaPanel : Panel
     {
         // Fields
         public int borderRadius = 0;
@@ -194,7 +194,7 @@ namespace Bengkel_UKK.Custom_Component
         }
 
         // Constructor
-        public YogaPanel()
+        public DhafaPanel()
         {
             this.Size = new Size(200, 100);
             this.BackColor = Color.MediumSlateBlue;

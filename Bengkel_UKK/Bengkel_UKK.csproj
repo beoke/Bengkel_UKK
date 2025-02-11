@@ -31,12 +31,8 @@
 
   <ItemGroup>
     <Folder Include="Admin\Booking\" />
-    <Folder Include="Admin\Jasa Service\" />
     <Folder Include="Admin\Karyawan\" />
     <Folder Include="Admin\Kendaraan\" />
-    <Folder Include="Admin\Riwayat\" />
-    <Folder Include="Admin\Produk\" />
-    <Folder Include="Admin\Pelanggan\" />
   </ItemGroup>
 
   <ItemGroup>
