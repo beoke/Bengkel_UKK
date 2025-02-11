@@ -1,12 +1,12 @@
-﻿using Bengkel_UKK.Admin.Karyawan;
-using Bengkel_UKK.Admin.Riwayat;
-using Bengkel_UKK.Custom_Component;
+﻿using Bengkel_UKK.Custom_Component;
 
-namespace Bengkel_UKK.Admin.Jasa_Service
+namespace Bengkel_UKK.Admin.Karyawan
 {
-    partial class JasaService_form
+    partial class Karyawan_form
     {
-        // </summary>
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -30,7 +30,8 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Riwayat_form));
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Karyawan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
@@ -46,11 +47,15 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             label1 = new Label();
             numericEntries = new NumericUpDown();
             btnAddData = new DhafaButton();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            editToolStripMenuItem = new ToolStripMenuItem();
+            hapisToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -256,18 +261,37 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-            btnAddData.Image = (Image)resources.GetObject("btnAddData.Image");
+       //     btnAddData.Image = Properties.Resources.plus;                         image plus
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
-            btnAddData.Size = new Size(145, 42);
+            btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Invoice";
+            btnAddData.Text = " Add Data";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
             // 
-            // FormRiwayat
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, hapisToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(129, 56);
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(128, 26);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // hapisToolStripMenuItem
+            // 
+            hapisToolStripMenuItem.Name = "hapisToolStripMenuItem";
+            hapisToolStripMenuItem.Size = new Size(128, 26);
+            hapisToolStripMenuItem.Text = "Delete";
+            // 
+            // FormKaryawan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -276,7 +300,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormRiwayat";
+            Name = "FormKaryawan";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
@@ -284,6 +308,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -304,5 +329,8 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DhafaButton btnSearch;
         private ComboBox comboFilter;
         private Label lblShowingEntries;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem hapisToolStripMenuItem;
     }
 }

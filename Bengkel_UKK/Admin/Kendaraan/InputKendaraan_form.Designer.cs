@@ -1,12 +1,12 @@
-﻿using Bengkel_UKK.Admin.Karyawan;
-using Bengkel_UKK.Admin.Riwayat;
-using Bengkel_UKK.Custom_Component;
+﻿using Bengkel_UKK.Custom_Component;
 
-namespace Bengkel_UKK.Admin.Jasa_Service
+namespace Bengkel_UKK.Admin.Kendaraan
 {
-    partial class JasaService_form
+    partial class InputKendaraan_form
     {
-        // </summary>
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Riwayat_form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputKendaraan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
@@ -46,6 +46,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             label1 = new Label();
             numericEntries = new NumericUpDown();
             btnAddData = new DhafaButton();
+            contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -71,7 +72,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             yogaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             yogaPanel1.BackColor = Color.White;
             yogaPanel1.BorderColor = Color.PaleVioletRed;
-            yogaPanel1.BorderRadius = 0;
+            yogaPanel1.BorderRadius = 10;
             yogaPanel1.BorderSize = 0;
             yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilter);
@@ -256,18 +257,26 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-            btnAddData.Image = (Image)resources.GetObject("btnAddData.Image");
+           // btnAddData.Image = Properties.Resources.plus;     image plus
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
-            btnAddData.Size = new Size(145, 42);
+            btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Invoice";
+            btnAddData.Text = " Add Data";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
             // 
-            // FormRiwayat
+            // contextMenuStrip
+            // 
+            contextMenuStrip.DropShadowEnabled = false;
+            contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
+            contextMenuStrip.Name = "contextMenuStrip";
+            contextMenuStrip.Size = new Size(61, 4);
+            contextMenuStrip.ThemeName = "Metro";
+            // 
+            // FormKendaraan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -276,7 +285,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormRiwayat";
+            Name = "FormKendaraan";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
@@ -304,5 +313,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DhafaButton btnSearch;
         private ComboBox comboFilter;
         private Label lblShowingEntries;
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
     }
 }

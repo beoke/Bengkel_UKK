@@ -31,7 +31,6 @@ namespace Bengkel_UKK.Admin.Dashboard
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormAdmin));
             flowLayoutPanel2 = new FlowLayoutPanel();
             btnDashboard = new DhafaButton();
             btnBooking = new DhafaButton();
@@ -92,7 +91,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnDashboard.ForeColor = Color.White;
-            btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             btnDashboard.Location = new Point(18, 3);
             btnDashboard.Name = "btnDashboard";
@@ -117,7 +115,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnBooking.FlatStyle = FlatStyle.Flat;
             btnBooking.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnBooking.ForeColor = Color.White;
-            btnBooking.Image = (Image)resources.GetObject("btnBooking.Image");
             btnBooking.ImageAlign = ContentAlignment.MiddleLeft;
             btnBooking.Location = new Point(18, 69);
             btnBooking.Name = "btnBooking";
@@ -142,7 +139,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKalender.FlatStyle = FlatStyle.Flat;
             btnKalender.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnKalender.ForeColor = Color.White;
-            btnKalender.Image = (Image)resources.GetObject("btnKalender.Image");
             btnKalender.ImageAlign = ContentAlignment.MiddleLeft;
             btnKalender.Location = new Point(18, 135);
             btnKalender.Name = "btnKalender";
@@ -167,7 +163,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnProduk.FlatStyle = FlatStyle.Flat;
             btnProduk.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnProduk.ForeColor = Color.White;
-            btnProduk.Image = (Image)resources.GetObject("btnProduk.Image");
             btnProduk.ImageAlign = ContentAlignment.MiddleLeft;
             btnProduk.Location = new Point(18, 201);
             btnProduk.Name = "btnProduk";
@@ -192,7 +187,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnRiwayat.FlatStyle = FlatStyle.Flat;
             btnRiwayat.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnRiwayat.ForeColor = Color.White;
-            btnRiwayat.Image = (Image)resources.GetObject("btnRiwayat.Image");
             btnRiwayat.ImageAlign = ContentAlignment.MiddleLeft;
             btnRiwayat.Location = new Point(18, 267);
             btnRiwayat.Name = "btnRiwayat";
@@ -217,7 +211,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnService.FlatStyle = FlatStyle.Flat;
             btnService.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnService.ForeColor = Color.White;
-            btnService.Image = (Image)resources.GetObject("btnService.Image");
             btnService.ImageAlign = ContentAlignment.MiddleLeft;
             btnService.Location = new Point(18, 333);
             btnService.Name = "btnService";
@@ -242,7 +235,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnPelanggan.FlatStyle = FlatStyle.Flat;
             btnPelanggan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnPelanggan.ForeColor = Color.White;
-            btnPelanggan.Image = (Image)resources.GetObject("btnPelanggan.Image");
             btnPelanggan.ImageAlign = ContentAlignment.MiddleLeft;
             btnPelanggan.Location = new Point(18, 399);
             btnPelanggan.Name = "btnPelanggan";
@@ -267,7 +259,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKaryawan.FlatStyle = FlatStyle.Flat;
             btnKaryawan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnKaryawan.ForeColor = Color.White;
-            btnKaryawan.Image = (Image)resources.GetObject("btnKaryawan.Image");
             btnKaryawan.ImageAlign = ContentAlignment.MiddleLeft;
             btnKaryawan.Location = new Point(18, 465);
             btnKaryawan.Name = "btnKaryawan";
@@ -314,7 +305,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
             btnLogout.Location = new Point(18, 10);
             btnLogout.Name = "btnLogout";
@@ -355,13 +345,12 @@ namespace Bengkel_UKK.Admin.Dashboard
             label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(95, 47);
             label1.Name = "label1";
-            label1.Size = new Size(144, 20);
+            label1.Size = new Size(184, 20);
             label1.TabIndex = 1;
-            label1.Text = "Rifki Yoga Syahbani";
+            label1.Text = "Dhafa Bintang Ramadhan";
             // 
             // rjCircularPictureBox1
             // 
-            rjCircularPictureBox1.BackgroundImage = (Image)resources.GetObject("rjCircularPictureBox1.BackgroundImage");
             rjCircularPictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             rjCircularPictureBox1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             rjCircularPictureBox1.BorderColor = Color.White;

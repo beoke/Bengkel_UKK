@@ -1,12 +1,12 @@
-﻿using Bengkel_UKK.Admin.Karyawan;
-using Bengkel_UKK.Admin.Riwayat;
-using Bengkel_UKK.Custom_Component;
+﻿using Bengkel_UKK.Custom_Component;
 
-namespace Bengkel_UKK.Admin.Jasa_Service
+namespace Bengkel_UKK.Admin.Produk
 {
-    partial class JasaService_form
+    partial class Produk_form
     {
-        // </summary>
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Riwayat_form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produk_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
@@ -46,6 +46,8 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             label1 = new Label();
             numericEntries = new NumericUpDown();
             btnAddData = new DhafaButton();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -260,14 +262,25 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
-            btnAddData.Size = new Size(145, 42);
+            btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Invoice";
+            btnAddData.Text = " Add Data";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
             // 
-            // FormRiwayat
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // FormProduk
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -275,8 +288,9 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             ClientSize = new Size(1143, 635);
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormRiwayat";
+            Name = "FormProduk";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
@@ -304,5 +318,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DhafaButton btnSearch;
         private ComboBox comboFilter;
         private Label lblShowingEntries;
+        private PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
