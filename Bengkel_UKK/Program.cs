@@ -1,4 +1,4 @@
-using Bengkel_UKK.Admin;
+using Bengkel_UKK.Admin.Dashboard;
 using Bengkel_UKK.Login;
 
 namespace Bengkel_UKK
@@ -11,10 +11,12 @@ namespace Bengkel_UKK
         [STAThread]
         static void Main()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NMaF5cXmtCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWX5fcHRQRmdcUUx2WEQ=");
+            // To customize application configuration such as set high DPI settings or default font,
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Dashboard());
+            Application.Run(new MainFormAdmin());
         }
     }
 }
