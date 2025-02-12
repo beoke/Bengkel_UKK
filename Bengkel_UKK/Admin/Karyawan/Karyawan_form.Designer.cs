@@ -261,7 +261,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-       //     btnAddData.Image = Properties.Resources.plus;                         image plus
+         //   btnAddData.Image = Properties.Resources.plus;
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);

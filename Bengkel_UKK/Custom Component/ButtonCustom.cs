@@ -152,6 +152,7 @@ namespace Bengkel_UKK.Custom_Component
         }
     }
 
+
     public class DhafaPanel : Panel
     {
         // Fields
@@ -319,5 +320,7 @@ namespace Bengkel_UKK.Custom_Component
             }
         }
     }
+
+
 
 }

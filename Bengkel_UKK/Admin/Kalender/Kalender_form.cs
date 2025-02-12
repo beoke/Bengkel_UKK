@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bengkel_UKK.Admin.Kendaraan
+namespace Bengkel_UKK.Admin.Kalender
 {
-    public partial class InputKendaraan_form : Form
+    public partial class Kalender_form : Form
     {
-        public InputKendaraan_form()
+        public Kalender_form()
         {
             InitializeComponent();
         }

@@ -50,7 +50,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             yogaButton1 = new DhafaButton();
             pictureBoxProfile = new RJCircularPictureBox();
             btnChooseFile = new DhafaButton();
-            yogaPanel1 = new DhafaButton();
+            yogaPanel1 = new DhafaPanel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtNama).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNoKTP).BeginInit();
@@ -307,7 +307,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             // 
             // pictureBoxProfile
             // 
-          //  pictureBoxProfile.BackgroundImage = Properties.Resources.defaultProfile;               bagian resource
+ //           pictureBoxProfile.BackgroundImage = Properties.Resources.defaultProfile;
             pictureBoxProfile.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBoxProfile.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             pictureBoxProfile.BorderColor = Color.RoyalBlue;
@@ -416,6 +416,6 @@ namespace Bengkel_UKK.Admin.Pelanggan
         private DhafaButton yogaButton1;
         private RJCircularPictureBox pictureBoxProfile;
         private DhafaButton btnChooseFile;
-        private DhafaButton yogaPanel1;
+        private DhafaPanel yogaPanel1;
     }
 }

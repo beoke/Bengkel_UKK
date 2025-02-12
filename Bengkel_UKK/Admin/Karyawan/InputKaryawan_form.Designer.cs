@@ -4,6 +4,7 @@ namespace Bengkel_UKK.Admin.Karyawan
 {
     partial class InputKaryawan_form
     {
+
         /// <summary>
         /// Required designer variable.
         /// </summary>

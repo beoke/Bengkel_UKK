@@ -282,10 +282,10 @@ namespace Bengkel_UKK.Admin.Riwayat
             // nNToolStripMenuItem
             // 
             nNToolStripMenuItem.Name = "nNToolStripMenuItem";
-            nNToolStripMenuItem.Size = new Size(187, 26); 
+            nNToolStripMenuItem.Size = new Size(187, 26);
             nNToolStripMenuItem.Text = "Detail Booking";
-           // nNToolStripMenuItem.Click += nNToolStripMenuItem_Click;                                                       edit tdi sini
-            //  
+//          nNToolStripMenuItem.Click += nNToolStripMenuItem_Click;
+            // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Name = "editToolStripMenuItem";

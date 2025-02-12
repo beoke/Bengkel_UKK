@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bengkel_UKK.Admin.Booking
+namespace Bengkel_UKK.Admin.Kendaraan
 {
-    public partial class Booking_form : Form
+    public partial class Kendaraan_form : Form
     {
-        public Booking_form()
+        public Kendaraan_form()
         {
             InitializeComponent();
-        }
-
-        private void Booking_form_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
