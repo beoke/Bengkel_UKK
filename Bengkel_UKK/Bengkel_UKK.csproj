@@ -30,12 +30,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />
     <PackageReference Include="MaterialSkin.2.RTL" Version="2.3.1.1" />
     <PackageReference Include="Syncfusion.Chart.Windows" Version="28.2.4" />
     <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="28.2.4" />
     <PackageReference Include="Syncfusion.Shared.Base" Version="28.2.4" />
     <PackageReference Include="Syncfusion.Tools.Windows" Version="28.2.4" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 
 </Project>

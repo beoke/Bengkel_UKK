@@ -2,6 +2,7 @@
 using Bengkel_UKK.Admin.Jasa_Service;
 using Bengkel_UKK.Admin.Kalender;
 using Bengkel_UKK.Admin.Karyawan;
+using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
@@ -47,6 +48,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             AddButton(6, btnPelanggan);
             AddButton(7, btnKaryawan);
             AddButton(8, btnKalender);
+            AddButton(9, btnkendaraan);
 
             flowLayoutPanel2.AutoScroll = true;
             flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
@@ -65,7 +67,7 @@ namespace Bengkel_UKK.Admin.Dashboard
         }
         private void RegisterEvent()
         {
-            List<Button> btnStyle = new List<Button> { btnDashboard, btnBooking, btnProduk, btnRiwayat, btnService, btnPelanggan, btnKaryawan, btnKalender };
+            List<Button> btnStyle = new List<Button> { btnDashboard, btnBooking, btnProduk, btnRiwayat, btnService, btnPelanggan, btnKaryawan, btnKalender, btnkendaraan };
             foreach (var item in btnStyle)
             {
                 item.FlatAppearance.MouseDownBackColor = active;
@@ -88,9 +90,11 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKaryawan.Click += BtnSideBar_Click;
             btnKalender.Click += (s, e) => buttonActiveAfter = 8;
             btnKalender.Click += BtnSideBar_Click;
+            btnkendaraan.Click += (s, e) => buttonActiveAfter = 9;
+            btnkendaraan.Click += BtnSideBar_Click;
 
             // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
-           // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Form1());
+            // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Form1());
             btnProduk.Click += (s, e) => ShowFormInPanel2(new Produk_form());
             btnKaryawan.Click += (s, e) => ShowFormInPanel2(new Karyawan_form());
             btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
@@ -98,7 +102,11 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
+            btnkendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
         }
+
+
+
         private void AddButton(int key, Button value)
         {
             _listButton.Add(key, value);
@@ -150,6 +158,9 @@ namespace Bengkel_UKK.Admin.Dashboard
                     break;
                 case 8:
                     text = "KALENDER";
+                    break;
+                case 9:
+                    text = "KENDARAAN";
                     break;
             }
             _mainForm.lblDisplay.Text = text;
