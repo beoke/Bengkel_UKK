@@ -1,5 +1,6 @@
 using Bengkel_UKK.Admin.Booking;
 using Bengkel_UKK.Admin.Dashboard;
+using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Login;
 
 namespace Bengkel_UKK
@@ -16,7 +17,7 @@ namespace Bengkel_UKK
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new InputBooking_form());
+            Application.Run(new MainFormAdmin());
         }
     }
 }

@@ -30,7 +30,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Riwayat_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
@@ -42,15 +41,11 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnNext = new DhafaButton();
             btnPrevious = new DhafaButton();
             txtSearch = new TextBox();
-            label3 = new Label();
-            label1 = new Label();
-            numericEntries = new NumericUpDown();
             btnAddData = new DhafaButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -78,9 +73,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             yogaPanel1.Controls.Add(btnSearch);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
-            yogaPanel1.Controls.Add(label3);
-            yogaPanel1.Controls.Add(label1);
-            yogaPanel1.Controls.Add(numericEntries);
             yogaPanel1.Controls.Add(dataGridView1);
             yogaPanel1.ForeColor = Color.White;
             yogaPanel1.Location = new Point(28, 75);
@@ -120,7 +112,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
@@ -210,41 +201,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             txtSearch.Size = new Size(271, 27);
             txtSearch.TabIndex = 6;
             // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(978, 33);
-            label3.Name = "label3";
-            label3.Size = new Size(61, 23);
-            label3.TabIndex = 5;
-            label3.Text = "entries";
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(860, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(52, 23);
-            label1.TabIndex = 4;
-            label1.Text = "Show";
-            // 
-            // numericEntries
-            // 
-            numericEntries.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            numericEntries.BackColor = Color.White;
-            numericEntries.BorderStyle = BorderStyle.FixedSingle;
-            numericEntries.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            numericEntries.Location = new Point(912, 32);
-            numericEntries.Name = "numericEntries";
-            numericEntries.Size = new Size(64, 27);
-            numericEntries.TabIndex = 3;
-            // 
             // btnAddData
             // 
             btnAddData.BackColor = Color.FromArgb(52, 152, 219);
@@ -256,18 +212,17 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-            btnAddData.Image = (Image)resources.GetObject("btnAddData.Image");
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
             btnAddData.Size = new Size(145, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Invoice";
+            btnAddData.Text = "Add Jasa Service";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
             // 
-            // FormRiwayat
+            // JasaService_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -276,14 +231,13 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormRiwayat";
+            Name = "JasaService_form";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
             yogaPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
             ResumeLayout(false);
         }
 
@@ -292,10 +246,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
-        private NumericUpDown numericEntries;
-        private Label label1;
         private TextBox txtSearch;
-        private Label label3;
         private Panel panel1;
         private DhafaButton btnNext;
         private DhafaButton btnPrevious;
