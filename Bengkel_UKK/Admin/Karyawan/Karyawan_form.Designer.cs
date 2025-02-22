@@ -31,6 +31,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Karyawan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
@@ -48,7 +49,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData = new DhafaButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
             editToolStripMenuItem = new ToolStripMenuItem();
-            hapisToolStripMenuItem = new ToolStripMenuItem();
+            hapusToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -272,21 +273,23 @@ namespace Bengkel_UKK.Admin.Karyawan
             // contextMenuStrip1
             // 
             contextMenuStrip1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, hapisToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, hapusToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(129, 56);
             // 
             // editToolStripMenuItem
             // 
+            editToolStripMenuItem.Image = (Image)resources.GetObject("editToolStripMenuItem.Image");
             editToolStripMenuItem.Name = "editToolStripMenuItem";
             editToolStripMenuItem.Size = new Size(128, 26);
             editToolStripMenuItem.Text = "Edit";
             // 
-            // hapisToolStripMenuItem
+            // hapusToolStripMenuItem
             // 
-            hapisToolStripMenuItem.Name = "hapisToolStripMenuItem";
-            hapisToolStripMenuItem.Size = new Size(128, 26);
-            hapisToolStripMenuItem.Text = "Delete";
+            hapusToolStripMenuItem.Image = (Image)resources.GetObject("hapusToolStripMenuItem.Image");
+            hapusToolStripMenuItem.Name = "hapusToolStripMenuItem";
+            hapusToolStripMenuItem.Size = new Size(180, 26);
+            hapusToolStripMenuItem.Text = "Delete";
             // 
             // Karyawan_form
             // 
@@ -329,6 +332,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem editToolStripMenuItem;
-        private ToolStripMenuItem hapisToolStripMenuItem;
+        private ToolStripMenuItem hapusToolStripMenuItem;
     }
 }

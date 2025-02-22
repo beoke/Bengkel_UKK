@@ -63,6 +63,14 @@ namespace Bengkel_UKK.Admin.Karyawan
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, admin);
         }
+        public void DeleteData(string ktp_admin)
+        {
+            const string sql = @"DELETE FROM Admin WHERE ktp_admin = @ktp_admin";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            koneksi.Execute(sql, new { ktp_admin });
+        }
+
     }
 
 }

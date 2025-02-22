@@ -36,23 +36,29 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData.Click += BtnAddData_Click;
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
+            hapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click;
 
         }
-        private void Karyawan_form_Load_1(object sender, EventArgs e)
-        {
-         /*   // Inisialisasi Timer
-            timerRefresh = new System.Windows.Forms.Timer();
-            timerRefresh.Interval = 5000; // Setiap 5 detik
-            timerRefresh.Tick += TimerRefresh_Tick;
-            timerRefresh.Start();
 
-            // Load data pertama kali
-            LoadData();*/
-        }
-        private void TimerRefresh_Tick(object sender, EventArgs e)
+        private void HapusToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            LoadData();
+              if (dataGridView1.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Pilih data yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string ktp_admin = dataGridView1.SelectedRows[0].Cells["ktp_admin"].Value.ToString();
+
+                var confirm = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    _karyawanDal.DeleteData(ktp_admin);
+                    LoadData(); // 🔄 Update DataGridView setelah penghapusan
+                }
         }
+
         private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             string ktp_admin = dataGridView1.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
@@ -282,6 +288,10 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
         #endregion
 
+        private void Karyawan_form_Load_1(object sender, EventArgs e)
+        {
+      
+        }
     }
 }
 
