@@ -31,7 +31,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Karyawan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
@@ -125,7 +124,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
@@ -261,7 +259,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-         //   btnAddData.Image = Properties.Resources.plus;
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
@@ -291,7 +288,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             hapisToolStripMenuItem.Size = new Size(128, 26);
             hapisToolStripMenuItem.Text = "Delete";
             // 
-            // FormKaryawan
+            // Karyawan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -300,8 +297,9 @@ namespace Bengkel_UKK.Admin.Karyawan
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormKaryawan";
+            Name = "Karyawan_form";
             Text = "Tabel";
+            Load += Karyawan_form_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
             yogaPanel1.PerformLayout();

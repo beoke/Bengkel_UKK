@@ -94,18 +94,18 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnkendaraan.Click += BtnSideBar_Click;
 
             // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
-            // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Form1());
+            btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard());
             btnProduk.Click += (s, e) => ShowFormInPanel2(new Produk_form());
             btnKaryawan.Click += (s, e) => ShowFormInPanel2(new Karyawan_form());
             btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
-            btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
             btnkendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
+            btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
         }
 
-
+     
 
         private void AddButton(int key, Button value)
         {

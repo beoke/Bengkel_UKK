@@ -241,7 +241,7 @@
             label5.Name = "label5";
             label5.Size = new Size(283, 23);
             label5.TabIndex = 26;
-            label5.Text = "Paten, Srihardono, Pundong, Bantul";
+            label5.Text = "Gempolan Wetan, Trirenggo, Bantul";
             // 
             // label4
             // 
@@ -250,9 +250,9 @@
             label4.ForeColor = Color.Orange;
             label4.Location = new Point(42, 174);
             label4.Name = "label4";
-            label4.Size = new Size(190, 28);
+            label4.Size = new Size(243, 28);
             label4.TabIndex = 25;
-            label4.Text = "Rifki Yoga Syahbani";
+            label4.Text = "Dhafa Bintang Ramadhan";
             // 
             // label3
             // 
@@ -307,13 +307,13 @@
             lblDisplay.Text = "ProFix";
             lblDisplay.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // FormInvoice
+            // Invoice_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1231, 831);
             Controls.Add(panel1);
-            Name = "FormInvoice";
+            Name = "Invoice_form";
             Text = "FormInvoice";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

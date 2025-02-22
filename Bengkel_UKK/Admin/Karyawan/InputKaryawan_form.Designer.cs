@@ -31,7 +31,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputKaryawan_form));
             panel1 = new Panel();
             lblHeader = new Label();
             label3 = new Label();
@@ -50,7 +49,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             label2 = new Label();
             txtAlamat = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label5 = new Label();
-            yogaButton1 = new DhafaButton();
+            btnCancel = new DhafaButton();
             pictureBoxProfile = new RJCircularPictureBox();
             btnChooseFile = new DhafaButton();
             yogaPanel1 = new DhafaPanel();
@@ -308,28 +307,27 @@ namespace Bengkel_UKK.Admin.Karyawan
             label5.Text = "Alamat";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // yogaButton1
+            // btnCancel
             // 
-            yogaButton1.BackColor = Color.Transparent;
-            yogaButton1.BackgroundColor = Color.Transparent;
-            yogaButton1.BorderColor = Color.PaleVioletRed;
-            yogaButton1.BorderRadius = 0;
-            yogaButton1.BorderSize = 2;
-            yogaButton1.FlatAppearance.BorderSize = 0;
-            yogaButton1.FlatStyle = FlatStyle.Flat;
-            yogaButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            yogaButton1.ForeColor = SystemColors.ControlDarkDark;
-            yogaButton1.Location = new Point(687, 504);
-            yogaButton1.Name = "yogaButton1";
-            yogaButton1.Size = new Size(108, 36);
-            yogaButton1.TabIndex = 62;
-            yogaButton1.Text = "Cancel";
-            yogaButton1.TextColor = SystemColors.ControlDarkDark;
-            yogaButton1.UseVisualStyleBackColor = false;
+            btnCancel.BackColor = Color.Transparent;
+            btnCancel.BackgroundColor = Color.Transparent;
+            btnCancel.BorderColor = Color.PaleVioletRed;
+            btnCancel.BorderRadius = 0;
+            btnCancel.BorderSize = 2;
+            btnCancel.FlatAppearance.BorderSize = 0;
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCancel.ForeColor = SystemColors.ControlDarkDark;
+            btnCancel.Location = new Point(687, 504);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(108, 36);
+            btnCancel.TabIndex = 62;
+            btnCancel.Text = "Cancel";
+            btnCancel.TextColor = SystemColors.ControlDarkDark;
+            btnCancel.UseVisualStyleBackColor = false;
             // 
             // pictureBoxProfile
             // 
-            pictureBoxProfile.BackgroundImage = (Image)resources.GetObject("pictureBoxProfile.BackgroundImage");
             pictureBoxProfile.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBoxProfile.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             pictureBoxProfile.BorderColor = Color.RoyalBlue;
@@ -464,7 +462,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             comboPegawai.Size = new Size(293, 28);
             comboPegawai.TabIndex = 83;
             // 
-            // FormInputKaryawan
+            // InputKaryawan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -477,7 +475,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             Controls.Add(label1);
             Controls.Add(label16);
             Controls.Add(yogaPanel1);
-            Controls.Add(yogaButton1);
+            Controls.Add(btnCancel);
             Controls.Add(txtAlamat);
             Controls.Add(label5);
             Controls.Add(label2);
@@ -496,7 +494,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             Controls.Add(label3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "FormInputKaryawan";
+            Name = "InputKaryawan_form";
             StartPosition = FormStartPosition.CenterParent;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)txtNama).EndInit();
@@ -532,7 +530,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         private Label label2;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtAlamat;
         private Label label5;
-        private DhafaButton yogaButton1;
+        private DhafaButton btnCancel;
         private RJCircularPictureBox pictureBoxProfile;
         private DhafaButton btnChooseFile;
         private DhafaPanel yogaPanel1;
