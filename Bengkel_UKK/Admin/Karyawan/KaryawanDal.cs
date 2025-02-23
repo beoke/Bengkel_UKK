@@ -70,6 +70,17 @@ namespace Bengkel_UKK.Admin.Karyawan
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, new { ktp_admin });
         }
+        public List<KaryawanModel> SearchKaryawan(string keyword)
+        {
+            string sql = @"SELECT * FROM Admin 
+             WHERE nama_admin LIKE '%' + @keyword + '%' 
+             OR ktp_admin LIKE '%' + @keyword + '%'";
+
+            using (var koneksi = new SqlConnection(conn.connStr))
+            {
+                return koneksi.Query<KaryawanModel>(sql, new { keyword }).ToList();
+            }
+        }
 
     }
 

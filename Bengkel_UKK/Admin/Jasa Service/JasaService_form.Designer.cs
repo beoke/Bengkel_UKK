@@ -32,16 +32,16 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         {
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
-            lblShowingEntries = new Label();
-            comboFilter = new ComboBox();
-            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
             btnNext = new DhafaButton();
             btnPrevious = new DhafaButton();
-            txtSearch = new TextBox();
             btnAddData = new DhafaButton();
+            lblShowingEntries = new Label();
+            comboFilter = new ComboBox();
+            btnSearch = new DhafaButton();
+            txtSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -79,45 +79,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             yogaPanel1.Name = "yogaPanel1";
             yogaPanel1.Size = new Size(1086, 531);
             yogaPanel1.TabIndex = 11;
-            // 
-            // lblShowingEntries
-            // 
-            lblShowingEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblShowingEntries.AutoSize = true;
-            lblShowingEntries.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblShowingEntries.ForeColor = Color.DimGray;
-            lblShowingEntries.Location = new Point(46, 474);
-            lblShowingEntries.Name = "lblShowingEntries";
-            lblShowingEntries.Size = new Size(238, 23);
-            lblShowingEntries.TabIndex = 13;
-            lblShowingEntries.Text = "Showing 1 to 14 of 120 entries";
-            // 
-            // comboFilter
-            // 
-            comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(376, 33);
-            comboFilter.Name = "comboFilter";
-            comboFilter.Size = new Size(154, 28);
-            comboFilter.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(323, 33);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -192,15 +153,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnPrevious.TextColor = SystemColors.ControlText;
             btnPrevious.UseVisualStyleBackColor = false;
             // 
-            // txtSearch
-            // 
-            txtSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(46, 33);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = " Search";
-            txtSearch.Size = new Size(271, 27);
-            txtSearch.TabIndex = 6;
-            // 
             // btnAddData
             // 
             btnAddData.BackColor = Color.FromArgb(52, 152, 219);
@@ -221,6 +173,54 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
+            // 
+            // lblShowingEntries
+            // 
+            lblShowingEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblShowingEntries.AutoSize = true;
+            lblShowingEntries.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblShowingEntries.ForeColor = Color.DimGray;
+            lblShowingEntries.Location = new Point(46, 474);
+            lblShowingEntries.Name = "lblShowingEntries";
+            lblShowingEntries.Size = new Size(238, 23);
+            lblShowingEntries.TabIndex = 13;
+            lblShowingEntries.Text = "Showing 1 to 14 of 120 entries";
+            // 
+            // comboFilter
+            // 
+            comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            comboFilter.FormattingEnabled = true;
+            comboFilter.Location = new Point(376, 33);
+            comboFilter.Name = "comboFilter";
+            comboFilter.Size = new Size(154, 28);
+            comboFilter.TabIndex = 12;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BorderColor = Color.PaleVioletRed;
+            btnSearch.BorderRadius = 0;
+            btnSearch.BorderSize = 0;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(323, 33);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(47, 27);
+            btnSearch.TabIndex = 12;
+            btnSearch.TextColor = Color.White;
+            btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(46, 33);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = " Search";
+            txtSearch.Size = new Size(271, 27);
+            txtSearch.TabIndex = 6;
             // 
             // JasaService_form
             // 
@@ -246,14 +246,14 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
-        private TextBox txtSearch;
         private Panel panel1;
         private DhafaButton btnNext;
         private DhafaButton btnPrevious;
         private Panel panel2;
         private Label lblHalaman;
-        private DhafaButton btnSearch;
-        private ComboBox comboFilter;
         private Label lblShowingEntries;
+        private ComboBox comboFilter;
+        private DhafaButton btnSearch;
+        private TextBox txtSearch;
     }
 }

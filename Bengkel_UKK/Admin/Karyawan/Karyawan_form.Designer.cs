@@ -213,6 +213,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             txtSearch.PlaceholderText = " Search";
             txtSearch.Size = new Size(271, 27);
             txtSearch.TabIndex = 6;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label3
             // 
@@ -288,7 +289,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             // 
             hapusToolStripMenuItem.Image = (Image)resources.GetObject("hapusToolStripMenuItem.Image");
             hapusToolStripMenuItem.Name = "hapusToolStripMenuItem";
-            hapusToolStripMenuItem.Size = new Size(180, 26);
+            hapusToolStripMenuItem.Size = new Size(128, 26);
             hapusToolStripMenuItem.Text = "Delete";
             // 
             // Karyawan_form

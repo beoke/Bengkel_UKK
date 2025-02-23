@@ -8,7 +8,7 @@ namespace Bengkel_UKK.Admin.Karyawan
 {
     public class KaryawanModel
     {
-        public int no { get; set; } // 🔥 Tambahkan properti untuk nomor urut
+        public int No { get; set; } // 🔥 
         public string ktp_admin { get; set; }
         public string nama_admin { get; set; }
         public string email { get; set; }

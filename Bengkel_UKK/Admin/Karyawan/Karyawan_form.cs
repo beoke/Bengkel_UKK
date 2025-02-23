@@ -17,7 +17,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private int page = 1;
         private byte[] _defaultProfile = ImageDirectory._defaultProfile;
-    //    private System.Windows.Forms.Timer timerRefresh;
+        //    private System.Windows.Forms.Timer timerRefresh;
         public Karyawan_form()
         {
             InitializeComponent();
@@ -37,26 +37,25 @@ namespace Bengkel_UKK.Admin.Karyawan
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             hapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click;
-
         }
 
         private void HapusToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-              if (dataGridView1.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Pilih data yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih data yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                string ktp_admin = dataGridView1.SelectedRows[0].Cells["ktp_admin"].Value.ToString();
+            string ktp_admin = dataGridView1.SelectedRows[0].Cells["ktp_admin"].Value.ToString();
 
-                var confirm = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirm = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (confirm == DialogResult.Yes)
-                {
-                    _karyawanDal.DeleteData(ktp_admin);
-                    LoadData(); // 🔄 Update DataGridView setelah penghapusan
-                }
+            if (confirm == DialogResult.Yes)
+            {
+                _karyawanDal.DeleteData(ktp_admin);
+                LoadData(); // 🔄 Update DataGridView setelah penghapusan
+            }
         }
 
         private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -184,16 +183,26 @@ namespace Bengkel_UKK.Admin.Karyawan
             dataGridView1.Columns["Role"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
             dataGridView1.Columns["ktp_admin"].HeaderText = "No KTP";
+
+            // supaya password tidak terlihat
+            dataGridView1.CellFormatting += (s, e) =>
+            {
+                if (dataGridView1.Columns[e.ColumnIndex].Name == "Password" && e.Value != null)
+                {
+                    e.Value = "********"; // Menampilkan selalu 8 bintang
+                    e.FormattingApplied = true;
+                }
+            };
+
         }
 
 
         private void LoadData()
         {
-            int number = 1;
             var list = _karyawanDal.ListData()
                 .Select(x => new KaryawanDto()
                 {
-                    No = x.no,
+                    No =x.No,
                     ktp_admin = x.ktp_admin,
                     Foto = x.image_data != null ? ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(ImageConvert.CropToCircle(ImageConvert.ResizeImageMax(ImageConvert.Image_ByteToImage(x.image_data), 400, 400)), 45, 45))
                         : _defaultProfile,
@@ -204,71 +213,57 @@ namespace Bengkel_UKK.Admin.Karyawan
                     Alamat = x.alamat,
                     Role = x.role == 1 ? "Petugas" : "Super Admin",
                 }).ToList();
-            dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(list);
+          dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(list);
+            
         }
 
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex == -1 && e.ColumnIndex >= 0) // Hanya proses header kolom
+            if (e.RowIndex == -1 && e.ColumnIndex >= 0) // Proses hanya header kolom
             {
                 // Gambar latar belakang header default
                 e.PaintBackground(e.CellBounds, true);
 
-                // Tambahkan padding ke teks header
+                // Tentukan padding
                 Rectangle paddedBounds = e.CellBounds;
-                paddedBounds.X += 20; // Padding kiri 20 piksel
+                paddedBounds.X += 20; // Padding kiri
                 paddedBounds.Width -= 20; // Sesuaikan lebar setelah padding
 
-                // Gambar teks header dengan padding
+                // Tentukan alignment teks
                 TextFormatFlags flags = TextFormatFlags.Left | TextFormatFlags.VerticalCenter;
-                TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(), e.CellStyle.Font, paddedBounds, e.CellStyle.ForeColor, flags);
 
-                // Jika kolom sedang diurutkan, gambar panah
+                // Jika kolom yang diproses adalah "Foto" atau "Role", ubah alignment ke tengah
+                string[] targetColumns = { "Foto", "Role" };
+                if (targetColumns.Contains(dataGridView1.Columns[e.ColumnIndex].Name))
+                {
+                    flags = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter;
+                    paddedBounds = e.CellBounds; // Reset padding untuk kolom ini
+                }
+
+                // Gambar teks header
+                TextRenderer.DrawText(e.Graphics, e.FormattedValue?.ToString() ?? "", e.CellStyle.Font, paddedBounds, e.CellStyle.ForeColor, flags);
+
+                // Jika kolom sedang diurutkan, tambahkan ikon panah sorting
                 if (dataGridView1.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection != SortOrder.None)
                 {
-                    int arrowWidth = 10; // Lebar panah (ukuran kecil)
-                    int arrowHeight = 10; // Tinggi panah (ukuran kecil)
-                    int textWidth = TextRenderer.MeasureText(e.FormattedValue.ToString(), e.CellStyle.Font).Width;
-                    int arrowX = paddedBounds.Left + textWidth + 2; // Jarak antara teks dan panah (gunakan paddedBounds)
-                    int arrowY = e.CellBounds.Top + (e.CellBounds.Height - arrowHeight) / 2; // Posisi vertikal tengah
+                    int arrowSize = 10; // Ukuran panah kecil
+                    int textWidth = TextRenderer.MeasureText(e.FormattedValue?.ToString() ?? "", e.CellStyle.Font).Width;
+                    int arrowX = paddedBounds.Left + textWidth + 5; // Beri jarak 5px dari teks
+                    int arrowY = e.CellBounds.Top + (e.CellBounds.Height - arrowSize) / 2; // Posisi tengah
 
                     using (var sortGlyph = CreateSortGlyph(dataGridView1.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection))
                     {
-                        // Aktifkan interpolasi berkualitas tinggi
                         e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-
-                        // Gambar panah dengan ukuran yang disesuaikan
-                        e.Graphics.DrawImage(sortGlyph, arrowX, arrowY, arrowWidth, arrowHeight);
+                        e.Graphics.DrawImage(sortGlyph, arrowX, arrowY, arrowSize, arrowSize);
                     }
                 }
 
-                if (e.RowIndex == -1 && e.ColumnIndex >= 0) // Hanya proses header kolom
-                {
-                    // Daftar kolom yang ingin diterapkan CellPainting
-                    string[] targetColumns = { "Foto", "Role" };
-
-                    // Periksa apakah kolom saat ini termasuk dalam daftar target
-                    if (targetColumns.Contains(dataGridView1.Columns[e.ColumnIndex].Name))
-                    {
-                        // Gambar latar belakang header default
-                        e.PaintBackground(e.CellBounds, true);
-
-                        // Gambar teks header dengan alignment tengah
-                        TextFormatFlags flagss = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak;
-                        TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(), e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor, flagss);
-
-                        e.Handled = true; // Tandai event sebagai sudah dihandle
-                    }
-                }
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-                    dataGridView1.Rows[i].Cells["NO"].Value = i + 1;
-                }
-                e.Handled = true; // Tandai event sebagai sudah dihandle
+                e.Handled = true; // Tandai bahwa event sudah ditangani
             }
         }
+
 
         private Bitmap CreateSortGlyph(SortOrder sortOrder)
         {
@@ -288,10 +283,32 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
         #endregion
 
+        #region SEARCH
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchData(txtSearch.Text);
+        }
+        private void SearchData(string keyword)
+        {
+            if (_karyawanDal == null) return; // Pastikan _karyawanDal tidak null
+
+            var result = _karyawanDal.SearchKaryawan(keyword);
+
+            if (result != null && result.Count > 0)
+            {
+                dataGridView1.DataSource = new SortableBindingList<KaryawanModel>(result);
+            }
+            else
+            {
+                dataGridView1.DataSource = null; // Kosongkan tabel jika tidak ada hasil
+            }
+        }
+        #endregion
         private void Karyawan_form_Load_1(object sender, EventArgs e)
         {
-      
+
         }
+
     }
 }
 
