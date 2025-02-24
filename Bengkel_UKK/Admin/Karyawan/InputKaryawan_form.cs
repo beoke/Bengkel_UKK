@@ -74,6 +74,73 @@ namespace Bengkel_UKK.Admin.Karyawan
 
         private void SaveData()
         {
+            #region Cek apakah ada yang kosong
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(txtNama.Text))
+            {
+                nama_label.Visible = true;
+                isValid = false;
+            }
+            else nama_label.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(txtNoKTP.Text))
+            {
+                noKtp_label.Visible = true;
+                isValid = false;
+            }
+            else noKtp_label.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(txtTelepon.Text))
+            {
+                telp_label.Visible = true;
+                isValid = false;
+            }
+            else telp_label.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                email_label.Visible = true;
+                isValid = false;
+            }
+            else email_label.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                pass_label.Visible = true;
+                isValid = false;
+            }
+            else pass_label.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(txtKonfirPassword.Text))
+            {
+                confirm_label.Visible = true;
+                isValid = false;
+            }
+            else confirm_label.Visible = false;
+
+            if (string.IsNullOrWhiteSpace(txtKonfirPassword.Text))
+            {
+                confirm_label.Visible = true;
+                isValid = false;
+            }
+            else confirm_label.Visible = false;
+            // Cek apakah gambar sudah diubah atau masih default
+            if (pictureBoxProfile.BackgroundImage == null || pictureBoxProfile.BackgroundImage == _fotoKaryawan)
+            {
+                foto_label.Visible = true; // Tampilkan label peringatan
+                isValid = false;
+            }
+            else foto_label.Visible = false; // Sembunyikan jika gambar sudah dipilih
+
+            // Jika ada yang kosong, hentikan proses penyimpanan
+            if (!isValid)
+            {
+                MessageBox.Show("Harap lengkapi semua data!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            #endregion
+
             string nama = txtNama.Text.Trim();
             string noKtp = txtNoKTP.Text.Trim();
             string telepon = txtTelepon.Text.Trim();

@@ -36,7 +36,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
             comboFilter = new ComboBox();
-            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -80,7 +79,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.BorderSize = 0;
             yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilter);
-            yogaPanel1.Controls.Add(btnSearch);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
@@ -110,27 +108,11 @@ namespace Bengkel_UKK.Admin.Karyawan
             comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(376, 33);
+            comboFilter.Location = new Point(323, 33);
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(323, 33);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
+            comboFilter.SelectedIndexChanged += comboFilter_SelectedIndexChanged;
             // 
             // panel1
             // 
@@ -261,6 +243,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
+            btnAddData.Image = (Image)resources.GetObject("btnAddData.Image");
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
@@ -303,7 +286,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             FormBorderStyle = FormBorderStyle.None;
             Name = "Karyawan_form";
             Text = "Tabel";
-            Load += Karyawan_form_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
             yogaPanel1.PerformLayout();
@@ -328,7 +310,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         private DhafaButton btnPrevious;
         private Panel panel2;
         private Label lblHalaman;
-        private DhafaButton btnSearch;
         private ComboBox comboFilter;
         private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;

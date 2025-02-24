@@ -17,7 +17,8 @@ namespace Bengkel_UKK.Admin.Karyawan
         private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private int page = 1;
         private byte[] _defaultProfile = ImageDirectory._defaultProfile;
-        //    private System.Windows.Forms.Timer timerRefresh;
+        // Tambahkan variabel ini di dalam class untuk menyimpan data asli
+        private List<KaryawanDto> _originalData = new List<KaryawanDto>();
         public Karyawan_form()
         {
             InitializeComponent();
@@ -95,13 +96,18 @@ namespace Bengkel_UKK.Admin.Karyawan
             lblHalaman.Text = page.ToString();
         }
         #region COMBO BOX
+        private void comboFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SearchData(txtSearch.Text, comboFilter.SelectedItem?.ToString());
+        }
         private void InitCombo()
         {
             List<string> list = new List<string>()
-            {
-                "Semua (All)","Stok Tersedia","Stok Menipis","Stok Habis"
-            };
+    {
+        "Semua (All)", "Petugas", "Mekanik", "Super Admin"
+    };
             comboFilter.DataSource = list;
+            comboFilter.SelectedIndexChanged += comboFilter_SelectedIndexChanged; // Tambahkan event handler
         }
         #endregion
 
@@ -199,12 +205,15 @@ namespace Bengkel_UKK.Admin.Karyawan
 
         private void LoadData()
         {
-            var list = _karyawanDal.ListData()
+            int number = 1;
+            _originalData = _karyawanDal.ListData() // Simpan data asli saat pertama kali di-load
                 .Select(x => new KaryawanDto()
                 {
-                    No =x.No,
+                    No = number++,
                     ktp_admin = x.ktp_admin,
-                    Foto = x.image_data != null ? ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(ImageConvert.CropToCircle(ImageConvert.ResizeImageMax(ImageConvert.Image_ByteToImage(x.image_data), 400, 400)), 45, 45))
+                    Foto = x.image_data != null ? ImageConvert.ImageToByteArray(
+                        ImageConvert.ResizeImageMax(ImageConvert.CropToCircle(
+                        ImageConvert.ResizeImageMax(ImageConvert.Image_ByteToImage(x.image_data), 400, 400)), 45, 45))
                         : _defaultProfile,
                     Nama = x.nama_admin,
                     Email = x.email,
@@ -212,9 +221,10 @@ namespace Bengkel_UKK.Admin.Karyawan
                     Telepon = x.no_telp,
                     Alamat = x.alamat,
                     Role = x.role == 1 ? "Petugas" : "Super Admin",
-                }).ToList();
-          dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(list);
-            
+                })
+                .ToList();
+
+            dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(_originalData);
         }
 
 
@@ -283,36 +293,29 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
         #endregion
 
-        #region SEARCH
+        #region
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            SearchData(txtSearch.Text);
+            SearchData(txtSearch.Text, comboFilter.SelectedItem?.ToString());
+            CustomGrid(); // Pastikan tampilan tetap konsisten
         }
-        private void SearchData(string keyword)
+        private void SearchData(string keyword, string roleFilter)
         {
-            if (_karyawanDal == null) return; // Pastikan _karyawanDal tidak null
+            var filteredList = _originalData
+                 .Where(x => (string.IsNullOrEmpty(keyword) ||
+                     x.Nama.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                     x.ktp_admin.Contains(keyword)) &&
+                     (roleFilter == "Semua (All)" || x.Role == roleFilter))
+                 .ToList();
 
-            var result = _karyawanDal.SearchKaryawan(keyword);
+            dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(filteredList);
 
-            if (result != null && result.Count > 0)
-            {
-                dataGridView1.DataSource = new SortableBindingList<KaryawanModel>(result);
-            }
-            else
-            {
-                dataGridView1.DataSource = null; // Kosongkan tabel jika tidak ada hasil
-            }
         }
         #endregion
-        private void Karyawan_form_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
 
-public class KaryawanDto
+    public class KaryawanDto
 {
     public int No { get; set; }
     public string ktp_admin { get; set; }
