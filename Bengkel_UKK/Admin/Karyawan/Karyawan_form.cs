@@ -8,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO; // Pastikan namespace ini ditambahkan
+using System.IO;
+using Syncfusion.Windows.Forms.Tools; // Pastikan namespace ini ditambahkan
 
 namespace Bengkel_UKK.Admin.Karyawan
 {
@@ -96,18 +97,43 @@ namespace Bengkel_UKK.Admin.Karyawan
             lblHalaman.Text = page.ToString();
         }
         #region COMBO BOX
+        private void InitCombo()
+        {
+            List<string> job = new List<string>()
+            {
+                "Semua (All)", "Petugas", "Mekanik", "Super Admin"
+            };
+            comboFilter.DataSource = job;
+            comboFilter.SelectedIndexChanged += comboFilter_SelectedIndexChanged; // Tambahkan event handler
+
+            List<int> listPerPage = new List<int>()
+            {
+                0, 10, 25, 50,
+            };
+            line_combo.DataSource = listPerPage;
+            line_combo.SelectedIndexChanged += Line_combo_SelectedIndexChanged;
+        }
         private void comboFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchData(txtSearch.Text, comboFilter.SelectedItem?.ToString());
         }
-        private void InitCombo()
+
+        private void Line_combo_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            List<string> list = new List<string>()
-    {
-        "Semua (All)", "Petugas", "Mekanik", "Super Admin"
-    };
-            comboFilter.DataSource = list;
-            comboFilter.SelectedIndexChanged += comboFilter_SelectedIndexChanged; // Tambahkan event handler
+            if (_karyawanDal == null || _originalData == null) return;
+            int limit = Convert.ToInt32(line_combo.SelectedItem);
+
+            var filteredList = _originalData
+                .Where(x => (string.IsNullOrEmpty(txtSearch.Text) ||
+                            x.Nama.Contains(txtSearch.Text, StringComparison.OrdinalIgnoreCase) ||
+                            x.ktp_admin.Contains(txtSearch.Text)) &&
+                            (comboFilter.SelectedItem?.ToString() == "Semua (All)" ||
+                            x.Role == comboFilter.SelectedItem?.ToString()))
+                .Take(limit == 0 ? _originalData.Count : limit) // Jika 0, tampilkan semua
+                .ToList();
+
+            // Update DataGridView
+            dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(filteredList);
         }
         #endregion
 

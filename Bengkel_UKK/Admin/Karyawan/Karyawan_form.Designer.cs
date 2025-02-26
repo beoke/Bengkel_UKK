@@ -34,7 +34,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Karyawan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
-            lblShowingEntries = new Label();
+            line_combo = new ComboBox();
             comboFilter = new ComboBox();
             panel1 = new Panel();
             panel2 = new Panel();
@@ -44,7 +44,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             txtSearch = new TextBox();
             label3 = new Label();
             label1 = new Label();
-            numericEntries = new NumericUpDown();
             btnAddData = new DhafaButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
             editToolStripMenuItem = new ToolStripMenuItem();
@@ -53,7 +52,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,13 +75,12 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.BorderColor = Color.PaleVioletRed;
             yogaPanel1.BorderRadius = 0;
             yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(lblShowingEntries);
+            yogaPanel1.Controls.Add(line_combo);
             yogaPanel1.Controls.Add(comboFilter);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
             yogaPanel1.Controls.Add(label1);
-            yogaPanel1.Controls.Add(numericEntries);
             yogaPanel1.Controls.Add(dataGridView1);
             yogaPanel1.ForeColor = Color.White;
             yogaPanel1.Location = new Point(28, 75);
@@ -91,17 +88,14 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.Size = new Size(1086, 531);
             yogaPanel1.TabIndex = 11;
             // 
-            // lblShowingEntries
+            // line_combo
             // 
-            lblShowingEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblShowingEntries.AutoSize = true;
-            lblShowingEntries.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblShowingEntries.ForeColor = Color.DimGray;
-            lblShowingEntries.Location = new Point(46, 474);
-            lblShowingEntries.Name = "lblShowingEntries";
-            lblShowingEntries.Size = new Size(238, 23);
-            lblShowingEntries.TabIndex = 13;
-            lblShowingEntries.Text = "Showing 1 to 14 of 120 entries";
+            line_combo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            line_combo.FormattingEnabled = true;
+            line_combo.Location = new Point(851, 38);
+            line_combo.Name = "line_combo";
+            line_combo.Size = new Size(121, 23);
+            line_combo.TabIndex = 13;
             // 
             // comboFilter
             // 
@@ -203,11 +197,11 @@ namespace Bengkel_UKK.Admin.Karyawan
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(978, 33);
+            label3.Location = new Point(978, 38);
             label3.Name = "label3";
-            label3.Size = new Size(61, 23);
+            label3.Size = new Size(37, 23);
             label3.TabIndex = 5;
-            label3.Text = "entries";
+            label3.Text = "line";
             // 
             // label1
             // 
@@ -215,22 +209,11 @@ namespace Bengkel_UKK.Admin.Karyawan
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(860, 33);
+            label1.Location = new Point(793, 38);
             label1.Name = "label1";
             label1.Size = new Size(52, 23);
             label1.TabIndex = 4;
             label1.Text = "Show";
-            // 
-            // numericEntries
-            // 
-            numericEntries.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            numericEntries.BackColor = Color.White;
-            numericEntries.BorderStyle = BorderStyle.FixedSingle;
-            numericEntries.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            numericEntries.Location = new Point(912, 32);
-            numericEntries.Name = "numericEntries";
-            numericEntries.Size = new Size(64, 27);
-            numericEntries.TabIndex = 3;
             // 
             // btnAddData
             // 
@@ -291,7 +274,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -301,7 +283,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
-        private NumericUpDown numericEntries;
         private Label label1;
         private TextBox txtSearch;
         private Label label3;
@@ -311,9 +292,9 @@ namespace Bengkel_UKK.Admin.Karyawan
         private Panel panel2;
         private Label lblHalaman;
         private ComboBox comboFilter;
-        private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem hapusToolStripMenuItem;
+        private ComboBox line_combo;
     }
 }

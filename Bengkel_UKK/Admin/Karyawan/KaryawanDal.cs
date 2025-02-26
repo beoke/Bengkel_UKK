@@ -81,6 +81,15 @@ namespace Bengkel_UKK.Admin.Karyawan
                 return koneksi.Query<KaryawanModel>(sql, new { keyword }).ToList();
             }
         }
+        public List<KaryawanModel> GetLimitedKaryawan(int limit)
+        {
+            string sql = @"SELECT TOP (@Limit) * FROM Admin ORDER BY ktp_admin DESC";
+
+            using (var koneksi = new SqlConnection(conn.connStr))
+            {
+                return koneksi.Query<KaryawanModel>(sql, new { Limit = limit }).ToList();
+            }
+        }
 
     }
 
