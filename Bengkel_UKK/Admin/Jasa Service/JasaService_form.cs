@@ -37,7 +37,8 @@ namespace Bengkel_UKK.Admin.Jasa_Service
                     No = no++,
                     id_jasaServis = x.id_jasaServis,
                     nama_jasaServis = x.nama_jasaServis,
-                    harga = x.harga
+                    harga = x.harga,
+                    keterangan = x.keterangan
                 }).ToList();
 
             dataGridView1.DataSource = new SortableBindingList<JasaServiceModel>(list);
@@ -98,18 +99,21 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             dataGridView1.Columns["id_jasaServis"].FillWeight = 6;
             dataGridView1.Columns["nama_jasaServis"].FillWeight = 30;
             dataGridView1.Columns["harga"].FillWeight = 64;
+            dataGridView1.Columns["keterangan"].FillWeight = 100;
 
             dataGridView1.Columns["id_jasaServis"].Visible = false;
 
             dataGridView1.Columns["No"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
             dataGridView1.Columns["nama_jasaServis"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
             dataGridView1.Columns["harga"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            dataGridView1.Columns["keterangan"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
 
 
             dataGridView1.Columns["No"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
             dataGridView1.Columns["nama_jasaServis"].HeaderText = "Nama Jasa";
             dataGridView1.Columns["harga"].HeaderText = "Harga";
+            dataGridView1.Columns["keterangan"].HeaderText = "Keterangan";
         }
     }
 }

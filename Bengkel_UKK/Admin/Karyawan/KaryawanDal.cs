@@ -18,6 +18,27 @@ namespace Bengkel_UKK.Admin.Karyawan
             return koneksi.Query<KaryawanModel>(sql);
         }
 
+        #region SET HALMAN SESUAI TOTAL LINE
+        public IEnumerable<KaryawanModel> GetAllKaryawan(int pageNumber, int pageSize)
+        {
+            const string sql = @"
+            SELECT * FROM Admin
+            ORDER BY ktp_admin
+            OFFSET @Offset ROWS 
+            FETCH NEXT @PageSize ROWS ONLY;";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.Query<KaryawanModel>(sql, new { Offset = (pageNumber - 1) * pageSize, PageSize = pageSize });
+        }
+
+        public int GetTotalKaryawan()
+        {
+            const string sql = @"SELECT COUNT(*) FROM Admin";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.ExecuteScalar<int>(sql);
+        }
+        #endregion
+
         public KaryawanModel? GetData(string ktp_admin)
         {
             const string sql = @"SELECT * FROM Admin WHERE ktp_admin = @ktp_admin";

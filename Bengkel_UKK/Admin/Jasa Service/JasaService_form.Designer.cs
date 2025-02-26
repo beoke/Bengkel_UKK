@@ -32,20 +32,12 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         {
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            lblHalaman = new Label();
-            btnNext = new DhafaButton();
-            btnPrevious = new DhafaButton();
-            btnAddData = new DhafaButton();
-            lblShowingEntries = new Label();
             comboFilter = new ComboBox();
             btnSearch = new DhafaButton();
             txtSearch = new TextBox();
+            btnAddData = new DhafaButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -68,10 +60,8 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             yogaPanel1.BorderColor = Color.PaleVioletRed;
             yogaPanel1.BorderRadius = 0;
             yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilter);
             yogaPanel1.Controls.Add(btnSearch);
-            yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(dataGridView1);
             yogaPanel1.ForeColor = Color.White;
@@ -79,112 +69,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             yogaPanel1.Name = "yogaPanel1";
             yogaPanel1.Size = new Size(1086, 531);
             yogaPanel1.TabIndex = 11;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(btnNext);
-            panel1.Controls.Add(btnPrevious);
-            panel1.Location = new Point(878, 467);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(165, 40);
-            panel1.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.RoyalBlue;
-            panel2.Controls.Add(lblHalaman);
-            panel2.Location = new Point(67, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(45, 39);
-            panel2.TabIndex = 10;
-            // 
-            // lblHalaman
-            // 
-            lblHalaman.BackColor = Color.FromArgb(230, 126, 34);
-            lblHalaman.Dock = DockStyle.Fill;
-            lblHalaman.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHalaman.ForeColor = Color.White;
-            lblHalaman.Location = new Point(0, 0);
-            lblHalaman.Name = "lblHalaman";
-            lblHalaman.Size = new Size(45, 39);
-            lblHalaman.TabIndex = 10;
-            lblHalaman.Text = "1";
-            lblHalaman.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnNext
-            // 
-            btnNext.BackColor = Color.White;
-            btnNext.BackgroundColor = Color.White;
-            btnNext.BorderColor = Color.PaleVioletRed;
-            btnNext.BorderRadius = 0;
-            btnNext.BorderSize = 2;
-            btnNext.FlatAppearance.BorderSize = 0;
-            btnNext.FlatStyle = FlatStyle.Flat;
-            btnNext.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNext.ForeColor = SystemColors.ControlText;
-            btnNext.Location = new Point(105, 0);
-            btnNext.Margin = new Padding(0);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(58, 40);
-            btnNext.TabIndex = 9;
-            btnNext.Text = "Next";
-            btnNext.TextColor = SystemColors.ControlText;
-            btnNext.UseVisualStyleBackColor = false;
-            // 
-            // btnPrevious
-            // 
-            btnPrevious.BackColor = Color.White;
-            btnPrevious.BackgroundColor = Color.White;
-            btnPrevious.BorderColor = Color.PaleVioletRed;
-            btnPrevious.BorderRadius = 0;
-            btnPrevious.BorderSize = 2;
-            btnPrevious.FlatAppearance.BorderSize = 0;
-            btnPrevious.FlatStyle = FlatStyle.Flat;
-            btnPrevious.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPrevious.ForeColor = SystemColors.ControlText;
-            btnPrevious.Location = new Point(0, 0);
-            btnPrevious.Margin = new Padding(0);
-            btnPrevious.Name = "btnPrevious";
-            btnPrevious.Size = new Size(76, 40);
-            btnPrevious.TabIndex = 8;
-            btnPrevious.Text = "Previous";
-            btnPrevious.TextColor = SystemColors.ControlText;
-            btnPrevious.UseVisualStyleBackColor = false;
-            // 
-            // btnAddData
-            // 
-            btnAddData.BackColor = Color.FromArgb(52, 152, 219);
-            btnAddData.BackgroundColor = Color.FromArgb(52, 152, 219);
-            btnAddData.BorderColor = Color.PaleVioletRed;
-            btnAddData.BorderRadius = 0;
-            btnAddData.BorderSize = 0;
-            btnAddData.FlatAppearance.BorderSize = 0;
-            btnAddData.FlatStyle = FlatStyle.Flat;
-            btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAddData.ForeColor = Color.White;
-            btnAddData.Location = new Point(28, 16);
-            btnAddData.Name = "btnAddData";
-            btnAddData.Padding = new Padding(10, 0, 0, 0);
-            btnAddData.Size = new Size(145, 42);
-            btnAddData.TabIndex = 1;
-            btnAddData.Text = "Add Jasa Service";
-            btnAddData.TextColor = Color.White;
-            btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnAddData.UseVisualStyleBackColor = false;
-            // 
-            // lblShowingEntries
-            // 
-            lblShowingEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblShowingEntries.AutoSize = true;
-            lblShowingEntries.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblShowingEntries.ForeColor = Color.DimGray;
-            lblShowingEntries.Location = new Point(46, 474);
-            lblShowingEntries.Name = "lblShowingEntries";
-            lblShowingEntries.Size = new Size(238, 23);
-            lblShowingEntries.TabIndex = 13;
-            lblShowingEntries.Text = "Showing 1 to 14 of 120 entries";
             // 
             // comboFilter
             // 
@@ -222,6 +106,27 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             txtSearch.Size = new Size(271, 27);
             txtSearch.TabIndex = 6;
             // 
+            // btnAddData
+            // 
+            btnAddData.BackColor = Color.FromArgb(52, 152, 219);
+            btnAddData.BackgroundColor = Color.FromArgb(52, 152, 219);
+            btnAddData.BorderColor = Color.PaleVioletRed;
+            btnAddData.BorderRadius = 0;
+            btnAddData.BorderSize = 0;
+            btnAddData.FlatAppearance.BorderSize = 0;
+            btnAddData.FlatStyle = FlatStyle.Flat;
+            btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddData.ForeColor = Color.White;
+            btnAddData.Location = new Point(28, 16);
+            btnAddData.Name = "btnAddData";
+            btnAddData.Padding = new Padding(10, 0, 0, 0);
+            btnAddData.Size = new Size(145, 42);
+            btnAddData.TabIndex = 1;
+            btnAddData.Text = "Add Jasa Service";
+            btnAddData.TextColor = Color.White;
+            btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddData.UseVisualStyleBackColor = false;
+            // 
             // JasaService_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -236,8 +141,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
             yogaPanel1.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -246,12 +149,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
-        private Panel panel1;
-        private DhafaButton btnNext;
-        private DhafaButton btnPrevious;
-        private Panel panel2;
-        private Label lblHalaman;
-        private Label lblShowingEntries;
         private ComboBox comboFilter;
         private DhafaButton btnSearch;
         private TextBox txtSearch;

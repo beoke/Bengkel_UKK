@@ -510,7 +510,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "InputKaryawan_form";
             StartPosition = FormStartPosition.CenterParent;
             panel1.ResumeLayout(false);

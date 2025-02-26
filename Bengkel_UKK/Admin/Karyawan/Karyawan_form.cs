@@ -75,6 +75,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         private void BtnAddData_Click(object? sender, EventArgs e)
         {
             InputKaryawan_form form = new InputKaryawan_form("", true);
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.DataUpdated += LoadData; // 🚀 Hubungkan event ke LoadData
             form.ShowDialog();
         }
@@ -96,6 +97,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             }
             lblHalaman.Text = page.ToString();
         }
+
         #region COMBO BOX
         private void InitCombo()
         {
@@ -319,7 +321,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
         #endregion
 
-        #region
+        #region SEARCH
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             SearchData(txtSearch.Text, comboFilter.SelectedItem?.ToString());
