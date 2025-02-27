@@ -30,14 +30,19 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             comboFilter = new ComboBox();
             btnSearch = new DhafaButton();
             txtSearch = new TextBox();
             btnAddData = new DhafaButton();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            editToolStripMenuItem = new ToolStripMenuItem();
+            hapusToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -127,6 +132,26 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, hapusToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(124, 56);
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(123, 26);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // hapusToolStripMenuItem
+            // 
+            hapusToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            hapusToolStripMenuItem.Name = "hapusToolStripMenuItem";
+            hapusToolStripMenuItem.Size = new Size(123, 26);
+            hapusToolStripMenuItem.Text = "Hapus";
+            // 
             // JasaService_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -141,6 +166,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
             yogaPanel1.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -152,5 +178,8 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private ComboBox comboFilter;
         private DhafaButton btnSearch;
         private TextBox txtSearch;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem hapusToolStripMenuItem;
     }
 }

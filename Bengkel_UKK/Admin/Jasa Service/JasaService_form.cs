@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bengkel_UKK.Admin.Karyawan;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,54 @@ namespace Bengkel_UKK.Admin.Jasa_Service
 
         private void RegisterEvent()
         {
+            btnAddData.Click += BtnAddData_Click;
+            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick; ;
+            editToolStripMenuItem.Click += EditToolStripMenuItem_Click; ;
+            hapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click; ;
+        }
 
+        private void HapusToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih data yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(dataGridView1.SelectedRows[0].Cells["id_jasaServis"].Value.ToString(), out int idJasaServis))
+            {
+                MessageBox.Show("Gagal mendapatkan ID Jasa Servis!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var confirm = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                _jasaServiceDal.DeleteData(idJasaServis); // 🔄 Kirim ID sebagai int
+                LoadData(); // 🔄 Update DataGridView setelah penghapusan
+            }
+        }
+
+
+        private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            string jasaservis = dataGridView1.CurrentRow.Cells[0].Value?.ToString() ?? string.Empty;
+            if (new InputJasaService_form(jasaservis, false).ShowDialog() != DialogResult.OK) return;
+        }
+
+        private void DataGridView1_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                contextMenuStrip1.Show(Cursor.Position);
+        }
+
+        private void BtnAddData_Click(object? sender, EventArgs e)
+        {
+            InputJasaService_form form = new InputJasaService_form("", true);
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.DataUpdated += LoadData; // 🚀 Hubungkan event ke LoadData
+            form.ShowDialog();
         }
 
         private void LoadData()
@@ -95,7 +143,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             dataGridView1.ColumnHeadersDefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.Columns["No"].FillWeight = 6;
+            dataGridView1.Columns["No"].FillWeight = 10;
             dataGridView1.Columns["id_jasaServis"].FillWeight = 6;
             dataGridView1.Columns["nama_jasaServis"].FillWeight = 30;
             dataGridView1.Columns["harga"].FillWeight = 64;

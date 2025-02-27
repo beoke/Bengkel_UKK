@@ -179,7 +179,7 @@ namespace Bengkel_UKK.Admin.Karyawan
                 MessageBox.Show("Data berhasil diperbarui.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-           DataUpdated?.Invoke(); // 🔥 Panggil event agar Form Karyawan tahu ada perubahan
+            DataUpdated?.Invoke(); // 🔥 Panggil event agar Form Karyawan tahu ada perubahan
 
             this.Close(); // Tutup form setelah selesai
         }
@@ -194,7 +194,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             txtKonfirPassword.ReadOnly = true;
 
             txtNama.Text = data.nama_admin;
-            txtNoKTP.Text = data.ktp_admin  ;
+            txtNoKTP.Text = data.ktp_admin;
             txtTelepon.Text = data.no_telp;
             txtEmail.Text = data.email;
             txtPassword.Text = data.password;
@@ -204,5 +204,10 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
 
         #endregion
+
+        private void lblHeader_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

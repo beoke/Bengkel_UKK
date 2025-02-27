@@ -94,6 +94,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             lblHeader.TabIndex = 11;
             lblHeader.Text = "Input Pegawai";
             lblHeader.TextAlign = ContentAlignment.MiddleCenter;
+            lblHeader.Click += lblHeader_Click;
             // 
             // label3
             // 

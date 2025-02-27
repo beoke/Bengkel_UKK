@@ -28,127 +28,129 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pass_label = new Label();
-            email_label = new Label();
-            btnCancel = new Custom_Component.DhafaButton();
-            txtAlamat = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            harga_label = new Label();
+            promo_label = new Label();
+            cancel_button = new Custom_Component.DhafaButton();
+            keterangan_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label5 = new Label();
-            txtPassword = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            txtEmail = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            harga_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            promo_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label9 = new Label();
             label10 = new Label();
-            btnSave = new Custom_Component.DhafaButton();
-            ((System.ComponentModel.ISupportInitialize)txtAlamat).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtPassword).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtEmail).BeginInit();
+            save_button = new Custom_Component.DhafaButton();
+            keterangan_label = new Label();
+            header_label = new Label();
+            ((System.ComponentModel.ISupportInitialize)keterangan_text).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)harga_text).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)promo_text).BeginInit();
             SuspendLayout();
             // 
-            // pass_label
+            // harga_label
             // 
-            pass_label.AutoSize = true;
-            pass_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            pass_label.ForeColor = Color.Red;
-            pass_label.Location = new Point(148, 103);
-            pass_label.Name = "pass_label";
-            pass_label.Size = new Size(110, 17);
-            pass_label.TabIndex = 96;
-            pass_label.Text = "Harga wajib diisi*";
-            pass_label.TextAlign = ContentAlignment.MiddleRight;
-            pass_label.Visible = false;
+            harga_label.AutoSize = true;
+            harga_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            harga_label.ForeColor = Color.Red;
+            harga_label.Location = new Point(149, 153);
+            harga_label.Name = "harga_label";
+            harga_label.Size = new Size(110, 17);
+            harga_label.TabIndex = 96;
+            harga_label.Text = "Harga wajib diisi*";
+            harga_label.TextAlign = ContentAlignment.MiddleRight;
+            harga_label.Visible = false;
             // 
-            // email_label
+            // promo_label
             // 
-            email_label.AutoSize = true;
-            email_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            email_label.ForeColor = Color.Red;
-            email_label.Location = new Point(148, 42);
-            email_label.Name = "email_label";
-            email_label.Size = new Size(146, 17);
-            email_label.TabIndex = 95;
-            email_label.Text = "Masukkan nama paket !";
-            email_label.TextAlign = ContentAlignment.MiddleRight;
-            email_label.Visible = false;
+            promo_label.AutoSize = true;
+            promo_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            promo_label.ForeColor = Color.Red;
+            promo_label.Location = new Point(149, 92);
+            promo_label.Name = "promo_label";
+            promo_label.Size = new Size(146, 17);
+            promo_label.TabIndex = 95;
+            promo_label.Text = "Masukkan nama paket !";
+            promo_label.TextAlign = ContentAlignment.MiddleRight;
+            promo_label.Visible = false;
             // 
-            // btnCancel
+            // cancel_button
             // 
-            btnCancel.BackColor = Color.Transparent;
-            btnCancel.BackgroundColor = Color.Transparent;
-            btnCancel.BorderColor = Color.PaleVioletRed;
-            btnCancel.BorderRadius = 0;
-            btnCancel.BorderSize = 2;
-            btnCancel.FlatAppearance.BorderSize = 0;
-            btnCancel.FlatStyle = FlatStyle.Flat;
-            btnCancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancel.ForeColor = SystemColors.ControlDarkDark;
-            btnCancel.Location = new Point(198, 260);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(108, 36);
-            btnCancel.TabIndex = 94;
-            btnCancel.Text = "Cancel";
-            btnCancel.TextColor = SystemColors.ControlDarkDark;
-            btnCancel.UseVisualStyleBackColor = false;
+            cancel_button.BackColor = Color.Transparent;
+            cancel_button.BackgroundColor = Color.Transparent;
+            cancel_button.BorderColor = Color.PaleVioletRed;
+            cancel_button.BorderRadius = 0;
+            cancel_button.BorderSize = 2;
+            cancel_button.FlatAppearance.BorderSize = 0;
+            cancel_button.FlatStyle = FlatStyle.Flat;
+            cancel_button.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            cancel_button.ForeColor = SystemColors.ControlDarkDark;
+            cancel_button.Location = new Point(199, 310);
+            cancel_button.Name = "cancel_button";
+            cancel_button.Size = new Size(108, 36);
+            cancel_button.TabIndex = 94;
+            cancel_button.Text = "Cancel";
+            cancel_button.TextColor = SystemColors.ControlDarkDark;
+            cancel_button.UseVisualStyleBackColor = false;
             // 
-            // txtAlamat
+            // keterangan_text
             // 
-            txtAlamat.BackColor = Color.White;
-            txtAlamat.BeforeTouchSize = new Size(275, 90);
-            txtAlamat.BorderColor = Color.FromArgb(209, 211, 212);
-            txtAlamat.BorderStyle = BorderStyle.FixedSingle;
-            txtAlamat.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtAlamat.Location = new Point(148, 136);
-            txtAlamat.Multiline = true;
-            txtAlamat.Name = "txtAlamat";
-            txtAlamat.PlaceholderText = " Masukkan keterangan Paket";
-            txtAlamat.Size = new Size(275, 90);
-            txtAlamat.TabIndex = 93;
-            txtAlamat.ThemeName = "Default";
+            keterangan_text.BackColor = Color.White;
+            keterangan_text.BeforeTouchSize = new Size(275, 27);
+            keterangan_text.BorderColor = Color.FromArgb(209, 211, 212);
+            keterangan_text.BorderStyle = BorderStyle.FixedSingle;
+            keterangan_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            keterangan_text.Location = new Point(149, 186);
+            keterangan_text.Multiline = true;
+            keterangan_text.Name = "keterangan_text";
+            keterangan_text.PlaceholderText = " Masukkan keterangan Paket";
+            keterangan_text.Size = new Size(275, 90);
+            keterangan_text.TabIndex = 93;
+            keterangan_text.ThemeName = "Default";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = SystemColors.ControlDarkDark;
-            label5.Location = new Point(16, 136);
+            label5.Location = new Point(17, 186);
             label5.Name = "label5";
             label5.Size = new Size(108, 25);
             label5.TabIndex = 92;
             label5.Text = "Keterangan";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txtPassword
+            // harga_text
             // 
-            txtPassword.BackColor = Color.White;
-            txtPassword.BeforeTouchSize = new Size(275, 90);
-            txtPassword.BorderColor = Color.FromArgb(209, 211, 212);
-            txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassword.Location = new Point(148, 73);
-            txtPassword.Name = "txtPassword";
-            txtPassword.PlaceholderText = " Masukkan password";
-            txtPassword.Size = new Size(275, 27);
-            txtPassword.TabIndex = 88;
-            txtPassword.ThemeName = "Default";
+            harga_text.BackColor = Color.White;
+            harga_text.BeforeTouchSize = new Size(275, 27);
+            harga_text.BorderColor = Color.FromArgb(209, 211, 212);
+            harga_text.BorderStyle = BorderStyle.FixedSingle;
+            harga_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            harga_text.Location = new Point(149, 123);
+            harga_text.Name = "harga_text";
+            harga_text.PlaceholderText = " Masukkan password";
+            harga_text.Size = new Size(275, 27);
+            harga_text.TabIndex = 88;
+            harga_text.ThemeName = "Default";
             // 
-            // txtEmail
+            // promo_text
             // 
-            txtEmail.BackColor = Color.White;
-            txtEmail.BeforeTouchSize = new Size(275, 90);
-            txtEmail.BorderColor = Color.FromArgb(209, 211, 212);
-            txtEmail.BorderStyle = BorderStyle.FixedSingle;
-            txtEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(148, 12);
-            txtEmail.Name = "txtEmail";
-            txtEmail.PlaceholderText = " ex: promo ringan";
-            txtEmail.Size = new Size(275, 27);
-            txtEmail.TabIndex = 87;
-            txtEmail.ThemeName = "Default";
+            promo_text.BackColor = Color.White;
+            promo_text.BeforeTouchSize = new Size(275, 27);
+            promo_text.BorderColor = Color.FromArgb(209, 211, 212);
+            promo_text.BorderStyle = BorderStyle.FixedSingle;
+            promo_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            promo_text.Location = new Point(149, 62);
+            promo_text.Name = "promo_text";
+            promo_text.PlaceholderText = " ex: promo ringan";
+            promo_text.Size = new Size(275, 27);
+            promo_text.TabIndex = 87;
+            promo_text.ThemeName = "Default";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = SystemColors.ControlDarkDark;
-            label9.Location = new Point(17, 75);
+            label9.Location = new Point(18, 125);
             label9.Name = "label9";
             label9.Size = new Size(69, 25);
             label9.TabIndex = 86;
@@ -160,67 +162,97 @@
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = SystemColors.ControlDarkDark;
-            label10.Location = new Point(12, 12);
+            label10.Location = new Point(13, 62);
             label10.Name = "label10";
             label10.Size = new Size(130, 25);
             label10.TabIndex = 85;
             label10.Text = "Paket Service*";
             label10.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnSave
+            // save_button
             // 
-            btnSave.BackColor = Color.FromArgb(52, 152, 219);
-            btnSave.BackgroundColor = Color.FromArgb(52, 152, 219);
-            btnSave.BorderColor = Color.PaleVioletRed;
-            btnSave.BorderRadius = 0;
-            btnSave.BorderSize = 0;
-            btnSave.FlatAppearance.BorderSize = 0;
-            btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(315, 260);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(108, 36);
-            btnSave.TabIndex = 84;
-            btnSave.Text = "Save";
-            btnSave.TextColor = Color.White;
-            btnSave.UseVisualStyleBackColor = false;
+            save_button.BackColor = Color.FromArgb(52, 152, 219);
+            save_button.BackgroundColor = Color.FromArgb(52, 152, 219);
+            save_button.BorderColor = Color.PaleVioletRed;
+            save_button.BorderRadius = 0;
+            save_button.BorderSize = 0;
+            save_button.FlatAppearance.BorderSize = 0;
+            save_button.FlatStyle = FlatStyle.Flat;
+            save_button.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            save_button.ForeColor = Color.White;
+            save_button.Location = new Point(316, 310);
+            save_button.Name = "save_button";
+            save_button.Size = new Size(108, 36);
+            save_button.TabIndex = 84;
+            save_button.Text = "Save";
+            save_button.TextColor = Color.White;
+            save_button.UseVisualStyleBackColor = false;
+            // 
+            // keterangan_label
+            // 
+            keterangan_label.AutoSize = true;
+            keterangan_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            keterangan_label.ForeColor = Color.Red;
+            keterangan_label.Location = new Point(149, 279);
+            keterangan_label.Name = "keterangan_label";
+            keterangan_label.Size = new Size(141, 17);
+            keterangan_label.TabIndex = 97;
+            keterangan_label.Text = "Keternagan wajib diisi*";
+            keterangan_label.TextAlign = ContentAlignment.MiddleRight;
+            keterangan_label.Visible = false;
+            // 
+            // header_label
+            // 
+            header_label.BackColor = Color.FromArgb(52, 152, 219);
+            header_label.Dock = DockStyle.Top;
+            header_label.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            header_label.ForeColor = Color.White;
+            header_label.Location = new Point(0, 0);
+            header_label.Name = "header_label";
+            header_label.Size = new Size(448, 43);
+            header_label.TabIndex = 98;
+            header_label.Text = "Input Jasa Servis";
+            header_label.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // InputJasaService_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(448, 324);
-            Controls.Add(pass_label);
-            Controls.Add(email_label);
-            Controls.Add(btnCancel);
-            Controls.Add(txtAlamat);
+            ClientSize = new Size(448, 371);
+            Controls.Add(header_label);
+            Controls.Add(keterangan_label);
+            Controls.Add(harga_label);
+            Controls.Add(promo_label);
+            Controls.Add(cancel_button);
+            Controls.Add(keterangan_text);
             Controls.Add(label5);
-            Controls.Add(txtPassword);
-            Controls.Add(txtEmail);
+            Controls.Add(harga_text);
+            Controls.Add(promo_text);
             Controls.Add(label9);
             Controls.Add(label10);
-            Controls.Add(btnSave);
+            Controls.Add(save_button);
             Name = "InputJasaService_form";
             Text = "InputJasaService_form";
-            ((System.ComponentModel.ISupportInitialize)txtAlamat).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtPassword).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)keterangan_text).EndInit();
+            ((System.ComponentModel.ISupportInitialize)harga_text).EndInit();
+            ((System.ComponentModel.ISupportInitialize)promo_text).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label pass_label;
-        private Label email_label;
-        private Custom_Component.DhafaButton btnCancel;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtAlamat;
+        private Label harga_label;
+        private Label promo_label;
+        private Custom_Component.DhafaButton cancel_button;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt keterangan_text;
         private Label label5;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPassword;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtEmail;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt harga_text;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt promo_text;
         private Label label9;
         private Label label10;
-        private Custom_Component.DhafaButton btnSave;
+        private Custom_Component.DhafaButton save_button;
+        private Label keterangan_label;
+        private Label header_label;
     }
 }
