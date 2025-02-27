@@ -58,8 +58,24 @@ namespace Bengkel_UKK.Admin.Jasa_Service
 
         private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            string jasaservis = dataGridView1.CurrentRow.Cells[0].Value?.ToString() ?? string.Empty;
-            if (new InputJasaService_form(jasaservis, false).ShowDialog() != DialogResult.OK) return;
+            /* string jasaservis = dataGridView1.CurrentRow.Cells[0].Value?.ToString() ?? string.Empty;
+             if (new InputJasaService_form(jasaservis, false).ShowDialog() != DialogResult.OK) return;*/
+
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Pilih data yang ingin diedit!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // ✅ Ambil data dari DataGridView
+            string namaJasa = dataGridView1.CurrentRow.Cells["nama_jasaServis"].Value?.ToString() ?? "";
+            int idJasa = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id_jasaServis"].Value);
+
+            // ✅ Buka Form InputJasaService untuk Edit
+            if (new InputJasaService_form(namaJasa, false, idJasa).ShowDialog() == DialogResult.OK)
+            {
+                LoadData(); // 🔄 Update DataGridView setelah perubahan
+            }
         }
 
         private void DataGridView1_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)

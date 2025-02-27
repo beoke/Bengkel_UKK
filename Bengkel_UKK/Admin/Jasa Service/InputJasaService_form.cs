@@ -126,13 +126,17 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         }
         private void GetData(string namaJasa)
         {
-            var data = _jasaServisDal.GetData(namaJasa);
-            if (data is null) return;
-
-            promo_text.Text = data.nama_jasaServis;
-            harga_text.Text = data.harga.ToString(); // Konversi integer ke string
-            keterangan_text.Text = data.keterangan;
+            var jasa = _jasaServisDal.GetData(namaJasa);
+            if (jasa != null)
+            {
+                promo_text.Text = jasa.nama_jasaServis;
+                harga_text.Text = jasa.harga.ToString();
+                keterangan_text.Text = jasa.keterangan;
+            }
+            else
+            {
+                MessageBox.Show("Data tidak ditemukan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-
     }
 }
