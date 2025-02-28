@@ -126,7 +126,7 @@
             harga_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             harga_text.Location = new Point(149, 123);
             harga_text.Name = "harga_text";
-            harga_text.PlaceholderText = " Masukkan password";
+            harga_text.PlaceholderText = " Masukkan harga";
             harga_text.Size = new Size(275, 27);
             harga_text.TabIndex = 88;
             harga_text.ThemeName = "Default";
@@ -231,6 +231,7 @@
             Controls.Add(label9);
             Controls.Add(label10);
             Controls.Add(save_button);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "InputJasaService_form";
             Text = "InputJasaService_form";
             ((System.ComponentModel.ISupportInitialize)keterangan_text).EndInit();

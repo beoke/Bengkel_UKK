@@ -12,9 +12,10 @@ namespace Bengkel_UKK.Admin.Pelanggan
 {
     public partial class InputPelanggan_form : Form
     {
-        public InputPelanggan_form()
+        public InputPelanggan_form(string ktp_pelanggan, bool IsInsert = true)
         {
             InitializeComponent();
         }
+
     }
 }

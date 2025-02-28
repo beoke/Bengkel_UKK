@@ -31,10 +31,10 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JasaService_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             comboFilter = new ComboBox();
-            btnSearch = new DhafaButton();
             txtSearch = new TextBox();
             btnAddData = new DhafaButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -66,7 +66,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             yogaPanel1.BorderRadius = 0;
             yogaPanel1.BorderSize = 0;
             yogaPanel1.Controls.Add(comboFilter);
-            yogaPanel1.Controls.Add(btnSearch);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(dataGridView1);
             yogaPanel1.ForeColor = Color.White;
@@ -80,27 +79,10 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(376, 33);
+            comboFilter.Location = new Point(323, 33);
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(323, 33);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
             // 
             // txtSearch
             // 
@@ -122,12 +104,14 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
+            btnAddData.Image = (Image)resources.GetObject("btnAddData.Image");
+            btnAddData.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
             btnAddData.Size = new Size(145, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = "Add Jasa Service";
+            btnAddData.Text = "  Add Paket";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
@@ -141,13 +125,15 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            editToolStripMenuItem.Image = (Image)resources.GetObject("editToolStripMenuItem.Image");
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(123, 26);
+            editToolStripMenuItem.Size = new Size(180, 26);
             editToolStripMenuItem.Text = "Edit";
             // 
             // hapusToolStripMenuItem
             // 
             hapusToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            hapusToolStripMenuItem.Image = (Image)resources.GetObject("hapusToolStripMenuItem.Image");
             hapusToolStripMenuItem.Name = "hapusToolStripMenuItem";
             hapusToolStripMenuItem.Size = new Size(123, 26);
             hapusToolStripMenuItem.Text = "Hapus";
@@ -176,7 +162,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
         private ComboBox comboFilter;
-        private DhafaButton btnSearch;
         private TextBox txtSearch;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem editToolStripMenuItem;

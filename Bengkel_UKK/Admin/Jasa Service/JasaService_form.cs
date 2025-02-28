@@ -87,7 +87,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private void BtnAddData_Click(object? sender, EventArgs e)
         {
             InputJasaService_form form = new InputJasaService_form("", true);
-            form.StartPosition = FormStartPosition.CenterScreen;
             form.DataUpdated += LoadData; // 🚀 Hubungkan event ke LoadData
             form.ShowDialog();
         }

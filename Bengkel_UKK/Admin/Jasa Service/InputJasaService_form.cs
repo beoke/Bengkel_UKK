@@ -21,6 +21,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         {
             InitializeComponent();
             RegisterEvent();
+            this.StartPosition = FormStartPosition.CenterScreen; // 🚀 Posisi di tengah layar
             if (!IsInsert)
             {
                 GetData(nama_jasa);
@@ -132,10 +133,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
                 promo_text.Text = jasa.nama_jasaServis;
                 harga_text.Text = jasa.harga.ToString();
                 keterangan_text.Text = jasa.keterangan;
-            }
-            else
-            {
-                MessageBox.Show("Data tidak ditemukan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

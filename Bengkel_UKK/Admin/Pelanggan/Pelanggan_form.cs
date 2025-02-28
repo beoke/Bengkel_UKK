@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bengkel_UKK.Helper;
+using Dapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,28 +15,101 @@ namespace Bengkel_UKK.Admin.Pelanggan
     public partial class Pelanggan_form : Form
     {
         private readonly PelangganDal _pelangganDal = new PelangganDal();
+        private int _page = 1;
+        private int _Totalpage = 1;
         public Pelanggan_form()
         {
             InitializeComponent();
+            RegisterEvent();
             LoadData();
             CustomGrid();
-            RegisterEvent();
         }
+        #region INIT COMPONENT
+
+        private void InitComponent()
+        {
+
+        }
+
+        #endregion
+
+        #region EVENT
         private void RegisterEvent()
         {
             dataGridView1.CellPainting += DataGridView1_CellPainting;
-        }   
+            btnAddData.Click += (s, e) =>
+            {
+                if (new InputPelanggan_form("").ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            };
+            txtSearch.TextChanged += async (s, e) =>
+            {
+                await Task.Delay(500);
+                ResetPage();
+                LoadData();
+            };
+            numericEntries.ValueChanged += async (s, e) =>
+            {
+                await Task.Delay(1000);
+                ResetPage();
+                LoadData();
+            };
+
+
+        }
+        private void ResetPage()
+        {
+            _page = 1;
+        }
+        #endregion
+
+        #region LOAD DATAGRID
+        private FilterDto Filter()
+        {
+            string search = txtSearch.Text.Trim();
+            string sql = "";
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                sql = $" WHERE (ktp_pelanggan LIKE '%{search}%' OR nama_pelanggan LIKE '%{search}%' OR email LIKE '%{search}%' OR alamat LIKE '%{search}%' OR no_telp LIKE '%{search}%')";
+            }
+
+            return new FilterDto
+            {
+                sql = sql,
+                param = null // Tidak menggunakan parameter tambahan
+            };
+        }
+
         private void LoadData()
         {
-            int no = 1;
-            var list = _pelangganDal.ListData()
-                .Select(x => new PelangganModel()
+            var sqlFilter = Filter() ?? new FilterDto();
+            var totalRows = _pelangganDal.GetTotalRows(sqlFilter);
+
+            int showData = (int)numericEntries.Value;
+            if (showData <= 0) showData = 1; // Pastikan tidak nol atau negatif
+
+            long totalPages = totalRows > 0 ? (long)Math.Ceiling((double)totalRows / showData) : 1;
+            _Totalpage = totalPages > int.MaxValue ? int.MaxValue : (int)totalPages; // Hindari Overflow
+
+            int offset = (_page - 1) * showData;
+
+            lblHalaman.Text = _page.ToString();
+            int toValue = Math.Min(offset + showData, totalRows);
+            lblShowingEntries.Text = totalRows > 0
+                ? $"Showing {offset + 1} to {toValue} of {totalRows} entries"
+                : "No entries found";
+
+            // ✅ Tambahkan offset dan showData saat memanggil ListData
+            var list = _pelangganDal.ListData(sqlFilter, offset, showData)
+                .Select((x, index) => new PelangganModel()
                 {
-                    No = no++,
+                    No = offset + index + 1,
                     ktp_pelanggan = x.ktp_pelanggan,
                     nama_pelanggan = x.nama_pelanggan,
                     email = x.email,
-                    password = x.password,
                     alamat = x.alamat,
                     no_telp = x.no_telp
                 }).ToList();
@@ -42,75 +117,45 @@ namespace Bengkel_UKK.Admin.Pelanggan
             dataGridView1.DataSource = new SortableBindingList<PelangganModel>(list);
         }
 
+
+
+
+        #endregion
+
+        #region CUSTOM DATAGRID
         private void CustomGrid()
         {
-            dataGridView1.BackgroundColor = Color.White;
+            DataGridView dgv = dataGridView1;
+            CustomGrids.CustomDataGrid(dgv);
 
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgv.Columns["ktp_pelanggan"].HeaderText = "No KTP";
+            dgv.Columns["nama_pelanggan"].HeaderText = "Nama";
+            dgv.Columns["email"].HeaderText = "Email";
+            dgv.Columns["alamat"].HeaderText = "Alamat";
+            dgv.Columns["no_telp"].HeaderText = "Telepon";
 
-            // Mengatur ukuran font header kolom
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 12, FontStyle.Regular);
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            // Mengatur warna header kolom
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(52, 152, 219);
-            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridView1.ForeColor = Color.DimGray;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.Columns["No"].FillWeight = 6;
+            dgv.Columns["ktp_pelanggan"].FillWeight = 17;
+            dgv.Columns["nama_pelanggan"].FillWeight = 23;
+            dgv.Columns["email"].FillWeight = 17;
+            dgv.Columns["alamat"].FillWeight = 23;
+            dgv.Columns["no_telp"].FillWeight = 14;
 
 
-            // Menonaktifkan warna seleksi untuk sel
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);
-            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
-
-            dataGridView1.ColumnHeadersHeight = 40;
-            dataGridView1.RowTemplate.Height = 55;
-
-            dataGridView1.RowHeadersVisible = false;
-
-            // Mencegah penggeseran kolom
-            dataGridView1.AllowUserToOrderColumns = false;
-
-            // Mencegah pengubahan ukuran kolom
-            dataGridView1.AllowUserToResizeColumns = true;
-
-            // Mencegah pengubahan ukuran baris
-            dataGridView1.AllowUserToResizeRows = false;
-
-            // Mencegah penambahan baris baru
-            dataGridView1.AllowUserToAddRows = false;
+            dgv.Columns["No"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            dgv.Columns["ktp_pelanggan"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            dgv.Columns["nama_pelanggan"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            dgv.Columns["email"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            dgv.Columns["alamat"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            dgv.Columns["no_telp"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
 
 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.Columns["No"].FillWeight = 6;
-            dataGridView1.Columns["ktp_pelanggan"].FillWeight = 13;
-            dataGridView1.Columns["nama_pelanggan"].FillWeight = 18;
-            dataGridView1.Columns["email"].FillWeight = 17;
-            dataGridView1.Columns["password"].FillWeight = 14;
-            dataGridView1.Columns["alamat"].FillWeight = 18;
-            dataGridView1.Columns["no_telp"].FillWeight = 14;
+            dgv.Columns["No"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgv.Columns["ktp_pelanggan"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgv.Columns["no_telp"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            dataGridView1.Columns["No"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-            dataGridView1.Columns["ktp_pelanggan"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-            dataGridView1.Columns["nama_pelanggan"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-            dataGridView1.Columns["email"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-            dataGridView1.Columns["password"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-            dataGridView1.Columns["alamat"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-            dataGridView1.Columns["no_telp"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-
-            //dataGridView1.Columns["Foto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dataGridView1.Columns["Role"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-
-            dataGridView1.Columns["No"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns["ktp_pelanggan"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns["password"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridView1.Columns["no_telp"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgv.Columns["password"].Visible = false;
         }
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
@@ -177,13 +222,23 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
         private Bitmap CreateSortGlyph(SortOrder sortOrder)
         {
-            string imagePath = Path.Combine(Application.StartupPath, "Assets", sortOrder == SortOrder.Ascending ? "ArrowUp.png" : "ArrowDown.png");
+            string assetsPath = Path.Combine(Application.StartupPath, "Asset"); // Path ke folder Asset
+            string imagePath = Path.Combine(assetsPath, sortOrder == SortOrder.Ascending ? "ArrowUp.png" : "ArrowDown.png");
 
             if (File.Exists(imagePath))
-                return new Bitmap(imagePath);
+            {
+                return (Bitmap)Image.FromFile(imagePath);
+            }
             else
-                throw new FileNotFoundException("Gambar tidak ditemukan: " + imagePath);
+            {
+                MessageBox.Show($"Gambar tidak ditemukan: {imagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
+
+        #endregion
 
     }
 }
+
+
