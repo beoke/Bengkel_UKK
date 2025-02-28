@@ -58,8 +58,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
 
         private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            /* string jasaservis = dataGridView1.CurrentRow.Cells[0].Value?.ToString() ?? string.Empty;
-             if (new InputJasaService_form(jasaservis, false).ShowDialog() != DialogResult.OK) return;*/
 
             if (dataGridView1.CurrentRow == null)
             {

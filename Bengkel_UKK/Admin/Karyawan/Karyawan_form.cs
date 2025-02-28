@@ -39,6 +39,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             hapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click;
+          //  dataGridView1.Paint += DataGridView1_Paint; ;
         }
 
         private void HapusToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -218,6 +219,7 @@ namespace Bengkel_UKK.Admin.Karyawan
 
             dataGridView1.Columns["ktp_admin"].HeaderText = "No KTP";
 
+
             // supaya password tidak terlihat
             dataGridView1.CellFormatting += (s, e) =>
             {
@@ -258,8 +260,10 @@ namespace Bengkel_UKK.Admin.Karyawan
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
         {
+
             if (e.RowIndex == -1 && e.ColumnIndex >= 0) // Proses hanya header kolom
             {
+               
                 // Gambar latar belakang header default
                 e.PaintBackground(e.CellBounds, true);
 
@@ -302,23 +306,50 @@ namespace Bengkel_UKK.Admin.Karyawan
             }
         }
 
+        #region shorting
+      /*  private void DataGridView1_Paint(object? sender, PaintEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            if (dgv == null || dgv.SortedColumn == null) return;
+
+            // Ambil informasi kolom yang sedang diurutkan
+            DataGridViewColumn sortedColumn = dgv.SortedColumn;
+            Rectangle headerRect = dgv.GetColumnDisplayRectangle(sortedColumn.Index, true);
+
+            if (headerRect.Width == 0 || headerRect.Height == 0) return;
+
+            // Buat ikon panah di ujung kanan header
+            int iconSize = 12;
+            int paddingRight = 10;
+            int iconX = headerRect.Right - iconSize - paddingRight;
+            int iconY = headerRect.Top + (headerRect.Height - iconSize) / 2;
+
+            using (Bitmap sortIcon = CreateSortGlyph(dgv.SortOrder))
+            {
+                e.Graphics.DrawImage(sortIcon, new Rectangle(iconX, iconY, iconSize, iconSize));
+            }
+        }*/
 
         private Bitmap CreateSortGlyph(SortOrder sortOrder)
         {
-            string imagePath;
 
-            if (sortOrder == SortOrder.Ascending)
-            {
-                imagePath = Path.Combine(Application.StartupPath, "Assets", "ArrowUp.png"); // Gantilah "ArrowUp.png" dengan nama file yang sesuai
-            }
-            else
-            {
-                imagePath = Path.Combine(Application.StartupPath, "Assets", "ArrowDown.png"); // Gantilah "ArrowDown.png" dengan nama file yang sesuai
-            }
+            int width = 12, height = 12;
+            Bitmap bmp = new Bitmap(width, height);
 
-            // Mengambil gambar dari path dan mengonversinya menjadi Bitmap
-            return new Bitmap(Image.FromFile(imagePath));
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.Transparent);
+                using (Font font = new Font("Arial", 10, FontStyle.Bold))
+                using (Brush brush = new SolidBrush(Color.White))
+                {
+                    string arrow = sortOrder == SortOrder.Ascending ? "▲" : "▼";
+                    g.DrawString(arrow, font, brush, new PointF(0, 0));
+                }
+            }
+            return bmp;
         }
+        #endregion
+
         #endregion
 
         #region SEARCH
