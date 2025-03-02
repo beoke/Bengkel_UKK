@@ -39,6 +39,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             hapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click;
+          // dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
           //  dataGridView1.Paint += DataGridView1_Paint; ;
         }
 
@@ -233,29 +234,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
 
 
-        private void LoadData()
-        {
-            int number = 1;
-            _originalData = _karyawanDal.ListData() // Simpan data asli saat pertama kali di-load
-                .Select(x => new KaryawanDto()
-                {
-                    No = number++,
-                    ktp_admin = x.ktp_admin,
-                    Foto = x.image_data != null ? ImageConvert.ImageToByteArray(
-                        ImageConvert.ResizeImageMax(ImageConvert.CropToCircle(
-                        ImageConvert.ResizeImageMax(ImageConvert.Image_ByteToImage(x.image_data), 400, 400)), 45, 45))
-                        : _defaultProfile,
-                    Nama = x.nama_admin,
-                    Email = x.email,
-                    Password = x.password,
-                    Telepon = x.no_telp,
-                    Alamat = x.alamat,
-                    Role = x.role == 1 ? "Petugas" : "Super Admin",
-                })
-                .ToList();
-
-            dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(_originalData);
-        }
 
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
@@ -305,31 +283,31 @@ namespace Bengkel_UKK.Admin.Karyawan
                 e.Handled = true; // Tandai bahwa event sudah ditangani
             }
         }
+        private void LoadData()
+        {
+            int number = 1;
+            _originalData = _karyawanDal.ListData() // Simpan data asli saat pertama kali di-load
+                .Select(x => new KaryawanDto()
+                {
+                    No = number++,
+                    ktp_admin = x.ktp_admin,
+                    Foto = x.image_data != null ? ImageConvert.ImageToByteArray(
+                        ImageConvert.ResizeImageMax(ImageConvert.CropToCircle(
+                        ImageConvert.ResizeImageMax(ImageConvert.Image_ByteToImage(x.image_data), 400, 400)), 45, 45))
+                        : _defaultProfile,
+                    Nama = x.nama_admin,
+                    Email = x.email,
+                    Password = x.password,
+                    Telepon = x.no_telp,
+                    Alamat = x.alamat,
+                    Role = x.role == 1 ? "Petugas" : "Super Admin",
+                })
+                .ToList();
+
+            dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(_originalData);
+        }
 
         #region shorting
-      /*  private void DataGridView1_Paint(object? sender, PaintEventArgs e)
-        {
-            DataGridView dgv = sender as DataGridView;
-            if (dgv == null || dgv.SortedColumn == null) return;
-
-            // Ambil informasi kolom yang sedang diurutkan
-            DataGridViewColumn sortedColumn = dgv.SortedColumn;
-            Rectangle headerRect = dgv.GetColumnDisplayRectangle(sortedColumn.Index, true);
-
-            if (headerRect.Width == 0 || headerRect.Height == 0) return;
-
-            // Buat ikon panah di ujung kanan header
-            int iconSize = 12;
-            int paddingRight = 10;
-            int iconX = headerRect.Right - iconSize - paddingRight;
-            int iconY = headerRect.Top + (headerRect.Height - iconSize) / 2;
-
-            using (Bitmap sortIcon = CreateSortGlyph(dgv.SortOrder))
-            {
-                e.Graphics.DrawImage(sortIcon, new Rectangle(iconX, iconY, iconSize, iconSize));
-            }
-        }*/
-
         private Bitmap CreateSortGlyph(SortOrder sortOrder)
         {
 

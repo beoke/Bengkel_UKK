@@ -1,4 +1,5 @@
-﻿using Syncfusion.WinForms.Input;
+﻿using Syncfusion.Windows.Forms.Tools;
+using Syncfusion.WinForms.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,24 @@ namespace Bengkel_UKK.Helper
                     lbl.Visible = false;
                 }
             };
+        }
+
+        public static void InputNumber(this TextBoxExt txt)
+        {
+            txt.KeyPress += (sender, e) =>
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            };
+        }
+
+        public static void IsDialogForm(this Form form)
+        {
+            form.MinimizeBox = false;
+            form.MaximizeBox = false;
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
     }
 }
