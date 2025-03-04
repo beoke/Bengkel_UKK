@@ -58,9 +58,9 @@ namespace Bengkel_UKK.Admin.Karyawan
         {
             const string sql = @"
             INSERT INTO Admin 
-                (ktp_admin, nama_admin, email, password, alamat, no_telp, role, image_name, image_data)
+                (ktp_admin, nama_admin, email, password, alamat, no_telp, role, image_data)
             VALUES 
-                (@ktp_admin, @nama_admin, @email, @password, @alamat, @no_telp, @role, @image_name, @image_data)";
+                (@ktp_admin, @nama_admin, @email, @password, @alamat, @no_telp, @role, @image_data)";
 
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, admin);
@@ -77,7 +77,6 @@ namespace Bengkel_UKK.Admin.Karyawan
                 no_telp = @no_telp,
                 alamat = @alamat,
                 role = @role,
-                image_name = @image_name,
                 image_data = @image_data
             WHERE ktp_admin = @ktp_admin";  
 

@@ -43,6 +43,7 @@ CREATE TABLE JasaServis(
 	id_jasaServis INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	nama_jasaServis VARCHAR(100),
 	harga INT,
+	keterangan VARCHAR(100),
 
 	created_at DATETIME DEFAULT GETDATE(),
     updated_at DATETIME DEFAULT GETDATE(),
