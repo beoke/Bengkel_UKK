@@ -47,12 +47,12 @@ namespace Bengkel_UKK.Admin.Pelanggan
             {
                 using (var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password)))
                 {
-                    argon2.Salt = Encoding.UTF8.GetBytes("somesaltvalue"); // Ganti dengan salt yang lebih aman
-                    argon2.DegreeOfParallelism = 4; // Jumlah thread
-                    argon2.MemorySize = 65536; // Konsumsi memori dalam KB
-                    argon2.Iterations = (int)strength; // Jumlah iterasi sesuai StrengthArgon
+                    argon2.Salt = Encoding.UTF8.GetBytes("somesaltvalue"); 
+                    argon2.DegreeOfParallelism = 4; 
+                    argon2.MemorySize = 65536; 
+                    argon2.Iterations = (int)strength; 
 
-                    return Convert.ToBase64String(argon2.GetBytes(16)); // Hash 16 byte
+                    return Convert.ToBase64String(argon2.GetBytes(16)); 
                 }
             }
         }

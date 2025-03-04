@@ -31,7 +31,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputKaryawan_form));
             panel1 = new Panel();
             lblHeader = new Label();
             label3 = new Label();
@@ -338,7 +337,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             pictureBoxProfile.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             pictureBoxProfile.BorderSize = 2;
             pictureBoxProfile.GradientAngle = 50F;
-            pictureBoxProfile.Image = (Image)resources.GetObject("pictureBoxProfile.Image");
             pictureBoxProfile.Location = new Point(63, 11);
             pictureBoxProfile.Name = "pictureBoxProfile";
             pictureBoxProfile.Size = new Size(106, 106);

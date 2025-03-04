@@ -1,4 +1,5 @@
 ﻿using Bengkel_UKK.Helper;
+using Syncfusion.WinForms.DataGrid.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -192,7 +193,7 @@ namespace Bengkel_UKK.Admin.Karyawan
 
             txtPassword.ReadOnly = true;
             txtKonfirPassword.ReadOnly = true;
-
+            //MessageBox.Show(data.image_data != null ? "NPT null" : "NULLLL");
             txtNama.Text = data.nama_admin;
             txtNoKTP.Text = data.ktp_admin;
             txtTelepon.Text = data.no_telp;

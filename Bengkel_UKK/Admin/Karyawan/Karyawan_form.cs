@@ -39,8 +39,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             hapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click;
-          // dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
-          //  dataGridView1.Paint += DataGridView1_Paint; ;
         }
 
         private void HapusToolStripMenuItem_Click(object? sender, EventArgs e)

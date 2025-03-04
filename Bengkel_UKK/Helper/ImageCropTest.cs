@@ -52,7 +52,6 @@ namespace Bengkel_UKK.Helper
         {
             originalImage = ImageConvert.ResizeImageMax(originalImage, pictureBox1.Width, pictureBox1.Height);
             AdjustPictureBoxSize();
-            MessageBox.Show($"{originalImage.Width.ToString()} {originalImage.Height.ToString()}");
             int size = (Math.Min(pictureBox1.Width, pictureBox1.Height)) - 2;
             maxCropSize = size;
             cropRect = new Rectangle((pictureBox1.Width - size) / 2, (pictureBox1.Height - size) / 2, size, size);
@@ -272,7 +271,6 @@ namespace Bengkel_UKK.Helper
             double imageRatio = (double)originalImage.Width / originalImage.Height;
             double pictureBoxRatio = (double)pictureBox1.Width / pictureBox1.Height;
 
-            MessageBox.Show(imageRatio.ToString() + " " + pictureBoxRatio.ToString());
 
             // Sesuaikan ukuran PictureBox berdasarkan rasio gambar
             if (imageRatio > pictureBoxRatio)
