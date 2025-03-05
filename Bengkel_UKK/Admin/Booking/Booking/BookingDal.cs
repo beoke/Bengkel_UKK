@@ -80,18 +80,14 @@ namespace Bengkel_UKK.Admin.Booking
             return koneksi.Query<ProdukModel>(sql, new { id_booking = id_booking });
         }
 
-        public AntreanDto GetAntrean(DateTime tanggal)
+        public AntreanDto? GetAntrean(DateTime tanggal, int tipe_antrean)
         {
-            const string sql = @"
-                    SELECT 
-                        MAX(CASE WHEN status = 'pending' THEN antrean END) AS Antrean,
-                        MAX(CASE WHEN status = 'dikerjakan' THEN antrean END) AS ServisNow
-                    FROM Bookings
-                    WHERE tanggal = @tanggal";
+            const string sql = @"SELECT * FROM GetAntrean(@tanggal,@tipe_antrean)";
 
             using var koneksi = new SqlConnection(conn.connStr);
             var dp = new DynamicParameters();
             dp.Add("@tanggal", tanggal);
+            dp.Add("@tipe_antrean", tipe_antrean);
 
             return koneksi.QueryFirstOrDefault<AntreanDto>(sql, dp) ?? new AntreanDto();
         }
