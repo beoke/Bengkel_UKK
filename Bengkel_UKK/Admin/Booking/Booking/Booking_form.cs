@@ -23,15 +23,18 @@ namespace Bengkel_UKK.Admin.Booking
             ImageConvert.ResizeImageMax(Image.FromFile("D:\\UKK\\Bengkel_UKK\\Bengkel_UKK\\Asset\\Dikerjakan.png"), 90, 90));
 
         private bool _rangeTanggal = false;
+        private int _page = 1;
+        private int _Totalpage = 1;
+        private DateTime _tanggal;
         public Booking_form(DateTime tanggal = default)
         {
             InitializeComponent();
-            if (tanggal == default)
-                tanggal = new DateTime(2025, 1, 1);
             InitComponen();
             RegisterEvent();
             LoadData();
             CustomGrid();
+            if (tanggal == default)
+                tanggal = new DateTime(2025, 1, 1);
         }
         #region EVENT
         private void RegisterEvent()
@@ -44,20 +47,8 @@ namespace Bengkel_UKK.Admin.Booking
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             detailBookingToolStripMenuItem.Click += DetailBookingToolStripMenuItem_Click;
             btnAddData.Click += BtnAddData_Click;
-
-
-            //Filter
-            /*txtSearch.KeyDown += (s, e) =>
-            {
-                if(e.KeyCode == Keys.Enter)
-                {
-                    e.SuppressKeyPress = true;
-                    LoadData();
-                }
-            };*/
             txtSearch.KeyDown += TxtSearch_KeyDown;
-            tgl1.ValueChanged += Tgl_ValueChanged;
-            tgl2.ValueChanged += Tgl_ValueChanged;
+           
             comboFilterWaktu.SelectedValueChanged += ComboFilterWaktu_SelectedValueChanged;
             comboFilterStatus.SelectedIndexChanged += ComboFilterStatus_SelectedIndexChanged;
         }
@@ -117,9 +108,6 @@ namespace Bengkel_UKK.Admin.Booking
             DateTime filterWaktu1 = ((FilterWaktu)comboFilterWaktu.SelectedItem).waktu1;
             DateTime filterWaktu2 = ((FilterWaktu)comboFilterWaktu.SelectedItem).waktu2;
 
-            DateTime tanggal1 = tgl1.Value.Date;
-            DateTime tanggal2 = tgl2.Value.Date;
-
 
             string sql = @"";
             var dp = new DynamicParameters();
@@ -141,12 +129,6 @@ namespace Bengkel_UKK.Admin.Booking
                 dp.Add(@"filterWaktu1", filterWaktu1);
                 dp.Add(@"filterWaktu2", filterWaktu2);
             }
-            if (_rangeTanggal)
-            {
-                fltr.Add("(b.tanggal BETWEEN @tanggal1 AND @tanggal2)");
-                dp.Add(@"tanggal1", tanggal1);
-                dp.Add(@"tanggal2", tanggal2);
-            }
 
 
             if (fltr.Count > 0)
@@ -160,16 +142,27 @@ namespace Bengkel_UKK.Admin.Booking
             };
             return filterResult;
         }
-
         private void LoadData()
         {
-            int i = 1;
-            var list = _bookingDal.ListData(Filter() ?? new FilterDto())
-                .Select(x => new BookingDto
+            var sqlFilter = Filter() ?? new FilterDto();
+            var totalRows = _bookingDal.GetTotalRows(sqlFilter);
+
+            int showData = (int)numericEntries.Value;
+            _Totalpage = Convert.ToInt32(Math.Ceiling((double)totalRows / showData));
+            int offset = (_page - 1) * showData;
+            sqlFilter.param.Add("@offset", offset);
+            sqlFilter.param.Add("@fetch", showData);
+
+            lblHalaman.Text = _page.ToString();
+            int toValue = Math.Min(offset + showData, totalRows);
+            lblShowingEntries.Text = $"Showing {offset + 1} to {toValue} of {totalRows} entries";
+
+            var list = _bookingDal.ListData(sqlFilter)
+                .Select((x, index) => new BookingDto
                 {
                     id_booking = x.id_booking,
-                    antrean = x.antrean,
-                    No = i++,
+                    No = offset + index + 1,
+                    antrean = (x.tipe_antrean == 1 ? "A" : "B") + x.antrean.ToString("D3"),
                     ktp_pelanggan = x.ktp_pelanggan == null ? "(Tamu)" : x.ktp_pelanggan,
                     nama_pelanggan = x.nama_pelanggan,
                     no_pol = x.no_pol,

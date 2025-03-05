@@ -34,21 +34,34 @@ namespace Bengkel_UKK.Admin.Booking
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
-            label2 = new Label();
-            tgl2 = new DateTimePicker();
-            tgl1 = new DateTimePicker();
             comboFilterWaktu = new ComboBox();
+            lblShowingEntries = new Label();
             comboFilterStatus = new ComboBox();
             btnSearch = new DhafaButton();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            lblHalaman = new Label();
+            btnNext = new DhafaButton();
+            btnPrevious = new DhafaButton();
             txtSearch = new TextBox();
+            label3 = new Label();
+            label1 = new Label();
+            numericEntries = new NumericUpDown();
             btnAddData = new DhafaButton();
             printPreviewDialog1 = new PrintPreviewDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             contextMenuStrip = new ContextMenuStripEx();
             detailBookingToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
+            label2 = new Label();
+            txtBatas = new TextBox();
+            btnEditBatasBooking = new DhafaButton();
+            btnJadwal = new DhafaButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
             contextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,46 +85,21 @@ namespace Bengkel_UKK.Admin.Booking
             yogaPanel1.BorderColor = Color.PaleVioletRed;
             yogaPanel1.BorderRadius = 0;
             yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(label2);
-            yogaPanel1.Controls.Add(tgl2);
-            yogaPanel1.Controls.Add(tgl1);
             yogaPanel1.Controls.Add(comboFilterWaktu);
+            yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilterStatus);
             yogaPanel1.Controls.Add(btnSearch);
+            yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
+            yogaPanel1.Controls.Add(label3);
+            yogaPanel1.Controls.Add(label1);
+            yogaPanel1.Controls.Add(numericEntries);
             yogaPanel1.Controls.Add(dataGridView1);
             yogaPanel1.ForeColor = Color.White;
             yogaPanel1.Location = new Point(28, 75);
             yogaPanel1.Name = "yogaPanel1";
             yogaPanel1.Size = new Size(1270, 531);
             yogaPanel1.TabIndex = 11;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(801, 35);
-            label2.Name = "label2";
-            label2.Size = new Size(13, 20);
-            label2.TabIndex = 17;
-            label2.Text = " ";
-            // 
-            // tgl2
-            // 
-            tgl2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tgl2.Location = new Point(822, 33);
-            tgl2.Name = "tgl2";
-            tgl2.Size = new Size(172, 27);
-            tgl2.TabIndex = 16;
-            // 
-            // tgl1
-            // 
-            tgl1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tgl1.Location = new Point(624, 33);
-            tgl1.Name = "tgl1";
-            tgl1.Size = new Size(172, 27);
-            tgl1.TabIndex = 15;
             // 
             // comboFilterWaktu
             // 
@@ -122,6 +110,18 @@ namespace Bengkel_UKK.Admin.Booking
             comboFilterWaktu.Name = "comboFilterWaktu";
             comboFilterWaktu.Size = new Size(123, 28);
             comboFilterWaktu.TabIndex = 14;
+            // 
+            // lblShowingEntries
+            // 
+            lblShowingEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblShowingEntries.AutoSize = true;
+            lblShowingEntries.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblShowingEntries.ForeColor = Color.DimGray;
+            lblShowingEntries.Location = new Point(46, 474);
+            lblShowingEntries.Name = "lblShowingEntries";
+            lblShowingEntries.Size = new Size(238, 23);
+            lblShowingEntries.TabIndex = 13;
+            lblShowingEntries.Text = "Showing 1 to 14 of 120 entries";
             // 
             // comboFilterStatus
             // 
@@ -143,12 +143,86 @@ namespace Bengkel_UKK.Admin.Booking
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.ForeColor = Color.White;
+            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;
             btnSearch.TextColor = Color.White;
             btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(btnNext);
+            panel1.Controls.Add(btnPrevious);
+            panel1.Location = new Point(1062, 467);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(165, 40);
+            panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.RoyalBlue;
+            panel2.Controls.Add(lblHalaman);
+            panel2.Location = new Point(67, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(45, 39);
+            panel2.TabIndex = 10;
+            // 
+            // lblHalaman
+            // 
+            lblHalaman.BackColor = Color.FromArgb(230, 126, 34);
+            lblHalaman.Dock = DockStyle.Fill;
+            lblHalaman.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblHalaman.ForeColor = Color.White;
+            lblHalaman.Location = new Point(0, 0);
+            lblHalaman.Name = "lblHalaman";
+            lblHalaman.Size = new Size(45, 39);
+            lblHalaman.TabIndex = 10;
+            lblHalaman.Text = "1";
+            lblHalaman.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnNext
+            // 
+            btnNext.BackColor = Color.White;
+            btnNext.BackgroundColor = Color.White;
+            btnNext.BorderColor = Color.PaleVioletRed;
+            btnNext.BorderRadius = 0;
+            btnNext.BorderSize = 2;
+            btnNext.FlatAppearance.BorderSize = 0;
+            btnNext.FlatStyle = FlatStyle.Flat;
+            btnNext.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNext.ForeColor = SystemColors.ControlText;
+            btnNext.Location = new Point(105, 0);
+            btnNext.Margin = new Padding(0);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(58, 40);
+            btnNext.TabIndex = 9;
+            btnNext.Text = "Next";
+            btnNext.TextColor = SystemColors.ControlText;
+            btnNext.UseVisualStyleBackColor = false;
+            // 
+            // btnPrevious
+            // 
+            btnPrevious.BackColor = Color.White;
+            btnPrevious.BackgroundColor = Color.White;
+            btnPrevious.BorderColor = Color.PaleVioletRed;
+            btnPrevious.BorderRadius = 0;
+            btnPrevious.BorderSize = 2;
+            btnPrevious.FlatAppearance.BorderSize = 0;
+            btnPrevious.FlatStyle = FlatStyle.Flat;
+            btnPrevious.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPrevious.ForeColor = SystemColors.ControlText;
+            btnPrevious.Location = new Point(0, 0);
+            btnPrevious.Margin = new Padding(0);
+            btnPrevious.Name = "btnPrevious";
+            btnPrevious.Size = new Size(76, 40);
+            btnPrevious.TabIndex = 8;
+            btnPrevious.Text = "Previous";
+            btnPrevious.TextColor = SystemColors.ControlText;
+            btnPrevious.UseVisualStyleBackColor = false;
             // 
             // txtSearch
             // 
@@ -158,6 +232,41 @@ namespace Bengkel_UKK.Admin.Booking
             txtSearch.PlaceholderText = " Search";
             txtSearch.Size = new Size(271, 27);
             txtSearch.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.DimGray;
+            label3.Location = new Point(1162, 33);
+            label3.Name = "label3";
+            label3.Size = new Size(61, 23);
+            label3.TabIndex = 5;
+            label3.Text = "entries";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.DimGray;
+            label1.Location = new Point(1044, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 23);
+            label1.TabIndex = 4;
+            label1.Text = "Show";
+            // 
+            // numericEntries
+            // 
+            numericEntries.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericEntries.BackColor = Color.White;
+            numericEntries.BorderStyle = BorderStyle.FixedSingle;
+            numericEntries.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            numericEntries.Location = new Point(1096, 32);
+            numericEntries.Name = "numericEntries";
+            numericEntries.Size = new Size(64, 27);
+            numericEntries.TabIndex = 3;
             // 
             // btnAddData
             // 
@@ -173,9 +282,9 @@ namespace Bengkel_UKK.Admin.Booking
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
-            btnAddData.Size = new Size(126, 42);
+            btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = "Add Booking";
+            btnAddData.Text = " Add Data";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
@@ -217,22 +326,91 @@ namespace Bengkel_UKK.Admin.Booking
             deleteToolStripMenuItem.Size = new Size(187, 26);
             deleteToolStripMenuItem.Text = "Delete";
             // 
-            // Booking_form
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.DimGray;
+            label2.Location = new Point(827, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(188, 23);
+            label2.TabIndex = 15;
+            label2.Text = "Batas Booking Hari ini :";
+            // 
+            // txtBatas
+            // 
+            txtBatas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtBatas.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBatas.Location = new Point(1021, 27);
+            txtBatas.Name = "txtBatas";
+            txtBatas.Size = new Size(83, 31);
+            txtBatas.TabIndex = 15;
+            // 
+            // btnEditBatasBooking
+            // 
+            btnEditBatasBooking.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEditBatasBooking.BackColor = Color.FromArgb(230, 126, 34);
+            btnEditBatasBooking.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnEditBatasBooking.BorderColor = Color.PaleVioletRed;
+            btnEditBatasBooking.BorderRadius = 0;
+            btnEditBatasBooking.BorderSize = 0;
+            btnEditBatasBooking.FlatAppearance.BorderSize = 0;
+            btnEditBatasBooking.FlatStyle = FlatStyle.Flat;
+            btnEditBatasBooking.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditBatasBooking.ForeColor = Color.White;
+            btnEditBatasBooking.Location = new Point(1113, 27);
+            btnEditBatasBooking.Name = "btnEditBatasBooking";
+            btnEditBatasBooking.Size = new Size(69, 31);
+            btnEditBatasBooking.TabIndex = 15;
+            btnEditBatasBooking.Text = "✏️ Edit";
+            btnEditBatasBooking.TextColor = Color.White;
+            btnEditBatasBooking.UseVisualStyleBackColor = false;
+            // 
+            // btnJadwal
+            // 
+            btnJadwal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnJadwal.BackColor = Color.FromArgb(230, 126, 34);
+            btnJadwal.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnJadwal.BorderColor = Color.PaleVioletRed;
+            btnJadwal.BorderRadius = 0;
+            btnJadwal.BorderSize = 0;
+            btnJadwal.FlatAppearance.BorderSize = 0;
+            btnJadwal.FlatStyle = FlatStyle.Flat;
+            btnJadwal.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnJadwal.ForeColor = Color.White;
+            btnJadwal.Location = new Point(1190, 27);
+            btnJadwal.Name = "btnJadwal";
+            btnJadwal.Size = new Size(108, 31);
+            btnJadwal.TabIndex = 16;
+            btnJadwal.Text = "📅 Jadwal";
+            btnJadwal.TextColor = Color.White;
+            btnJadwal.UseVisualStyleBackColor = false;
+            // 
+            // FormBooking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1327, 635);
+            Controls.Add(btnJadwal);
+            Controls.Add(btnEditBatasBooking);
+            Controls.Add(txtBatas);
+            Controls.Add(label2);
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Booking_form";
+            Name = "FormBooking";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
             yogaPanel1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
             contextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -240,17 +418,27 @@ namespace Bengkel_UKK.Admin.Booking
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
+        private NumericUpDown numericEntries;
+        private Label label1;
         private TextBox txtSearch;
+        private Label label3;
+        private Panel panel1;
+        private DhafaButton btnNext;
+        private DhafaButton btnPrevious;
+        private Panel panel2;
+        private Label lblHalaman;
         private DhafaButton btnSearch;
         private ComboBox comboFilterStatus;
+        private Label lblShowingEntries;
         private PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
         private ToolStripMenuItem detailBookingToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
-        private Label label2;
-        private DateTimePicker tgl2;
-        private DateTimePicker tgl1;
         private ComboBox comboFilterWaktu;
+        private Label label2;
+        private TextBox txtBatas;
+        private DhafaButton btnEditBatasBooking;
+        private DhafaButton btnJadwal;
     }
 }
