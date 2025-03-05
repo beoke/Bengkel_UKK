@@ -71,46 +71,49 @@ CREATE TABLE Kendaraan(
 	);
 
 
-CREATE TABLE Booking(
-	id_booking INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	ktp_pelanggan VARCHAR(30),
-	nama_pelanggan VARCHAR(100),
-	id_kendaraan INT,
-	no_pol VARCHAR(30),
-	nama_kendaraan VARCHAR(100),
-	tanggal DATE,
-	keluhan VARCHAR(100),
+-- Membuat tabel Booking terlebih dahulu
+CREATE TABLE Booking( 
+    id_booking INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    ktp_pelanggan VARCHAR(30),
+    nama_pelanggan VARCHAR(100),
+    id_kendaraan INT,
+    no_pol VARCHAR(30),
+    nama_kendaraan VARCHAR(100),
+    tanggal DATE,
+    keluhan VARCHAR(100),
+    catatan VARCHAR(100),
+    antrean INT,
+    tipe_antrean INT,
+    ktp_mekanik VARCHAR(30),
+    id_jasaServis INT,
+    status VARCHAR(20),
+    
+    FOREIGN KEY (ktp_pelanggan)
+        REFERENCES Pelanggan(ktp_pelanggan)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
 
-	catatan VARCHAR(100),
-	antrean INT,
-	tipe_antrean INT,
-	ktp_mekanik VARCHAR(30),
-	id_jasaServis INT,
-	status VARCHAR(20)
-	FOREIGN KEY (ktp_pelanggan)
-		REFERENCES Pelanggan(ktp_pelanggan)
-		ON DELETE SET NULL
-		ON UPDATE CASCADE,
-	FOREIGN KEY (ktp_mekanik)
-		REFERENCES Admins(ktp_admin)
-		ON DELETE SET NULL
-		ON UPDATE CASCADE
-	);
+    FOREIGN KEY (ktp_mekanik)
+        REFERENCES Admins(ktp_admin)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
 
-
-CREATE TABLE BookingSparepart(
-	id_booking INT,
-	kode_sparepart VARCHAR(20),
-	nama_sparepart VARCHAR(50),
-	jumlah INT,
-	harga INT,
-	image_data VARBINARY(MAX)
-
-	FOREIGN KEY (id_booking)
-		REFERENCES Bookings(id_booking)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE
-        );
+-- Membuat tabel BookingSparepart
+CREATE TABLE BookingSparepart (
+    id_booking INT,
+    kode_sparepart VARCHAR(20),
+    nama_sparepart VARCHAR(50),
+    jumlah INT,
+    harga INT,
+    image_data VARBINARY(MAX),
+    
+    CONSTRAINT FK_BookingSparepart_Booking
+    FOREIGN KEY (id_booking)
+        REFERENCES Booking(id_booking) 
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
 
 CREATE TABLE Riwayat(
     id_riwayat INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -127,53 +130,58 @@ CREATE TABLE Riwayat(
     total_harga INT,
     id_jasaServis INT,
     status VARCHAR(20),
-	created_at DATETIME DEFAULT GETDATE(),
-                        
-	FOREIGN KEY (ktp_pelanggan)
-		REFERENCES Pelanggan(ktp_pelanggan),
-	FOREIGN KEY (id_kendaraan)
-		REFERENCES Kendaraan(id_kendaraan)
-		ON DELETE SET NULL
-		ON UPDATE CASCADE,
-	FOREIGN KEY (ktp_admin)
-		REFERENCES Admins(ktp_admin)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE
+    created_at DATETIME DEFAULT GETDATE(),
+    
+    -- Foreign Key Constraints
+    FOREIGN KEY (ktp_pelanggan)
+        REFERENCES Pelanggan(ktp_pelanggan),
+        
+    FOREIGN KEY (id_kendaraan)
+        REFERENCES Kendaraan(id_kendaraan)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+        
+    FOREIGN KEY (ktp_admin)
+        REFERENCES Admins(ktp_admin)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
-
-
+-- Tabel RiwayatSparepart
 CREATE TABLE RiwayatSparepart(
-	id_riwayat INT,
-	kode_sparepart VARCHAR(20),
-	nama_sparepart VARCHAR(50),
-	jumlah INT,
-	harga INT,
-	image_data VARBINARY(MAX)
+    id_riwayat INT,
+    kode_sparepart VARCHAR(20),
+    nama_sparepart VARCHAR(50),
+    jumlah INT,
+    harga INT,
+    image_data VARBINARY(MAX),
+    
+    FOREIGN KEY (id_riwayat)
+        REFERENCES Riwayat(id_riwayat)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
 
-	FOREIGN KEY (id_riwayat)
-		REFERENCES Riwayat(id_riwayat)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE
-        );
-
+-- Tabel BatasBooking
 CREATE TABLE BatasBooking(
     id_batas_booking INT IDENTITY(1,1) PRIMARY KEY,
-    tanggal DATETIME,
+    tanggal_batas_booking DATETIME, 
     batas_booking INT,
     created_at DATETIME DEFAULT GETDATE()
 );
 
-DROP TABLE JadwalLibur;
+-- Tabel JadwalLibur
 CREATE TABLE JadwalLibur(
-	id_jadwal_libur INT PRIMARY KEY IDENTITY (1,1),
-	tanggal DATETIME,
-	hari VARCHAR(50)
+    id_jadwal_libur INT PRIMARY KEY IDENTITY (1,1),
+    tanggal DATETIME,
+    hari VARCHAR(50)
 );
 
+-- Tabel JadwalOperasional
 CREATE TABLE JadwalOperasional(
-	id_jadwal_operasional INT PRIMARY KEY IDENTITY (1,1),
-	hari VARCHAR(50),
-	jam_buka TIME,
-	jam_tutup TIME
+    id_jadwal_operasional INT PRIMARY KEY IDENTITY (1,1),
+    hari VARCHAR(50),
+    jam_buka TIME,
+    jam_tutup TIME
 );
+

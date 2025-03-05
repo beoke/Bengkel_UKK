@@ -34,7 +34,7 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jadwal_fom));
             toolStripMenuItem1 = new ToolStripMenuItem();
             tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
+            tabPage1 = new TabPage();   
             label1 = new Label();
             jam2 = new DateTimePicker();
             jam1 = new DateTimePicker();
