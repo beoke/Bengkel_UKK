@@ -11,7 +11,7 @@ namespace Bengkel_UKK.Admin.Karyawan
 {
     public class KaryawanDal
     {
-        public IEnumerable<KaryawanModel> ListData()
+        public IEnumerable<KaryawanModel> ListData(FilterDto filter)
         {
             const string sql = @"SELECT * FROM Admin";
             using var koneksi = new SqlConnection(conn.connStr);
