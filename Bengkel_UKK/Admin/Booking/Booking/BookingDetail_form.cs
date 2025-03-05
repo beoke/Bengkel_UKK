@@ -12,6 +12,7 @@ namespace Bengkel_UKK.Admin.Booking
 {
     public partial class BookingDetail_form : Form
     {
+        public static int _id_booking;
         public BookingDetail_form(int id)
         {
             InitializeComponent();

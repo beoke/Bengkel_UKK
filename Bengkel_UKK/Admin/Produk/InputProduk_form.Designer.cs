@@ -311,7 +311,6 @@ namespace Bengkel_UKK.Admin.Produk
             // 
             // pictureBox1
             // 
- //           pictureBox1.BackgroundImage = Properties.Resources.defaultImage;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Location = new Point(177, 54);
