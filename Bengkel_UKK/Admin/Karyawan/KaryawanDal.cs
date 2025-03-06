@@ -65,6 +65,56 @@ namespace Bengkel_UKK.Admin.Karyawan
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, admin);
         }
+        public bool CekEmail(string email)
+        {
+            const string sql = @"SELECT 1 FROM Admin WHERE email = @email";
+            using var koneksi = new SqlConnection(conn.connStr);
+            var data = koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { email = email });
+            return data != null ? true : false;
+        }
+        public bool CekTelepon(string telepon)
+        {
+            const string sql = @"SELECT 1 FROM Admin WHERE no_telp = @no_telp";
+            using var koneksi = new SqlConnection(conn.connStr);
+            var data = koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { no_telp = telepon });
+            return data != null ? true : false;
+        }
+        public bool CekKTP(string ktp)
+        {
+            const string sql = @"SELECT 1 FROM Admin WHERE ktp_admin = @ktp_admin";
+            using var koneksi = new SqlConnection(conn.connStr);
+            var data = koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { ktp_admin = ktp });
+            return data != null ? true : false;
+        }
+
+        public bool CekEmailUpdate(string email, string ktp_admin)
+        {
+            const string sql = @"SELECT 1 FROM Admin WHERE ktp_admin <> @ktp_admin AND email = @email";
+            using var koneksi = new SqlConnection(conn.connStr);
+            var data = koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { email = email, ktp_admin = ktp_admin });
+            return data != null ? true : false;
+        }
+        public bool CekTeleponUpdate(string telepon, string ktp_admin)
+        {
+            const string sql = @"SELECT 1 FROM Admin WHERE ktp_admin <> @ktp_admin AND no_telp = @no_telp";
+            using var koneksi = new SqlConnection(conn.connStr);
+            var data = koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { no_telp = telepon, ktp_admin = ktp_admin });
+            return data != null ? true : false;
+        }
+        public bool CekKTPUpdate(string ktp)
+        {
+            const string sql = @"SELECT 1 FROM Admin WHERE ktp_admin <> @ktp_admin";
+            using var koneksi = new SqlConnection(conn.connStr);
+            var data = koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { ktp_admin = ktp });
+            return data != null ? true : false;
+        }
+
+        public void UpdateKTP(string ktp_new, string ktp_old)
+        {
+            const string sql = @"UPDATE Admin SET ktp_admin = @ktp_new WHERE ktp_admin = @ktp_old";
+            using var koneksi = new SqlConnection(conn.connStr);
+            koneksi.Execute(sql, new { ktp_new = ktp_new, ktp_old = ktp_old });
+        }
 
         public void UpdateData(KaryawanModel admin)
         {
@@ -90,26 +140,14 @@ namespace Bengkel_UKK.Admin.Karyawan
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, new { ktp_admin });
         }
-        public List<KaryawanModel> SearchKaryawan(string keyword)
+        public int GetTotalRows(FilterDto filter)
         {
-            string sql = @"SELECT * FROM Admin 
-             WHERE nama_admin LIKE '%' + @keyword + '%' 
-             OR ktp_admin LIKE '%' + @keyword + '%'";
-
-            using (var koneksi = new SqlConnection(conn.connStr))
-            {
-                return koneksi.Query<KaryawanModel>(sql, new { keyword }).ToList();
-            }
+            string sql = $@"SELECT COUNT(*)
+                            FROM Admin {filter.sql}";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.QuerySingleOrDefault<int>(sql, filter.param);
         }
-        public List<KaryawanModel> GetLimitedKaryawan(int limit)
-        {
-            string sql = @"SELECT TOP (@Limit) * FROM Admin ORDER BY ktp_admin DESC";
 
-            using (var koneksi = new SqlConnection(conn.connStr))
-            {
-                return koneksi.Query<KaryawanModel>(sql, new { Limit = limit }).ToList();
-            }
-        }
 
     }
 

@@ -146,7 +146,7 @@ namespace Bengkel_UKK.Admin.Booking
         public int GetTotalRows(FilterDto filter)
         {
             string sql = $@"SELECT COUNT(*)
-                            FROM Bookings b 
+                            FROM Booking b 
                             LEFT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
                             LEFT JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan
                             LEFT JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis {filter.sql}";

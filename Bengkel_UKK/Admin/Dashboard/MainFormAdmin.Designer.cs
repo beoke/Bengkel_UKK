@@ -1,5 +1,4 @@
 ﻿using Bengkel_UKK.Custom_Component;
-using Syncfusion.Windows.Forms.Tools.Enums;
 
 namespace Bengkel_UKK.Admin.Dashboard
 {
@@ -41,8 +40,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnService = new DhafaButton();
             btnPelanggan = new DhafaButton();
             btnKaryawan = new DhafaButton();
-            btnkendaraan = new DhafaButton();
-            btnLaporan = new DhafaButton();
             panelLeft = new Panel();
             panelLogOut = new Panel();
             btnLogout = new DhafaButton();
@@ -73,14 +70,13 @@ namespace Bengkel_UKK.Admin.Dashboard
             flowLayoutPanel2.Controls.Add(btnService);
             flowLayoutPanel2.Controls.Add(btnPelanggan);
             flowLayoutPanel2.Controls.Add(btnKaryawan);
-            flowLayoutPanel2.Controls.Add(btnkendaraan);
-            flowLayoutPanel2.Controls.Add(btnLaporan);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.ForeColor = SystemColors.ControlText;
-            flowLayoutPanel2.Location = new Point(0, 143);
+            flowLayoutPanel2.Location = new Point(0, 139);
             flowLayoutPanel2.MaximumSize = new Size(290, 0);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Padding = new Padding(15, 0, 10, 0);
-            flowLayoutPanel2.Size = new Size(290, 748);
+            flowLayoutPanel2.Size = new Size(290, 535);
             flowLayoutPanel2.TabIndex = 5;
             // 
             // btnDashboard
@@ -283,56 +279,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKaryawan.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnKaryawan.UseVisualStyleBackColor = false;
             // 
-            // btnkendaraan
-            // 
-            btnkendaraan.BackColor = Color.FromArgb(44, 62, 80);
-            btnkendaraan.BackgroundColor = Color.FromArgb(44, 62, 80);
-            btnkendaraan.BorderColor = Color.PaleVioletRed;
-            btnkendaraan.BorderRadius = 7;
-            btnkendaraan.BorderSize = 0;
-            btnkendaraan.FlatAppearance.BorderSize = 0;
-            btnkendaraan.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnkendaraan.FlatStyle = FlatStyle.Flat;
-            btnkendaraan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnkendaraan.ForeColor = Color.White;
-            btnkendaraan.Image = (Image)resources.GetObject("btnkendaraan.Image");
-            btnkendaraan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnkendaraan.Location = new Point(18, 531);
-            btnkendaraan.Name = "btnkendaraan";
-            btnkendaraan.Padding = new Padding(20, 0, 0, 0);
-            btnkendaraan.Size = new Size(255, 60);
-            btnkendaraan.TabIndex = 21;
-            btnkendaraan.Text = "    Kendaraan";
-            btnkendaraan.TextAlign = ContentAlignment.MiddleLeft;
-            btnkendaraan.TextColor = Color.White;
-            btnkendaraan.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnkendaraan.UseVisualStyleBackColor = false;
-            // 
-            // btnLaporan
-            // 
-            btnLaporan.BackColor = Color.FromArgb(44, 62, 80);
-            btnLaporan.BackgroundColor = Color.FromArgb(44, 62, 80);
-            btnLaporan.BorderColor = Color.PaleVioletRed;
-            btnLaporan.BorderRadius = 7;
-            btnLaporan.BorderSize = 0;
-            btnLaporan.FlatAppearance.BorderSize = 0;
-            btnLaporan.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnLaporan.FlatStyle = FlatStyle.Flat;
-            btnLaporan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLaporan.ForeColor = Color.White;
-            btnLaporan.Image = (Image)resources.GetObject("btnLaporan.Image");
-            btnLaporan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLaporan.Location = new Point(18, 597);
-            btnLaporan.Name = "btnLaporan";
-            btnLaporan.Padding = new Padding(20, 0, 0, 0);
-            btnLaporan.Size = new Size(255, 60);
-            btnLaporan.TabIndex = 22;
-            btnLaporan.Text = "    Laporan";
-            btnLaporan.TextAlign = ContentAlignment.MiddleLeft;
-            btnLaporan.TextColor = Color.White;
-            btnLaporan.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnLaporan.UseVisualStyleBackColor = false;
-            // 
             // panelLeft
             // 
             panelLeft.Controls.Add(flowLayoutPanel2);
@@ -341,7 +287,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelLeft.Dock = DockStyle.Left;
             panelLeft.Location = new Point(0, 0);
             panelLeft.Name = "panelLeft";
-            panelLeft.Size = new Size(290, 973);
+            panelLeft.Size = new Size(290, 756);
             panelLeft.TabIndex = 7;
             // 
             // panelLogOut
@@ -349,7 +295,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelLogOut.BackColor = Color.FromArgb(44, 62, 80);
             panelLogOut.Controls.Add(btnLogout);
             panelLogOut.Dock = DockStyle.Bottom;
-            panelLogOut.Location = new Point(0, 891);
+            panelLogOut.Location = new Point(0, 674);
             panelLogOut.Name = "panelLogOut";
             panelLogOut.Padding = new Padding(15, 0, 10, 0);
             panelLogOut.Size = new Size(290, 82);
@@ -436,7 +382,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelMain.Location = new Point(290, 67);
             panelMain.Margin = new Padding(0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(902, 906);
+            panelMain.Size = new Size(902, 689);
             panelMain.TabIndex = 6;
             // 
             // panelTop
@@ -467,7 +413,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1192, 973);
+            ClientSize = new Size(1192, 756);
             Controls.Add(panelMain);
             Controls.Add(panelTop);
             Controls.Add(panelLeft);
@@ -480,6 +426,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             Style.MdiChild.IconHorizontalAlignment = HorizontalAlignment.Center;
             Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
             Text = "ProFix Application Management";
+            WindowState = FormWindowState.Maximized;
             flowLayoutPanel2.ResumeLayout(false);
             panelLeft.ResumeLayout(false);
             panelLogOut.ResumeLayout(false);
@@ -510,7 +457,5 @@ namespace Bengkel_UKK.Admin.Dashboard
         private Label label2;
         private Label lblDisplay;
         private DhafaButton btnKalender;
-        private DhafaButton btnkendaraan;
-        private DhafaButton btnLaporan;
     }
 }

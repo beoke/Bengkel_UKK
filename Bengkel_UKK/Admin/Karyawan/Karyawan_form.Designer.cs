@@ -34,8 +34,9 @@ namespace Bengkel_UKK.Admin.Karyawan
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Karyawan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
-            line_combo = new ComboBox();
+            lblShowingEntries = new Label();
             comboFilter = new ComboBox();
+            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -44,6 +45,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             txtSearch = new TextBox();
             label3 = new Label();
             label1 = new Label();
+            numericEntries = new NumericUpDown();
             btnAddData = new DhafaButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
             editToolStripMenuItem = new ToolStripMenuItem();
@@ -52,6 +54,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,12 +78,14 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.BorderColor = Color.PaleVioletRed;
             yogaPanel1.BorderRadius = 0;
             yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(line_combo);
+            yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilter);
+            yogaPanel1.Controls.Add(btnSearch);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
             yogaPanel1.Controls.Add(label1);
+            yogaPanel1.Controls.Add(numericEntries);
             yogaPanel1.Controls.Add(dataGridView1);
             yogaPanel1.ForeColor = Color.White;
             yogaPanel1.Location = new Point(28, 75);
@@ -88,25 +93,44 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.Size = new Size(1086, 531);
             yogaPanel1.TabIndex = 11;
             // 
-            // line_combo
+            // lblShowingEntries
             // 
-            line_combo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            line_combo.FormattingEnabled = true;
-            line_combo.Location = new Point(851, 38);
-            line_combo.Name = "line_combo";
-            line_combo.Size = new Size(121, 23);
-            line_combo.TabIndex = 13;
+            lblShowingEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblShowingEntries.AutoSize = true;
+            lblShowingEntries.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblShowingEntries.ForeColor = Color.DimGray;
+            lblShowingEntries.Location = new Point(46, 474);
+            lblShowingEntries.Name = "lblShowingEntries";
+            lblShowingEntries.Size = new Size(238, 23);
+            lblShowingEntries.TabIndex = 13;
+            lblShowingEntries.Text = "Showing 1 to 14 of 120 entries";
             // 
             // comboFilter
             // 
             comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(323, 33);
+            comboFilter.Location = new Point(376, 33);
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
-            comboFilter.SelectedIndexChanged += comboFilter_SelectedIndexChanged;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BorderColor = Color.PaleVioletRed;
+            btnSearch.BorderRadius = 0;
+            btnSearch.BorderSize = 0;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(323, 33);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(47, 27);
+            btnSearch.TabIndex = 12;
+            btnSearch.TextColor = Color.White;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -189,7 +213,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             txtSearch.PlaceholderText = " Search";
             txtSearch.Size = new Size(271, 27);
             txtSearch.TabIndex = 6;
-            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label3
             // 
@@ -197,11 +220,11 @@ namespace Bengkel_UKK.Admin.Karyawan
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(978, 38);
+            label3.Location = new Point(978, 33);
             label3.Name = "label3";
-            label3.Size = new Size(37, 23);
+            label3.Size = new Size(61, 23);
             label3.TabIndex = 5;
-            label3.Text = "line";
+            label3.Text = "entries";
             // 
             // label1
             // 
@@ -209,11 +232,25 @@ namespace Bengkel_UKK.Admin.Karyawan
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(793, 38);
+            label1.Location = new Point(860, 33);
             label1.Name = "label1";
             label1.Size = new Size(52, 23);
             label1.TabIndex = 4;
             label1.Text = "Show";
+            // 
+            // numericEntries
+            // 
+            numericEntries.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericEntries.BackColor = Color.White;
+            numericEntries.BorderStyle = BorderStyle.FixedSingle;
+            numericEntries.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            numericEntries.Location = new Point(912, 32);
+            numericEntries.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericEntries.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericEntries.Name = "numericEntries";
+            numericEntries.Size = new Size(64, 27);
+            numericEntries.TabIndex = 3;
+            numericEntries.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // btnAddData
             // 
@@ -226,7 +263,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-            btnAddData.Image = (Image)resources.GetObject("btnAddData.Image");
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
@@ -274,6 +310,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             yogaPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -283,6 +320,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
+        private NumericUpDown numericEntries;
         private Label label1;
         private TextBox txtSearch;
         private Label label3;
@@ -291,10 +329,11 @@ namespace Bengkel_UKK.Admin.Karyawan
         private DhafaButton btnPrevious;
         private Panel panel2;
         private Label lblHalaman;
+        private DhafaButton btnSearch;
         private ComboBox comboFilter;
+        private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem hapusToolStripMenuItem;
-        private ComboBox line_combo;
     }
 }

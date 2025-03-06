@@ -1,4 +1,5 @@
-﻿using Bengkel_UKK.Custom_Component;
+﻿using Bengkel_UKK.Admin.Booking.Booking;
+using Bengkel_UKK.Custom_Component;
 
 namespace Bengkel_UKK.Admin.Booking
 {
@@ -34,6 +35,7 @@ namespace Bengkel_UKK.Admin.Booking
             lblHeader = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            lblErrorTanggal = new Label();
             TglEditSync = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             lblErrorKeluhan = new Label();
             comboKendaraan = new ComboBox();
@@ -42,16 +44,14 @@ namespace Bengkel_UKK.Admin.Booking
             label6 = new Label();
             txtNoPol = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label1 = new Label();
-            btnSearch = new DhafaButton();
             lblErrorKTP = new Label();
-            yogaButton1 = new DhafaButton();
             label12 = new Label();
             txtNama = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            btnSave = new DhafaButton();
             txtNoKTP = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label4 = new Label();
             label3 = new Label();
             tabPage2 = new TabPage();
+            lblErrorTanggal2 = new Label();
             lblErrorNoPol = new Label();
             TglEditSync2 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             txtNoPol2 = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -64,9 +64,7 @@ namespace Bengkel_UKK.Admin.Booking
             label10 = new Label();
             label11 = new Label();
             label13 = new Label();
-            btnCancel2 = new DhafaButton();
             label14 = new Label();
-            btnSave2 = new DhafaButton();
             label15 = new Label();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -112,11 +110,13 @@ namespace Bengkel_UKK.Admin.Booking
             tabControl1.Location = new Point(0, 42);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(470, 593);
+            tabControl1.Size = new Size(470, 696);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
+            tabPage1.BackColor = Color.White;
+            tabPage1.Controls.Add(lblErrorTanggal);
             tabPage1.Controls.Add(TglEditSync);
             tabPage1.Controls.Add(lblErrorKeluhan);
             tabPage1.Controls.Add(comboKendaraan);
@@ -125,22 +125,31 @@ namespace Bengkel_UKK.Admin.Booking
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(txtNoPol);
             tabPage1.Controls.Add(label1);
-            tabPage1.Controls.Add(btnSearch);
             tabPage1.Controls.Add(lblErrorKTP);
-            tabPage1.Controls.Add(yogaButton1);
             tabPage1.Controls.Add(label12);
             tabPage1.Controls.Add(txtNama);
-            tabPage1.Controls.Add(btnSave);
             tabPage1.Controls.Add(txtNoKTP);
             tabPage1.Controls.Add(label4);
             tabPage1.Controls.Add(label3);
             tabPage1.Location = new Point(4, 30);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(462, 559);
+            tabPage1.Size = new Size(462, 662);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Pelanggan";
-            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lblErrorTanggal
+            // 
+            lblErrorTanggal.AutoSize = true;
+            lblErrorTanggal.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorTanggal.ForeColor = Color.Red;
+            lblErrorTanggal.Location = new Point(140, 401);
+            lblErrorTanggal.Name = "lblErrorTanggal";
+            lblErrorTanggal.Size = new Size(268, 17);
+            lblErrorTanggal.TabIndex = 115;
+            lblErrorTanggal.Text = "⚠️ Antrean penuh, Mohon pilih tanggal lain!";
+            lblErrorTanggal.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorTanggal.Visible = false;
             // 
             // TglEditSync
             // 
@@ -148,7 +157,7 @@ namespace Bengkel_UKK.Admin.Booking
             TglEditSync.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             TglEditSync.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             TglEditSync.Format = "d MMMM yyyy";
-            TglEditSync.Location = new Point(140, 293);
+            TglEditSync.Location = new Point(140, 370);
             TglEditSync.Name = "TglEditSync";
             TglEditSync.Size = new Size(293, 28);
             TglEditSync.Style.BorderColor = Color.FromArgb(64, 64, 64);
@@ -160,7 +169,7 @@ namespace Bengkel_UKK.Admin.Booking
             lblErrorKeluhan.AutoSize = true;
             lblErrorKeluhan.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorKeluhan.ForeColor = Color.Red;
-            lblErrorKeluhan.Location = new Point(140, 456);
+            lblErrorKeluhan.Location = new Point(140, 539);
             lblErrorKeluhan.Name = "lblErrorKeluhan";
             lblErrorKeluhan.Size = new Size(134, 17);
             lblErrorKeluhan.TabIndex = 111;
@@ -173,7 +182,7 @@ namespace Bengkel_UKK.Admin.Booking
             comboKendaraan.DropDownStyle = ComboBoxStyle.DropDownList;
             comboKendaraan.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboKendaraan.FormattingEnabled = true;
-            comboKendaraan.Location = new Point(140, 161);
+            comboKendaraan.Location = new Point(140, 215);
             comboKendaraan.Name = "comboKendaraan";
             comboKendaraan.Size = new Size(293, 28);
             comboKendaraan.TabIndex = 109;
@@ -185,7 +194,7 @@ namespace Bengkel_UKK.Admin.Booking
             txtKeluhan.BorderColor = Color.FromArgb(176, 176, 176);
             txtKeluhan.BorderStyle = BorderStyle.FixedSingle;
             txtKeluhan.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtKeluhan.Location = new Point(140, 353);
+            txtKeluhan.Location = new Point(140, 446);
             txtKeluhan.Multiline = true;
             txtKeluhan.Name = "txtKeluhan";
             txtKeluhan.PlaceholderText = " Masukkan Keluhan";
@@ -198,7 +207,7 @@ namespace Bengkel_UKK.Admin.Booking
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = SystemColors.ControlDarkDark;
-            label8.Location = new Point(29, 353);
+            label8.Location = new Point(26, 446);
             label8.Name = "label8";
             label8.Size = new Size(79, 25);
             label8.TabIndex = 107;
@@ -210,7 +219,7 @@ namespace Bengkel_UKK.Admin.Booking
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = SystemColors.ControlDarkDark;
-            label6.Location = new Point(26, 293);
+            label6.Location = new Point(26, 369);
             label6.Name = "label6";
             label6.Size = new Size(76, 25);
             label6.TabIndex = 105;
@@ -224,7 +233,7 @@ namespace Bengkel_UKK.Admin.Booking
             txtNoPol.BorderColor = Color.FromArgb(176, 176, 176);
             txtNoPol.BorderStyle = BorderStyle.FixedSingle;
             txtNoPol.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNoPol.Location = new Point(140, 228);
+            txtNoPol.Location = new Point(140, 292);
             txtNoPol.Name = "txtNoPol";
             txtNoPol.ReadOnly = true;
             txtNoPol.Size = new Size(293, 27);
@@ -236,29 +245,12 @@ namespace Bengkel_UKK.Admin.Booking
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(26, 228);
+            label1.Location = new Point(26, 292);
             label1.Name = "label1";
             label1.Size = new Size(68, 25);
             label1.TabIndex = 103;
             label1.Text = "No Pol";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(386, 26);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 102;
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
             // 
             // lblErrorKTP
             // 
@@ -273,32 +265,12 @@ namespace Bengkel_UKK.Admin.Booking
             lblErrorKTP.TextAlign = ContentAlignment.MiddleRight;
             lblErrorKTP.Visible = false;
             // 
-            // yogaButton1
-            // 
-            yogaButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            yogaButton1.BackColor = Color.Transparent;
-            yogaButton1.BackgroundColor = Color.Transparent;
-            yogaButton1.BorderColor = Color.PaleVioletRed;
-            yogaButton1.BorderRadius = 0;
-            yogaButton1.BorderSize = 2;
-            yogaButton1.FlatAppearance.BorderSize = 0;
-            yogaButton1.FlatStyle = FlatStyle.Flat;
-            yogaButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            yogaButton1.ForeColor = SystemColors.ControlDarkDark;
-            yogaButton1.Location = new Point(222, 507);
-            yogaButton1.Name = "yogaButton1";
-            yogaButton1.Size = new Size(108, 36);
-            yogaButton1.TabIndex = 100;
-            yogaButton1.Text = "Cancel";
-            yogaButton1.TextColor = SystemColors.ControlDarkDark;
-            yogaButton1.UseVisualStyleBackColor = false;
-            // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label12.ForeColor = SystemColors.ControlDarkDark;
-            label12.Location = new Point(26, 164);
+            label12.Location = new Point(26, 215);
             label12.Name = "label12";
             label12.Size = new Size(100, 25);
             label12.TabIndex = 99;
@@ -318,26 +290,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtNama.Size = new Size(293, 27);
             txtNama.TabIndex = 98;
             txtNama.ThemeName = "Default";
-            // 
-            // btnSave
-            // 
-            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSave.BackColor = Color.FromArgb(52, 152, 219);
-            btnSave.BackgroundColor = Color.FromArgb(52, 152, 219);
-            btnSave.BorderColor = Color.PaleVioletRed;
-            btnSave.BorderRadius = 0;
-            btnSave.BorderSize = 0;
-            btnSave.FlatAppearance.BorderSize = 0;
-            btnSave.FlatStyle = FlatStyle.Flat;
-            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(336, 507);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(108, 36);
-            btnSave.TabIndex = 97;
-            btnSave.Text = "Save";
-            btnSave.TextColor = Color.White;
-            btnSave.UseVisualStyleBackColor = false;
             // 
             // txtNoKTP
             // 
@@ -379,6 +331,8 @@ namespace Bengkel_UKK.Admin.Booking
             // 
             // tabPage2
             // 
+            tabPage2.BackColor = Color.White;
+            tabPage2.Controls.Add(lblErrorTanggal2);
             tabPage2.Controls.Add(lblErrorNoPol);
             tabPage2.Controls.Add(TglEditSync2);
             tabPage2.Controls.Add(txtNoPol2);
@@ -391,17 +345,27 @@ namespace Bengkel_UKK.Admin.Booking
             tabPage2.Controls.Add(label10);
             tabPage2.Controls.Add(label11);
             tabPage2.Controls.Add(label13);
-            tabPage2.Controls.Add(btnCancel2);
             tabPage2.Controls.Add(label14);
-            tabPage2.Controls.Add(btnSave2);
             tabPage2.Controls.Add(label15);
             tabPage2.Location = new Point(4, 30);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(462, 559);
+            tabPage2.Size = new Size(462, 630);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Tamu";
-            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lblErrorTanggal2
+            // 
+            lblErrorTanggal2.AutoSize = true;
+            lblErrorTanggal2.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorTanggal2.ForeColor = Color.Red;
+            lblErrorTanggal2.Location = new Point(141, 292);
+            lblErrorTanggal2.Name = "lblErrorTanggal2";
+            lblErrorTanggal2.Size = new Size(268, 17);
+            lblErrorTanggal2.TabIndex = 133;
+            lblErrorTanggal2.Text = "⚠️ Antrean penuh, Mohon pilih tanggal lain!";
+            lblErrorTanggal2.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorTanggal2.Visible = false;
             // 
             // lblErrorNoPol
             // 
@@ -561,26 +525,6 @@ namespace Bengkel_UKK.Admin.Booking
             label13.Text = "No Pol";
             label13.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnCancel2
-            // 
-            btnCancel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCancel2.BackColor = Color.Transparent;
-            btnCancel2.BackgroundColor = Color.Transparent;
-            btnCancel2.BorderColor = Color.PaleVioletRed;
-            btnCancel2.BorderRadius = 0;
-            btnCancel2.BorderSize = 2;
-            btnCancel2.FlatAppearance.BorderSize = 0;
-            btnCancel2.FlatStyle = FlatStyle.Flat;
-            btnCancel2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancel2.ForeColor = SystemColors.ControlDarkDark;
-            btnCancel2.Location = new Point(226, 500);
-            btnCancel2.Name = "btnCancel2";
-            btnCancel2.Size = new Size(108, 36);
-            btnCancel2.TabIndex = 116;
-            btnCancel2.Text = "Cancel";
-            btnCancel2.TextColor = SystemColors.ControlDarkDark;
-            btnCancel2.UseVisualStyleBackColor = false;
-            // 
             // label14
             // 
             label14.AutoSize = true;
@@ -592,26 +536,6 @@ namespace Bengkel_UKK.Admin.Booking
             label14.TabIndex = 115;
             label14.Text = "Kendaraan";
             label14.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnSave2
-            // 
-            btnSave2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSave2.BackColor = Color.FromArgb(52, 152, 219);
-            btnSave2.BackgroundColor = Color.FromArgb(52, 152, 219);
-            btnSave2.BorderColor = Color.PaleVioletRed;
-            btnSave2.BorderRadius = 0;
-            btnSave2.BorderSize = 0;
-            btnSave2.FlatAppearance.BorderSize = 0;
-            btnSave2.FlatStyle = FlatStyle.Flat;
-            btnSave2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSave2.ForeColor = Color.White;
-            btnSave2.Location = new Point(340, 500);
-            btnSave2.Name = "btnSave2";
-            btnSave2.Size = new Size(108, 36);
-            btnSave2.TabIndex = 113;
-            btnSave2.Text = "Save";
-            btnSave2.TextColor = Color.White;
-            btnSave2.UseVisualStyleBackColor = false;
             // 
             // label15
             // 
@@ -630,7 +554,7 @@ namespace Bengkel_UKK.Admin.Booking
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 247, 247);
-            ClientSize = new Size(470, 635);
+            ClientSize = new Size(470, 738);
             Controls.Add(tabControl1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -669,7 +593,7 @@ namespace Bengkel_UKK.Admin.Booking
         private Label label1;
         private DhafaButton btnSearch;
         private Label lblErrorKTP;
-        private DhafaButton yogaButton1;
+        private DhafaButton btnCancel;
         private Label label12;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNama;
         private DhafaButton btnSave;
@@ -693,5 +617,7 @@ namespace Bengkel_UKK.Admin.Booking
         private Syncfusion.WinForms.Input.SfDateTimeEdit TglEditSync;
         private Syncfusion.WinForms.Input.SfDateTimeEdit TglEditSync2;
         private Label lblErrorNoPol;
+        private Label lblErrorTanggal;
+        private Label lblErrorTanggal2;
     }
 }

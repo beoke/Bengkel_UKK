@@ -132,7 +132,7 @@ namespace Bengkel_UKK.Admin.Booking
             else if (_servisKeterangan == 1)
             {
                 lblBookingToServis.ForeColor = _oren;
-                pictureServis.BackgroundImage = Properties.Resources.oren;
+                pictureServis.BackgroundImage = Properties.Resources.gambar_oren;
                 pictureServis.BorderSize = 0;
                 lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
                 pictureSelesai.BackgroundImage = null;
@@ -141,19 +141,19 @@ namespace Bengkel_UKK.Admin.Booking
             else if (_servisKeterangan == 2)
             {
                 lblBookingToServis.ForeColor = _hijau;
-                pictureServis.BackgroundImage = Properties.Resources.hijau;
+                pictureServis.BackgroundImage = Properties.Resources.gambar_hijau;
                 pictureServis.BorderSize = 0;
                 lblServisToSelesai.ForeColor = _oren;
-                pictureSelesai.BackgroundImage = Properties.Resources.oren;
+                pictureSelesai.BackgroundImage = Properties.Resources.gambar_oren;
                 pictureSelesai.BorderSize = 0;
             }
             else
             {
                 lblBookingToServis.ForeColor = _hijau;
-                pictureServis.BackgroundImage = Properties.Resources.hijau;
+                pictureServis.BackgroundImage = Properties.Resources.gambar_hijau;
                 pictureServis.BorderSize = 0;
                 lblServisToSelesai.ForeColor = _hijau;
-                pictureSelesai.BackgroundImage = Properties.Resources.hijau;
+                pictureSelesai.BackgroundImage = Properties.Resources.gambar_hijau;
                 pictureSelesai.BorderSize = 0;
             }
             label19.Text = _servisKeterangan.ToString();

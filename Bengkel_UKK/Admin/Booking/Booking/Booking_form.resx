@@ -150,4 +150,25 @@
   <metadata name="contextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>318, 17</value>
   </metadata>
+  <data name="detailBookingToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAFgAAABYAXjaS2IAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAAq0lEQVQ4T8WSMQoCMRBFX2Orp9BK0POordgLos3qRfQA3kALbyF4CvEAiygDCQyfxGwqH0y18x5J
+        WKhjB7yAI9DTjyWmQAt8wpxrIntgCcwkctLFFNuw/AZWwNxFnrqsRDlOjCxCZKOCR2WNTFTwHBKiH3uT
+        LE1C8GPxLP+TB8A9IXWSDfs1h5lIUR6HxRswkkhRNtZO8JFOsnGRI9t1+rr0iwdwDSex61TxBTA9XEux
+        DN45AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="deleteToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHUAAAB1AePCB2UAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAA6UlEQVQ4T5WSsS7EQRjEfxTiKRReQuUlJBKVVngIylNp6CUq9EJyCeENyD3AnU6jUCgUyE9mL7J7
+        5HaSSWa/mfmy+e8fZmMNGAOvodrZn1gAVoDVcAjs/DqrnZWzWTtTXANfnbwq5aUZ5jz8TJdF4Ay47ORp
+        ulNsAJtz0myDl1ztDXiMngDP0U/x1GYbjGLeAFvRh6HamZ7abIO7mL5IWTAIy4LyWrd1WVx0LDivy+Kk
+        Y8FxXRYHHQv267LY61iwW5eF76vpB9qOPgrVzvTUZhusx/QXfY/+CNXO9NRmGywDDwn8x/tkf/ANlKOJ
+        OU7nAt4AAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

@@ -328,7 +328,7 @@ namespace Bengkel_UKK.Admin.Booking
 public class FilterDto
 {
     public string sql { get; set; } = string.Empty;
-    public object param { get; set; } = new DynamicParameters();
+    public DynamicParameters param { get; set; } //public Dictionary<string, object> param { get; set; } = new Dictionary<string, object>();
 }
 
 public class FilterWaktu

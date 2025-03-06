@@ -2,7 +2,6 @@
 using Bengkel_UKK.Admin.Jasa_Service;
 using Bengkel_UKK.Admin.Kalender;
 using Bengkel_UKK.Admin.Karyawan;
-using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
@@ -12,11 +11,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
 
 namespace Bengkel_UKK.Admin.Dashboard
 {
@@ -36,7 +35,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             _mainForm = this;
             InitComponen();
             RegisterEvent();
-
         }
         private void InitComponen()
         {
@@ -48,7 +46,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             AddButton(6, btnPelanggan);
             AddButton(7, btnKaryawan);
             AddButton(8, btnKalender);
-            AddButton(9, btnkendaraan);
 
             flowLayoutPanel2.AutoScroll = true;
             flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
@@ -63,11 +60,10 @@ namespace Bengkel_UKK.Admin.Dashboard
             this.Style.TitleBar.CloseButtonForeColor = Color.White;
             this.Style.TitleBar.MinimizeButtonForeColor = Color.White;
             this.Style.TitleBar.MaximizeButtonForeColor = Color.White;
-            //this.StyleForm();
         }
         private void RegisterEvent()
         {
-            List<Button> btnStyle = new List<Button> { btnDashboard, btnBooking, btnProduk, btnRiwayat, btnService, btnPelanggan, btnKaryawan, btnKalender, btnkendaraan };
+            List<Button> btnStyle = new List<Button> { btnDashboard, btnBooking, btnProduk, btnRiwayat, btnService, btnPelanggan, btnKaryawan, btnKalender };
             foreach (var item in btnStyle)
             {
                 item.FlatAppearance.MouseDownBackColor = active;
@@ -90,31 +86,29 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKaryawan.Click += BtnSideBar_Click;
             btnKalender.Click += (s, e) => buttonActiveAfter = 8;
             btnKalender.Click += BtnSideBar_Click;
-            btnkendaraan.Click += (s, e) => buttonActiveAfter = 9;
-            btnkendaraan.Click += BtnSideBar_Click;
 
             // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
             btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard());
             btnProduk.Click += (s, e) => ShowFormInPanel2(new Produk_form());
             btnKaryawan.Click += (s, e) => ShowFormInPanel2(new Karyawan_form());
             btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
+            btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
-            btnkendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
-            btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
         }
 
-     
 
         private void AddButton(int key, Button value)
         {
             _listButton.Add(key, value);
         }
+
         private void BtnSideBar_Click(object? sender, EventArgs e)
         {
             ControlSideBar();
         }
+
         public static void ControlSideBar()
         {
             if (MainFormAdmin._mainForm == null) return;
@@ -159,12 +153,11 @@ namespace Bengkel_UKK.Admin.Dashboard
                 case 8:
                     text = "KALENDER";
                     break;
-                case 9:
-                    text = "KENDARAAN";
-                    break;
             }
             _mainForm.lblDisplay.Text = text;
         }
+
+
         public static void ShowFormInPanel2(Form form)
         {
             if (MainFormAdmin._mainForm == null || MainFormAdmin._mainForm.panelMain == null)
@@ -187,6 +180,24 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelMain.Controls.Add(form);
             panelMain.Tag = form;
             form.Show();
+        }
+
+
+        private void SetProfilePicture(Image image, PictureBox pictureBox)
+        {
+            // Buat bitmap baru dengan ukuran PictureBox
+            Bitmap resizedImage = new Bitmap(pictureBox.Width, pictureBox.Height);
+
+            // Gunakan Graphics untuk menggambar gambar asli ke bitmap baru
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                // Atur InterpolationMode ke HighQualityBicubic
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.DrawImage(image, 0, 0, pictureBox.Width, pictureBox.Height);
+            }
+
+            // Set gambar yang sudah di-resize ke PictureBox
+            pictureBox.Image = resizedImage;
         }
     }
 }

@@ -42,7 +42,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             txtEmail = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label9 = new Label();
             label10 = new Label();
-            txtTelepon = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label12 = new Label();
             txtKonfirPassword = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label13 = new Label();
@@ -52,25 +51,25 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnCancel = new DhafaButton();
             pictureBoxProfile = new RJCircularPictureBox();
             btnChooseFile = new DhafaButton();
-            DhafaPanel1 = new DhafaPanel();
-            nama_label = new Label();
-            noKtp_label = new Label();
-            telp_label = new Label();
-            email_label = new Label();
-            pass_label = new Label();
-            confirm_label = new Label();
+            lblErrorNama = new Label();
+            lblErrorKTP = new Label();
+            lblErrorTelepon = new Label();
+            lblErrorEmail = new Label();
+            lblErrorPassword = new Label();
+            lblErrorCPassword = new Label();
             comboPegawai = new ComboBox();
-            foto_label = new Label();
+            lblErrorAlamat = new Label();
+            btnDelete = new DhafaButton();
+            txtNoTelepon = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtNama).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNoKTP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtPassword).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtTelepon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtKonfirPassword).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtAlamat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).BeginInit();
-            DhafaPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtNoTelepon).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -93,7 +92,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             lblHeader.TabIndex = 11;
             lblHeader.Text = "Input Pegawai";
             lblHeader.TextAlign = ContentAlignment.MiddleCenter;
-            lblHeader.Click += lblHeader_Click;
             // 
             // label3
             // 
@@ -102,9 +100,9 @@ namespace Bengkel_UKK.Admin.Karyawan
             label3.ForeColor = SystemColors.ControlDarkDark;
             label3.Location = new Point(25, 271);
             label3.Name = "label3";
-            label3.Size = new Size(68, 25);
+            label3.Size = new Size(60, 25);
             label3.TabIndex = 15;
-            label3.Text = "Nama*";
+            label3.Text = "Nama";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -114,15 +112,15 @@ namespace Bengkel_UKK.Admin.Karyawan
             label4.ForeColor = SystemColors.ControlDarkDark;
             label4.Location = new Point(25, 348);
             label4.Name = "label4";
-            label4.Size = new Size(82, 25);
+            label4.Size = new Size(74, 25);
             label4.TabIndex = 24;
-            label4.Text = "No KTP*";
+            label4.Text = "No KTP";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtNama
             // 
             txtNama.BackColor = Color.White;
-            txtNama.BeforeTouchSize = new Size(293, 90);
+            txtNama.BeforeTouchSize = new Size(293, 27);
             txtNama.BorderColor = Color.FromArgb(209, 211, 212);
             txtNama.BorderStyle = BorderStyle.FixedSingle;
             txtNama.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -155,7 +153,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             // txtNoKTP
             // 
             txtNoKTP.BackColor = Color.White;
-            txtNoKTP.BeforeTouchSize = new Size(293, 90);
+            txtNoKTP.BeforeTouchSize = new Size(293, 27);
             txtNoKTP.BorderColor = Color.FromArgb(209, 211, 212);
             txtNoKTP.BorderStyle = BorderStyle.FixedSingle;
             txtNoKTP.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -169,12 +167,13 @@ namespace Bengkel_UKK.Admin.Karyawan
             // txtPassword
             // 
             txtPassword.BackColor = Color.White;
-            txtPassword.BeforeTouchSize = new Size(293, 90);
+            txtPassword.BeforeTouchSize = new Size(293, 27);
             txtPassword.BorderColor = Color.FromArgb(209, 211, 212);
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
             txtPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.Location = new Point(619, 151);
             txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = " Masukkan password";
             txtPassword.Size = new Size(293, 27);
             txtPassword.TabIndex = 52;
@@ -183,7 +182,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             // txtEmail
             // 
             txtEmail.BackColor = Color.White;
-            txtEmail.BeforeTouchSize = new Size(293, 90);
+            txtEmail.BeforeTouchSize = new Size(293, 27);
             txtEmail.BorderColor = Color.FromArgb(209, 211, 212);
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -201,9 +200,9 @@ namespace Bengkel_UKK.Admin.Karyawan
             label9.ForeColor = SystemColors.ControlDarkDark;
             label9.Location = new Point(505, 151);
             label9.Name = "label9";
-            label9.Size = new Size(98, 25);
+            label9.Size = new Size(90, 25);
             label9.TabIndex = 50;
-            label9.Text = "Password*";
+            label9.Text = "Password";
             label9.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -213,24 +212,10 @@ namespace Bengkel_UKK.Admin.Karyawan
             label10.ForeColor = SystemColors.ControlDarkDark;
             label10.Location = new Point(505, 74);
             label10.Name = "label10";
-            label10.Size = new Size(64, 25);
+            label10.Size = new Size(56, 25);
             label10.TabIndex = 49;
-            label10.Text = "Email*";
+            label10.Text = "Email";
             label10.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtTelepon
-            // 
-            txtTelepon.BackColor = Color.White;
-            txtTelepon.BeforeTouchSize = new Size(293, 90);
-            txtTelepon.BorderColor = Color.FromArgb(209, 211, 212);
-            txtTelepon.BorderStyle = BorderStyle.FixedSingle;
-            txtTelepon.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTelepon.Location = new Point(139, 425);
-            txtTelepon.Name = "txtTelepon";
-            txtTelepon.PlaceholderText = " Masukkan nomor telepon";
-            txtTelepon.Size = new Size(293, 27);
-            txtTelepon.TabIndex = 55;
-            txtTelepon.ThemeName = "Default";
             // 
             // label12
             // 
@@ -239,20 +224,21 @@ namespace Bengkel_UKK.Admin.Karyawan
             label12.ForeColor = SystemColors.ControlDarkDark;
             label12.Location = new Point(25, 425);
             label12.Name = "label12";
-            label12.Size = new Size(116, 25);
+            label12.Size = new Size(108, 25);
             label12.TabIndex = 53;
-            label12.Text = "No Telepon*";
+            label12.Text = "No Telepon";
             label12.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtKonfirPassword
             // 
             txtKonfirPassword.BackColor = Color.White;
-            txtKonfirPassword.BeforeTouchSize = new Size(293, 90);
+            txtKonfirPassword.BeforeTouchSize = new Size(293, 27);
             txtKonfirPassword.BorderColor = Color.FromArgb(209, 211, 212);
             txtKonfirPassword.BorderStyle = BorderStyle.FixedSingle;
             txtKonfirPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtKonfirPassword.Location = new Point(619, 228);
             txtKonfirPassword.Name = "txtKonfirPassword";
+            txtKonfirPassword.PasswordChar = '*';
             txtKonfirPassword.PlaceholderText = " Masukkan konfirmasi password";
             txtKonfirPassword.Size = new Size(293, 27);
             txtKonfirPassword.TabIndex = 58;
@@ -267,7 +253,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             label13.Name = "label13";
             label13.Size = new Size(106, 50);
             label13.TabIndex = 57;
-            label13.Text = "Konfirmasi \r\nPassword*";
+            label13.Text = "Konfirmasi \r\nPassword";
             label13.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -275,17 +261,17 @@ namespace Bengkel_UKK.Admin.Karyawan
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(505, 419);
+            label2.Location = new Point(505, 425);
             label2.Name = "label2";
-            label2.Size = new Size(83, 25);
+            label2.Size = new Size(75, 25);
             label2.TabIndex = 59;
-            label2.Text = "Jabatan*";
+            label2.Text = "Jabatan";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtAlamat
             // 
             txtAlamat.BackColor = Color.White;
-            txtAlamat.BeforeTouchSize = new Size(293, 90);
+            txtAlamat.BeforeTouchSize = new Size(293, 27);
             txtAlamat.BorderColor = Color.FromArgb(209, 211, 212);
             txtAlamat.BorderStyle = BorderStyle.FixedSingle;
             txtAlamat.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -293,7 +279,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             txtAlamat.Multiline = true;
             txtAlamat.Name = "txtAlamat";
             txtAlamat.PlaceholderText = " Masukkan alamat";
-            txtAlamat.Size = new Size(293, 90);
+            txtAlamat.Size = new Size(293, 70);
             txtAlamat.TabIndex = 61;
             txtAlamat.ThemeName = "Default";
             // 
@@ -337,167 +323,188 @@ namespace Bengkel_UKK.Admin.Karyawan
             pictureBoxProfile.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             pictureBoxProfile.BorderSize = 2;
             pictureBoxProfile.GradientAngle = 50F;
-            pictureBoxProfile.Location = new Point(63, 11);
+            pictureBoxProfile.Location = new Point(173, 61);
             pictureBoxProfile.Name = "pictureBoxProfile";
-            pictureBoxProfile.Size = new Size(106, 106);
+            pictureBoxProfile.Size = new Size(117, 117);
             pictureBoxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxProfile.TabIndex = 63;
             pictureBoxProfile.TabStop = false;
             // 
             // btnChooseFile
             // 
-            btnChooseFile.BackColor = Color.FromArgb(230, 126, 34);
-            btnChooseFile.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnChooseFile.BackColor = Color.FromArgb(52, 152, 219);
+            btnChooseFile.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnChooseFile.BorderColor = Color.PaleVioletRed;
             btnChooseFile.BorderRadius = 0;
             btnChooseFile.BorderSize = 0;
             btnChooseFile.FlatAppearance.BorderSize = 0;
             btnChooseFile.FlatStyle = FlatStyle.Flat;
             btnChooseFile.ForeColor = Color.White;
-            btnChooseFile.Location = new Point(76, 128);
+            btnChooseFile.Location = new Point(239, 203);
             btnChooseFile.Name = "btnChooseFile";
             btnChooseFile.Size = new Size(82, 27);
             btnChooseFile.TabIndex = 64;
-            btnChooseFile.Text = "Upload Foto";
+            btnChooseFile.Text = "Upload";
             btnChooseFile.TextColor = Color.White;
+            btnChooseFile.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnChooseFile.UseVisualStyleBackColor = false;
             // 
-            // DhafaPanel1
+            // lblErrorNama
             // 
-            DhafaPanel1.BackColor = Color.White;
-            DhafaPanel1.BorderColor = Color.PaleVioletRed;
-            DhafaPanel1.BorderRadius = 0;
-            DhafaPanel1.BorderSize = 0;
-            DhafaPanel1.Controls.Add(pictureBoxProfile);
-            DhafaPanel1.Controls.Add(btnChooseFile);
-            DhafaPanel1.ForeColor = Color.White;
-            DhafaPanel1.Location = new Point(139, 61);
-            DhafaPanel1.Name = "DhafaPanel1";
-            DhafaPanel1.Size = new Size(232, 169);
-            DhafaPanel1.TabIndex = 65;
+            lblErrorNama.AutoSize = true;
+            lblErrorNama.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorNama.ForeColor = Color.Red;
+            lblErrorNama.Location = new Point(139, 301);
+            lblErrorNama.Name = "lblErrorNama";
+            lblErrorNama.Size = new Size(159, 17);
+            lblErrorNama.TabIndex = 77;
+            lblErrorNama.Text = "⚠️ Harap mengisi nama !";
+            lblErrorNama.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorNama.Visible = false;
             // 
-            // nama_label
+            // lblErrorKTP
             // 
-            nama_label.AutoSize = true;
-            nama_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            nama_label.ForeColor = Color.Red;
-            nama_label.Location = new Point(139, 301);
-            nama_label.Name = "nama_label";
-            nama_label.Size = new Size(109, 17);
-            nama_label.TabIndex = 77;
-            nama_label.Text = "Nama wajib diisi*";
-            nama_label.TextAlign = ContentAlignment.MiddleRight;
-            nama_label.Visible = false;
+            lblErrorKTP.AutoSize = true;
+            lblErrorKTP.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorKTP.ForeColor = Color.Red;
+            lblErrorKTP.Location = new Point(139, 378);
+            lblErrorKTP.Name = "lblErrorKTP";
+            lblErrorKTP.Size = new Size(171, 17);
+            lblErrorKTP.TabIndex = 78;
+            lblErrorKTP.Text = "⚠️ Harap mengisi No KTP !";
+            lblErrorKTP.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorKTP.Visible = false;
             // 
-            // noKtp_label
+            // lblErrorTelepon
             // 
-            noKtp_label.AutoSize = true;
-            noKtp_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            noKtp_label.ForeColor = Color.Red;
-            noKtp_label.Location = new Point(139, 378);
-            noKtp_label.Name = "noKtp_label";
-            noKtp_label.Size = new Size(118, 17);
-            noKtp_label.TabIndex = 78;
-            noKtp_label.Text = "No KTP wajib diisi*";
-            noKtp_label.TextAlign = ContentAlignment.MiddleRight;
-            noKtp_label.Visible = false;
+            lblErrorTelepon.AutoSize = true;
+            lblErrorTelepon.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorTelepon.ForeColor = Color.Red;
+            lblErrorTelepon.Location = new Point(139, 455);
+            lblErrorTelepon.Name = "lblErrorTelepon";
+            lblErrorTelepon.Size = new Size(214, 17);
+            lblErrorTelepon.TabIndex = 79;
+            lblErrorTelepon.Text = "⚠️ Harap mengisi nomor telepon !";
+            lblErrorTelepon.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorTelepon.Visible = false;
             // 
-            // telp_label
+            // lblErrorEmail
             // 
-            telp_label.AutoSize = true;
-            telp_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            telp_label.ForeColor = Color.Red;
-            telp_label.Location = new Point(139, 455);
-            telp_label.Name = "telp_label";
-            telp_label.Size = new Size(120, 17);
-            telp_label.TabIndex = 79;
-            telp_label.Text = "Telepon wajib diisi*";
-            telp_label.TextAlign = ContentAlignment.MiddleRight;
-            telp_label.Visible = false;
+            lblErrorEmail.AutoSize = true;
+            lblErrorEmail.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorEmail.ForeColor = Color.Red;
+            lblErrorEmail.Location = new Point(619, 104);
+            lblErrorEmail.Name = "lblErrorEmail";
+            lblErrorEmail.Size = new Size(194, 17);
+            lblErrorEmail.TabIndex = 80;
+            lblErrorEmail.Text = "⚠️ Masukkan email yang valid !";
+            lblErrorEmail.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorEmail.Visible = false;
             // 
-            // email_label
+            // lblErrorPassword
             // 
-            email_label.AutoSize = true;
-            email_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            email_label.ForeColor = Color.Red;
-            email_label.Location = new Point(619, 104);
-            email_label.Name = "email_label";
-            email_label.Size = new Size(172, 17);
-            email_label.TabIndex = 80;
-            email_label.Text = "Masukkan email yang valid !";
-            email_label.TextAlign = ContentAlignment.MiddleRight;
-            email_label.Visible = false;
+            lblErrorPassword.AutoSize = true;
+            lblErrorPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorPassword.ForeColor = Color.Red;
+            lblErrorPassword.Location = new Point(619, 181);
+            lblErrorPassword.Name = "lblErrorPassword";
+            lblErrorPassword.Size = new Size(184, 17);
+            lblErrorPassword.TabIndex = 81;
+            lblErrorPassword.Text = "⚠️ Harap mengisi password !";
+            lblErrorPassword.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorPassword.Visible = false;
             // 
-            // pass_label
+            // lblErrorCPassword
             // 
-            pass_label.AutoSize = true;
-            pass_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            pass_label.ForeColor = Color.Red;
-            pass_label.Location = new Point(619, 181);
-            pass_label.Name = "pass_label";
-            pass_label.Size = new Size(130, 17);
-            pass_label.TabIndex = 81;
-            pass_label.Text = "Password wajib diisi*";
-            pass_label.TextAlign = ContentAlignment.MiddleRight;
-            pass_label.Visible = false;
-            // 
-            // confirm_label
-            // 
-            confirm_label.AutoSize = true;
-            confirm_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            confirm_label.ForeColor = Color.Red;
-            confirm_label.Location = new Point(619, 258);
-            confirm_label.Name = "confirm_label";
-            confirm_label.Size = new Size(196, 17);
-            confirm_label.TabIndex = 82;
-            confirm_label.Text = "Konfirmasi Password wajib diisi*";
-            confirm_label.TextAlign = ContentAlignment.MiddleRight;
-            confirm_label.Visible = false;
+            lblErrorCPassword.AutoSize = true;
+            lblErrorCPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorCPassword.ForeColor = Color.Red;
+            lblErrorCPassword.Location = new Point(619, 258);
+            lblErrorCPassword.Name = "lblErrorCPassword";
+            lblErrorCPassword.Size = new Size(248, 17);
+            lblErrorCPassword.TabIndex = 82;
+            lblErrorCPassword.Text = "⚠️ Harap mengisi konfirmasi password !";
+            lblErrorCPassword.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorCPassword.Visible = false;
             // 
             // comboPegawai
             // 
             comboPegawai.DropDownStyle = ComboBoxStyle.DropDownList;
             comboPegawai.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboPegawai.FormattingEnabled = true;
-            comboPegawai.Location = new Point(619, 419);
+            comboPegawai.Location = new Point(619, 425);
             comboPegawai.Name = "comboPegawai";
             comboPegawai.Size = new Size(293, 28);
             comboPegawai.TabIndex = 83;
             // 
-            // foto_label
+            // lblErrorAlamat
             // 
-            foto_label.AutoSize = true;
-            foto_label.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            foto_label.ForeColor = Color.Red;
-            foto_label.Location = new Point(202, 233);
-            foto_label.Name = "foto_label";
-            foto_label.Size = new Size(124, 17);
-            foto_label.TabIndex = 84;
-            foto_label.Text = "Foto Diri wajib diisi*";
-            foto_label.TextAlign = ContentAlignment.MiddleRight;
-            foto_label.Visible = false;
+            lblErrorAlamat.AutoSize = true;
+            lblErrorAlamat.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorAlamat.ForeColor = Color.Red;
+            lblErrorAlamat.Location = new Point(619, 378);
+            lblErrorAlamat.Name = "lblErrorAlamat";
+            lblErrorAlamat.Size = new Size(167, 17);
+            lblErrorAlamat.TabIndex = 84;
+            lblErrorAlamat.Text = "⚠️ Harap mengisi Alamat !";
+            lblErrorAlamat.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorAlamat.Visible = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(210, 60, 60);
+            btnDelete.BackgroundColor = Color.FromArgb(210, 60, 60);
+            btnDelete.BorderColor = Color.PaleVioletRed;
+            btnDelete.BorderRadius = 0;
+            btnDelete.BorderSize = 0;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(139, 203);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(82, 27);
+            btnDelete.TabIndex = 85;
+            btnDelete.Text = "Hapus";
+            btnDelete.TextColor = Color.White;
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // txtNoTelepon
+            // 
+            txtNoTelepon.BackColor = Color.White;
+            txtNoTelepon.BeforeTouchSize = new Size(293, 27);
+            txtNoTelepon.BorderColor = Color.FromArgb(209, 211, 212);
+            txtNoTelepon.BorderStyle = BorderStyle.FixedSingle;
+            txtNoTelepon.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNoTelepon.Location = new Point(139, 426);
+            txtNoTelepon.Name = "txtNoTelepon";
+            txtNoTelepon.PlaceholderText = " Masukkan nomor telepon";
+            txtNoTelepon.Size = new Size(293, 27);
+            txtNoTelepon.TabIndex = 86;
+            txtNoTelepon.ThemeName = "Default";
             // 
             // InputKaryawan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(937, 561);
-            Controls.Add(foto_label);
+            Controls.Add(txtNoTelepon);
+            Controls.Add(btnDelete);
+            Controls.Add(pictureBoxProfile);
+            Controls.Add(btnChooseFile);
+            Controls.Add(lblErrorAlamat);
             Controls.Add(comboPegawai);
-            Controls.Add(confirm_label);
-            Controls.Add(pass_label);
-            Controls.Add(email_label);
-            Controls.Add(telp_label);
-            Controls.Add(noKtp_label);
-            Controls.Add(nama_label);
-            Controls.Add(DhafaPanel1);
+            Controls.Add(lblErrorCPassword);
+            Controls.Add(lblErrorPassword);
+            Controls.Add(lblErrorEmail);
+            Controls.Add(lblErrorTelepon);
+            Controls.Add(lblErrorKTP);
+            Controls.Add(lblErrorNama);
             Controls.Add(btnCancel);
             Controls.Add(txtAlamat);
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(txtKonfirPassword);
             Controls.Add(label13);
-            Controls.Add(txtTelepon);
             Controls.Add(label12);
             Controls.Add(txtPassword);
             Controls.Add(txtEmail);
@@ -509,7 +516,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "InputKaryawan_form";
             StartPosition = FormStartPosition.CenterParent;
             panel1.ResumeLayout(false);
@@ -517,11 +524,10 @@ namespace Bengkel_UKK.Admin.Karyawan
             ((System.ComponentModel.ISupportInitialize)txtNoKTP).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtPassword).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtTelepon).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtKonfirPassword).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtAlamat).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxProfile).EndInit();
-            DhafaPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtNoTelepon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -549,14 +555,15 @@ namespace Bengkel_UKK.Admin.Karyawan
         private DhafaButton btnCancel;
         private RJCircularPictureBox pictureBoxProfile;
         private DhafaButton btnChooseFile;
-        private DhafaPanel DhafaPanel1;
-        private Label nama_label;
-        private Label noKtp_label;
-        private Label telp_label;
-        private Label email_label;
-        private Label pass_label;
-        private Label confirm_label;
+        private Label lblErrorNama;
+        private Label lblErrorKTP;
+        private Label lblErrorTelepon;
+        private Label lblErrorEmail;
+        private Label lblErrorPassword;
+        private Label lblErrorCPassword;
         private ComboBox comboPegawai;
-        private Label foto_label;
+        private Label lblErrorAlamat;
+        private DhafaButton btnDelete;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNoTelepon;
     }
 }

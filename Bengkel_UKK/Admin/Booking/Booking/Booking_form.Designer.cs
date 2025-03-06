@@ -143,7 +143,6 @@ namespace Bengkel_UKK.Admin.Booking
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
@@ -307,7 +306,7 @@ namespace Bengkel_UKK.Admin.Booking
             contextMenuStrip.Items.AddRange(new ToolStripItem[] { detailBookingToolStripMenuItem, deleteToolStripMenuItem });
             contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
             contextMenuStrip.Name = "contextMenuStrip";
-            contextMenuStrip.Size = new Size(188, 56);
+            contextMenuStrip.Size = new Size(188, 78);
             contextMenuStrip.ThemeName = "Office2016Colorful";
             contextMenuStrip.ThemeStyle.BackColor = Color.FromArgb(52, 152, 219);
             contextMenuStrip.ThemeStyle.DisabledForeColor = Color.FromArgb(52, 152, 219);
@@ -316,12 +315,14 @@ namespace Bengkel_UKK.Admin.Booking
             // 
             // detailBookingToolStripMenuItem
             // 
+            detailBookingToolStripMenuItem.Image = (Image)resources.GetObject("detailBookingToolStripMenuItem.Image");
             detailBookingToolStripMenuItem.Name = "detailBookingToolStripMenuItem";
             detailBookingToolStripMenuItem.Size = new Size(187, 26);
             detailBookingToolStripMenuItem.Text = "Detail Booking";
             // 
             // deleteToolStripMenuItem
             // 
+            deleteToolStripMenuItem.Image = (Image)resources.GetObject("deleteToolStripMenuItem.Image");
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(187, 26);
             deleteToolStripMenuItem.Text = "Delete";
@@ -387,7 +388,7 @@ namespace Bengkel_UKK.Admin.Booking
             btnJadwal.TextColor = Color.White;
             btnJadwal.UseVisualStyleBackColor = false;
             // 
-            // FormBooking
+            // Booking_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -400,7 +401,7 @@ namespace Bengkel_UKK.Admin.Booking
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormBooking";
+            Name = "Booking_form";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);

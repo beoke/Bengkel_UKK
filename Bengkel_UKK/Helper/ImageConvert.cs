@@ -56,6 +56,7 @@ namespace Bengkel_UKK.Helper
 
         public static byte[] ImageToByteArray(Image image)
         {
+            if (image == null) return null;
             using (MemoryStream ms = new MemoryStream())
             {
                 image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
@@ -145,7 +146,22 @@ namespace Bengkel_UKK.Helper
             return bmp;
         }
 
+        public static Image SmoothImagePictureBox(Image image, int width, int height)
+        {
+            // Buat bitmap baru dengan ukuran PictureBox
+            Bitmap resizedImage = new Bitmap(width, height);
 
+            // Gunakan Graphics untuk menggambar gambar asli ke bitmap baru
+            using (Graphics g = Graphics.FromImage(resizedImage))
+            {
+                // Atur InterpolationMode ke HighQualityBicubic
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.DrawImage(image, 0, 0, width, height);
+            }
+
+            // Set gambar yang sudah di-resize ke PictureBox
+            return resizedImage;
+        }
         #endregion
     }
 }
