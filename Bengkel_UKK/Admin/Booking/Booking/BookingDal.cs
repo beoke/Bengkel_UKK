@@ -60,7 +60,7 @@ namespace Bengkel_UKK.Admin.Booking
                                 b.id_jasaServis,
                                 b.estimasi,
                                 b.status
-                            FROM Bookings b 
+                            FROM Booking b 
                             LEFT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
                             LEFT JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan
                             INNER JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis
@@ -138,7 +138,7 @@ namespace Bengkel_UKK.Admin.Booking
 
         public void DeleteBookingSparepart(int id_booking)
         {
-            const string sql = @"DELETE FROM BookingsSparepart WHERE id_booking = @id_booking";
+            const string sql = @"DELETE FROM BookingSparepart WHERE id_booking = @id_booking";
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, new { id_booking = id_booking });
         }

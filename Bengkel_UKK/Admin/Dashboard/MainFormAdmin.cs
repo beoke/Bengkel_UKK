@@ -2,6 +2,7 @@
 using Bengkel_UKK.Admin.Jasa_Service;
 using Bengkel_UKK.Admin.Kalender;
 using Bengkel_UKK.Admin.Karyawan;
+using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
@@ -86,6 +87,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKaryawan.Click += BtnSideBar_Click;
             btnKalender.Click += (s, e) => buttonActiveAfter = 8;
             btnKalender.Click += BtnSideBar_Click;
+            btn_kendaraan.Click += BtnSideBar_Click;
+            btn_kendaraan.Click += (s, e) => buttonActiveAfter = 9;
 
             // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
             btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard());
@@ -96,6 +99,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
+            btn_kendaraan.Click += (s, e)=> ShowFormInPanel2(new Kendaraan_form());
         }
 
 
