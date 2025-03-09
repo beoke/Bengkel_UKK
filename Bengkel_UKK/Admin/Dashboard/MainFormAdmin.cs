@@ -26,9 +26,9 @@ namespace Bengkel_UKK.Admin.Dashboard
         private static Label _lblDisplay;
         private static int buttonActiveBefore = 0;
         public static int buttonActiveAfter = 1;
-        private static Color active = System.Drawing.Color.FromArgb(41, 128, 185);
-        private static Color over = System.Drawing.Color.FromArgb(44, 62, 80);
-        private static Color hover = System.Drawing.Color.FromArgb(64, 82, 100);
+        private static Color active = System.Drawing.Color.FromArgb(210, 0, 0);
+        private static Color over = System.Drawing.Color.FromArgb(170, 0, 0);
+        private static Color hover = System.Drawing.Color.FromArgb(210, 0, 0);
         public MainFormAdmin()
         {
             InitializeComponent();

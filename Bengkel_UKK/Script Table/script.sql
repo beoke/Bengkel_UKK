@@ -185,3 +185,190 @@ CREATE TABLE JadwalOperasional(
     jam_tutup TIME
 );
 
+
+-- Tambah Pelanggan
+INSERT INTO Pelanggan (ktp_pelanggan, nama_pelanggan, email, password, alamat, no_telp)
+VALUES 
+('123456789', 'Budi Santoso', 'budi@email.com', 'password123', 'Jl. Merdeka No.10', '081234567890');
+
+-- Tambah Admin (Sebagai Mekanik)
+INSERT INTO Admin (ktp_admin, nama_admin, email, password, alamat, no_telp, role)
+VALUES 
+('987654321', 'Mekanik Andi', 'andi@email.com', 'password456', 'Jl. Kemerdekaan No.20', '082345678901', 1);
+
+-- Tambah Kendaraan
+INSERT INTO Kendaraan (no_pol, merk, tipe, transmisi, kapasitas, tahun, ktp_pelanggan, total_servis)
+VALUES 
+('B 1234 ABC', 'Toyota', 'Avanza', 'Manual', 7, '2020', '123456789', 0);
+
+-- Tambah Jasa Servis
+INSERT INTO JasaServis (nama_jasaServis, harga, keterangan)
+VALUES 
+('Ganti Oli', 150000, 'Paket servis ganti oli');
+
+-- Tambah Sparepart
+INSERT INTO Sparepart (kode_sparepart, nama_sparepart, stok, stok_minimum, harga)
+VALUES 
+('SP001', 'Oli Mesin', 50, 5, 75000);
+
+-- Tambah Booking
+INSERT INTO Booking (ktp_pelanggan, id_kendaraan, tanggal, keluhan, id_jasaServis, status)
+VALUES 
+('123456789', 1, '2025-03-10', 'Rem berbunyi keras', 1, 'Menunggu');
+
+
+-- comit rollback
+
+BEGIN TRANSACTION;
+
+BEGIN TRY
+    -- Tambah data riwayat servis
+    INSERT INTO Riwayat (ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, tanggal, total_harga, status)
+    VALUES ('123456789', 'Budi Santoso', 1, 'B 1234 ABC', GETDATE(), 500000, 'Selesai');
+
+    -- Simulasi kesalahan dengan memasukkan kendaraan yang tidak ada
+    INSERT INTO Riwayat (ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, tanggal, total_harga, status)
+    VALUES ('987654321', 'Andi Wijaya', 999, 'B 9999 XYZ', GETDATE(), 700000, 'Selesai');
+
+    COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+    ROLLBACK TRANSACTION;
+    PRINT 'Terjadi kesalahan, transaksi dibatalkan.';
+END CATCH;
+
+
+-- procedure
+go;
+
+CREATE PROCEDURE AddBooking 
+    @ktp_pelanggan VARCHAR(30),
+    @id_kendaraan INT,
+    @tanggal DATE,
+    @keluhan VARCHAR(100),
+    @id_jasaServis INT
+AS
+BEGIN
+    INSERT INTO Booking (ktp_pelanggan, id_kendaraan, tanggal, keluhan, id_jasaServis, status)
+    VALUES (@ktp_pelanggan, @id_kendaraan, @tanggal, @keluhan, @id_jasaServis, 'Menunggu');
+END;
+
+
+EXEC AddBooking '123456789', 1, '2025-03-10', 'Rem berbunyi keras', 2;
+
+
+go; 
+-- Trigger
+
+CREATE TRIGGER trg_UpdateStokSparepart
+ON BookingSparepart
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE Sparepart
+    SET stok = stok - i.jumlah
+    FROM Sparepart s
+    INNER JOIN inserted i ON s.kode_sparepart = i.kode_sparepart
+    WHERE s.stok >= i.jumlah;
+END;
+
+go;
+
+CREATE TRIGGER trg_AdjustStokSparepart
+ON BookingSparepart
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Mengembalikan stok sparepart sesuai jumlah sebelum update
+    UPDATE Sparepart
+    SET stok = stok + d.jumlah
+    FROM Sparepart s
+    INNER JOIN deleted d ON s.kode_sparepart = d.kode_sparepart;
+
+    -- Mengurangi stok sparepart sesuai jumlah baru setelah update
+    UPDATE Sparepart
+    SET stok = stok - i.jumlah
+    FROM Sparepart s
+    INNER JOIN inserted i ON s.kode_sparepart = i.kode_sparepart
+    WHERE s.stok >= i.jumlah;
+END;
+
+go;
+
+CREATE TRIGGER trg_RestoreStokSparepart
+ON BookingSparepart
+AFTER DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Mengembalikan stok sparepart saat data dihapus
+    UPDATE Sparepart
+    SET stok = stok + d.jumlah
+    FROM Sparepart s
+    INNER JOIN deleted d ON s.kode_sparepart = d.kode_sparepart;
+END;
+
+
+
+-- join
+
+SELECT 
+    b.id_booking, 
+    p.nama_pelanggan, 
+    k.no_pol, 
+    k.merk, 
+    k.tipe, 
+    b.tanggal, 
+    b.status
+FROM Booking b
+INNER JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
+INNER JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan
+WHERE b.status = 'Menunggu';
+
+SELECT 
+    b.id_booking, 
+    p.nama_pelanggan, 
+    k.no_pol, 
+    k.merk, 
+    k.tipe, 
+    b.tanggal, 
+    b.status
+FROM Booking b
+LEFT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
+LEFT JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan;
+
+SELECT 
+    b.id_booking, 
+    p.nama_pelanggan, 
+    k.no_pol, 
+    k.merk, 
+    k.tipe, 
+    b.tanggal, 
+    b.status
+FROM Booking b
+RIGHT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
+RIGHT JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan;
+
+go; 
+
+
+--  function
+
+CREATE FUNCTION GetTotalServis(@ktp_pelanggan VARCHAR(30))
+RETURNS INT
+AS
+BEGIN
+    DECLARE @TotalServis INT;
+    SELECT @TotalServis = COUNT(*) FROM Riwayat WHERE ktp_pelanggan = @ktp_pelanggan;
+    RETURN @TotalServis;
+END;
+
+go;
+
+SELECT nama_pelanggan, dbo.GetTotalServis(ktp_pelanggan) AS TotalServis
+FROM Pelanggan;

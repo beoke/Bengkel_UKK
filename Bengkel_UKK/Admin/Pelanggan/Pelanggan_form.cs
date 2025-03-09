@@ -127,6 +127,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
         {
             DataGridView dgv = dataGridView1;
             CustomGrids.CustomDataGrid(dgv);
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);  
 
             dgv.Columns["ktp_pelanggan"].HeaderText = "No KTP";
             dgv.Columns["nama_pelanggan"].HeaderText = "Nama";

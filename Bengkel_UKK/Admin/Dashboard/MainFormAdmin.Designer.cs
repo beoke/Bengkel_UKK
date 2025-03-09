@@ -61,7 +61,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.BackColor = Color.FromArgb(44, 62, 80);
+            flowLayoutPanel2.BackColor = Color.FromArgb(170, 0, 0);
             flowLayoutPanel2.Controls.Add(btnDashboard);
             flowLayoutPanel2.Controls.Add(btnBooking);
             flowLayoutPanel2.Controls.Add(btnKalender);
@@ -81,8 +81,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnDashboard
             // 
-            btnDashboard.BackColor = Color.FromArgb(44, 62, 80);
-            btnDashboard.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnDashboard.BackColor = Color.FromArgb(170, 0, 0);
+            btnDashboard.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnDashboard.BorderColor = Color.PaleVioletRed;
             btnDashboard.BorderRadius = 7;
             btnDashboard.BorderSize = 0;
@@ -106,8 +106,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnBooking
             // 
-            btnBooking.BackColor = Color.FromArgb(44, 62, 80);
-            btnBooking.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnBooking.BackColor = Color.FromArgb(170, 0, 0);
+            btnBooking.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnBooking.BorderColor = Color.PaleVioletRed;
             btnBooking.BorderRadius = 7;
             btnBooking.BorderSize = 0;
@@ -131,8 +131,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnKalender
             // 
-            btnKalender.BackColor = Color.FromArgb(44, 62, 80);
-            btnKalender.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnKalender.BackColor = Color.FromArgb(170, 0, 0);
+            btnKalender.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnKalender.BorderColor = Color.PaleVioletRed;
             btnKalender.BorderRadius = 7;
             btnKalender.BorderSize = 0;
@@ -156,8 +156,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnProduk
             // 
-            btnProduk.BackColor = Color.FromArgb(44, 62, 80);
-            btnProduk.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnProduk.BackColor = Color.FromArgb(170, 0, 0);
+            btnProduk.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnProduk.BorderColor = Color.PaleVioletRed;
             btnProduk.BorderRadius = 7;
             btnProduk.BorderSize = 0;
@@ -181,8 +181,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnRiwayat
             // 
-            btnRiwayat.BackColor = Color.FromArgb(44, 62, 80);
-            btnRiwayat.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnRiwayat.BackColor = Color.FromArgb(170, 0, 0);
+            btnRiwayat.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnRiwayat.BorderColor = Color.PaleVioletRed;
             btnRiwayat.BorderRadius = 7;
             btnRiwayat.BorderSize = 0;
@@ -206,8 +206,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnService
             // 
-            btnService.BackColor = Color.FromArgb(44, 62, 80);
-            btnService.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnService.BackColor = Color.FromArgb(170, 0, 0);
+            btnService.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnService.BorderColor = Color.PaleVioletRed;
             btnService.BorderRadius = 7;
             btnService.BorderSize = 0;
@@ -231,8 +231,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnPelanggan
             // 
-            btnPelanggan.BackColor = Color.FromArgb(44, 62, 80);
-            btnPelanggan.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnPelanggan.BackColor = Color.FromArgb(170, 0, 0);
+            btnPelanggan.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnPelanggan.BorderColor = Color.PaleVioletRed;
             btnPelanggan.BorderRadius = 7;
             btnPelanggan.BorderSize = 0;
@@ -256,8 +256,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnKaryawan
             // 
-            btnKaryawan.BackColor = Color.FromArgb(44, 62, 80);
-            btnKaryawan.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnKaryawan.BackColor = Color.FromArgb(170, 0, 0);
+            btnKaryawan.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnKaryawan.BorderColor = Color.PaleVioletRed;
             btnKaryawan.BorderRadius = 7;
             btnKaryawan.BorderSize = 0;
@@ -292,7 +292,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // panelLogOut
             // 
-            panelLogOut.BackColor = Color.FromArgb(44, 62, 80);
+            panelLogOut.BackColor = Color.FromArgb(170, 0, 0);
             panelLogOut.Controls.Add(btnLogout);
             panelLogOut.Dock = DockStyle.Bottom;
             panelLogOut.Location = new Point(0, 674);
@@ -303,8 +303,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // btnLogout
             // 
-            btnLogout.BackColor = Color.FromArgb(44, 62, 80);
-            btnLogout.BackgroundColor = Color.FromArgb(44, 62, 80);
+            btnLogout.BackColor = Color.FromArgb(170, 0, 0);
+            btnLogout.BackgroundColor = Color.FromArgb(170, 0, 0);
             btnLogout.BorderColor = Color.PaleVioletRed;
             btnLogout.BorderRadius = 7;
             btnLogout.BorderSize = 0;
@@ -328,7 +328,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(44, 62, 80);
+            panel2.BackColor = Color.FromArgb(170, 0, 0);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(rjCircularPictureBox1);
@@ -382,7 +382,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelMain.Location = new Point(290, 67);
             panelMain.Margin = new Padding(0);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(902, 689);
+            panelMain.Size = new Size(913, 689);
             panelMain.TabIndex = 6;
             // 
             // panelTop
@@ -392,7 +392,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(290, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(902, 67);
+            panelTop.Size = new Size(913, 67);
             panelTop.TabIndex = 9;
             // 
             // lblDisplay
@@ -401,7 +401,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             lblDisplay.BackColor = Color.Transparent;
             lblDisplay.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             lblDisplay.ForeColor = Color.FromArgb(44, 62, 80);
-            lblDisplay.Location = new Point(292, 18);
+            lblDisplay.Location = new Point(297, 18);
             lblDisplay.Name = "lblDisplay";
             lblDisplay.Size = new Size(318, 32);
             lblDisplay.TabIndex = 19;
@@ -412,15 +412,15 @@ namespace Bengkel_UKK.Admin.Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1192, 756);
+            BackColor = Color.FromArgb(160, 0, 0);
+            ClientSize = new Size(1203, 756);
             Controls.Add(panelMain);
             Controls.Add(panelTop);
             Controls.Add(panelLeft);
             ForeColor = Color.White;
             Name = "MainFormAdmin";
             Padding = new Padding(0);
-            Style.BackColor = Color.FromArgb(44, 62, 80);
+            Style.BackColor = Color.FromArgb(160, 0, 0);
             Style.ForeColor = Color.White;
             Style.InactiveShadowOpacity = 0;
             Style.MdiChild.IconHorizontalAlignment = HorizontalAlignment.Center;

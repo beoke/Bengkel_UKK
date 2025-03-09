@@ -30,7 +30,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kendaraan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
@@ -120,12 +119,13 @@ namespace Bengkel_UKK.Admin.Kendaraan
             btnSearch.BorderSize = 0;
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;
+            btnSearch.Text = "🔎";
             btnSearch.TextColor = Color.White;
             btnSearch.UseVisualStyleBackColor = false;
             // 
@@ -257,13 +257,13 @@ namespace Bengkel_UKK.Admin.Kendaraan
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
- // btnAddData.Image = Properties.Resources.plus;
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
             btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Data";
+            btnAddData.Text = "➕  Add Data";
+            btnAddData.TextAlign = ContentAlignment.MiddleLeft;
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
@@ -276,7 +276,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             contextMenuStrip.Size = new Size(61, 4);
             contextMenuStrip.ThemeName = "Metro";
             // 
-            // FormKendaraan
+            // Kendaraan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -285,7 +285,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormKendaraan";
+            Name = "Kendaraan_form";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);

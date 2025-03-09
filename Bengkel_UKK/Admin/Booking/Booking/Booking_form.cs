@@ -202,6 +202,7 @@ namespace Bengkel_UKK.Admin.Booking
         {
             DataGridView dgv = dataGridView1;
             CustomGrids.CustomDataGrid(dgv);
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
 
             dgv.Columns["id_kendaraan"].Visible = false;
 

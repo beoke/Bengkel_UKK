@@ -142,11 +142,13 @@ namespace Bengkel_UKK.Admin.Booking
             btnSearch.BorderSize = 0;
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnSearch.ForeColor = Color.White;
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;
+            btnSearch.Text = "🔎";
             btnSearch.TextColor = Color.White;
             btnSearch.UseVisualStyleBackColor = false;
             // 
@@ -263,9 +265,11 @@ namespace Bengkel_UKK.Admin.Booking
             numericEntries.BorderStyle = BorderStyle.FixedSingle;
             numericEntries.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             numericEntries.Location = new Point(1096, 32);
+            numericEntries.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
             numericEntries.Name = "numericEntries";
             numericEntries.Size = new Size(64, 27);
             numericEntries.TabIndex = 3;
+            numericEntries.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // btnAddData
             // 
@@ -283,7 +287,8 @@ namespace Bengkel_UKK.Admin.Booking
             btnAddData.Padding = new Padding(10, 0, 0, 0);
             btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Data";
+            btnAddData.Text = "➕ Add Data";
+            btnAddData.TextAlign = ContentAlignment.MiddleLeft;
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
@@ -306,7 +311,7 @@ namespace Bengkel_UKK.Admin.Booking
             contextMenuStrip.Items.AddRange(new ToolStripItem[] { detailBookingToolStripMenuItem, deleteToolStripMenuItem });
             contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
             contextMenuStrip.Name = "contextMenuStrip";
-            contextMenuStrip.Size = new Size(188, 78);
+            contextMenuStrip.Size = new Size(188, 56);
             contextMenuStrip.ThemeName = "Office2016Colorful";
             contextMenuStrip.ThemeStyle.BackColor = Color.FromArgb(52, 152, 219);
             contextMenuStrip.ThemeStyle.DisabledForeColor = Color.FromArgb(52, 152, 219);

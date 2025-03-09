@@ -197,8 +197,10 @@ namespace Bengkel_UKK.Admin.Karyawan
             CustomGrids.CustomDataGrid(dgv);
 
             dgv.ColumnHeadersDefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
             dgv.Columns["No"].FillWeight = 6;
             dgv.Columns["ktp_admin"].FillWeight = 9;
             dgv.Columns["Foto"].FillWeight = 10;

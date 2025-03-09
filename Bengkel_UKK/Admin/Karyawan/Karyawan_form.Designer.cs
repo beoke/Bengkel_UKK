@@ -124,11 +124,13 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnSearch.BorderSize = 0;
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnSearch.ForeColor = Color.White;
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;
+            btnSearch.Text = "🔎";
             btnSearch.TextColor = Color.White;
             btnSearch.UseVisualStyleBackColor = false;
             // 
@@ -268,7 +270,8 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData.Padding = new Padding(10, 0, 0, 0);
             btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Data";
+            btnAddData.Text = " ➕ Add Data";
+            btnAddData.TextAlign = ContentAlignment.MiddleLeft;
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
