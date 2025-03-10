@@ -146,6 +146,8 @@ namespace Bengkel_UKK.Admin.Booking
         {
             ClearInput();
             var kendaraanPelanggan = _kendaraanDal.ListDataPelanggan(txtNoKTP.Text.Trim());
+
+            if (kendaraanPelanggan == null) return;
             if (!kendaraanPelanggan.Any())
             {
                 lblErrorKTP.Visible = true;

@@ -127,8 +127,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
         {
             DataGridView dgv = dataGridView1;
             CustomGrids.CustomDataGrid(dgv);
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);  
-
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
             dgv.Columns["ktp_pelanggan"].HeaderText = "No KTP";
             dgv.Columns["nama_pelanggan"].HeaderText = "Nama";
             dgv.Columns["email"].HeaderText = "Email";
@@ -213,10 +212,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
                         e.Handled = true; // Tandai event sebagai sudah dihandle
                     }
                 }
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-                    dataGridView1.Rows[i].Cells["NO"].Value = i + 1;
-                }
+               
                 e.Handled = true; // Tandai event sebagai sudah dihandle
             }
         }

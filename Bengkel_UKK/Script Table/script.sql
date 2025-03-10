@@ -372,3 +372,5 @@ go;
 
 SELECT nama_pelanggan, dbo.GetTotalServis(ktp_pelanggan) AS TotalServis
 FROM Pelanggan;
+
+

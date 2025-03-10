@@ -23,9 +23,9 @@ namespace Bengkel_UKK.Helper
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             // Mengatur warna header kolom
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(52, 152, 219);
+            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(255, 0, 0);
             dataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             dataGridView1.ForeColor = Color.DimGray;
 

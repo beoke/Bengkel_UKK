@@ -43,8 +43,8 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
         public int GetBatasBooking(DateTime tanggal)
         {
             const string sql = @"SELECT COALESCE(
-                    (SELECT TOP 1 batas_booking FROM BatasBooking WHERE tanggal = @tanggal),
-                    (SELECT TOP 1 batas_booking FROM BatasBooking WHERE tanggal IS NULL)
+                    (SELECT TOP 1 batas_booking FROM BatasBooking WHERE tanggal_batas_booking = @tanggal),
+                    (SELECT TOP 1 batas_booking FROM BatasBooking WHERE tanggal_batas_booking IS NULL)
                    ) AS batas_booking";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<int>(sql, new { tanggal });
