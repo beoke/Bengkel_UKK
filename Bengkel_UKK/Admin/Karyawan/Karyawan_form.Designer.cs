@@ -33,7 +33,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Karyawan_form));
             dataGridView1 = new DataGridView();
-            yogaPanel1 = new DhafaPanel();
+            DhafaPanel = new DhafaPanel();
             lblShowingEntries = new Label();
             comboFilter = new ComboBox();
             btnSearch = new DhafaButton();
@@ -51,7 +51,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             editToolStripMenuItem = new ToolStripMenuItem();
             hapusToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            yogaPanel1.SuspendLayout();
+            DhafaPanel.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
@@ -71,27 +71,27 @@ namespace Bengkel_UKK.Admin.Karyawan
             dataGridView1.Size = new Size(995, 374);
             dataGridView1.TabIndex = 0;
             // 
-            // yogaPanel1
+            // DhafaPanel
             // 
-            yogaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            yogaPanel1.BackColor = Color.White;
-            yogaPanel1.BorderColor = Color.PaleVioletRed;
-            yogaPanel1.BorderRadius = 0;
-            yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(lblShowingEntries);
-            yogaPanel1.Controls.Add(comboFilter);
-            yogaPanel1.Controls.Add(btnSearch);
-            yogaPanel1.Controls.Add(panel1);
-            yogaPanel1.Controls.Add(txtSearch);
-            yogaPanel1.Controls.Add(label3);
-            yogaPanel1.Controls.Add(label1);
-            yogaPanel1.Controls.Add(numericEntries);
-            yogaPanel1.Controls.Add(dataGridView1);
-            yogaPanel1.ForeColor = Color.White;
-            yogaPanel1.Location = new Point(28, 75);
-            yogaPanel1.Name = "yogaPanel1";
-            yogaPanel1.Size = new Size(1086, 531);
-            yogaPanel1.TabIndex = 11;
+            DhafaPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DhafaPanel.BackColor = Color.White;
+            DhafaPanel.BorderColor = Color.PaleVioletRed;
+            DhafaPanel.BorderRadius = 0;
+            DhafaPanel.BorderSize = 0;
+            DhafaPanel.Controls.Add(lblShowingEntries);
+            DhafaPanel.Controls.Add(comboFilter);
+            DhafaPanel.Controls.Add(btnSearch);
+            DhafaPanel.Controls.Add(panel1);
+            DhafaPanel.Controls.Add(txtSearch);
+            DhafaPanel.Controls.Add(label3);
+            DhafaPanel.Controls.Add(label1);
+            DhafaPanel.Controls.Add(numericEntries);
+            DhafaPanel.Controls.Add(dataGridView1);
+            DhafaPanel.ForeColor = Color.White;
+            DhafaPanel.Location = new Point(28, 75);
+            DhafaPanel.Name = "DhafaPanel";
+            DhafaPanel.Size = new Size(1086, 531);
+            DhafaPanel.TabIndex = 11;
             // 
             // lblShowingEntries
             // 
@@ -303,14 +303,14 @@ namespace Bengkel_UKK.Admin.Karyawan
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1143, 635);
-            Controls.Add(yogaPanel1);
+            Controls.Add(DhafaPanel);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Karyawan_form";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            yogaPanel1.ResumeLayout(false);
-            yogaPanel1.PerformLayout();
+            DhafaPanel.ResumeLayout(false);
+            DhafaPanel.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
@@ -321,7 +321,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         #endregion
 
         private DataGridView dataGridView1;
-        private DhafaPanel yogaPanel1;
+        private DhafaPanel DhafaPanel;
         private DhafaButton btnAddData;
         private NumericUpDown numericEntries;
         private Label label1;

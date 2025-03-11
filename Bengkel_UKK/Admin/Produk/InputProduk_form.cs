@@ -12,9 +12,12 @@ namespace Bengkel_UKK.Admin.Produk
 {
     public partial class InputProduk_form : Form
     {
+        private Image _imageProduk = Properties.Resources.defaultImage;
         public InputProduk_form()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+            RegisterEvent();
         }
     }
 }

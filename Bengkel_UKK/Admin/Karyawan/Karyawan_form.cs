@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Syncfusion.Windows.Forms.Tools;
-using Dapper; // Pastikan namespace ini ditambahkan
+using Dapper;
 
 namespace Bengkel_UKK.Admin.Karyawan
 {
@@ -18,7 +18,7 @@ namespace Bengkel_UKK.Admin.Karyawan
     {
         private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private int page = 1;
-        private byte[] _defaultProfile = ImageDirectory._defaultProfile;
+        private byte[] _defaultProfile = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.defaultProfile, 45, 45));
         private int _page = 1;
         private int _Totalpage = 1;
         public Karyawan_form()
@@ -32,7 +32,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
         private void RegisterEvent()
         {
-            yogaPanel1.Resize += (s, e) => yogaPanel1.Invalidate();
+            DhafaPanel.Resize += (s, e) => DhafaPanel.Invalidate();
             dataGridView1.CellPainting += DataGridView1_CellPainting;
             btnNext.Click += BtnNext_Click;
             btnPrevious.Click += BtnPrevious_Click;

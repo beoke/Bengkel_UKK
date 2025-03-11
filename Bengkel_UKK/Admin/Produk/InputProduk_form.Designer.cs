@@ -31,7 +31,6 @@ namespace Bengkel_UKK.Admin.Produk
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputProduk_form));
             panel1 = new Panel();
             lblHeader = new Label();
             label3 = new Label();
@@ -136,14 +135,14 @@ namespace Bengkel_UKK.Admin.Produk
             txtHarga.BeforeTouchSize = new Size(186, 27);
             txtHarga.BorderColor = Color.FromArgb(209, 211, 212);
             txtHarga.BorderStyle = BorderStyle.FixedSingle;
-            txtHarga.DecimalValue = new decimal(new int[] { 0, 0, 0, 0 });
+            txtHarga.DecimalValue = new decimal(new int[] { 0, 0, 0, 131072 });
             txtHarga.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtHarga.Location = new Point(177, 327);
             txtHarga.MinValue = new decimal(new int[] { 0, 0, 0, 0 });
             txtHarga.Name = "txtHarga";
             txtHarga.Size = new Size(278, 27);
             txtHarga.TabIndex = 30;
-            txtHarga.Text = "Rp0";
+            txtHarga.Text = "Rp0,00";
             txtHarga.ThemeName = "Metro";
             // 
             // btnMinStok
@@ -156,7 +155,6 @@ namespace Bengkel_UKK.Admin.Produk
             btnMinStok.FlatAppearance.BorderSize = 0;
             btnMinStok.FlatStyle = FlatStyle.Flat;
             btnMinStok.ForeColor = Color.White;
-            btnMinStok.Image = (Image)resources.GetObject("btnMinStok.Image");
             btnMinStok.Location = new Point(177, 404);
             btnMinStok.Name = "btnMinStok";
             btnMinStok.Size = new Size(40, 27);
@@ -175,7 +173,6 @@ namespace Bengkel_UKK.Admin.Produk
             btnPlusStok.FlatStyle = FlatStyle.Flat;
             btnPlusStok.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             btnPlusStok.ForeColor = Color.White;
-            btnPlusStok.Image = (Image)resources.GetObject("btnPlusStok.Image");
             btnPlusStok.Location = new Point(415, 404);
             btnPlusStok.Name = "btnPlusStok";
             btnPlusStok.Size = new Size(40, 27);
@@ -194,7 +191,6 @@ namespace Bengkel_UKK.Admin.Produk
             btnPlusStokMinimum.FlatStyle = FlatStyle.Flat;
             btnPlusStokMinimum.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
             btnPlusStokMinimum.ForeColor = Color.White;
-            btnPlusStokMinimum.Image = (Image)resources.GetObject("btnPlusStokMinimum.Image");
             btnPlusStokMinimum.Location = new Point(415, 481);
             btnPlusStokMinimum.Name = "btnPlusStokMinimum";
             btnPlusStokMinimum.Size = new Size(40, 27);
@@ -212,7 +208,6 @@ namespace Bengkel_UKK.Admin.Produk
             btnMinStokMinimum.FlatAppearance.BorderSize = 0;
             btnMinStokMinimum.FlatStyle = FlatStyle.Flat;
             btnMinStokMinimum.ForeColor = Color.White;
-            btnMinStokMinimum.Image = (Image)resources.GetObject("btnMinStokMinimum.Image");
             btnMinStokMinimum.Location = new Point(177, 481);
             btnMinStokMinimum.Name = "btnMinStokMinimum";
             btnMinStokMinimum.Size = new Size(40, 27);
@@ -263,7 +258,6 @@ namespace Bengkel_UKK.Admin.Produk
             txtStok.MaxValue = 10000D;
             txtStok.MinValue = 0D;
             txtStok.Name = "txtStok";
-            txtStok.NumberDecimalDigits = 2;
             txtStok.Size = new Size(186, 27);
             txtStok.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             txtStok.TabIndex = 39;
@@ -283,7 +277,6 @@ namespace Bengkel_UKK.Admin.Produk
             txtStokMinimum.MaxValue = 10000D;
             txtStokMinimum.MinValue = 0D;
             txtStokMinimum.Name = "txtStokMinimum";
-            txtStokMinimum.NumberDecimalDigits = 2;
             txtStokMinimum.Size = new Size(186, 27);
             txtStokMinimum.Style = Syncfusion.Windows.Forms.Tools.TextBoxExt.theme.Metro;
             txtStokMinimum.TabIndex = 40;
@@ -313,9 +306,11 @@ namespace Bengkel_UKK.Admin.Produk
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Image = Properties.Resources.defaultImage;
             pictureBox1.Location = new Point(177, 54);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(115, 115);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 67;
             pictureBox1.TabStop = false;
             // 
@@ -352,7 +347,7 @@ namespace Bengkel_UKK.Admin.Produk
             lblErrorStokMin.TabIndex = 71;
             lblErrorStokMin.Text = "Stok minimum harus diatas 0";
             // 
-            // FormInputProduk
+            // InputProduk_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -377,7 +372,7 @@ namespace Bengkel_UKK.Admin.Produk
             Controls.Add(label3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "FormInputProduk";
+            Name = "InputProduk_form";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)txtNamaProduk).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtHarga).EndInit();
