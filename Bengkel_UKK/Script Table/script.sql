@@ -266,7 +266,7 @@ AFTER INSERT
 AS
 BEGIN
     SET NOCOUNT ON;
-
+        
     UPDATE Sparepart
     SET stok = stok - i.jumlah
     FROM Sparepart s

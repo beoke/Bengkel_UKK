@@ -72,7 +72,7 @@ namespace Bengkel_UKK.Admin.Booking
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.GridColor = SystemColors.Control;
-            dataGridView1.Location = new Point(46, 77);
+            dataGridView1.Location = new Point(46, 87);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(1179, 374);

@@ -1,4 +1,6 @@
-﻿using Bengkel_UKK.Admin.Dashboard;
+﻿using Bengkel_UKK.Admin.Booking.Batas_Booking;
+using Bengkel_UKK.Admin.Booking.Jadwal;
+using Bengkel_UKK.Admin.Dashboard;
 using Bengkel_UKK.Helper;
 using Dapper;
 using System;
@@ -15,26 +17,52 @@ namespace Bengkel_UKK.Admin.Booking
 {
     public partial class Booking_form : Form
     {
-        private readonly  BookingDal _bookingDal = new BookingDal();
-        private byte[] _pending = ImageConvert.ImageToByteArray(
-            ImageConvert.ResizeImageMax(Image.FromFile("D:\\UKK\\Bengkel_UKK\\Bengkel_UKK\\Asset\\Pending.png"), 90, 90));
+        private readonly BookingDal _bookingDal = new BookingDal();
+        private readonly BatasBookingDal _batasBookingDal = new BatasBookingDal();
+        private readonly JadwalDal _jadwalDal = new JadwalDal();
+        private readonly JadwalOperasionalDal _jadwalOperasionalDal = new JadwalOperasionalDal();
 
-        private byte[] _dikerjakan = ImageConvert.ImageToByteArray(
-            ImageConvert.ResizeImageMax(Image.FromFile("D:\\UKK\\Bengkel_UKK\\Bengkel_UKK\\Asset\\Dikerjakan.png"), 90, 90));
-
+        private byte[] _pending = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Pending, 110, 110));
+        private byte[] _dikerjakan = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Dikerjakan, 110, 110));
+        private byte[] _belum_bayar = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.BelumBayar, 110, 110));
         private bool _rangeTanggal = false;
         private int _page = 1;
         private int _Totalpage = 1;
         private DateTime _tanggal;
+        private System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer();
         public Booking_form(DateTime tanggal = default)
         {
             InitializeComponent();
             InitComponen();
             RegisterEvent();
+            //UpdateAntrean();
             LoadData();
             CustomGrid();
             if (tanggal == default)
                 tanggal = new DateTime(2025, 1, 1);
+            _timer.Interval = 10000;
+            _timer.Tick += (s, e) => UpdateAntrean();
+            _timer.Start();
+        }
+        private async void UpdateAntrean()
+        {
+            if (!await CekAntreanUpdate()) return;
+            DateTime now = DateTime.Today;
+            var listAntrean = await _bookingDal.ListDataAntrean(now);
+            if (!listAntrean.Any()) return;
+            int antrean = 1;
+            foreach (var item in listAntrean)
+            {
+                var booking = new BookingModel2
+                {
+                    id_booking = item.id_booking,
+                    antrean = antrean++,
+                    tipe_antrean = 2
+                };
+                _bookingDal.UpdateAntrean(booking);
+            }
+            LoadData();
+            _timer.Stop();
         }
         #region EVENT
         private void RegisterEvent()
@@ -47,20 +75,54 @@ namespace Bengkel_UKK.Admin.Booking
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             detailBookingToolStripMenuItem.Click += DetailBookingToolStripMenuItem_Click;
             btnAddData.Click += BtnAddData_Click;
+            btnEditBatasBooking.Click += (s, e) =>
+            {
+                new BatasBooking_form().ShowDialog();
+                InitBatasBooking();
+            };
             txtSearch.KeyDown += TxtSearch_KeyDown;
-           
+
             comboFilterWaktu.SelectedValueChanged += ComboFilterWaktu_SelectedValueChanged;
             comboFilterStatus.SelectedIndexChanged += ComboFilterStatus_SelectedIndexChanged;
+
+            btnNext.Click += (s, e) =>
+            {
+                if (_page < _Totalpage)
+                {
+                    _page++;
+                    LoadData();
+                }
+            };
+            btnPrevious.Click += (s, e) =>
+            {
+                if (_page > 1)
+                {
+                    _page--;
+                    LoadData();
+                }
+            };
+
+            numericEntries.ValueChanged += async (s, e) =>
+            {
+                await Task.Delay(1000);
+                ResetPage();
+                LoadData();
+            };
+
+            this.Load += Booking_form_Load;
+            btnJadwal.Click += (s, e) => new Jadwal_fom().ShowDialog();
         }
 
         private void ComboFilterStatus_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            ResetPage();
             LoadData();
         }
 
         private async void TxtSearch_KeyDown(object? sender, KeyEventArgs e)
         {
             await Task.Delay(500);
+            ResetPage();
             LoadData();
         }
 
@@ -73,12 +135,14 @@ namespace Bengkel_UKK.Admin.Booking
         private void ComboFilterWaktu_SelectedValueChanged(object? sender, EventArgs e)
         {
             _rangeTanggal = false;
+            ResetPage();
             LoadData();
         }
 
         private void Tgl_ValueChanged(object? sender, EventArgs e)
         {
             _rangeTanggal = true;
+            ResetPage();
             LoadData();
         }
 
@@ -96,6 +160,11 @@ namespace Bengkel_UKK.Admin.Booking
                 dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
                 contextMenuStrip.Show(Cursor.Position);
             }
+        }
+
+        private void ResetPage()
+        {
+            _page = 1;
         }
         #endregion
 
@@ -180,6 +249,7 @@ namespace Bengkel_UKK.Admin.Booking
         #region INIT COMPONENT
         private void InitComponen()
         {
+
             comboFilterStatus.DataSource = new List<string>() { "Semua(All)", "Pending", "Dikerjakan" };
 
             DateTime now = DateTime.Today;
@@ -193,6 +263,19 @@ namespace Bengkel_UKK.Admin.Booking
             };
             comboFilterWaktu.DataSource = listFilterWaktu;
             comboFilterWaktu.DisplayMember = "nama";
+
+            numericEntries.Maximum = 1000;
+            numericEntries.Minimum = 4;
+            txtBatas.ReadOnly = true;
+            txtBatas.TextAlign = HorizontalAlignment.Center;
+
+            InitBatasBooking();
+        }
+
+        private void InitBatasBooking()
+        {
+            int batas = _batasBookingDal.GetBatasBooking(DateTime.Today);
+            txtBatas.Text = batas.ToString();
         }
         #endregion
 
@@ -323,6 +406,37 @@ namespace Bengkel_UKK.Admin.Booking
 
             return null; // Bisa diganti dengan gambar default jika file tidak ditemukan
         }
+        private void Booking_form_Load(object? sender, EventArgs e)
+        {
+            DataGridViewColumn targetColumn = dataGridView1.Columns["Antrean"];
+
+            if (targetColumn != null)
+            {
+                // Atur pengurutan ascending pada kolom tersebut
+                dataGridView1.Sort(targetColumn, ListSortDirection.Ascending);
+
+                // Atur tanda panah (sort glyph) pada header kolom
+                targetColumn.HeaderCell.SortGlyphDirection = SortOrder.Ascending;
+            }
+
+            comboFilterWaktu.SelectedIndex = 1;
+        }
+        #endregion
+
+        #region HELPER
+
+        private async Task<bool> CekAntreanUpdate()
+        {
+            DateTime tanggal = DateTime.Today;
+
+            var libur = await _jadwalDal.CekLibur(tanggal);
+            if (libur) return true;
+
+            var tutup = await _jadwalOperasionalDal.CekTutup(tanggal);
+            if (tutup) return true;
+            return false;
+        }
+
         #endregion
     }
 }

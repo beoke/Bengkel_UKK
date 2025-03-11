@@ -65,7 +65,7 @@ namespace Bengkel_UKK.Admin.Booking
             };
         }
 
-        private void CekKetersediaanBoking()
+        private async void CekKetersediaanBoking()
         {
             int indexTab = tabControl1.SelectedIndex;
 
@@ -73,7 +73,7 @@ namespace Bengkel_UKK.Admin.Booking
             {
                 DateTime tanggal = TglEditSync.Value ?? DateTime.Today;
 
-                var libur = _jadwalDal.CekLibur(tanggal);
+                var libur = await _jadwalDal.CekLibur(tanggal);
                 if (libur)
                 {
                     lblErrorTanggal.Text = "Bengkel sedang libur, Mohon pilih tanggal lain!";
@@ -81,7 +81,7 @@ namespace Bengkel_UKK.Admin.Booking
                     return;
                 }
 
-                var tutup = _jadwalOperasionalDal.CekTutup(tanggal);
+                var tutup = await _jadwalOperasionalDal.CekTutup(tanggal);
                 if (tutup)
                 {
                     lblErrorTanggal.Text = "Bengkel sudah tutup, Mohon pilih tanggal lain!";
@@ -104,7 +104,7 @@ namespace Bengkel_UKK.Admin.Booking
             {
                 DateTime tanggal = TglEditSync2.Value ?? DateTime.Today;
 
-                var libur = _jadwalDal.CekLibur(tanggal);
+                var libur = await _jadwalDal.CekLibur(tanggal);
                 if (libur)
                 {
                     lblErrorTanggal2.Text = "Bengkel sedang libur, Mohon pilih tanggal lain!";
@@ -112,7 +112,7 @@ namespace Bengkel_UKK.Admin.Booking
                     return;
                 }
 
-                var tutup = _jadwalOperasionalDal.CekTutup(tanggal);
+                var tutup = await _jadwalOperasionalDal.CekTutup(tanggal);
                 if (tutup)
                 {
                     lblErrorTanggal2.Text = "Bengkel sudah tutup, Mohon pilih tanggal lain!";

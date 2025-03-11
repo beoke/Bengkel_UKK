@@ -35,7 +35,7 @@ namespace Bengkel_UKK.Admin.Booking
                             FROM Booking b 
                             LEFT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
                             LEFT JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan
-                            INNER JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis {filter.sql}";
+                            LEFT JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis {filter.sql}";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<BookingModel2>(sql, filter.param);
         }
@@ -58,7 +58,6 @@ namespace Bengkel_UKK.Admin.Booking
                                 b.antrean,
                                 b.ktp_mekanik,
                                 b.id_jasaServis,
-                                b.estimasi,
                                 b.status
                             FROM Booking b 
                             LEFT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
@@ -72,7 +71,7 @@ namespace Bengkel_UKK.Admin.Booking
         public IEnumerable<ProdukModel> ListDataProduk(int id_booking)
         {
             const string sql = @"SELECT bs.id_booking,bs.kode_sparepart,bs.jumlah, s.nama_sparepart
-                            FROM BookingsSparepart bs
+                            FROM BookingSparepart bs
                             INNER JOIN Sparepart s
                                 ON bs.kode_sparepart = s.kode_sparepart
                             WHERE id_booking = @id_booking";
@@ -157,10 +156,35 @@ namespace Bengkel_UKK.Admin.Booking
         public IEnumerable<ProdukAddDto> ListDataSparepart()
         {
             const string sql = @"SELECT p.kode_sparepart AS Kode,p.nama_sparepart AS Sparepart, ISNULL(bs.jumlah, 1) AS Jumlah, p.stok AS Stok
-                                FROM BookingsSparepart bs
+                                FROM BookingSparepart bs
                                 RIGHT JOIN Sparepart p ON bs.kode_sparepart = p.kode_sparepart";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<ProdukAddDto>(sql);
+        }
+
+        public async Task<IEnumerable<BookingModel2>> ListDataAntrean(DateTime tanggal)
+        {
+            const string sql = @"
+                SELECT id_booking, antrean, tipe_antrean, status
+                FROM Bookings 
+                WHERE tanggal <= @tanggal
+                ORDER BY tanggal ASC, antrean ASC";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            return await koneksi.QueryAsync<BookingModel2>(sql, new { tanggal });
+        }
+
+        public void UpdateAntrean(BookingModel2 booking)
+        {
+            const string sql = @"UPDATE Bookings SET antrean = @antrean, tipe_antrean = @tipe_antrean WHERE id_booking = @id_booking";
+            using var koneksi = new SqlConnection(conn.connStr);
+
+            var dp = new DynamicParameters();
+            dp.Add("@antrean", booking.antrean);
+            dp.Add("@tipe_antrean", booking.tipe_antrean);
+            dp.Add("@id_booking", booking.id_booking);
+
+            koneksi.Execute(sql, dp);
         }
     }
 }

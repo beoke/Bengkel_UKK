@@ -99,7 +99,7 @@ CREATE PROCEDURE InsertBooking
     @tipe_antrean VARCHAR(20) = 1
 AS
 BEGIN
-    INSERT INTO Bookings (ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, nama_kendaraan, tanggal, keluhan, catatan, antrean, ktp_mekanik, id_jasaServis, status, tipe_antrean)
+    INSERT INTO Booking (ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, nama_kendaraan, tanggal, keluhan, catatan, antrean, ktp_mekanik, id_jasaServis, status, tipe_antrean)
     VALUES (@ktp_pelanggan, @nama_pelanggan, @id_kendaraan, @no_pol, @nama_kendaraan, @tanggal, @keluhan, @catatan, @antrean, @ktp_mekanik, @id_jasaServis, @status, @tipe_antrean);
 END;
 
