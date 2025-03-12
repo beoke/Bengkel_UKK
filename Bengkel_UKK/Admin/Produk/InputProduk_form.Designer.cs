@@ -51,6 +51,7 @@ namespace Bengkel_UKK.Admin.Produk
             lblErrorProduk = new Label();
             lblErrorHarga = new Label();
             lblErrorStokMin = new Label();
+            btnHapus = new DhafaButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtNamaProduk).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtHarga).BeginInit();
@@ -294,9 +295,9 @@ namespace Bengkel_UKK.Admin.Produk
             btnChooseFile.FlatAppearance.BorderSize = 0;
             btnChooseFile.FlatStyle = FlatStyle.Flat;
             btnChooseFile.ForeColor = Color.White;
-            btnChooseFile.Location = new Point(177, 175);
+            btnChooseFile.Location = new Point(249, 186);
             btnChooseFile.Name = "btnChooseFile";
-            btnChooseFile.Size = new Size(115, 27);
+            btnChooseFile.Size = new Size(57, 27);
             btnChooseFile.TabIndex = 64;
             btnChooseFile.Text = "Upload Foto";
             btnChooseFile.TextColor = Color.White;
@@ -309,7 +310,7 @@ namespace Bengkel_UKK.Admin.Produk
             pictureBox1.Image = Properties.Resources.defaultImage;
             pictureBox1.Location = new Point(177, 54);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(115, 115);
+            pictureBox1.Size = new Size(129, 126);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 67;
             pictureBox1.TabStop = false;
@@ -347,11 +348,30 @@ namespace Bengkel_UKK.Admin.Produk
             lblErrorStokMin.TabIndex = 71;
             lblErrorStokMin.Text = "Stok minimum harus diatas 0";
             // 
+            // btnHapus
+            // 
+            btnHapus.BackColor = Color.FromArgb(230, 126, 34);
+            btnHapus.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnHapus.BorderColor = Color.PaleVioletRed;
+            btnHapus.BorderRadius = 0;
+            btnHapus.BorderSize = 0;
+            btnHapus.FlatAppearance.BorderSize = 0;
+            btnHapus.FlatStyle = FlatStyle.Flat;
+            btnHapus.ForeColor = Color.White;
+            btnHapus.Location = new Point(177, 186);
+            btnHapus.Name = "btnHapus";
+            btnHapus.Size = new Size(57, 27);
+            btnHapus.TabIndex = 72;
+            btnHapus.Text = "Hapus ";
+            btnHapus.TextColor = Color.White;
+            btnHapus.UseVisualStyleBackColor = false;
+            // 
             // InputProduk_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(476, 600);
+            Controls.Add(btnHapus);
             Controls.Add(lblErrorStokMin);
             Controls.Add(lblErrorHarga);
             Controls.Add(lblErrorProduk);
@@ -405,5 +425,6 @@ namespace Bengkel_UKK.Admin.Produk
         private Label lblErrorProduk;
         private Label lblErrorHarga;
         private Label lblErrorStokMin;
+        private DhafaButton btnHapus;
     }
 }
