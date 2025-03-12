@@ -63,6 +63,26 @@ namespace Bengkel_UKK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ArrowDown {
+            get {
+                object obj = ResourceManager.GetObject("ArrowDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ArrowUp {
+            get {
+                object obj = ResourceManager.GetObject("ArrowUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BelumBayar {
             get {
                 object obj = ResourceManager.GetObject("BelumBayar", resourceCulture);
@@ -83,6 +103,16 @@ namespace Bengkel_UKK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap defaultImage1 {
+            get {
+                object obj = ResourceManager.GetObject("defaultImage1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap defaultProfile {
             get {
                 object obj = ResourceManager.GetObject("defaultProfile", resourceCulture);
@@ -96,6 +126,16 @@ namespace Bengkel_UKK.Properties {
         internal static System.Drawing.Bitmap Dikerjakan {
             get {
                 object obj = ResourceManager.GetObject("Dikerjakan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit__2_ {
+            get {
+                object obj = ResourceManager.GetObject("edit (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +173,26 @@ namespace Bengkel_UKK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Habis {
+            get {
+                object obj = ResourceManager.GetObject("Habis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Menipis {
+            get {
+                object obj = ResourceManager.GetObject("Menipis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pending {
             get {
                 object obj = ResourceManager.GetObject("Pending", resourceCulture);
@@ -146,6 +206,16 @@ namespace Bengkel_UKK.Properties {
         internal static System.Drawing.Bitmap Selesai2 {
             get {
                 object obj = ResourceManager.GetObject("Selesai2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tersedia {
+            get {
+                object obj = ResourceManager.GetObject("Tersedia", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

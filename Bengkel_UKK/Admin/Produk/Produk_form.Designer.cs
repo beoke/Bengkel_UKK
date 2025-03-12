@@ -48,11 +48,15 @@ namespace Bengkel_UKK.Admin.Produk
             btnAddData = new DhafaButton();
             printPreviewDialog1 = new PrintPreviewDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            contextMenuStripEx1 = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            hapusToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
+            contextMenuStripEx1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -122,7 +126,6 @@ namespace Bengkel_UKK.Admin.Produk
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
@@ -258,7 +261,6 @@ namespace Bengkel_UKK.Admin.Produk
             btnAddData.FlatStyle = FlatStyle.Flat;
             btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-            btnAddData.Image = (Image)resources.GetObject("btnAddData.Image");
             btnAddData.Location = new Point(28, 16);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
@@ -280,7 +282,28 @@ namespace Bengkel_UKK.Admin.Produk
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
             // 
-            // FormProduk
+            // contextMenuStripEx1
+            // 
+            contextMenuStripEx1.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, hapusToolStripMenuItem });
+            contextMenuStripEx1.MetroColor = Color.FromArgb(204, 236, 249);
+            contextMenuStripEx1.Name = "contextMenuStripEx1";
+            contextMenuStripEx1.Size = new Size(124, 56);
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(123, 26);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // hapusToolStripMenuItem
+            // 
+            hapusToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            hapusToolStripMenuItem.Name = "hapusToolStripMenuItem";
+            hapusToolStripMenuItem.Size = new Size(123, 26);
+            hapusToolStripMenuItem.Text = "Hapus";
+            // 
+            // Produk_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -290,7 +313,7 @@ namespace Bengkel_UKK.Admin.Produk
             Controls.Add(btnAddData);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormProduk";
+            Name = "Produk_form";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
@@ -298,6 +321,7 @@ namespace Bengkel_UKK.Admin.Produk
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
+            contextMenuStripEx1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -320,5 +344,8 @@ namespace Bengkel_UKK.Admin.Produk
         private Label lblShowingEntries;
         private PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripEx1;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem hapusToolStripMenuItem;
     }
 }
