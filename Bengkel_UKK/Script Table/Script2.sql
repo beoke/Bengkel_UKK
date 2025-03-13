@@ -602,3 +602,10 @@ BEGIN
 	END
 END;
 
+
+-- untuk menonaktifkan foreign key --
+ALTER TABLE Riwayat NOCHECK CONSTRAINT ALL;
+-- untuk mengaktifkan foreign key --
+ALTER TABLE Riwayat CHECK CONSTRAINT ALL;
+
+    

@@ -302,9 +302,9 @@
             lblDisplay.ForeColor = Color.FromArgb(44, 62, 80);
             lblDisplay.Location = new Point(40, 16);
             lblDisplay.Name = "lblDisplay";
-            lblDisplay.Size = new Size(123, 46);
+            lblDisplay.Size = new Size(255, 46);
             lblDisplay.TabIndex = 20;
-            lblDisplay.Text = "ProFix";
+            lblDisplay.Text = "TechnoGarage ";
             lblDisplay.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Invoice_form

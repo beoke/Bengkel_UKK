@@ -123,6 +123,16 @@ namespace Bengkel_UKK.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dibatalkan {
+            get {
+                object obj = ResourceManager.GetObject("Dibatalkan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dikerjakan {
             get {
                 object obj = ResourceManager.GetObject("Dikerjakan", resourceCulture);
@@ -196,6 +206,16 @@ namespace Bengkel_UKK.Properties {
         internal static System.Drawing.Bitmap Pending {
             get {
                 object obj = ResourceManager.GetObject("Pending", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Selesai1 {
+            get {
+                object obj = ResourceManager.GetObject("Selesai1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -26,6 +26,7 @@ namespace Bengkel_UKK.Admin.Riwayat
         public string ktp_admin { get; set; }
         public string nama_admin { get; set; }
 
+        public string nama_mekanik { get; set; }  
         public string keluhan { get; set; }
         public string catatan { get; set; }
         public int total_harga { get; set; }
@@ -55,6 +56,7 @@ namespace Bengkel_UKK.Admin.Riwayat
 
         public DateTime Tanggal { get; set; }
         public string Pegawai { get; set; }
+        public string Mekanik { get; set; }
         public string Keluhan { get; set; }
         public string Catatan { get; set; }
         public string Sparepart { get; set; }

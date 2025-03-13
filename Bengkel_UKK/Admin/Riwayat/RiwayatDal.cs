@@ -39,8 +39,8 @@ namespace Bengkel_UKK.Admin.Riwayat
                     LEFT JOIN Pelanggan p ON r.ktp_pelanggan = p.ktp_pelanggan
                     LEFT JOIN Kendaraan k ON r.id_kendaraan = k.id_kendaraan
                     LEFT JOIN JasaServis js ON r.id_jasaServis = js.id_jasaServis
-                    LEFT JOIN Admins a ON r.ktp_admin = a.ktp_admin  -- Join untuk admin
-                    LEFT JOIN Admins m ON r.ktp_mekanik = m.ktp_admin  -- Join lagi untuk mekanik
+                    LEFT JOIN Admin a ON r.ktp_admin = a.ktp_admin  -- Join untuk admin
+                    LEFT JOIN Admin m ON r.ktp_mekanik = m.ktp_admin  -- Join lagi untuk mekanik
                     {filter.sql} 
                     ORDER BY r.tanggal DESC
                     OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
@@ -90,14 +90,14 @@ namespace Bengkel_UKK.Admin.Riwayat
             return koneksi.Query<RiwayatSparepartModel>(sql);
         }
 
-        public IEnumerable<JasaServisModel> GetJasaServis(int id_riwayat)
+        public IEnumerable<JasaServiceModel> GetJasaServis(int id_riwayat)
         {
             const string sql = @"SELECT js.nama_jasaServis,js.harga
                                 FROM JasaServis js
                                 INNER JOIN Riwayat r ON js.id_jasaServis = r.id_jasaServis
                                 WHERE r.id_riwayat = @id_riwayat";
             using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.Query<JasaServisModel>(sql, new { id_riwayat });
+            return koneksi.Query<JasaServiceModel>(sql, new { id_riwayat });
         }
 
         public IEnumerable<RiwayatSparepartModel> ListDataSparepartUser(int id_riwayat)
@@ -114,8 +114,8 @@ namespace Bengkel_UKK.Admin.Riwayat
                     LEFT JOIN Pelanggan p ON r.ktp_pelanggan = p.ktp_pelanggan
                     LEFT JOIN Kendaraan k ON r.id_kendaraan = k.id_kendaraan
                     LEFT JOIN JasaServis js ON r.id_jasaServis = js.id_jasaServis
-                    LEFT JOIN Admins a ON r.ktp_admin = a.ktp_admin
-                    LEFT JOIN Admins m ON r.ktp_mekanik = m.ktp_admin {filter.sql}";
+                    LEFT JOIN Admin a ON r.ktp_admin = a.ktp_admin
+                    LEFT JOIN Admin m ON r.ktp_mekanik = m.ktp_admin {filter.sql}";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QuerySingleOrDefault<int>(sql, filter.param);
         }
