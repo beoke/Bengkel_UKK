@@ -25,7 +25,7 @@ namespace Bengkel_UKK.Admin.Produk
         public int stok { get; set; }
         public int stok_minimum { get; set; }
         public int harga { get; set; }
-        public string image_name { get; set; }
+       // public string image_name { get; set; }
         public byte[] image_data { get; set; }
     }
 

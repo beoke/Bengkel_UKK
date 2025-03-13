@@ -115,6 +115,8 @@ CREATE TABLE BookingSparepart (
         ON UPDATE CASCADE
 );
 
+DROP TABLE IF EXISTS Riwayat;
+
 CREATE TABLE Riwayat(
     id_riwayat INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     ktp_pelanggan VARCHAR(30),
@@ -123,6 +125,8 @@ CREATE TABLE Riwayat(
     no_pol VARCHAR(30),
     nama_kendaraan VARCHAR(100),
     tanggal DATE,
+    tanggal_servis DATETIME,
+    tanggal_selesai DATETIME,
     ktp_admin VARCHAR(30),
     ktp_mekanik VARCHAR(30),
     keluhan VARCHAR(100),
@@ -130,22 +134,21 @@ CREATE TABLE Riwayat(
     total_harga INT,
     id_jasaServis INT,
     status VARCHAR(20),
+    pembatalan_oleh VARCHAR(30),
     created_at DATETIME DEFAULT GETDATE(),
-    
-    -- Foreign Key Constraints
+                        
     FOREIGN KEY (ktp_pelanggan)
         REFERENCES Pelanggan(ktp_pelanggan),
-        
     FOREIGN KEY (id_kendaraan)
         REFERENCES Kendaraan(id_kendaraan)
         ON DELETE SET NULL
         ON UPDATE CASCADE,
-        
     FOREIGN KEY (ktp_admin)
         REFERENCES Admins(ktp_admin)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
 
 -- Tabel RiwayatSparepart
 CREATE TABLE RiwayatSparepart(
