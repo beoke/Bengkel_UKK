@@ -140,7 +140,7 @@ namespace Bengkel_UKK.Admin.Dashboard
                     text = "BOOKING";
                     break;
                 case 3:
-                    text = "PRODUK";
+                    text = "SPAREPART";
                     break;
                 case 4:
                     text = "RIWAYAT";

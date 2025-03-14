@@ -122,37 +122,37 @@ namespace Bengkel_UKK.Admin.Booking
         {
             if (_servisKeterangan == 0)
             {
-                lblBookingToServis.ForeColor = SystemColors.ControlDarkDark;
+                // lblBookingToServis.ForeColor = SystemColors.ControlDarkDark;
                 pictureServis.BackgroundImage = null;
                 pictureServis.BorderSize = 2;
-                lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
+                //   lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
                 pictureSelesai.BackgroundImage = null;
                 pictureSelesai.BorderSize = 2;
             }
             else if (_servisKeterangan == 1)
             {
-                lblBookingToServis.ForeColor = _oren;
+                //  lblBookingToServis.ForeColor = _oren;
                 pictureServis.BackgroundImage = Properties.Resources.gambar_oren;
                 pictureServis.BorderSize = 0;
-                lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
+                //   lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
                 pictureSelesai.BackgroundImage = null;
                 pictureSelesai.BorderSize = 2;
             }
             else if (_servisKeterangan == 2)
             {
-                lblBookingToServis.ForeColor = _hijau;
+                //  lblBookingToServis.ForeColor = _hijau;
                 pictureServis.BackgroundImage = Properties.Resources.gambar_hijau;
                 pictureServis.BorderSize = 0;
-                lblServisToSelesai.ForeColor = _oren;
+                //  lblServisToSelesai.ForeColor = _oren;
                 pictureSelesai.BackgroundImage = Properties.Resources.gambar_oren;
                 pictureSelesai.BorderSize = 0;
             }
             else
             {
-                lblBookingToServis.ForeColor = _hijau;
+                //  lblBookingToServis.ForeColor = _hijau;
                 pictureServis.BackgroundImage = Properties.Resources.gambar_hijau;
                 pictureServis.BorderSize = 0;
-                lblServisToSelesai.ForeColor = _hijau;
+                //       lblServisToSelesai.ForeColor = _hijau;
                 pictureSelesai.BackgroundImage = Properties.Resources.gambar_hijau;
                 pictureSelesai.BorderSize = 0;
             }

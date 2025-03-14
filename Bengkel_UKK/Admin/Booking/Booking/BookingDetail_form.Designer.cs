@@ -30,6 +30,7 @@ namespace Bengkel_UKK.Admin.Booking
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingDetail_form));
             panel1 = new Panel();
             comboMekanik = new ComboBox();
             label26 = new Label();
@@ -56,32 +57,23 @@ namespace Bengkel_UKK.Admin.Booking
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            panel5 = new Panel();
+            panel4 = new Panel();
             pictureSelesai = new RJCircularPictureBox();
             pictureServis = new RJCircularPictureBox();
-            lblServisToSelesai = new Label();
-            rjCircularPictureBox7 = new RJCircularPictureBox();
-            rjCircularPictureBox6 = new RJCircularPictureBox();
-            rjCircularPictureBox5 = new RJCircularPictureBox();
-            panel4 = new Panel();
             btnInvoice = new DhafaButton();
             pictureBox4 = new PictureBox();
             pictureBox2 = new PictureBox();
-            label22 = new Label();
-            label21 = new Label();
-            label20 = new Label();
             label19 = new Label();
             label17 = new Label();
             label16 = new Label();
             label15 = new Label();
-            btnSBooking = new DhafaButton();
             btnServisProses = new DhafaButton();
             btnServisSelesai = new DhafaButton();
             pictureBooking = new RJCircularPictureBox();
-            lblBookingToServis = new Label();
             label10 = new Label();
-            yogaButton7 = new DhafaButton();
+            DhafaButton = new DhafaButton();
             panel3 = new Panel();
-            yogaButton1 = new DhafaButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtSparepart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCatatan).BeginInit();
@@ -95,9 +87,6 @@ namespace Bengkel_UKK.Admin.Booking
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureSelesai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureServis).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBooking).BeginInit();
@@ -132,7 +121,7 @@ namespace Bengkel_UKK.Admin.Booking
             panel1.Controls.Add(txtKTP);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(55, 55);
+            panel1.Location = new Point(28, 38);
             panel1.Name = "panel1";
             panel1.Size = new Size(487, 754);
             panel1.TabIndex = 13;
@@ -170,7 +159,7 @@ namespace Bengkel_UKK.Admin.Booking
             btnSparepart.Name = "btnSparepart";
             btnSparepart.Size = new Size(45, 26);
             btnSparepart.TabIndex = 54;
-            btnSparepart.Text = "...";
+            btnSparepart.Text = "🔎";
             btnSparepart.UseVisualStyleBackColor = false;
             // 
             // txtSparepart
@@ -270,7 +259,7 @@ namespace Bengkel_UKK.Admin.Booking
             txtTanggal.ReadOnly = true;
             txtTanggal.Size = new Size(257, 27);
             txtTanggal.TabIndex = 39;
-            txtTanggal.Text = "2 Februari 2024";
+            txtTanggal.Text = "10 November 2024";
             txtTanggal.ThemeName = "Default";
             // 
             // txtKeluhan
@@ -352,7 +341,7 @@ namespace Bengkel_UKK.Admin.Booking
             txtNoPol.ReadOnly = true;
             txtNoPol.Size = new Size(257, 27);
             txtNoPol.TabIndex = 31;
-            txtNoPol.Text = "AB 5567 FC";
+            txtNoPol.Text = "AB 8898 FC";
             txtNoPol.ThemeName = "Default";
             // 
             // txtNama
@@ -368,7 +357,7 @@ namespace Bengkel_UKK.Admin.Booking
             txtNama.ReadOnly = true;
             txtNama.Size = new Size(257, 27);
             txtNama.TabIndex = 28;
-            txtNama.Text = "Rifki Yoga Syahbani";
+            txtNama.Text = "Dhafa Bintang Ramadhan";
             txtNama.ThemeName = "Default";
             // 
             // label4
@@ -395,7 +384,7 @@ namespace Bengkel_UKK.Admin.Booking
             txtKendaraan.ReadOnly = true;
             txtKendaraan.Size = new Size(257, 27);
             txtKendaraan.TabIndex = 30;
-            txtKendaraan.Text = "Vario 125";
+            txtKendaraan.Text = "Vario 160";
             txtKendaraan.ThemeName = "Default";
             // 
             // label3
@@ -450,33 +439,42 @@ namespace Bengkel_UKK.Admin.Booking
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(panel5);
+            panel2.Controls.Add(panel4);
             panel2.Controls.Add(pictureSelesai);
             panel2.Controls.Add(pictureServis);
-            panel2.Controls.Add(lblServisToSelesai);
-            panel2.Controls.Add(rjCircularPictureBox7);
-            panel2.Controls.Add(rjCircularPictureBox6);
-            panel2.Controls.Add(rjCircularPictureBox5);
-            panel2.Controls.Add(panel4);
             panel2.Controls.Add(btnInvoice);
             panel2.Controls.Add(pictureBox4);
             panel2.Controls.Add(pictureBox2);
-            panel2.Controls.Add(label22);
-            panel2.Controls.Add(label21);
-            panel2.Controls.Add(label20);
             panel2.Controls.Add(label19);
             panel2.Controls.Add(label17);
             panel2.Controls.Add(label16);
             panel2.Controls.Add(label15);
-            panel2.Controls.Add(btnSBooking);
             panel2.Controls.Add(btnServisProses);
             panel2.Controls.Add(btnServisSelesai);
             panel2.Controls.Add(pictureBooking);
-            panel2.Controls.Add(lblBookingToServis);
             panel2.Controls.Add(label10);
-            panel2.Location = new Point(574, 55);
+            panel2.ForeColor = SystemColors.ButtonHighlight;
+            panel2.Location = new Point(533, 38);
             panel2.Name = "panel2";
-            panel2.Size = new Size(730, 754);
+            panel2.Size = new Size(480, 754);
             panel2.TabIndex = 14;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.Black;
+            panel5.Location = new Point(109, 166);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(3, 173);
+            panel5.TabIndex = 84;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.Black;
+            panel4.Location = new Point(109, 364);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(3, 173);
+            panel4.TabIndex = 83;
             // 
             // pictureSelesai
             // 
@@ -486,7 +484,7 @@ namespace Bengkel_UKK.Admin.Booking
             pictureSelesai.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             pictureSelesai.BorderSize = 2;
             pictureSelesai.GradientAngle = 50F;
-            pictureSelesai.Location = new Point(574, 183);
+            pictureSelesai.Location = new Point(94, 135);
             pictureSelesai.Name = "pictureSelesai";
             pictureSelesai.Size = new Size(34, 34);
             pictureSelesai.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -501,154 +499,60 @@ namespace Bengkel_UKK.Admin.Booking
             pictureServis.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             pictureServis.BorderSize = 2;
             pictureServis.GradientAngle = 50F;
-            pictureServis.Location = new Point(340, 183);
+            pictureServis.Location = new Point(92, 333);
             pictureServis.Name = "pictureServis";
             pictureServis.Size = new Size(34, 34);
             pictureServis.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureServis.TabIndex = 50;
             pictureServis.TabStop = false;
             // 
-            // lblServisToSelesai
-            // 
-            lblServisToSelesai.AutoSize = true;
-            lblServisToSelesai.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
-            lblServisToSelesai.Location = new Point(364, 185);
-            lblServisToSelesai.Name = "lblServisToSelesai";
-            lblServisToSelesai.Size = new Size(221, 25);
-            lblServisToSelesai.TabIndex = 82;
-            lblServisToSelesai.Text = "━━━━━━━━━━━━━━━━━━━";
-            // 
-            // rjCircularPictureBox7
-            // 
-            rjCircularPictureBox7.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox7.BorderColor = SystemColors.ControlDarkDark;
-            rjCircularPictureBox7.BorderColor2 = SystemColors.ControlDarkDark;
-            rjCircularPictureBox7.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox7.BorderSize = 2;
-            rjCircularPictureBox7.GradientAngle = 50F;
-            rjCircularPictureBox7.Location = new Point(104, 495);
-            rjCircularPictureBox7.Name = "rjCircularPictureBox7";
-            rjCircularPictureBox7.Size = new Size(30, 30);
-            rjCircularPictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox7.TabIndex = 81;
-            rjCircularPictureBox7.TabStop = false;
-            // 
-            // rjCircularPictureBox6
-            // 
-            rjCircularPictureBox6.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox6.BorderColor = SystemColors.ControlDarkDark;
-            rjCircularPictureBox6.BorderColor2 = SystemColors.ControlDarkDark;
-            rjCircularPictureBox6.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox6.BorderSize = 2;
-            rjCircularPictureBox6.GradientAngle = 50F;
-            rjCircularPictureBox6.Location = new Point(104, 429);
-            rjCircularPictureBox6.Name = "rjCircularPictureBox6";
-            rjCircularPictureBox6.Size = new Size(30, 30);
-            rjCircularPictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox6.TabIndex = 80;
-            rjCircularPictureBox6.TabStop = false;
-            // 
-            // rjCircularPictureBox5
-            // 
-            rjCircularPictureBox5.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            rjCircularPictureBox5.BorderColor = SystemColors.ControlDarkDark;
-            rjCircularPictureBox5.BorderColor2 = SystemColors.ControlDarkDark;
-            rjCircularPictureBox5.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            rjCircularPictureBox5.BorderSize = 2;
-            rjCircularPictureBox5.GradientAngle = 50F;
-            rjCircularPictureBox5.Location = new Point(104, 364);
-            rjCircularPictureBox5.Name = "rjCircularPictureBox5";
-            rjCircularPictureBox5.Size = new Size(30, 30);
-            rjCircularPictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            rjCircularPictureBox5.TabIndex = 79;
-            rjCircularPictureBox5.TabStop = false;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = SystemColors.ControlDarkDark;
-            panel4.ForeColor = SystemColors.ControlDarkDark;
-            panel4.Location = new Point(119, 368);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(2, 150);
-            panel4.TabIndex = 78;
-            // 
             // btnInvoice
             // 
-            btnInvoice.BackColor = Color.White;
-            btnInvoice.BackgroundColor = Color.White;
+            btnInvoice.BackColor = Color.FromArgb(230, 126, 34);
+            btnInvoice.BackgroundColor = Color.FromArgb(230, 126, 34);
             btnInvoice.BorderColor = Color.PaleVioletRed;
             btnInvoice.BorderRadius = 4;
             btnInvoice.BorderSize = 2;
             btnInvoice.FlatAppearance.BorderSize = 0;
             btnInvoice.FlatStyle = FlatStyle.Flat;
             btnInvoice.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInvoice.ForeColor = SystemColors.ControlDarkDark;
-            btnInvoice.Location = new Point(527, 486);
+            btnInvoice.ForeColor = SystemColors.ButtonHighlight;
+            btnInvoice.Location = new Point(338, 603);
             btnInvoice.Name = "btnInvoice";
             btnInvoice.Size = new Size(88, 37);
             btnInvoice.TabIndex = 77;
             btnInvoice.Text = "Invoice";
-            btnInvoice.TextColor = SystemColors.ControlDarkDark;
+            btnInvoice.TextColor = SystemColors.ButtonHighlight;
             btnInvoice.UseVisualStyleBackColor = false;
             // 
             // pictureBox4
             // 
             pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(565, 129);
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(134, 118);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(50, 50);
+            pictureBox4.Size = new Size(64, 64);
+            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox4.TabIndex = 76;
             pictureBox4.TabStop = false;
             // 
             // pictureBox2
             // 
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox2.Location = new Point(332, 129);
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(132, 316);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(50, 50);
+            pictureBox2.Size = new Size(64, 64);
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox2.TabIndex = 73;
             pictureBox2.TabStop = false;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label22.ForeColor = SystemColors.ControlDarkDark;
-            label22.Location = new Point(140, 498);
-            label22.Name = "label22";
-            label22.Size = new Size(121, 25);
-            label22.TabIndex = 70;
-            label22.Text = "Pembayaran ";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label21.ForeColor = SystemColors.ControlDarkDark;
-            label21.Location = new Point(140, 432);
-            label21.Name = "label21";
-            label21.Size = new Size(61, 25);
-            label21.TabIndex = 69;
-            label21.Text = "Servis";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label20.ForeColor = SystemColors.ControlDarkDark;
-            label20.Location = new Point(140, 366);
-            label20.Name = "label20";
-            label20.Size = new Size(81, 25);
-            label20.TabIndex = 68;
-            label20.Text = "Booking";
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI Semibold", 15.25F, FontStyle.Bold, GraphicsUnit.Point);
             label19.ForeColor = SystemColors.ControlDarkDark;
-            label19.Location = new Point(99, 330);
+            label19.Location = new Point(289, 135);
             label19.Name = "label19";
             label19.Size = new Size(73, 30);
             label19.TabIndex = 67;
@@ -659,7 +563,7 @@ namespace Bengkel_UKK.Admin.Booking
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label17.ForeColor = SystemColors.ControlDarkDark;
-            label17.Location = new Point(534, 220);
+            label17.Location = new Point(118, 193);
             label17.Name = "label17";
             label17.Size = new Size(118, 25);
             label17.TabIndex = 65;
@@ -670,7 +574,7 @@ namespace Bengkel_UKK.Admin.Booking
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label16.ForeColor = SystemColors.ControlDarkDark;
-            label16.Location = new Point(325, 220);
+            label16.Location = new Point(135, 392);
             label16.Name = "label16";
             label16.Size = new Size(63, 25);
             label16.TabIndex = 64;
@@ -681,30 +585,11 @@ namespace Bengkel_UKK.Admin.Booking
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label15.ForeColor = SystemColors.ControlDarkDark;
-            label15.Location = new Point(84, 220);
+            label15.Location = new Point(133, 537);
             label15.Name = "label15";
             label15.Size = new Size(82, 25);
             label15.TabIndex = 63;
             label15.Text = "Booking";
-            // 
-            // btnSBooking
-            // 
-            btnSBooking.BackColor = Color.FromArgb(0, 192, 0);
-            btnSBooking.BackgroundColor = Color.FromArgb(0, 192, 0);
-            btnSBooking.BorderColor = Color.PaleVioletRed;
-            btnSBooking.BorderRadius = 4;
-            btnSBooking.BorderSize = 0;
-            btnSBooking.FlatAppearance.BorderSize = 0;
-            btnSBooking.FlatStyle = FlatStyle.Flat;
-            btnSBooking.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSBooking.ForeColor = Color.White;
-            btnSBooking.Location = new Point(527, 361);
-            btnSBooking.Name = "btnSBooking";
-            btnSBooking.Size = new Size(88, 37);
-            btnSBooking.TabIndex = 59;
-            btnSBooking.Text = "Selesai";
-            btnSBooking.TextColor = Color.White;
-            btnSBooking.UseVisualStyleBackColor = false;
             // 
             // btnServisProses
             // 
@@ -717,7 +602,7 @@ namespace Bengkel_UKK.Admin.Booking
             btnServisProses.FlatStyle = FlatStyle.Flat;
             btnServisProses.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnServisProses.ForeColor = SystemColors.ControlDarkDark;
-            btnServisProses.Location = new Point(420, 425);
+            btnServisProses.Location = new Point(92, 603);
             btnServisProses.Name = "btnServisProses";
             btnServisProses.Size = new Size(88, 37);
             btnServisProses.TabIndex = 56;
@@ -727,21 +612,21 @@ namespace Bengkel_UKK.Admin.Booking
             // 
             // btnServisSelesai
             // 
-            btnServisSelesai.BackColor = Color.White;
-            btnServisSelesai.BackgroundColor = Color.White;
+            btnServisSelesai.BackColor = Color.FromArgb(52, 152, 219);
+            btnServisSelesai.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnServisSelesai.BorderColor = Color.PaleVioletRed;
             btnServisSelesai.BorderRadius = 4;
             btnServisSelesai.BorderSize = 2;
             btnServisSelesai.FlatAppearance.BorderSize = 0;
             btnServisSelesai.FlatStyle = FlatStyle.Flat;
             btnServisSelesai.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnServisSelesai.ForeColor = SystemColors.ControlDarkDark;
-            btnServisSelesai.Location = new Point(527, 425);
+            btnServisSelesai.ForeColor = Color.White;
+            btnServisSelesai.Location = new Point(200, 603);
             btnServisSelesai.Name = "btnServisSelesai";
             btnServisSelesai.Size = new Size(88, 37);
             btnServisSelesai.TabIndex = 55;
             btnServisSelesai.Text = "Selesai";
-            btnServisSelesai.TextColor = SystemColors.ControlDarkDark;
+            btnServisSelesai.TextColor = Color.White;
             btnServisSelesai.UseVisualStyleBackColor = false;
             // 
             // pictureBooking
@@ -753,23 +638,12 @@ namespace Bengkel_UKK.Admin.Booking
             pictureBooking.BorderSize = 0;
             pictureBooking.GradientAngle = 50F;
             pictureBooking.Image = Properties.Resources.gambar_hijau;
-            pictureBooking.Location = new Point(106, 183);
+            pictureBooking.Location = new Point(93, 534);
             pictureBooking.Name = "pictureBooking";
             pictureBooking.Size = new Size(34, 34);
             pictureBooking.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBooking.TabIndex = 48;
             pictureBooking.TabStop = false;
-            // 
-            // lblBookingToServis
-            // 
-            lblBookingToServis.AutoSize = true;
-            lblBookingToServis.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBookingToServis.ForeColor = SystemColors.ControlDarkDark;
-            lblBookingToServis.Location = new Point(131, 185);
-            lblBookingToServis.Name = "lblBookingToServis";
-            lblBookingToServis.Size = new Size(221, 25);
-            lblBookingToServis.TabIndex = 49;
-            lblBookingToServis.Text = "━━━━━━━━━━━━━━━━━━━";
             // 
             // label10
             // 
@@ -781,62 +655,43 @@ namespace Bengkel_UKK.Admin.Booking
             label10.TabIndex = 47;
             label10.Text = "PROGRES SERVIS";
             // 
-            // yogaButton7
+            // DhafaButton
             // 
-            yogaButton7.Anchor = AnchorStyles.None;
-            yogaButton7.BackColor = Color.FromArgb(52, 152, 219);
-            yogaButton7.BackgroundColor = Color.FromArgb(52, 152, 219);
-            yogaButton7.BorderColor = Color.PaleVioletRed;
-            yogaButton7.BorderRadius = 0;
-            yogaButton7.BorderSize = 0;
-            yogaButton7.FlatAppearance.BorderSize = 0;
-            yogaButton7.FlatStyle = FlatStyle.Flat;
-            yogaButton7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            yogaButton7.ForeColor = Color.White;
-            yogaButton7.Location = new Point(1175, 826);
-            yogaButton7.Name = "yogaButton7";
-            yogaButton7.Size = new Size(129, 46);
-            yogaButton7.TabIndex = 78;
-            yogaButton7.Text = "Save";
-            yogaButton7.TextColor = Color.White;
-            yogaButton7.UseVisualStyleBackColor = false;
+            DhafaButton.Anchor = AnchorStyles.None;
+            DhafaButton.BackColor = Color.FromArgb(52, 152, 219);
+            DhafaButton.BackgroundColor = Color.FromArgb(52, 152, 219);
+            DhafaButton.BorderColor = Color.PaleVioletRed;
+            DhafaButton.BorderRadius = 0;
+            DhafaButton.BorderSize = 0;
+            DhafaButton.FlatAppearance.BorderSize = 0;
+            DhafaButton.FlatStyle = FlatStyle.Flat;
+            DhafaButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            DhafaButton.ForeColor = Color.White;
+            DhafaButton.Location = new Point(884, 798);
+            DhafaButton.Name = "DhafaButton";
+            DhafaButton.Size = new Size(129, 46);
+            DhafaButton.TabIndex = 78;
+            DhafaButton.Text = "Save";
+            DhafaButton.TextColor = Color.White;
+            DhafaButton.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.AutoScroll = true;
-            panel3.Controls.Add(yogaButton1);
-            panel3.Controls.Add(yogaButton7);
+            panel3.Controls.Add(DhafaButton);
             panel3.Controls.Add(panel2);
             panel3.Controls.Add(panel1);
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1362, 921);
+            panel3.Size = new Size(1055, 858);
             panel3.TabIndex = 79;
-            // 
-            // yogaButton1
-            // 
-            yogaButton1.BackColor = SystemColors.Control;
-            yogaButton1.BackgroundColor = SystemColors.Control;
-            yogaButton1.BackgroundImageLayout = ImageLayout.Zoom;
-            yogaButton1.BorderColor = Color.PaleVioletRed;
-            yogaButton1.BorderRadius = 26;
-            yogaButton1.BorderSize = 0;
-            yogaButton1.FlatAppearance.BorderSize = 0;
-            yogaButton1.FlatStyle = FlatStyle.Flat;
-            yogaButton1.ForeColor = Color.White;
-            yogaButton1.Location = new Point(12, 12);
-            yogaButton1.Name = "yogaButton1";
-            yogaButton1.Size = new Size(53, 52);
-            yogaButton1.TabIndex = 57;
-            yogaButton1.TextColor = Color.White;
-            yogaButton1.UseVisualStyleBackColor = false;
             // 
             // BookingDetail_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1362, 921);
+            ClientSize = new Size(1055, 858);
             Controls.Add(panel3);
             Name = "BookingDetail_form";
             Text = "FormBookingDetail";
@@ -855,9 +710,6 @@ namespace Bengkel_UKK.Admin.Booking
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureSelesai).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureServis).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)rjCircularPictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBooking).EndInit();
@@ -887,21 +739,16 @@ namespace Bengkel_UKK.Admin.Booking
         private Panel panel2;
         private RJCircularPictureBox pictureBooking;
         private Label label10;
-        private Label lblBookingToServis;
         private RJCircularPictureBox pictureServis;
         private DhafaButton btnServisSelesai;
         private DhafaButton btnServisProses;
-        private DhafaButton btnSBooking;
         private Label label15;
-        private Label label20;
         private Label label19;
         private Label label16;
-        private Label label22;
-        private Label label21;
         private PictureBox pictureBox2;
         private PictureBox pictureBox4;
         private DhafaButton btnInvoice;
-        private DhafaButton yogaButton7;
+        private DhafaButton DhafaButton;
         private Label label24;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtCatatan;
         private Label label25;
@@ -911,13 +758,9 @@ namespace Bengkel_UKK.Admin.Booking
         private ComboBox comboMekanik;
         private Label label26;
         private Panel panel3;
-        private Panel panel4;
-        private RJCircularPictureBox rjCircularPictureBox7;
-        private RJCircularPictureBox rjCircularPictureBox6;
-        private RJCircularPictureBox rjCircularPictureBox5;
         private Label label17;
         private RJCircularPictureBox pictureSelesai;
-        private Label lblServisToSelesai;
-        private DhafaButton yogaButton1;
+        private Panel panel4;
+        private Panel panel5;
     }
 }

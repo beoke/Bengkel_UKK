@@ -270,7 +270,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnAddData.Padding = new Padding(10, 0, 0, 0);
             btnAddData.Size = new Size(132, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " ➕ Add Data";
+            btnAddData.Text = " ➕ Pegawai";
             btnAddData.TextAlign = ContentAlignment.MiddleLeft;
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;

@@ -76,7 +76,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             // 
             // lblHeader
             // 
-            lblHeader.BackColor = Color.FromArgb(52, 152, 219);
+            lblHeader.BackColor = Color.FromArgb(170, 0, 0);
             lblHeader.Dock = DockStyle.Top;
             lblHeader.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblHeader.ForeColor = Color.White;

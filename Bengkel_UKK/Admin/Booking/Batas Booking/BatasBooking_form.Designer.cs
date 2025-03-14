@@ -31,7 +31,6 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BatasBooking_form));
             TglEditSync = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             label1 = new Label();
             txtBatas = new Syncfusion.Windows.Forms.Tools.IntegerTextBox();
@@ -102,8 +101,8 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.FromArgb(0, 192, 0);
-            btnSave.BackgroundColor = Color.FromArgb(0, 192, 0);
+            btnSave.BackColor = Color.FromArgb(52, 152, 219);
+            btnSave.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnSave.BorderColor = Color.PaleVioletRed;
             btnSave.BorderRadius = 3;
             btnSave.BorderSize = 0;
@@ -171,20 +170,19 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
             contextMenuStrip1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(137, 36);
+            contextMenuStrip1.Size = new Size(129, 32);
             // 
             // deleteToolStripMenuItem
             // 
-            deleteToolStripMenuItem.Image = (Image)resources.GetObject("deleteToolStripMenuItem.Image");
             deleteToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Padding = new Padding(0, 2, 0, 2);
-            deleteToolStripMenuItem.Size = new Size(136, 32);
+            deleteToolStripMenuItem.Size = new Size(128, 28);
             deleteToolStripMenuItem.Text = "Delete";
             // 
             // lblHeader
             // 
-            lblHeader.BackColor = Color.FromArgb(52, 152, 219);
+            lblHeader.BackColor = Color.FromArgb(170, 0, 0);
             lblHeader.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblHeader.ForeColor = Color.White;
             lblHeader.Location = new Point(-1, -1);
@@ -194,7 +192,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
             lblHeader.Text = "Batas Booking";
             lblHeader.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // FormBatasBooking
+            // BatasBooking_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -208,7 +206,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
             Controls.Add(txtBatas);
             Controls.Add(label1);
             Controls.Add(TglEditSync);
-            Name = "FormBatasBooking";
+            Name = "BatasBooking_form";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Batas Booking";
             ((System.ComponentModel.ISupportInitialize)txtBatas).EndInit();

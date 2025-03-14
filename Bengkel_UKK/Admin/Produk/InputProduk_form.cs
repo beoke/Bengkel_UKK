@@ -73,11 +73,11 @@ namespace Bengkel_UKK.Admin.Produk
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Image originalImage = Image.FromFile(openFileDialog.FileName);
+                    ImageCropTest imagetab = new ImageCropTest(originalImage);
 
+                    if (imagetab.ShowDialog(this) != DialogResult.OK) return;
 
-                    if (new ImageCropTest(originalImage).ShowDialog(this) != DialogResult.OK) return;
-
-                    pictureBox1.BackgroundImage = ImageDirectory._imageResult;
+                    pictureBox1.BackgroundImage =ImageConvert.Image_ByteToImage(imagetab._imagedata);
                     pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
                     _imageProduk = ImageDirectory._imageResult;
                 }

@@ -100,7 +100,7 @@
             keterangan_text.Location = new Point(149, 186);
             keterangan_text.Multiline = true;
             keterangan_text.Name = "keterangan_text";
-            keterangan_text.PlaceholderText = " Masukkan keterangan Paket";
+            keterangan_text.PlaceholderText = " Masukkan keterangan ";
             keterangan_text.Size = new Size(275, 90);
             keterangan_text.TabIndex = 93;
             keterangan_text.ThemeName = "Default";
@@ -140,7 +140,7 @@
             promo_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             promo_text.Location = new Point(149, 62);
             promo_text.Name = "promo_text";
-            promo_text.PlaceholderText = " ex: promo ringan";
+            promo_text.PlaceholderText = "Contoh : promo ulang tahun";
             promo_text.Size = new Size(275, 27);
             promo_text.TabIndex = 87;
             promo_text.ThemeName = "Default";
@@ -203,7 +203,7 @@
             // 
             // header_label
             // 
-            header_label.BackColor = Color.FromArgb(52, 152, 219);
+            header_label.BackColor = Color.FromArgb(170, 0, 0);
             header_label.Dock = DockStyle.Top;
             header_label.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             header_label.ForeColor = Color.White;

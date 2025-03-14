@@ -24,6 +24,7 @@ namespace Bengkel_UKK.Helper
         private int resizeHandleSize = 5; // Ukuran handle resize
         private string activeResizeHandle = "";
         private int maxCropSize = 200;
+        public byte[] _imagedata { get; private set;}
         public ImageCropTest(Image image)
         {
             InitializeComponent();
@@ -83,7 +84,7 @@ namespace Bengkel_UKK.Helper
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                 g.DrawImage(originalImage, new Rectangle(0, 0, cropRect.Width, cropRect.Height), adjustedCropRect, GraphicsUnit.Pixel);
             }
-
+            _imagedata = ImageConvert.ImageToByteArray(croppedImage);
             ImageDirectory.FillInTheImage(croppedImage);
             this.DialogResult = DialogResult.OK;
             this.Close();

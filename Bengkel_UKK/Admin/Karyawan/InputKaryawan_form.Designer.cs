@@ -83,7 +83,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             // 
             // lblHeader
             // 
-            lblHeader.BackColor = Color.FromArgb(52, 152, 219);
+            lblHeader.BackColor = Color.FromArgb(170, 0, 0);
             lblHeader.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblHeader.ForeColor = Color.White;
             lblHeader.Location = new Point(0, 0);

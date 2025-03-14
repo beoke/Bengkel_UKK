@@ -71,7 +71,7 @@ namespace Bengkel_UKK.Admin.Produk
             // 
             // lblHeader
             // 
-            lblHeader.BackColor = Color.FromArgb(52, 152, 219);
+            lblHeader.BackColor = Color.FromArgb(170, 0, 0);
             lblHeader.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblHeader.ForeColor = Color.White;
             lblHeader.Location = new Point(0, 0);
@@ -160,42 +160,45 @@ namespace Bengkel_UKK.Admin.Produk
             btnMinStok.Name = "btnMinStok";
             btnMinStok.Size = new Size(40, 27);
             btnMinStok.TabIndex = 31;
+            btnMinStok.Text = "➖";
             btnMinStok.TextColor = Color.White;
             btnMinStok.UseVisualStyleBackColor = false;
             // 
             // btnPlusStok
             // 
-            btnPlusStok.BackColor = Color.FromArgb(0, 192, 0);
-            btnPlusStok.BackgroundColor = Color.FromArgb(0, 192, 0);
+            btnPlusStok.BackColor = Color.FromArgb(52, 152, 219);
+            btnPlusStok.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnPlusStok.BorderColor = Color.PaleVioletRed;
             btnPlusStok.BorderRadius = 0;
             btnPlusStok.BorderSize = 0;
             btnPlusStok.FlatAppearance.BorderSize = 0;
             btnPlusStok.FlatStyle = FlatStyle.Flat;
-            btnPlusStok.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlusStok.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnPlusStok.ForeColor = Color.White;
             btnPlusStok.Location = new Point(415, 404);
             btnPlusStok.Name = "btnPlusStok";
             btnPlusStok.Size = new Size(40, 27);
             btnPlusStok.TabIndex = 32;
+            btnPlusStok.Text = "➕";
             btnPlusStok.TextColor = Color.White;
             btnPlusStok.UseVisualStyleBackColor = false;
             // 
             // btnPlusStokMinimum
             // 
-            btnPlusStokMinimum.BackColor = Color.FromArgb(0, 192, 0);
-            btnPlusStokMinimum.BackgroundColor = Color.FromArgb(0, 192, 0);
+            btnPlusStokMinimum.BackColor = Color.FromArgb(52, 152, 219);
+            btnPlusStokMinimum.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnPlusStokMinimum.BorderColor = Color.PaleVioletRed;
             btnPlusStokMinimum.BorderRadius = 0;
             btnPlusStokMinimum.BorderSize = 0;
             btnPlusStokMinimum.FlatAppearance.BorderSize = 0;
             btnPlusStokMinimum.FlatStyle = FlatStyle.Flat;
-            btnPlusStokMinimum.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlusStokMinimum.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnPlusStokMinimum.ForeColor = Color.White;
             btnPlusStokMinimum.Location = new Point(415, 481);
             btnPlusStokMinimum.Name = "btnPlusStokMinimum";
             btnPlusStokMinimum.Size = new Size(40, 27);
             btnPlusStokMinimum.TabIndex = 35;
+            btnPlusStokMinimum.Text = "➕";
             btnPlusStokMinimum.TextColor = Color.White;
             btnPlusStokMinimum.UseVisualStyleBackColor = false;
             // 
@@ -213,6 +216,7 @@ namespace Bengkel_UKK.Admin.Produk
             btnMinStokMinimum.Name = "btnMinStokMinimum";
             btnMinStokMinimum.Size = new Size(40, 27);
             btnMinStokMinimum.TabIndex = 34;
+            btnMinStokMinimum.Text = "➖";
             btnMinStokMinimum.TextColor = Color.White;
             btnMinStokMinimum.UseVisualStyleBackColor = false;
             // 
@@ -287,8 +291,8 @@ namespace Bengkel_UKK.Admin.Produk
             // 
             // btnChooseFile
             // 
-            btnChooseFile.BackColor = Color.FromArgb(230, 126, 34);
-            btnChooseFile.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnChooseFile.BackColor = Color.FromArgb(52, 152, 219);
+            btnChooseFile.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnChooseFile.BorderColor = Color.PaleVioletRed;
             btnChooseFile.BorderRadius = 0;
             btnChooseFile.BorderSize = 0;
@@ -305,9 +309,9 @@ namespace Bengkel_UKK.Admin.Produk
             // 
             // pictureBox1
             // 
+            pictureBox1.BackgroundImage = Properties.Resources.defaultImage;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Image = Properties.Resources.defaultImage;
             pictureBox1.Location = new Point(177, 54);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(129, 126);
@@ -350,8 +354,8 @@ namespace Bengkel_UKK.Admin.Produk
             // 
             // btnHapus
             // 
-            btnHapus.BackColor = Color.FromArgb(230, 126, 34);
-            btnHapus.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnHapus.BackColor = Color.Red;
+            btnHapus.BackgroundColor = Color.Red;
             btnHapus.BorderColor = Color.PaleVioletRed;
             btnHapus.BorderRadius = 0;
             btnHapus.BorderSize = 0;
