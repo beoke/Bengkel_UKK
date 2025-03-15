@@ -147,7 +147,26 @@ namespace Bengkel_UKK.Admin.Karyawan
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QuerySingleOrDefault<int>(sql, filter.param);
         }
+        public KaryawanModel? GetLogin(string email)
+        {
+            const string sql = @"SELECT ktp_admin, password FROM Admins
+                        WHERE email = @email";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { email = email });
+        }
+        public void SoftDeleteData(string ktp)
+        {
+            const string sql = @"UPDATE Admins SET deleted_at = GETDATE() WHERE ktp_admin = @ktp";
+            using var koneksi = new SqlConnection(conn.connStr);
+            koneksi.Execute(sql, new { ktp });
+        }
 
+        public void RestoreData(string ktp)
+        {
+            const string sql = @"UPDATE Admins SET deleted_at = NULL WHERE ktp_admin = @ktp";
+            using var koneksi = new SqlConnection(conn.connStr);
+            koneksi.Execute(sql, new { ktp });
+        }
 
     }
 

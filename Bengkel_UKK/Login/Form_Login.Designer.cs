@@ -70,7 +70,7 @@
             btnShowPassword.BackgroundImageLayout = ImageLayout.Zoom;
             btnShowPassword.FlatAppearance.BorderSize = 0;
             btnShowPassword.FlatStyle = FlatStyle.Flat;
-            btnShowPassword.Image = Properties.Resources.eye;
+            btnShowPassword.Image = Properties.Resources.view1;
             btnShowPassword.Location = new Point(323, 199);
             btnShowPassword.Name = "btnShowPassword";
             btnShowPassword.Size = new Size(38, 29);
@@ -189,14 +189,14 @@
             label1.TabIndex = 0;
             label1.Text = "LOGIN";
             // 
-            // Login
+            // Form_Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 235, 240);
             ClientSize = new Size(502, 505);
             Controls.Add(panel1);
-            Name = "Login";
+            Name = "Form_Login";
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)txtEmail).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtPassword).EndInit();

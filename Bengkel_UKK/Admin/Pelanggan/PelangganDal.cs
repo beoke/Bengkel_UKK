@@ -113,5 +113,31 @@ namespace Bengkel_UKK.Admin.Pelanggan
             var data = koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { ktp_pelanggan = ktp });
             return data != null;
         }
+        public PelangganModel? GetLogin(string email)
+        {
+            const string sql = @"SELECT ktp_pelanggan, password FROM Pelanggan
+                        WHERE email = @email";
+            using var koneksi = new SqlConnection(conn.connStr);
+
+            return koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { email });
+        }
+
+        public string GenerateUniqueTempKTP()
+        {
+            using var koneksi = new SqlConnection(conn.connStr);
+            string tempKTP;
+            bool exists;
+
+            do
+            {
+                tempKTP = "TEMP" + new Random().Next(100000, 999999); // TEMP + 6 angka acak
+
+                string query = "SELECT 1 FROM Pelanggan WHERE ktp_pelanggan = @ktp";
+                exists = koneksi.QueryFirstOrDefault<int>(query, new { ktp = tempKTP }) > 0;
+
+            } while (exists);
+
+            return tempKTP;
+        }
     }
 }
