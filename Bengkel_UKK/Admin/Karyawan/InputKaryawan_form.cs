@@ -215,7 +215,7 @@ namespace Bengkel_UKK.Admin.Karyawan
 
             var dataPegawai = new KaryawanModel()
             {
-                ktp_admin = _ktp_admin,
+                ktp_admin = string.IsNullOrEmpty(_ktp_admin) ? noKtpNew : _ktp_admin,
                 nama_admin = nama,
                 no_telp = telepon,
                 email = email,
@@ -223,10 +223,9 @@ namespace Bengkel_UKK.Admin.Karyawan
                 alamat = alamat,
                 role = jabatan,
                 image_data = profile
-            };
+            }; 
 
             if (!PesanBox.Konfirmasi("Apakah anda yakin ingin menyimpan data?")) return;
-            MessageBox.Show(_ktp_admin);
             if (_ktp_admin == string.Empty)
             {
                 _karyawanDal.InsertData(dataPegawai);
