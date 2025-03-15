@@ -149,7 +149,7 @@ namespace Bengkel_UKK.Admin.Karyawan
         }
         public KaryawanModel? GetLogin(string email)
         {
-            const string sql = @"SELECT ktp_admin, password FROM Admins
+            const string sql = @"SELECT ktp_admin, password FROM Admin
                         WHERE email = @email";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { email = email });

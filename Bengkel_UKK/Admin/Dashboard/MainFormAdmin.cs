@@ -6,6 +6,7 @@ using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
+using Bengkel_UKK.Login;
 using Syncfusion.WinForms.Controls;
 using System;
 using System.Collections.Generic;
@@ -89,6 +90,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKalender.Click += BtnSideBar_Click;
             btn_kendaraan.Click += BtnSideBar_Click;
             btn_kendaraan.Click += (s, e) => buttonActiveAfter = 9;
+            btnLogout.Click += BtnLogout_Click;
 
             // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
             btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard());
@@ -102,6 +104,17 @@ namespace Bengkel_UKK.Admin.Dashboard
             btn_kendaraan.Click += (s, e)=> ShowFormInPanel2(new Kendaraan_form());
         }
 
+        private void BtnLogout_Click(object? sender, EventArgs e)
+        {
+           DialogResult = MessageBox.Show("Yakin ingin keluar dari aplikasi?", "Konfirmasi Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(DialogResult == DialogResult.Yes)
+            {
+                this.Hide(); 
+                Form loginForm = new Form_Login(); 
+                loginForm.ShowDialog(); 
+                this.Close(); 
+            }
+        }
 
         private void AddButton(int key, Button value)
         {

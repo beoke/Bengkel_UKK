@@ -34,28 +34,6 @@ namespace Bengkel_UKK.Admin.Pelanggan
                 _ktp_pelanggan = ktp_pelanggan;
             }
         }
-        public class PasswordHash
-        {
-            public enum StrengthArgon
-            {
-                Interactive = 2,
-                Moderate = 3,
-                Secure = 4
-            }
-
-            public static string ArgonHashString(string password, StrengthArgon strength)
-            {
-                using (var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password)))
-                {
-                    argon2.Salt = Encoding.UTF8.GetBytes("somesaltvalue"); 
-                    argon2.DegreeOfParallelism = 4; 
-                    argon2.MemorySize = 65536; 
-                    argon2.Iterations = (int)strength; 
-
-                    return Convert.ToBase64String(argon2.GetBytes(16)); 
-                }
-            }
-        }
         #region Register event
         private void RegisterEvent()
         {
