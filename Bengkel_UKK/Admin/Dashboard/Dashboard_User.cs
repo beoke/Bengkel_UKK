@@ -131,7 +131,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnLogout.Click += BtnLogout_Click; 
 
             btnProduk.Click += (s, e) => ShowFormInPanel2(new SparepartFormPelanggan());
-            btnBooking.Click += (s, e) => ShowFormInPanel2(new InputBooking_form());
+            btnBooking.Click += (s, e) => ShowFormInPanel2(new BookingFormPelanggan());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaServisPelanggan());
             btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
