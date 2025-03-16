@@ -34,6 +34,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             flowLayoutPanel2 = new FlowLayoutPanel();
             btnDashboard = new DhafaButton();
             btnBooking = new DhafaButton();
+            btnKalender = new DhafaButton();
             btnProduk = new DhafaButton();
             btnRiwayat = new DhafaButton();
             btnService = new DhafaButton();
@@ -50,7 +51,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelMain = new Panel();
             panelTop = new Panel();
             lblDisplay = new Label();
-            btnKalender = new DhafaButton();
             flowLayoutPanel2.SuspendLayout();
             panelLeft.SuspendLayout();
             panelLogOut.SuspendLayout();
@@ -130,6 +130,31 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnBooking.TextColor = Color.White;
             btnBooking.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnBooking.UseVisualStyleBackColor = false;
+            // 
+            // btnKalender
+            // 
+            btnKalender.BackColor = Color.FromArgb(170, 0, 0);
+            btnKalender.BackgroundColor = Color.FromArgb(170, 0, 0);
+            btnKalender.BorderColor = Color.PaleVioletRed;
+            btnKalender.BorderRadius = 7;
+            btnKalender.BorderSize = 0;
+            btnKalender.FlatAppearance.BorderSize = 0;
+            btnKalender.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnKalender.FlatStyle = FlatStyle.Flat;
+            btnKalender.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnKalender.ForeColor = Color.White;
+            btnKalender.Image = (Image)resources.GetObject("btnKalender.Image");
+            btnKalender.ImageAlign = ContentAlignment.MiddleLeft;
+            btnKalender.Location = new Point(18, 135);
+            btnKalender.Name = "btnKalender";
+            btnKalender.Padding = new Padding(20, 0, 0, 0);
+            btnKalender.Size = new Size(255, 60);
+            btnKalender.TabIndex = 16;
+            btnKalender.Text = "    Kalender";
+            btnKalender.TextAlign = ContentAlignment.MiddleLeft;
+            btnKalender.TextColor = Color.White;
+            btnKalender.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnKalender.UseVisualStyleBackColor = false;
             // 
             // btnProduk
             // 
@@ -409,31 +434,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             lblDisplay.TabIndex = 19;
             lblDisplay.Text = "SPAREPART";
             lblDisplay.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnKalender
-            // 
-            btnKalender.BackColor = Color.FromArgb(170, 0, 0);
-            btnKalender.BackgroundColor = Color.FromArgb(170, 0, 0);
-            btnKalender.BorderColor = Color.PaleVioletRed;
-            btnKalender.BorderRadius = 7;
-            btnKalender.BorderSize = 0;
-            btnKalender.FlatAppearance.BorderSize = 0;
-            btnKalender.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnKalender.FlatStyle = FlatStyle.Flat;
-            btnKalender.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnKalender.ForeColor = Color.White;
-            btnKalender.Image = (Image)resources.GetObject("btnKalender.Image");
-            btnKalender.ImageAlign = ContentAlignment.MiddleLeft;
-            btnKalender.Location = new Point(18, 135);
-            btnKalender.Name = "btnKalender";
-            btnKalender.Padding = new Padding(20, 0, 0, 0);
-            btnKalender.Size = new Size(255, 60);
-            btnKalender.TabIndex = 16;
-            btnKalender.Text = "    Kalender";
-            btnKalender.TextAlign = ContentAlignment.MiddleLeft;
-            btnKalender.TextColor = Color.White;
-            btnKalender.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnKalender.UseVisualStyleBackColor = false;
             // 
             // MainFormAdmin
             // 

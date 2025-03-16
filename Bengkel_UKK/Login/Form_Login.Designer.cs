@@ -47,7 +47,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.BeforeTouchSize = new Size(325, 31);
+            txtEmail.BeforeTouchSize = new Size(370, 31);
             txtEmail.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(37, 105);
             txtEmail.Name = "txtEmail";
@@ -57,7 +57,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.BeforeTouchSize = new Size(325, 31);
+            txtPassword.BeforeTouchSize = new Size(370, 31);
             txtPassword.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.Location = new Point(37, 198);
             txtPassword.Name = "txtPassword";
@@ -79,7 +79,7 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(74, 92, 110);
+            btnLogin.BackColor = Color.Red;
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);

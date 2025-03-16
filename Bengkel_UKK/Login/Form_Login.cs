@@ -3,6 +3,7 @@ using Bengkel_UKK.Admin.Karyawan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Helper;
 using Microsoft.Win32;
+using Sodium;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,12 +40,12 @@ namespace Bengkel_UKK.Login
                 if (_showPassword)
                 {
                     txtPassword.PasswordChar = '*';
-                    btnShowPassword.Image = Properties.Resources.view;
+                    btnShowPassword.Image = Properties.Resources.eye;
                 }
                 else
                 {
                     txtPassword.PasswordChar = '\0';
-                    btnShowPassword.Image = Properties.Resources.eye;
+                    btnShowPassword.Image = Properties.Resources.view;
                 }
                 _showPassword = !_showPassword;
                 txtPassword.Focus();
@@ -73,41 +74,43 @@ namespace Bengkel_UKK.Login
         }
         private void CekLogin()
         {
-            string email = txtEmail.Text;
-            string password = txtPassword.Text;
+                string email = txtEmail.Text;
+                string password = txtPassword.Text;
 
-            if (email == string.Empty || password == string.Empty || lblErrorEmail.Visible)
-            {
-                PesanBox.Warning("Data tidak valid, mohon cek kembali!");
-                return;
-            }
-            var dataPelanggan = _pelangganDal.GetLogin(email);
-            var dataAdmin = _karyawanDal.GetLogin(email);
+                if (email == string.Empty || password == string.Empty || lblErrorEmail.Visible)
+                {
+                    PesanBox.Warning("Data tidak valid, mohon cek kembali!");
+                    return;
+                }
+                // Ambil data pelanggan dari database
+                var dataPelanggan = _pelangganDal.GetLogin(email);
+                bool loginPelanggan = dataPelanggan != null &&
+                                      !string.IsNullOrEmpty(dataPelanggan.password) &&
+                                      PasswordHash.ArgonHashStringVerify(dataPelanggan.password, password);
 
-            bool loginPelanggan = dataPelanggan?.password != null &&
-                          PasswordHash.ArgonHashStringVerify(dataPelanggan.password, password);
-
-            bool loginAdmin = dataAdmin?.password != null &&
-                              PasswordHash.ArgonHashStringVerify(dataAdmin.password, password);
+                var dataAdmin = _karyawanDal.GetLogin(email);
+                bool loginAdmin = dataAdmin != null &&
+                                  !string.IsNullOrEmpty(dataAdmin.password) &&
+                                  PasswordHash.ArgonHashStringVerify(dataAdmin.password, password);
 
             if (loginPelanggan && loginAdmin)
-            {
-                new MainFormAdmin().Show();
-            }
-            else if (loginPelanggan)
-            {
-                new Dashboard_User().Show();
-            }
-            else if (loginAdmin)
-            {
-                new MainFormAdmin().Show();
-            }
-            else
-            {
-                PesanBox.Error("Email atau password salah!");
-                return;
-            }
-            this.Hide();
+                {
+                    new MainFormAdmin().Show();
+                }
+                else if (loginPelanggan)
+                {
+                    new Dashboard_User().Show();
+                }
+                else if (loginAdmin)
+                {
+                    new MainFormAdmin().Show();
+                }
+                else
+                {
+                    PesanBox.Error("Email atau password salah!");
+                    return;
+                }
+                this.Hide();
         }
 
     }
