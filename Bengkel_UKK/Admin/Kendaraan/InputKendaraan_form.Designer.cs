@@ -34,11 +34,10 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblHeader = new Label();
             button_simpan = new DhafaButton();
             button_batal = new DhafaButton();
-            lblErrorTahunMotor = new Label();
             lblErrorKapasitas = new Label();
-            lblErrorEmail = new Label();
+            lblErrorTransmisi = new Label();
             lblErrorTipe = new Label();
-            lblErrorKTP = new Label();
+            lblErrorMerk = new Label();
             lblErrorNopol = new Label();
             tahun_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label13 = new Label();
@@ -56,6 +55,8 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label1 = new Label();
             label2 = new Label();
             tipe_combo = new ComboBox();
+            lblErrorTahunMotor = new Label();
+            lblPemilik = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tahun_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kapasitas_text).BeginInit();
@@ -126,19 +127,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             button_batal.TextColor = SystemColors.ControlDarkDark;
             button_batal.UseVisualStyleBackColor = false;
             // 
-            // lblErrorTahunMotor
-            // 
-            lblErrorTahunMotor.AutoSize = true;
-            lblErrorTahunMotor.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            lblErrorTahunMotor.ForeColor = Color.Red;
-            lblErrorTahunMotor.Location = new Point(588, 314);
-            lblErrorTahunMotor.Name = "lblErrorTahunMotor";
-            lblErrorTahunMotor.Size = new Size(199, 17);
-            lblErrorTahunMotor.TabIndex = 111;
-            lblErrorTahunMotor.Text = "⚠️ Harap mengisi tahun motor !";
-            lblErrorTahunMotor.TextAlign = ContentAlignment.MiddleRight;
-            lblErrorTahunMotor.Visible = false;
-            // 
             // lblErrorKapasitas
             // 
             lblErrorKapasitas.AutoSize = true;
@@ -152,18 +140,18 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblErrorKapasitas.TextAlign = ContentAlignment.MiddleRight;
             lblErrorKapasitas.Visible = false;
             // 
-            // lblErrorEmail
+            // lblErrorTransmisi
             // 
-            lblErrorEmail.AutoSize = true;
-            lblErrorEmail.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            lblErrorEmail.ForeColor = Color.Red;
-            lblErrorEmail.Location = new Point(581, 162);
-            lblErrorEmail.Name = "lblErrorEmail";
-            lblErrorEmail.Size = new Size(194, 17);
-            lblErrorEmail.TabIndex = 109;
-            lblErrorEmail.Text = "⚠️ Masukkan email yang valid !";
-            lblErrorEmail.TextAlign = ContentAlignment.MiddleRight;
-            lblErrorEmail.Visible = false;
+            lblErrorTransmisi.AutoSize = true;
+            lblErrorTransmisi.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorTransmisi.ForeColor = Color.Red;
+            lblErrorTransmisi.Location = new Point(581, 162);
+            lblErrorTransmisi.Name = "lblErrorTransmisi";
+            lblErrorTransmisi.Size = new Size(217, 17);
+            lblErrorTransmisi.TabIndex = 109;
+            lblErrorTransmisi.Text = "⚠️ Masukkan Transmisi yang valid !";
+            lblErrorTransmisi.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorTransmisi.Visible = false;
             // 
             // lblErrorTipe
             // 
@@ -178,18 +166,18 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblErrorTipe.TextAlign = ContentAlignment.MiddleRight;
             lblErrorTipe.Visible = false;
             // 
-            // lblErrorKTP
+            // lblErrorMerk
             // 
-            lblErrorKTP.AutoSize = true;
-            lblErrorKTP.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            lblErrorKTP.ForeColor = Color.Red;
-            lblErrorKTP.Location = new Point(136, 314);
-            lblErrorKTP.Name = "lblErrorKTP";
-            lblErrorKTP.Size = new Size(192, 17);
-            lblErrorKTP.TabIndex = 107;
-            lblErrorKTP.Text = "⚠️ Harap mengisi merk motor!";
-            lblErrorKTP.TextAlign = ContentAlignment.MiddleRight;
-            lblErrorKTP.Visible = false;
+            lblErrorMerk.AutoSize = true;
+            lblErrorMerk.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorMerk.ForeColor = Color.Red;
+            lblErrorMerk.Location = new Point(136, 314);
+            lblErrorMerk.Name = "lblErrorMerk";
+            lblErrorMerk.Size = new Size(192, 17);
+            lblErrorMerk.TabIndex = 107;
+            lblErrorMerk.Text = "⚠️ Harap mengisi merk motor!";
+            lblErrorMerk.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorMerk.Visible = false;
             // 
             // lblErrorNopol
             // 
@@ -213,7 +201,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             tahun_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             tahun_text.Location = new Point(581, 284);
             tahun_text.Name = "tahun_text";
-            tahun_text.PlaceholderText = " Masukkan konfirmasi password";
+            tahun_text.PlaceholderText = "Masukkan Tahun Motor";
             tahun_text.Size = new Size(293, 27);
             tahun_text.TabIndex = 103;
             tahun_text.ThemeName = "Default";
@@ -251,7 +239,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             kapasitas_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             kapasitas_text.Location = new Point(581, 207);
             kapasitas_text.Name = "kapasitas_text";
-            kapasitas_text.PlaceholderText = " Masukkan password";
+            kapasitas_text.PlaceholderText = " Masukkan Kapasitas";
             kapasitas_text.Size = new Size(293, 27);
             kapasitas_text.TabIndex = 99;
             kapasitas_text.ThemeName = "Default";
@@ -265,7 +253,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             Transmisi_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             Transmisi_text.Location = new Point(581, 132);
             Transmisi_text.Name = "Transmisi_text";
-            Transmisi_text.PlaceholderText = " Masukkan nama";
+            Transmisi_text.PlaceholderText = " Masukkan Transmisi";
             Transmisi_text.Size = new Size(286, 27);
             Transmisi_text.TabIndex = 98;
             Transmisi_text.ThemeName = "Default";
@@ -406,11 +394,38 @@ namespace Bengkel_UKK.Admin.Kendaraan
             tipe_combo.Size = new Size(286, 23);
             tipe_combo.TabIndex = 116;
             // 
+            // lblErrorTahunMotor
+            // 
+            lblErrorTahunMotor.AutoSize = true;
+            lblErrorTahunMotor.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorTahunMotor.ForeColor = Color.Red;
+            lblErrorTahunMotor.Location = new Point(588, 314);
+            lblErrorTahunMotor.Name = "lblErrorTahunMotor";
+            lblErrorTahunMotor.Size = new Size(199, 17);
+            lblErrorTahunMotor.TabIndex = 111;
+            lblErrorTahunMotor.Text = "⚠️ Harap mengisi tahun motor !";
+            lblErrorTahunMotor.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorTahunMotor.Visible = false;
+            // 
+            // lblPemilik
+            // 
+            lblPemilik.AutoSize = true;
+            lblPemilik.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPemilik.ForeColor = Color.Red;
+            lblPemilik.Location = new Point(136, 160);
+            lblPemilik.Name = "lblPemilik";
+            lblPemilik.Size = new Size(203, 17);
+            lblPemilik.TabIndex = 117;
+            lblPemilik.Text = "⚠️ Harap mengisi nama Pemilik !";
+            lblPemilik.TextAlign = ContentAlignment.MiddleRight;
+            lblPemilik.Visible = false;
+            // 
             // InputKendaraan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(893, 423);
+            Controls.Add(lblPemilik);
             Controls.Add(tipe_combo);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -418,9 +433,9 @@ namespace Bengkel_UKK.Admin.Kendaraan
             Controls.Add(noKtp_text);
             Controls.Add(lblErrorTahunMotor);
             Controls.Add(lblErrorKapasitas);
-            Controls.Add(lblErrorEmail);
+            Controls.Add(lblErrorTransmisi);
             Controls.Add(lblErrorTipe);
-            Controls.Add(lblErrorKTP);
+            Controls.Add(lblErrorMerk);
             Controls.Add(lblErrorNopol);
             Controls.Add(tahun_text);
             Controls.Add(label13);
@@ -457,11 +472,10 @@ namespace Bengkel_UKK.Admin.Kendaraan
         private Label lblHeader;
         private DhafaButton button_simpan;
         private DhafaButton button_batal;
-        private Label lblErrorTahunMotor;
         private Label lblErrorKapasitas;
-        private Label lblErrorEmail;
+        private Label lblErrorTransmisi;
         private Label lblErrorTipe;
-        private Label lblErrorKTP;
+        private Label lblErrorMerk;
         private Label lblErrorNopol;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt tahun_text;
         private Label label13;
@@ -479,5 +493,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
         private Label label1;
         private Label label2;
         private ComboBox tipe_combo;
+        private Label lblErrorTahunMotor;
+        private Label lblPemilik;
     }
 }

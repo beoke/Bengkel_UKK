@@ -122,6 +122,12 @@ namespace Bengkel_UKK.Admin.Pelanggan
             var data = koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { no_telp = telepon, ktp_pelanggan = ktp_pelanggan });
             return data != null;
         }
+        public bool CekNama(string nama)
+        {
+            const string sql = "SELECT COUNT(1) FROM Pelanggan WHERE nama_pelanggan = @nama";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.ExecuteScalar<int>(sql, new { nama }) > 0;
+        }
         public bool CekKTPUpdate(string ktp)
         {
             const string sql = @"SELECT 1 FROM Pelanggan WHERE ktp_pelanggan <> @ktp_pelanggan";
@@ -137,6 +143,16 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
             return koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { email });
         }
+        public string GetKtpByNama(string nama_pelanggan)
+        {
+            const string sql = "SELECT ktp_pelanggan FROM Pelanggan WHERE nama_pelanggan = @nama_pelanggan";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.QueryFirstOrDefault<string>(sql, new { nama_pelanggan });
+        }
+
+
+
+
 
         public string GenerateUniqueTempKTP()
         {
