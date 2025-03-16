@@ -194,7 +194,13 @@ namespace Bengkel_UKK.Admin.Booking
         private void GetData()
         {
             var data = _bookingDal.GetData(_id_booking);
-            if (data is null) return;
+            if (data is null)
+            {
+                MessageBox.Show("Data tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show($"ID Booking: {data.id_booking}\nNama: {data.nama_pelanggan}", "Debug");
 
             txtIdBooking.Text = data.id_booking.ToString();
             txtNama.Text = data.nama_pelanggan;
@@ -205,18 +211,17 @@ namespace Bengkel_UKK.Admin.Booking
             txtKeluhan.Text = data.keluhan;
 
             foreach (var item in comboServis.Items)
-                if (item is JasaServiceModel js)
-                    if (js.id_jasaServis == data.id_jasaServis)
-                        comboServis.SelectedItem = item;
+                if (item is JasaServiceModel js && js.id_jasaServis == data.id_jasaServis)
+                    comboServis.SelectedItem = item;
 
             foreach (var item in comboMekanik.Items)
-                if (item is MekanikModelCombo m)
-                    if (m.ktp_mekanik == data.ktp_mekanik)
-                        comboMekanik.SelectedItem = item;
+                if (item is MekanikModelCombo m && m.ktp_mekanik == data.ktp_mekanik)
+                    comboMekanik.SelectedItem = item;
 
             var listSparepart = _bookingDal.ListDataProduk(_id_booking);
             txtSparepart.Text = string.Join(", ", listSparepart.Select(x => x.nama_sparepart));
         }
+
     }
 }
 public class MekanikModelCombo

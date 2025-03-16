@@ -9,7 +9,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
     public class BatasBookingModel
     {
         public int id_batas_booking { get; set; }
-        public DateTime? tanggal { get; set; }
+        public DateTime? tanggal_batas_booking { get; set; }
         public int batas_booking { get; set; }
     }
 }

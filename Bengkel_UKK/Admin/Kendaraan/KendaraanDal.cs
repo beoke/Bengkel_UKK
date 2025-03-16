@@ -90,7 +90,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             }
         }
 
-
         public void UpdateData(KendaraanModel kendaraan)
         {
             var dp = new DynamicParameters();
@@ -106,18 +105,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
 
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute("UpdateKendaraan", dp, commandType: System.Data.CommandType.StoredProcedure);
-        }
-        public KendaraanModel GetKendaraanByNamaAdmin(string namaAdmin)
-        {
-            const string sql = @"
-        SELECT k.id_kendaraan, k.no_pol, k.merk, k.tipe, k.transmisi, 
-               k.kapasitas, k.tahun, a.ktp_admin, a.nama_admin
-        FROM Kendaraan k
-        JOIN Admin a ON k.ktp_admin = a.ktp_admin
-        WHERE a.nama_admin = @nama";
-
-            using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.QueryFirstOrDefault<KendaraanModel>(sql, new { nama = namaAdmin });
         }
         public bool CekNomorPolisi(string noPolisi)
         {

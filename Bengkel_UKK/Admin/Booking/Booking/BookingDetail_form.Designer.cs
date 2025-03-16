@@ -219,7 +219,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtCatatan.ForeColor = SystemColors.ControlText;
             txtCatatan.Location = new Point(177, 693);
             txtCatatan.Name = "txtCatatan";
-            txtCatatan.ReadOnly = true;
             txtCatatan.Size = new Size(257, 27);
             txtCatatan.TabIndex = 48;
             txtCatatan.ThemeName = "Default";
@@ -259,7 +258,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtTanggal.ReadOnly = true;
             txtTanggal.Size = new Size(257, 27);
             txtTanggal.TabIndex = 39;
-            txtTanggal.Text = "10 November 2024";
             txtTanggal.ThemeName = "Default";
             // 
             // txtKeluhan
@@ -276,7 +274,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtKeluhan.ReadOnly = true;
             txtKeluhan.Size = new Size(257, 76);
             txtKeluhan.TabIndex = 33;
-            txtKeluhan.Text = "Lampu injeksi nyala dan tarikan bawah loyo";
             txtKeluhan.ThemeName = "Default";
             // 
             // label12
@@ -314,7 +311,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtIdBooking.ReadOnly = true;
             txtIdBooking.Size = new Size(257, 27);
             txtIdBooking.TabIndex = 27;
-            txtIdBooking.Text = "1277";
             txtIdBooking.ThemeName = "Default";
             // 
             // label5
@@ -341,7 +337,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtNoPol.ReadOnly = true;
             txtNoPol.Size = new Size(257, 27);
             txtNoPol.TabIndex = 31;
-            txtNoPol.Text = "AB 8898 FC";
             txtNoPol.ThemeName = "Default";
             // 
             // txtNama
@@ -357,7 +352,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtNama.ReadOnly = true;
             txtNama.Size = new Size(257, 27);
             txtNama.TabIndex = 28;
-            txtNama.Text = "Dhafa Bintang Ramadhan";
             txtNama.ThemeName = "Default";
             // 
             // label4
@@ -384,7 +378,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtKendaraan.ReadOnly = true;
             txtKendaraan.Size = new Size(257, 27);
             txtKendaraan.TabIndex = 30;
-            txtKendaraan.Text = "Vario 160";
             txtKendaraan.ThemeName = "Default";
             // 
             // label3
@@ -411,7 +404,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtKTP.ReadOnly = true;
             txtKTP.Size = new Size(257, 27);
             txtKTP.TabIndex = 29;
-            txtKTP.Text = "0183831031831831";
             txtKTP.ThemeName = "Default";
             // 
             // label2

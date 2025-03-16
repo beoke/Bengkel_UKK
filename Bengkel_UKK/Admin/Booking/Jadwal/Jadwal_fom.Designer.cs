@@ -31,10 +31,9 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jadwal_fom));
             toolStripMenuItem1 = new ToolStripMenuItem();
             tabControl1 = new TabControl();
-            tabPage1 = new TabPage();   
+            tabPage1 = new TabPage();
             label1 = new Label();
             jam2 = new DateTimePicker();
             jam1 = new DateTimePicker();
@@ -73,7 +72,6 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             // 
             // toolStripMenuItem1
             // 
-            toolStripMenuItem1.Image = (Image)resources.GetObject("toolStripMenuItem1.Image");
             toolStripMenuItem1.ImageScaling = ToolStripItemImageScaling.None;
             toolStripMenuItem1.Name = "toolStripMenuItem1";
             toolStripMenuItem1.Padding = new Padding(0, 2, 0, 2);
@@ -251,8 +249,8 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             // btnSave
             // 
             btnSave.Anchor = AnchorStyles.Top;
-            btnSave.BackColor = Color.FromArgb(0, 192, 0);
-            btnSave.BackgroundColor = Color.FromArgb(0, 192, 0);
+            btnSave.BackColor = Color.FromArgb(52, 152, 219);
+            btnSave.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnSave.BorderColor = Color.PaleVioletRed;
             btnSave.BorderRadius = 3;
             btnSave.BorderSize = 0;
@@ -434,7 +432,7 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             // 
             // lblHeader
             // 
-            lblHeader.BackColor = Color.FromArgb(52, 152, 219);
+            lblHeader.BackColor = Color.Red;
             lblHeader.Dock = DockStyle.Top;
             lblHeader.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblHeader.ForeColor = Color.White;
@@ -450,15 +448,15 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             contextMenuStripLibur.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             contextMenuStripLibur.Items.AddRange(new ToolStripItem[] { toolStripDeleteLibur });
             contextMenuStripLibur.Name = "contextMenuStrip1";
-            contextMenuStripLibur.Size = new Size(137, 36);
+            contextMenuStripLibur.Size = new Size(129, 32);
             // 
             // toolStripDeleteLibur
             // 
-            toolStripDeleteLibur.Image = (Image)resources.GetObject("toolStripDeleteLibur.Image");
+            toolStripDeleteLibur.Image = Properties.Resources.trash_can;
             toolStripDeleteLibur.ImageScaling = ToolStripItemImageScaling.None;
             toolStripDeleteLibur.Name = "toolStripDeleteLibur";
             toolStripDeleteLibur.Padding = new Padding(0, 2, 0, 2);
-            toolStripDeleteLibur.Size = new Size(188, 32);
+            toolStripDeleteLibur.Size = new Size(128, 28);
             toolStripDeleteLibur.Text = "Delete";
             // 
             // contextMenuOperasional
@@ -466,25 +464,25 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             contextMenuOperasional.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             contextMenuOperasional.Items.AddRange(new ToolStripItem[] { toolStripDeleteOperasional });
             contextMenuOperasional.Name = "contextMenuStrip1";
-            contextMenuOperasional.Size = new Size(137, 36);
+            contextMenuOperasional.Size = new Size(129, 32);
             // 
             // toolStripDeleteOperasional
             // 
-            toolStripDeleteOperasional.Image = (Image)resources.GetObject("toolStripDeleteOperasional.Image");
+            toolStripDeleteOperasional.Image = Properties.Resources.trash_can1;
             toolStripDeleteOperasional.ImageScaling = ToolStripItemImageScaling.None;
             toolStripDeleteOperasional.Name = "toolStripDeleteOperasional";
             toolStripDeleteOperasional.Padding = new Padding(0, 2, 0, 2);
-            toolStripDeleteOperasional.Size = new Size(136, 32);
+            toolStripDeleteOperasional.Size = new Size(180, 28);
             toolStripDeleteOperasional.Text = "Delete";
             // 
-            // FormJadwal
+            // Jadwal_fom
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(460, 502);
             Controls.Add(tabControl1);
             Controls.Add(lblHeader);
-            Name = "FormJadwal";
+            Name = "Jadwal_fom";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Jadwal";
             tabControl1.ResumeLayout(false);

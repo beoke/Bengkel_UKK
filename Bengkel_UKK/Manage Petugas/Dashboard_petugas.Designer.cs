@@ -1,8 +1,9 @@
-﻿using Bengkel_UKK.Custom_Component;
+﻿using Bengkel_UKK.Admin.Dashboard;
+using Bengkel_UKK.Custom_Component;
 
-namespace Bengkel_UKK.Admin.Dashboard
+namespace Bengkel_UKK.Manage_Petugas
 {
-    partial class MainFormAdmin
+    partial class Dashboard_petugas
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,11 +31,9 @@ namespace Bengkel_UKK.Admin.Dashboard
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormAdmin));
             flowLayoutPanel2 = new FlowLayoutPanel();
             btnDashboard = new DhafaButton();
             btnBooking = new DhafaButton();
-            btnKalender = new DhafaButton();
             btnProduk = new DhafaButton();
             btnRiwayat = new DhafaButton();
             btnService = new DhafaButton();
@@ -65,7 +64,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             flowLayoutPanel2.BackColor = Color.FromArgb(170, 0, 0);
             flowLayoutPanel2.Controls.Add(btnDashboard);
             flowLayoutPanel2.Controls.Add(btnBooking);
-            flowLayoutPanel2.Controls.Add(btnKalender);
             flowLayoutPanel2.Controls.Add(btnProduk);
             flowLayoutPanel2.Controls.Add(btnRiwayat);
             flowLayoutPanel2.Controls.Add(btnService);
@@ -93,7 +91,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnDashboard.FlatStyle = FlatStyle.Flat;
             btnDashboard.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnDashboard.ForeColor = Color.White;
-            btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
+            btnDashboard.Image = Properties.Resources.house_chimney__2_;
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             btnDashboard.Location = new Point(18, 3);
             btnDashboard.Name = "btnDashboard";
@@ -118,7 +116,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnBooking.FlatStyle = FlatStyle.Flat;
             btnBooking.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnBooking.ForeColor = Color.White;
-            btnBooking.Image = (Image)resources.GetObject("btnBooking.Image");
+            btnBooking.Image = Properties.Resources.booking__1_;
             btnBooking.ImageAlign = ContentAlignment.MiddleLeft;
             btnBooking.Location = new Point(18, 69);
             btnBooking.Name = "btnBooking";
@@ -130,32 +128,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnBooking.TextColor = Color.White;
             btnBooking.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnBooking.UseVisualStyleBackColor = false;
-            // 
-            // btnKalender
-            // 
-            btnKalender.BackColor = Color.FromArgb(170, 0, 0);
-            btnKalender.BackgroundColor = Color.FromArgb(170, 0, 0);
-            btnKalender.BorderColor = Color.PaleVioletRed;
-            btnKalender.BorderRadius = 7;
-            btnKalender.BorderSize = 0;
-            btnKalender.FlatAppearance.BorderSize = 0;
-            btnKalender.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btnKalender.FlatStyle = FlatStyle.Flat;
-            btnKalender.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnKalender.ForeColor = Color.White;
-            btnKalender.Image = (Image)resources.GetObject("btnKalender.Image");
-            btnKalender.ImageAlign = ContentAlignment.MiddleLeft;
-            btnKalender.Location = new Point(18, 135);
-            btnKalender.Name = "btnKalender";
-            btnKalender.Padding = new Padding(20, 0, 0, 0);
-            btnKalender.Size = new Size(255, 60);
-            btnKalender.TabIndex = 16;
-            btnKalender.Text = "    Kalender";
-            btnKalender.TextAlign = ContentAlignment.MiddleLeft;
-            btnKalender.TextColor = Color.White;
-            btnKalender.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnKalender.UseVisualStyleBackColor = false;
-            btnKalender.Visible = false;
             // 
             // btnProduk
             // 
@@ -169,9 +141,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnProduk.FlatStyle = FlatStyle.Flat;
             btnProduk.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnProduk.ForeColor = Color.White;
-            btnProduk.Image = (Image)resources.GetObject("btnProduk.Image");
+            btnProduk.Image = Properties.Resources.box_open_full1;
             btnProduk.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProduk.Location = new Point(18, 201);
+            btnProduk.Location = new Point(18, 135);
             btnProduk.Name = "btnProduk";
             btnProduk.Padding = new Padding(20, 0, 0, 0);
             btnProduk.Size = new Size(255, 60);
@@ -194,9 +166,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnRiwayat.FlatStyle = FlatStyle.Flat;
             btnRiwayat.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnRiwayat.ForeColor = Color.White;
-            btnRiwayat.Image = (Image)resources.GetObject("btnRiwayat.Image");
+            btnRiwayat.Image = Properties.Resources.newspaper_open;
             btnRiwayat.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRiwayat.Location = new Point(18, 267);
+            btnRiwayat.Location = new Point(18, 201);
             btnRiwayat.Name = "btnRiwayat";
             btnRiwayat.Padding = new Padding(20, 0, 0, 0);
             btnRiwayat.Size = new Size(255, 60);
@@ -219,9 +191,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnService.FlatStyle = FlatStyle.Flat;
             btnService.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnService.ForeColor = Color.White;
-            btnService.Image = (Image)resources.GetObject("btnService.Image");
+            btnService.Image = Properties.Resources.customer_support;
             btnService.ImageAlign = ContentAlignment.MiddleLeft;
-            btnService.Location = new Point(18, 333);
+            btnService.Location = new Point(18, 267);
             btnService.Name = "btnService";
             btnService.Padding = new Padding(20, 0, 0, 0);
             btnService.Size = new Size(255, 60);
@@ -244,9 +216,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnPelanggan.FlatStyle = FlatStyle.Flat;
             btnPelanggan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnPelanggan.ForeColor = Color.White;
-            btnPelanggan.Image = (Image)resources.GetObject("btnPelanggan.Image");
+            btnPelanggan.Image = Properties.Resources.customer;
             btnPelanggan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPelanggan.Location = new Point(18, 399);
+            btnPelanggan.Location = new Point(18, 333);
             btnPelanggan.Name = "btnPelanggan";
             btnPelanggan.Padding = new Padding(20, 0, 0, 0);
             btnPelanggan.Size = new Size(255, 60);
@@ -269,9 +241,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnKaryawan.FlatStyle = FlatStyle.Flat;
             btnKaryawan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnKaryawan.ForeColor = Color.White;
-            btnKaryawan.Image = (Image)resources.GetObject("btnKaryawan.Image");
+            btnKaryawan.Image = Properties.Resources.mechanic__1_;
             btnKaryawan.ImageAlign = ContentAlignment.MiddleLeft;
-            btnKaryawan.Location = new Point(18, 465);
+            btnKaryawan.Location = new Point(18, 399);
             btnKaryawan.Name = "btnKaryawan";
             btnKaryawan.Padding = new Padding(20, 0, 0, 0);
             btnKaryawan.Size = new Size(255, 60);
@@ -294,9 +266,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btn_kendaraan.FlatStyle = FlatStyle.Flat;
             btn_kendaraan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btn_kendaraan.ForeColor = Color.White;
-            btn_kendaraan.Image = (Image)resources.GetObject("btn_kendaraan.Image");
+            btn_kendaraan.Image = Properties.Resources.scooter__1_1;
             btn_kendaraan.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_kendaraan.Location = new Point(18, 531);
+            btn_kendaraan.Location = new Point(18, 465);
             btn_kendaraan.Name = "btn_kendaraan";
             btn_kendaraan.Padding = new Padding(20, 0, 0, 0);
             btn_kendaraan.Size = new Size(255, 62);
@@ -341,7 +313,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
+            btnLogout.Image = Properties.Resources.logout__2_;
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
             btnLogout.Location = new Point(18, 10);
             btnLogout.Name = "btnLogout";
@@ -372,9 +344,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
             label2.Location = new Point(97, 68);
             label2.Name = "label2";
-            label2.Size = new Size(75, 15);
+            label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
-            label2.Text = "Super Admin";
+            label2.Text = "Karyawan";
             // 
             // label1
             // 
@@ -436,7 +408,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             lblDisplay.Text = "SPAREPART";
             lblDisplay.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // MainFormAdmin
+            // Dashboard_petugas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -446,7 +418,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             Controls.Add(panelTop);
             Controls.Add(panelLeft);
             ForeColor = Color.White;
-            Name = "MainFormAdmin";
+            Name = "Dashboard_petugas";
             Padding = new Padding(0);
             Style.BackColor = Color.FromArgb(160, 0, 0);
             Style.ForeColor = Color.White;
@@ -485,6 +457,5 @@ namespace Bengkel_UKK.Admin.Dashboard
         private Label label2;
         private Label lblDisplay;
         private DhafaButton btn_kendaraan;
-        private DhafaButton btnKalender;
     }
 }

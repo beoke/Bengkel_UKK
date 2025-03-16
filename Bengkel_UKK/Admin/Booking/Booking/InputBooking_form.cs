@@ -315,4 +315,6 @@ public class KendaraanDto
     public string tahun { get; set; }
     public string ktp_pelanggan { get; set; }
     public int total_servis { get; set; }
+
+    public string nama_pelanggan { get; set; }
 }

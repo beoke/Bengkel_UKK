@@ -108,7 +108,7 @@ namespace Bengkel_UKK.Admin.Produk
             // txtNamaProduk
             // 
             txtNamaProduk.BackColor = Color.White;
-            txtNamaProduk.BeforeTouchSize = new Size(186, 27);
+            txtNamaProduk.BeforeTouchSize = new Size(257, 27);
             txtNamaProduk.BorderColor = Color.FromArgb(209, 211, 212);
             txtNamaProduk.BorderStyle = BorderStyle.FixedSingle;
             txtNamaProduk.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -133,7 +133,7 @@ namespace Bengkel_UKK.Admin.Produk
             // txtHarga
             // 
             txtHarga.AccessibilityEnabled = true;
-            txtHarga.BeforeTouchSize = new Size(186, 27);
+            txtHarga.BeforeTouchSize = new Size(257, 27);
             txtHarga.BorderColor = Color.FromArgb(209, 211, 212);
             txtHarga.BorderStyle = BorderStyle.FixedSingle;
             txtHarga.DecimalValue = new decimal(new int[] { 0, 0, 0, 131072 });
@@ -254,7 +254,7 @@ namespace Bengkel_UKK.Admin.Produk
             // txtStok
             // 
             txtStok.AccessibilityEnabled = true;
-            txtStok.BeforeTouchSize = new Size(186, 27);
+            txtStok.BeforeTouchSize = new Size(257, 27);
             txtStok.BorderColor = Color.FromArgb(209, 211, 212);
             txtStok.BorderStyle = BorderStyle.FixedSingle;
             txtStok.DoubleValue = 1D;
@@ -273,7 +273,7 @@ namespace Bengkel_UKK.Admin.Produk
             // txtStokMinimum
             // 
             txtStokMinimum.AccessibilityEnabled = true;
-            txtStokMinimum.BeforeTouchSize = new Size(186, 27);
+            txtStokMinimum.BeforeTouchSize = new Size(257, 27);
             txtStokMinimum.BorderColor = Color.FromArgb(209, 211, 212);
             txtStokMinimum.BorderStyle = BorderStyle.FixedSingle;
             txtStokMinimum.DoubleValue = 1D;

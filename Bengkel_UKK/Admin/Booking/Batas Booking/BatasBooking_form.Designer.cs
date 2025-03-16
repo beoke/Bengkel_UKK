@@ -114,7 +114,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(98, 31);
             btnSave.TabIndex = 119;
-            btnSave.Text = "✔ Save";
+            btnSave.Text = "✔ Simpan";
             btnSave.TextColor = Color.White;
             btnSave.UseVisualStyleBackColor = false;
             // 
@@ -161,7 +161,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(110, 38);
             btnClose.TabIndex = 122;
-            btnClose.Text = "❌ Close";
+            btnClose.Text = "❌ Keluar";
             btnClose.TextColor = SystemColors.ControlDarkDark;
             btnClose.UseVisualStyleBackColor = false;
             // 
@@ -182,7 +182,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
             // 
             // lblHeader
             // 
-            lblHeader.BackColor = Color.FromArgb(170, 0, 0);
+            lblHeader.BackColor = Color.Red;
             lblHeader.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblHeader.ForeColor = Color.White;
             lblHeader.Location = new Point(-1, -1);

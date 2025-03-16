@@ -39,8 +39,24 @@ namespace Bengkel_UKK.Admin.Booking
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<BookingModel2>(sql, filter.param);
         }
+        public BookingModel GetData(int id_booking)
+        {
+            string query = "SELECT * FROM booking WHERE id_booking = @id_booking";
 
-        public BookingModel2? GetData(int id_booking)
+            using (var conn = new SqlConnection(Helper.conn.connStr))
+            {
+                conn.Open();
+                var data = conn.QueryFirstOrDefault<BookingModel>(query, new { id_booking });
+
+                if (data == null)
+                {
+                    MessageBox.Show($"Query tidak menemukan data untuk ID: {id_booking}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                return data;
+            }
+        }
+
+        public BookingModel2? GetDataa(int id_booking)
         {
             const string sql = @"SELECT 
                                 b.id_booking,

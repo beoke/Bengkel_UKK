@@ -13,7 +13,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
     {
         public IEnumerable<BatasBookingModel> ListData()
         {
-            const string sql = @"SELECT id_batas_booking, tanggal, batas_booking
+            const string sql = @"SELECT id_batas_booking, tanggal_batas_booking, batas_booking
                                 FROM BatasBooking";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<BatasBookingModel>(sql);
@@ -35,7 +35,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
         {
             string sql = @"SELECT 1
                                 FROM BatasBooking ";
-            sql += isInsert ? "WHERE tanggal = @tanggal" : " WHERE id_batas_booking <> @id_batas_booking AND tanggal = @tanggal";
+            sql += isInsert ? "WHERE tanggal_batas_booking = @tanggal" : " WHERE id_batas_booking <> @id_batas_booking AND tanggal_batas_booking = @tanggal";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<BatasBookingModel>(sql, new { tanggal, id_batas_booking });
         }
@@ -52,15 +52,15 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
 
         public void InsertData(BatasBookingModel data)
         {   
-            const string sql = @"INSERT INTO BatasBooking (tanggal, batas_booking)
-                                VALUES (@tanggal, @batas_booking)";
+            const string sql = @"INSERT INTO BatasBooking (tanggal_batas_booking, batas_booking)
+                                VALUES (@tanggal_batas_booking, @batas_booking)";
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, data);
         }
         public void UpdateData(BatasBookingModel data)
         {
             const string sql = @"UPDATE BatasBooking
-                                SET tanggal = @tanggal, batas_booking = @batas_booking
+                                SET tanggal = @tanggal_batas_booking, batas_booking = @batas_booking
                                 WHERE id_batas_booking = @id_batas_booking";
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, data);
@@ -69,7 +69,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
         public void DeleteDataTerlewat()
         {
             const string sql = @"DELETE FROM BatasBooking
-                                WHERE tanggal < CAST(GETDATE() AS DATE)";
+                                WHERE tanggal_batas_booking < CAST(GETDATE() AS DATE)";
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql);
         }

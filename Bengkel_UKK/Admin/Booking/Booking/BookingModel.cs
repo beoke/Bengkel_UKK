@@ -13,6 +13,7 @@ namespace Bengkel_UKK.Admin.Booking
         public string nama_pelanggan { get; set; }
 
         public int id_kendaraan { get; set; }
+        public string nama_kendaraan { get; set; }
         public string no_pol { get; set; }
         public string merk { get; set; }
         public string tipe { get; set; }
@@ -24,6 +25,7 @@ namespace Bengkel_UKK.Admin.Booking
         public string catatan { get; set; }
         public string ktp_mekanik { get; set; }
         public string nama_mekanik { get; set; }
+        public int id_jasaServis { get; set; }
 
         public int antrean { get; set; }
         public string status { get; set; }

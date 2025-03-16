@@ -148,8 +148,12 @@ namespace Bengkel_UKK.Admin.Booking
 
         private void DetailBookingToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            MainFormAdmin.ShowFormInPanel2(new BookingDetail_form(id));
+            if (dataGridView1.CurrentRow == null) return; // Hindari NullReferenceException
+            
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id_booking"].Value);
+
+            var detailForm = new BookingDetail_form(id);
+            detailForm.ShowDialog();
         }
 
         private void DataGridView1_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
