@@ -25,23 +25,16 @@ namespace Bengkel_UKK.Admin.Pelanggan
         {
             InitializeComponent();
             InitComponent();
-            RegisterEvent();
 
             if (!IsInsert)
             {
                 GetData(ktp_pelanggan);
-                lblHeader.Text = "Edit Pegawai";
+                lblHeader.Text = "Edit Pelanggan";
                 _IsInsert = false;
                 _ktp_pelanggan = ktp_pelanggan;
             }
         }
-        #region Register event
-        private void RegisterEvent()
-        {
-
-        }
-
-        #endregion
+     
         #region INIT COMPONENT
 
         private void InitComponent()
@@ -184,15 +177,19 @@ namespace Bengkel_UKK.Admin.Pelanggan
         private void GetData(string ktp_pelanggan)
         {
             var data = _pelangganDal.GetData(ktp_pelanggan);
-            if (data is null) return;
+
 
             nama_text.Text = data.nama_pelanggan;
-            ktp_text.Text = data.ktp_pelanggan;
+            ktp_text.Text = Regex.IsMatch(data.ktp_pelanggan, @"[A-Za-z]") ?
+                string.Empty : data.ktp_pelanggan;
             telepon_text.Text = data.no_telp;
             email_text.Text = data.email;
             password_text.Text = data.password;
             konfirm_text.Text = data.password;
             alamat_text.Text = data.alamat;
+
+            password_text.ReadOnly = true;
+            konfirm_text.ReadOnly = true;
         }
 
         #endregion

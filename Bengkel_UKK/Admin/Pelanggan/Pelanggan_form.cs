@@ -17,9 +17,11 @@ namespace Bengkel_UKK.Admin.Pelanggan
         private readonly PelangganDal _pelangganDal = new PelangganDal();
         private int _page = 1;
         private int _Totalpage = 1;
+        private bool _btnMain = true;
         public Pelanggan_form()
         {
             InitializeComponent();
+            InitComponent();
             RegisterEvent();
             LoadData();
             CustomGrid();
@@ -28,7 +30,10 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
         private void InitComponent()
         {
+            List<string> listFilter = new List<string>() { "Semua(All)", "Sudah Melengkapi Data", "Belum Melengkapi Data" };
+            comboFilter.DataSource = listFilter;
 
+            numericEntries.Minimum = 4;
         }
 
         #endregion
@@ -39,8 +44,26 @@ namespace Bengkel_UKK.Admin.Pelanggan
             dataGridView1.CellPainting += DataGridView1_CellPainting;
             btnAddData.Click += (s, e) =>
             {
+                if (!_btnMain)
+                {
+                    Image img = Properties.Resources.plusDark;
+                    StyleComponent.ControlButtonMainDelete(btnAddData, DataHapus_Button, img, true, "Pelanggan");
+                    _btnMain = true;
+                    LoadData();
+                    return;
+                }
                 if (new InputPelanggan_form("").ShowDialog() == DialogResult.OK)
                 {
+                    LoadData();
+                }
+            };
+            DataHapus_Button.Click += (s, e) =>
+            {
+                if (_btnMain)
+                {
+                    Image img = Properties.Resources.plusPutih;
+                    StyleComponent.ControlButtonMainDelete(btnAddData, DataHapus_Button, img, false, "Pelanggan");
+                    _btnMain = false;
                     LoadData();
                 }
             };
@@ -56,9 +79,89 @@ namespace Bengkel_UKK.Admin.Pelanggan
                 ResetPage();
                 LoadData();
             };
-
+            comboFilter.SelectedIndexChanged += (s, e) => LoadData();
+            btnNext.Click += (s, e) =>
+            {
+                if (_page < _Totalpage)
+                {
+                    _page++;
+                    LoadData();
+                }
+            };
+            btnPrevious.Click += (s, e) =>
+            {
+                if (_page > 1)
+                {
+                    _page--;
+                    LoadData();
+                }
+            };
+            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick; ;
+            editToolStripMenuItem.Click += EditToolStripMenuItem_Click; ;
+            hapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click; ;
+            kembalikanToolStripMenuItem.Click += KembalikanToolStripMenuItem_Click; ;
 
         }
+
+        private void KembalikanToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            if (!PesanBox.Konfirmasi("Apakah anda yakin ingin memulihkan data?")) return;
+            string ktp = dataGridView1.CurrentRow.Cells["ktp_pelanggan"].Value?.ToString() ?? string.Empty;
+            _pelangganDal.RestoreData(ktp);
+            LoadData();
+        }
+
+        private void HapusToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                PesanBox.Warning("Pilih data yang ingin dihapus!");
+                return;
+            }
+
+            if (!PesanBox.Konfirmasi("Apakah Anda yakin ingin menghapus data?")) return;
+
+            string ktp = dataGridView1.CurrentRow.Cells["ktp_pelanggan"].Value?.ToString() ?? string.Empty;
+
+            if (string.IsNullOrEmpty(ktp))
+            {
+                PesanBox.Error("Data KTP tidak valid!");
+                return;
+            }
+
+            bool success = _pelangganDal.SoftDeleteData(ktp);
+
+            if (success)
+            {
+                PesanBox.Informasi("Data berhasil dihapus.");
+                LoadData(); 
+            }
+            else
+            {
+                PesanBox.Error("Gagal menghapus data. Mungkin data tidak ditemukan.");
+            }
+        }
+
+        private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            string ktp = dataGridView1.CurrentRow.Cells["ktp_pelanggan"].Value?.ToString() ?? string.Empty;
+            if (new InputPelanggan_form(ktp, false).ShowDialog() != DialogResult.OK) return;
+            LoadData();
+        }
+
+        private void DataGridView1_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                dataGridView1.ClearSelection();
+                dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (_btnMain)
+                    contextMenuStrip1.Show(Cursor.Position);
+                else
+                    contextMenuStrip2.Show(Cursor.Position);
+            }
+        }
+
         private void ResetPage()
         {
             _page = 1;

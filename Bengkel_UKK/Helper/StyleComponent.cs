@@ -1,4 +1,5 @@
-﻿using Syncfusion.Windows.Forms.Tools;
+﻿using Bengkel_UKK.Custom_Component;
+using Syncfusion.Windows.Forms.Tools;
 using Syncfusion.WinForms.Input;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,35 @@ namespace Bengkel_UKK.Helper
             form.MinimizeBox = false;
             form.MaximizeBox = false;
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
+        }
+        public static void ControlButtonMainDelete(DhafaButton btnMain, DhafaButton btnDelete, Image imgMain, bool main, string text)
+        {
+            Color blue = Color.FromArgb(52, 152, 219);
+            Color dark = SystemColors.ControlDarkDark;
+            Color white = Color.White;
+            Color trans = Color.Transparent;
+            if (main)
+            {
+                btnMain.ForeColor = white;
+                btnMain.BackColor = blue;
+                btnMain.Text = " Add " + text;
+                btnMain.Image = Properties.Resources.plusPutih;
+
+                btnDelete.ForeColor = dark;
+                btnDelete.BackColor = trans;
+                btnDelete.Image = Properties.Resources.sampahDark;
+            }
+            else
+            {
+                btnMain.ForeColor = dark;
+                btnMain.BackColor = trans;
+                btnMain.Text = " " + text;
+                btnMain.Image = Properties.Resources.plusDark;
+
+                btnDelete.ForeColor = white;
+                btnDelete.BackColor = blue;
+                btnDelete.Image = Properties.Resources.sampahPutih;
+            }
         }
     }
 }

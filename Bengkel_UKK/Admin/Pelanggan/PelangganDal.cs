@@ -41,6 +41,22 @@ namespace Bengkel_UKK.Admin.Pelanggan
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { ktp_pelanggan = ktp_pelanggan });
         }
+        public bool SoftDeleteData(string ktp)
+        {
+            const string sql = @"UPDATE Pelanggan SET deleted_at = GETDATE() WHERE ktp_pelanggan = @ktp";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            int rowsAffected = koneksi.Execute(sql, new { ktp });
+
+            return rowsAffected > 0;
+        }
+
+        public void RestoreData(string ktp)
+        {
+            const string sql = @"UPDATE Pelanggan SET deleted_at = NULL WHERE ktp_pelanggan = @ktp";
+            using var koneksi = new SqlConnection(conn.connStr);
+            koneksi.Execute(sql, new { ktp });
+        }
 
         public void InsertData(PelangganModelUpdate pelanggan)
         {
