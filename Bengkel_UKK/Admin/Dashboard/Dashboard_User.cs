@@ -5,6 +5,7 @@ using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
 using Bengkel_UKK.Login;
+using Bengkel_UKK.Manage_Pelanggan;
 using Syncfusion.WinForms.Controls;
 using System;
 using System.Collections.Generic;
@@ -73,10 +74,10 @@ namespace Bengkel_UKK.Admin.Dashboard
                     text = "RIWAYAT";
                     break;
                 case 4:
-                    text = "RIWAYAT";
+                    text = "JASA SERVIS";
                     break;
                 case 5:
-                    text = "JASA SERVIS";
+                    text = "KENDARAAN";
                     break;
                 case 6:
                     text = "PROFILE";
@@ -86,10 +87,12 @@ namespace Bengkel_UKK.Admin.Dashboard
         }
         private void InitComponen()
         {
-            AddButton(2, btnBooking);
-            AddButton(3, btnProduk);
-            AddButton(4, btnRiwayat);
-            AddButton(5, btnService);
+            AddButton(1, btnBooking);
+            AddButton(2, btnProduk);
+            AddButton(3, btnRiwayat);
+            AddButton(4, btnService);
+            AddButton(5, btn_kendaraan);
+            AddButton(6, btnProfile);
 
             flowLayoutPanel2.AutoScroll = true;
             flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
@@ -113,22 +116,24 @@ namespace Bengkel_UKK.Admin.Dashboard
                 item.FlatAppearance.MouseDownBackColor = active;
                 item.FlatAppearance.MouseOverBackColor = hover;
             }
-            btnBooking.Click += (s, e) => buttonActiveAfter = 2;
+            btnBooking.Click += (s, e) => buttonActiveAfter = 1;
             btnBooking.Click += BtnSideBar_Click;
-            btnProduk.Click += (s, e) => buttonActiveAfter = 3;
+            btnProduk.Click += (s, e) => buttonActiveAfter = 2;
             btnProduk.Click += BtnSideBar_Click;
-            btnRiwayat.Click += (s, e) => buttonActiveAfter = 4;
+            btnRiwayat.Click += (s, e) => buttonActiveAfter = 3;
             btnRiwayat.Click += BtnSideBar_Click;
-            btnService.Click += (s, e) => buttonActiveAfter = 5;
+            btnService.Click += (s, e) => buttonActiveAfter = 4;
             btnService.Click += BtnSideBar_Click;
+            btn_kendaraan.Click += (s, e) => buttonActiveAfter = 5;
             btn_kendaraan.Click += BtnSideBar_Click;
-            btn_kendaraan.Click += (s, e) => buttonActiveAfter = 9;
-            btnLogout.Click += BtnLogout_Click; ;
+            btnProfile.Click += (s, e) => buttonActiveAfter = 6;
+            btnProfile.Click += BtnSideBar_Click;
+            btnLogout.Click += BtnLogout_Click; 
 
-            btnProduk.Click += (s, e) => ShowFormInPanel2(new Produk_form());
-            btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
+            btnProduk.Click += (s, e) => ShowFormInPanel2(new SparepartFormPelanggan());
+            btnBooking.Click += (s, e) => ShowFormInPanel2(new InputBooking_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
-            btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
+            btnService.Click += (s, e) => ShowFormInPanel2(new JasaServisPelanggan());
             btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
             btnProfile.Click += (s, e) => ShowFormInPanel2(new ProfilePelanggan_form());
         }

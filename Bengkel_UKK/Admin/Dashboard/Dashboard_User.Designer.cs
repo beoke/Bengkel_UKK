@@ -351,7 +351,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             lblDisplay.Name = "lblDisplay";
             lblDisplay.Size = new Size(318, 32);
             lblDisplay.TabIndex = 19;
-            lblDisplay.Text = "SPAREPART";
+            lblDisplay.Text = "BOOKING";
             lblDisplay.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Dashboard_User
