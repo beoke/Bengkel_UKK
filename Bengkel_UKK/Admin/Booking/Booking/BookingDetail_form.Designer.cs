@@ -72,7 +72,7 @@ namespace Bengkel_UKK.Admin.Booking
             btnServisSelesai = new DhafaButton();
             pictureBooking = new RJCircularPictureBox();
             label10 = new Label();
-            DhafaButton = new DhafaButton();
+            btn_simpan = new DhafaButton();
             panel3 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtSparepart).BeginInit();
@@ -647,31 +647,31 @@ namespace Bengkel_UKK.Admin.Booking
             label10.TabIndex = 47;
             label10.Text = "PROGRES SERVIS";
             // 
-            // DhafaButton
+            // btn_simpan
             // 
-            DhafaButton.Anchor = AnchorStyles.None;
-            DhafaButton.BackColor = Color.FromArgb(52, 152, 219);
-            DhafaButton.BackgroundColor = Color.FromArgb(52, 152, 219);
-            DhafaButton.BorderColor = Color.PaleVioletRed;
-            DhafaButton.BorderRadius = 0;
-            DhafaButton.BorderSize = 0;
-            DhafaButton.FlatAppearance.BorderSize = 0;
-            DhafaButton.FlatStyle = FlatStyle.Flat;
-            DhafaButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            DhafaButton.ForeColor = Color.White;
-            DhafaButton.Location = new Point(884, 798);
-            DhafaButton.Name = "DhafaButton";
-            DhafaButton.Size = new Size(129, 46);
-            DhafaButton.TabIndex = 78;
-            DhafaButton.Text = "Save";
-            DhafaButton.TextColor = Color.White;
-            DhafaButton.UseVisualStyleBackColor = false;
+            btn_simpan.Anchor = AnchorStyles.None;
+            btn_simpan.BackColor = Color.FromArgb(52, 152, 219);
+            btn_simpan.BackgroundColor = Color.FromArgb(52, 152, 219);
+            btn_simpan.BorderColor = Color.PaleVioletRed;
+            btn_simpan.BorderRadius = 0;
+            btn_simpan.BorderSize = 0;
+            btn_simpan.FlatAppearance.BorderSize = 0;
+            btn_simpan.FlatStyle = FlatStyle.Flat;
+            btn_simpan.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_simpan.ForeColor = Color.White;
+            btn_simpan.Location = new Point(884, 798);
+            btn_simpan.Name = "btn_simpan";
+            btn_simpan.Size = new Size(129, 46);
+            btn_simpan.TabIndex = 78;
+            btn_simpan.Text = "Save";
+            btn_simpan.TextColor = Color.White;
+            btn_simpan.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.AutoScroll = true;
-            panel3.Controls.Add(DhafaButton);
+            panel3.Controls.Add(btn_simpan);
             panel3.Controls.Add(panel2);
             panel3.Controls.Add(panel1);
             panel3.Location = new Point(0, 0);
@@ -740,7 +740,7 @@ namespace Bengkel_UKK.Admin.Booking
         private PictureBox pictureBox2;
         private PictureBox pictureBox4;
         private DhafaButton btnInvoice;
-        private DhafaButton DhafaButton;
+        private DhafaButton btn_simpan;
         private Label label24;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtCatatan;
         private Label label25;

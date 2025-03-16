@@ -39,24 +39,9 @@ namespace Bengkel_UKK.Admin.Booking
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<BookingModel2>(sql, filter.param);
         }
-        public BookingModel GetData(int id_booking)
-        {
-            string query = "SELECT * FROM booking WHERE id_booking = @id_booking";
+       
 
-            using (var conn = new SqlConnection(Helper.conn.connStr))
-            {
-                conn.Open();
-                var data = conn.QueryFirstOrDefault<BookingModel>(query, new { id_booking });
-
-                if (data == null)
-                {
-                    MessageBox.Show($"Query tidak menemukan data untuk ID: {id_booking}", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                return data;
-            }
-        }
-
-        public BookingModel2? GetDataa(int id_booking)
+        public BookingModel2? GetData(int id_booking)
         {
             const string sql = @"SELECT 
                                 b.id_booking,
@@ -78,7 +63,7 @@ namespace Bengkel_UKK.Admin.Booking
                             FROM Booking b 
                             LEFT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
                             LEFT JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan
-                            INNER JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis
+                            LEFT JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis
                                 WHERE b.id_booking = @id_booking";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<BookingModel2>(sql, new { id_booking = id_booking });
@@ -202,5 +187,29 @@ namespace Bengkel_UKK.Admin.Booking
 
             koneksi.Execute(sql, dp);
         }
+
+        public void UpdateBooking(BookingModel2 booking)
+        {
+            const string sql = @"
+        UPDATE Booking 
+        SET id_jasaServis = @id_jasaServis, 
+            ktp_mekanik = @ktp_mekanik, 
+            status = @status, 
+            catatan = @catatan 
+        WHERE id_booking = @id_booking";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            var dp = new DynamicParameters();
+
+            dp.Add("@id_jasaServis", booking.id_jasaServis);
+            dp.Add("@ktp_mekanik", booking.ktp_mekanik);
+            dp.Add("@status", booking.status);
+            dp.Add("@catatan", booking.catatan);
+            dp.Add("@id_booking", booking.id_booking);
+
+            koneksi.Execute(sql, dp);
+        }
+
+      
     }
 }

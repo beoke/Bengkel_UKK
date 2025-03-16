@@ -29,7 +29,6 @@ namespace Bengkel_UKK.Admin.Riwayat
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Riwayat_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             comboFilterStatus = new ComboBox();
@@ -40,7 +39,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             lblShowingEntries = new Label();
             comboFilterWaktu = new ComboBox();
-            btnSearch = new DhafaButton();
+            btn_ekspor = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -93,7 +92,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             yogaPanel1.Controls.Add(tgl1);
             yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilterWaktu);
-            yogaPanel1.Controls.Add(btnSearch);
+            yogaPanel1.Controls.Add(btn_ekspor);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
@@ -155,6 +154,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl2.Style.BorderColor = Color.FromArgb(64, 64, 64);
             tgl2.TabIndex = 116;
             tgl2.ToolTipText = "";
+            tgl2.Value = new DateTime(2025, 3, 16, 0, 0, 0, 0);
             // 
             // tgl1
             // 
@@ -168,6 +168,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl1.Style.BorderColor = Color.FromArgb(64, 64, 64);
             tgl1.TabIndex = 115;
             tgl1.ToolTipText = "";
+            tgl1.Value = new DateTime(2025, 3, 16, 0, 0, 0, 0);
             // 
             // lblShowingEntries
             // 
@@ -191,23 +192,22 @@ namespace Bengkel_UKK.Admin.Riwayat
             comboFilterWaktu.Size = new Size(176, 28);
             comboFilterWaktu.TabIndex = 12;
             // 
-            // btnSearch
+            // btn_ekspor
             // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(323, 33);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
+            btn_ekspor.BackColor = Color.FromArgb(230, 126, 34);
+            btn_ekspor.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btn_ekspor.BorderColor = Color.PaleVioletRed;
+            btn_ekspor.BorderRadius = 0;
+            btn_ekspor.BorderSize = 0;
+            btn_ekspor.FlatAppearance.BorderSize = 0;
+            btn_ekspor.FlatStyle = FlatStyle.Flat;
+            btn_ekspor.ForeColor = Color.White;
+            btn_ekspor.Location = new Point(1061, 32);
+            btn_ekspor.Name = "btn_ekspor";
+            btn_ekspor.Size = new Size(47, 27);
+            btn_ekspor.TabIndex = 12;
+            btn_ekspor.TextColor = Color.White;
+            btn_ekspor.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -372,7 +372,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             InvoiceStripMenuItem.Size = new Size(133, 26);
             InvoiceStripMenuItem.Text = "Invoice";
             // 
-            // FormRiwayat
+            // Riwayat_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -380,7 +380,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             ClientSize = new Size(1397, 683);
             Controls.Add(yogaPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormRiwayat";
+            Name = "Riwayat_form";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
@@ -406,7 +406,7 @@ namespace Bengkel_UKK.Admin.Riwayat
         private DhafaButton btnPrevious;
         private Panel panel2;
         private Label lblHalaman;
-        private DhafaButton btnSearch;
+        private DhafaButton btn_ekspor;
         private ComboBox comboFilterWaktu;
         private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;

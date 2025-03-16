@@ -47,7 +47,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             AddButton(5, btnService);
             AddButton(6, btnPelanggan);
             AddButton(7, btnKaryawan);
-            AddButton(8, btnKalender);
 
             flowLayoutPanel2.AutoScroll = true;
             flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
@@ -118,6 +117,7 @@ namespace Bengkel_UKK.Admin.Dashboard
 
         private void AddButton(int key, Button value)
         {
+            _listButton.Clear();
             _listButton.Add(key, value);
         }
 

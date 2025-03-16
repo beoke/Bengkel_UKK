@@ -25,6 +25,7 @@ namespace Bengkel_UKK.Admin.Booking
         private byte[] _pending = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Pending, 110, 110));
         private byte[] _dikerjakan = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Dikerjakan, 110, 110));
         private byte[] _belum_bayar = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.BelumBayar, 110, 110));
+        private byte[] _selesai = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Selesai1, 110, 110));
         private bool _rangeTanggal = false;
         private int _page = 1;
         private int _Totalpage = 1;
@@ -176,7 +177,7 @@ namespace Bengkel_UKK.Admin.Booking
         private FilterDto? Filter()
         {
             string search = txtSearch.Text;
-            string status = comboFilterStatus.SelectedItem?.ToString()?.ToLower() ?? string.Empty;
+            string status = comboFilterStatus.SelectedItem == "Pending" ? "Menunggu" : comboFilterStatus.SelectedItem == "Dikerjakan" ? "Proses" :  string.Empty;
 
             DateTime filterWaktu1 = ((FilterWaktu)comboFilterWaktu.SelectedItem).waktu1;
             DateTime filterWaktu2 = ((FilterWaktu)comboFilterWaktu.SelectedItem).waktu2;
@@ -243,7 +244,7 @@ namespace Bengkel_UKK.Admin.Booking
                     tanggal = x.tanggal,
                     keluhan = x.keluhan,
                     catatan = x.catatan == null ? "(Belum ada catatan)" : x.catatan,
-                    statusImg = x.status == "pending" ? _pending : _dikerjakan
+                    statusImg = x.status == "Menunggu" ? _pending :x.status == "Proses" ?  _dikerjakan : _selesai
                 }).ToList();
 
             dataGridView1.DataSource = new SortableBindingList<BookingDto>(list);

@@ -306,6 +306,7 @@ namespace Bengkel_UKK.Admin.Booking
 }
 public class KendaraanDto
 {
+    public int No { get; set; }
     public int id_kendaraan { get; set; }
     public string nama_kendaraan { get; set; }
     public string no_pol { get; set; }

@@ -65,13 +65,14 @@ namespace Bengkel_UKK.Admin.Riwayat
         #region EVENT
         private void RegisterEvent()
         {
-            btnSearch.Click += (s, e) =>
+            btn_ekspor.Click += (s, e) =>
             {
                 if (txtSearch.Text.Length > 0) LoadData();
             };
             dataGridView1.CellPainting += DataGridView1_CellPainting;
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
 
+            btn_ekspor.Click += Btn_ekspor_Click;
 
             txtSearch.KeyDown += TxtSearch_KeyDown;
 
@@ -111,7 +112,11 @@ namespace Bengkel_UKK.Admin.Riwayat
             //this.Load += FormBooking_Load;
         }
 
-
+        // kurang ekspor 
+        private void Btn_ekspor_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void ComboFilterStatus_SelectedIndexChanged(object? sender, EventArgs e)
         {

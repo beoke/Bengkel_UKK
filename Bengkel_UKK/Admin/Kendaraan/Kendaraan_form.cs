@@ -24,7 +24,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
         {
             InitializeComponent();
             RegisterEvent();
-
+            LoadData();
             CustomGrid();
         }
         private void RegisterEvent()
@@ -69,7 +69,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             var totalRows = _kendaraanDal.GetTotalRows(sqlFilter);
 
             int showData = (int)numericEntries.Value;
-            _Totalpage = Convert.ToInt32(Math.Ceiling((double)totalRows / showData));
+            _Totalpage = (int)Math.Ceiling((double)totalRows / showData);
             int offset = (_page - 1) * showData;
 
             // Periksa apakah sqlFilter.param null, jika ya, buat objek baru
@@ -87,6 +87,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             var list = _kendaraanDal.ListData(sqlFilter)
                 .Select((x, index) => new KendaraanDto()
                 {
+                    No = index +1,
                     id_kendaraan = x.id_kendaraan,
                     nama_kendaraan = x.merk,
                     no_pol = x.no_pol,
@@ -94,8 +95,9 @@ namespace Bengkel_UKK.Admin.Kendaraan
                     transmisi = x.transmisi,
                     kapasitas = x.kapasitas,
                     tahun = x.tahun,
-                    ktp_pelanggan = x.ktp_pelanggan,
-                    total_servis = x.total_servis
+                    total_servis = x.total_servis,
+                    ktp_pelanggan =x.ktp_pelanggan,
+                    nama_pelanggan = x.nama_pelanggan,
                 }).ToList();
 
             dataGridView1.DataSource = new SortableBindingList<KendaraanDto>(list);
@@ -108,6 +110,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             CustomGrids.CustomDataGrid(dgv);
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Red;
             dgv.Columns["id_kendaraan"].HeaderText = "ID Kendaraan";
+            dgv.Columns["No"].HeaderText = "No";
             dgv.Columns["nama_kendaraan"].HeaderText = "Merk";
             dgv.Columns["no_pol"].HeaderText = "Nomor Polisi";
             dgv.Columns["tipe"].HeaderText = "Tipe";
@@ -119,15 +122,18 @@ namespace Bengkel_UKK.Admin.Kendaraan
 
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.Columns["id_kendaraan"].FillWeight = 6;
-            dgv.Columns["nama_kendaraan"].FillWeight = 20; // Merk
-            dgv.Columns["no_pol"].FillWeight = 17;
-            dgv.Columns["tipe"].FillWeight = 14;
-            dgv.Columns["transmisi"].FillWeight = 14;
-            dgv.Columns["kapasitas"].FillWeight = 10;
-            dgv.Columns["tahun"].FillWeight = 10;
-            dgv.Columns["ktp_pelanggan"].FillWeight = 17;
-            dgv.Columns["total_servis"].FillWeight = 12;
+            // Mengatur bobot lebar kolom berdasarkan kepentingan informasi
+            dgv.Columns["No"].FillWeight = 5;                 // Nomor urut (lebih kecil)
+            dgv.Columns["nama_kendaraan"].FillWeight = 18;    // Nama Kendaraan / Merk
+            dgv.Columns["no_pol"].FillWeight = 18;            // Nomor Polisi
+            dgv.Columns["tipe"].FillWeight = 15;              // Tipe Kendaraan
+            dgv.Columns["transmisi"].FillWeight = 15;         // Jenis Transmisi
+            dgv.Columns["kapasitas"].FillWeight = 13;          // Kapasitas Mesin (cc)
+            dgv.Columns["tahun"].FillWeight = 13;              // Tahun Pembuatan
+            dgv.Columns["ktp_pelanggan"].FillWeight = 15;     // KTP Pelanggan
+            dgv.Columns["total_servis"].FillWeight = 13;      // Total Servis
+            dgv.Columns["nama_pelanggan"].FillWeight = 16;      // Total Servis
+
 
             dgv.Columns["id_kendaraan"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
             dgv.Columns["nama_kendaraan"].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
@@ -144,6 +150,8 @@ namespace Bengkel_UKK.Admin.Kendaraan
             dgv.Columns["No"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgv.Columns["ktp_pelanggan"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgv.Columns["no_pol"].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            dgv.Columns["id_kendaraan"].Visible = false;
         }
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)

@@ -116,6 +116,38 @@ namespace Bengkel_UKK.Admin.Booking
                 btnInvoice.BackColor = _biru;
                 btnInvoice.ForeColor = Color.White;
             };
+            btn_simpan.Click += Btn_simpan_Click;
+        }
+
+        private void Btn_simpan_Click(object? sender, EventArgs e)
+        {
+            if (comboServis.SelectedItem == null || comboMekanik.SelectedItem == null || string.IsNullOrWhiteSpace(txtCatatan.Text))
+            {
+                MessageBox.Show("Harap isi semua data sebelum menyimpan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                var booking = new BookingModel2
+                {
+                    id_booking = _id_booking, // ID booking dari form
+                    id_jasaServis = ((JasaServiceModel)comboServis.SelectedItem).id_jasaServis,
+                    ktp_mekanik = ((MekanikModelCombo)comboMekanik.SelectedItem).ktp_mekanik,
+                    status = _servisKeterangan == 0 ? "Menunggu" : _servisKeterangan == 1 ? "Proses" : "Selesai",
+                    catatan = txtCatatan.Text,
+                };
+
+               _bookingDal.UpdateBooking(booking);
+                MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Opsional: Refresh data setelah update
+                GetData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ProgresServis()
