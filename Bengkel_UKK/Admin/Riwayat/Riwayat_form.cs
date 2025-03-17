@@ -1,5 +1,6 @@
 ﻿using Bengkel_UKK.Admin.Booking;
 using Bengkel_UKK.Admin.Dashboard;
+using Bengkel_UKK.Admin.Laporan;
 using Bengkel_UKK.Helper;
 using Dapper;
 using System;
@@ -108,14 +109,13 @@ namespace Bengkel_UKK.Admin.Riwayat
                 ResetPage();
                 LoadData();
             };
-
-            //this.Load += FormBooking_Load;
         }
 
-        // kurang ekspor 
+        // klik untuk ekspor
         private void Btn_ekspor_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+           Laporan_form laporan = new Laporan_form();
+            laporan.ShowDialog();
         }
 
         private void ComboFilterStatus_SelectedIndexChanged(object? sender, EventArgs e)

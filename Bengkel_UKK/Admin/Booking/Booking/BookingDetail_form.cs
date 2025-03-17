@@ -373,11 +373,12 @@ namespace Bengkel_UKK.Admin.Booking
 
             var invoice = new InvoiceModel()
             {
-                LogoPath = @"D:\gws.png",
-                NamaBengkel = "BENGKEL PROFIX",
-                AlamatBengkel = "Jl. Yos Sudarso No.16, Paten Srihardono",
-                EmailBengkel = "bengkelprofix@gmail.com",
+                LogoPath = @"D:\UKK\Bengkel_UKK\Bengkel_UKK\Asset\logo.png",
+                NamaBengkel = "TECHNO GARAGE",
+                AlamatBengkel = "Jl. Mawar No. 50, Gempolan",
+                EmailBengkel = "technogarage@gmail.com",
                 TelpBengkel = "08422426242",
+                NamaMekanik = ((MekanikModelCombo)comboMekanik.SelectedItem).nama_mekanik,
 
                 Antrean = lblAntrean.Text,
                 Tanggal = DateTime.Today,

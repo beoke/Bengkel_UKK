@@ -31,6 +31,8 @@ namespace Bengkel_UKK.Admin.Dashboard
         private static Color active = System.Drawing.Color.FromArgb(210, 0, 0);
         private static Color over = System.Drawing.Color.FromArgb(170, 0, 0);
         private static Color hover = System.Drawing.Color.FromArgb(210, 0, 0);
+
+
         public MainFormAdmin()
         {
             InitializeComponent();
@@ -61,7 +63,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             this.Style.TitleBar.CloseButtonForeColor = Color.White;
             this.Style.TitleBar.MinimizeButtonForeColor = Color.White;
             this.Style.TitleBar.MaximizeButtonForeColor = Color.White;
+
         }
+
         private void RegisterEvent()
         {
             List<Button> btnStyle = new List<Button> { btnDashboard, btnBooking, btnProduk, btnRiwayat, btnService, btnPelanggan, btnKaryawan, btn_kendaraan };
@@ -93,23 +97,28 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard());
             btnProduk.Click += (s, e) => ShowFormInPanel2(new Produk_form());
             btnKaryawan.Click += (s, e) => ShowFormInPanel2(new Karyawan_form());
-           // btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
+            // btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
             btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
-            btn_kendaraan.Click += (s, e)=> ShowFormInPanel2(new Kendaraan_form());
+            btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
         }
 
+        private void MainFormAdmin_Load(object sender, EventArgs e)
+        {
+            label_nama.Text = Session.Nama;
+            label_role.Text = Session.Role;
+        }
         private void BtnLogout_Click(object? sender, EventArgs e)
         {
-           DialogResult = MessageBox.Show("Yakin ingin keluar dari aplikasi?", "Konfirmasi Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(DialogResult == DialogResult.Yes)
+            DialogResult = MessageBox.Show("Yakin ingin keluar dari aplikasi?", "Konfirmasi Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult == DialogResult.Yes)
             {
-                this.Hide(); 
-                Form loginForm = new Form_Login(); 
-                loginForm.ShowDialog(); 
-                this.Close(); 
+                this.Hide();
+                Form loginForm = new Form_Login();
+                loginForm.ShowDialog();
+                this.Close();
             }
         }
 
@@ -214,5 +223,16 @@ namespace Bengkel_UKK.Admin.Dashboard
             // Set gambar yang sudah di-resize ke PictureBox
             pictureBox.Image = resizedImage;
         }
+
+        private void MainFormAdmin_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
+}
+public static class Session
+{
+    public static int UserID { get; set; }
+    public static string Nama { get; set; }
+    public static string Role { get; set; }
 }

@@ -45,8 +45,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             panelLogOut = new Panel();
             btnLogout = new DhafaButton();
             panel2 = new Panel();
-            label2 = new Label();
-            label1 = new Label();
+            label_role = new Label();
+            label_nama = new Label();
             rjCircularPictureBox1 = new RJCircularPictureBox();
             panelMain = new Panel();
             panelTop = new Panel();
@@ -357,8 +357,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(170, 0, 0);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label_role);
+            panel2.Controls.Add(label_nama);
             panel2.Controls.Add(rjCircularPictureBox1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
@@ -366,25 +366,25 @@ namespace Bengkel_UKK.Admin.Dashboard
             panel2.Size = new Size(290, 139);
             panel2.TabIndex = 12;
             // 
-            // label2
+            // label_role
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            label2.Location = new Point(97, 68);
-            label2.Name = "label2";
-            label2.Size = new Size(75, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Super Admin";
+            label_role.AutoSize = true;
+            label_role.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label_role.Location = new Point(97, 68);
+            label_role.Name = "label_role";
+            label_role.Size = new Size(75, 15);
+            label_role.TabIndex = 2;
+            label_role.Text = "Super Admin";
             // 
-            // label1
+            // label_nama
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(95, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(184, 20);
-            label1.TabIndex = 1;
-            label1.Text = "Dhafa Bintang Ramadhan";
+            label_nama.AutoSize = true;
+            label_nama.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label_nama.Location = new Point(95, 47);
+            label_nama.Name = "label_nama";
+            label_nama.Size = new Size(184, 20);
+            label_nama.TabIndex = 1;
+            label_nama.Text = "Dhafa Bintang Ramadhan";
             // 
             // rjCircularPictureBox1
             // 
@@ -455,6 +455,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
             Text = "Application Management";
             WindowState = FormWindowState.Maximized;
+            Load += MainFormAdmin_Load_1;
             flowLayoutPanel2.ResumeLayout(false);
             panelLeft.ResumeLayout(false);
             panelLogOut.ResumeLayout(false);
@@ -480,9 +481,9 @@ namespace Bengkel_UKK.Admin.Dashboard
         private Panel panelMain;
         private Panel panelTop;
         private Panel panel2;
-        private Label label1;
+        private Label label_nama;
         private RJCircularPictureBox rjCircularPictureBox1;
-        private Label label2;
+        private Label label_role;
         private Label lblDisplay;
         private DhafaButton btn_kendaraan;
         private DhafaButton btnKalender;

@@ -10,49 +10,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Element = iTextSharp.text.Element;
+using System.IO;
+using Bengkel_UKK.Admin.Riwayat;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office2010.CustomUI;
 
 namespace Bengkel_UKK.Helper
 {
     public class Invoice
     {
+
         public static void GenerateInvoice(InvoiceModel invoice)
         {
-            string logoPath = @"D:\gws.png";
-
-            // Nama file dan path
             string fileName = $"Invoice_{invoice.NamaPelanggan}_{invoice.Tanggal:dd-MM-yyyy}.pdf";
             string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName);
 
-            // Ukuran kertas A4 (595 x 842 pts)
-            iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4, 30f, 30f, 30f, 30f);
+            Document doc = new Document(PageSize.A4, 40f, 40f, 40f, 40f);
             PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
             doc.Open();
 
-            // Font Styling
-            iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 24);
-            iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10, BaseColor.WHITE);
-            iTextSharp.text.Font bodyFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
-            iTextSharp.text.Font footerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
-            iTextSharp.text.Font invoiceFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 36, BaseColor.GRAY);
+            AddHeader(doc, invoice);
+            AddCustomerInfo(doc, invoice);
+            AddInvoiceTable(doc, invoice);
+            AddFooter(doc, invoice);
 
-            // Header dengan logo dan tulisan "INVOICE"
-            PdfPTable headerTable = new PdfPTable(2)
-            {
-                WidthPercentage = 100
-            };
+            doc.Close();
+            Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
+        }
+
+        private static void AddHeader(Document doc, InvoiceModel invoice)
+        {
+            PdfPTable headerTable = new PdfPTable(2) { WidthPercentage = 100 };
             headerTable.SetWidths(new float[] { 30f, 70f });
 
-            // Logo di kiri
-            if (File.Exists(logoPath))
+            if (File.Exists(invoice.LogoPath))
             {
-                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(logoPath);
-                logo.ScaleToFit(40f, 40f); // Sesuaikan ukuran logo
-                PdfPCell logoCell = new PdfPCell(logo)
-                {
-                    HorizontalAlignment = iTextSharp.text.Element.ALIGN_LEFT,
-                    Border = iTextSharp.text.Rectangle.NO_BORDER,
-                    PaddingBottom = 10f
-                };
+                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(invoice.LogoPath);
+                logo.ScaleToFit(50f, 50f);
+                PdfPCell logoCell = new PdfPCell(logo) { Border = iTextSharp.text.Rectangle.NO_BORDER, PaddingBottom = 10f };
                 headerTable.AddCell(logoCell);
             }
             else
@@ -60,109 +55,164 @@ namespace Bengkel_UKK.Helper
                 headerTable.AddCell(new PdfPCell(new Phrase(" ")) { Border = iTextSharp.text.Rectangle.NO_BORDER });
             }
 
-            // Tulisan "INVOICE" di kanan
-            PdfPCell invoiceCell = new PdfPCell(new Phrase("INVOICE", invoiceFont))
+            PdfPCell invoiceCell = new PdfPCell(new Phrase("INVOICE", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 30, BaseColor.GRAY)))
             {
-                HorizontalAlignment = iTextSharp.text.Element.ALIGN_RIGHT,
-                VerticalAlignment = iTextSharp.text.Element.ALIGN_BOTTOM,
+                HorizontalAlignment = Element.ALIGN_RIGHT,
                 Border = iTextSharp.text.Rectangle.NO_BORDER,
                 PaddingBottom = 10f
             };
             headerTable.AddCell(invoiceCell);
 
             doc.Add(headerTable);
+        }
 
-            // Informasi Bengkel
-            Paragraph bengkelInfo = new Paragraph(invoice.NamaBengkel, titleFont)
-            {
-                Alignment = iTextSharp.text.Element.ALIGN_LEFT,
-                SpacingAfter = 5f
-            };
-            doc.Add(bengkelInfo);
-            doc.Add(new Paragraph(invoice.AlamatBengkel, bodyFont));
-            doc.Add(new Paragraph($"Email: {invoice.EmailBengkel} | Telp: {invoice.TelpBengkel}", bodyFont));
-            doc.Add(new Paragraph("------------------------------------------------------", bodyFont) { SpacingAfter = 10f });
+        private static void AddCustomerInfo(Document doc, InvoiceModel invoice)
+        {
+            doc.Add(new Paragraph(invoice.NamaBengkel, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16)) { SpacingAfter = 5f });
+            doc.Add(new Paragraph(invoice.AlamatBengkel, FontFactory.GetFont(FontFactory.HELVETICA, 10)));
+            doc.Add(new Paragraph($"Email: {invoice.EmailBengkel} | Telp: {invoice.TelpBengkel}", FontFactory.GetFont(FontFactory.HELVETICA, 10)));
+            doc.Add(new Paragraph("------------------------------------------------------", FontFactory.GetFont(FontFactory.HELVETICA, 10)) { SpacingAfter = 10f });
 
-            // Informasi Invoice
-            doc.Add(new Paragraph($"Nomor Antrean: {invoice.Antrean}", bodyFont) { SpacingAfter = 5f });
-            doc.Add(new Paragraph($"Tanggal: {invoice.Tanggal.ToString("d MMMM yyyy", new CultureInfo("id-ID"))}", bodyFont));
-            doc.Add(new Paragraph($"Pelanggan: {invoice.NamaPelanggan}", bodyFont));
-            doc.Add(new Paragraph($"Kendaraan: {invoice.NamaKendaraan} ({invoice.NoPolisi})", bodyFont));
-            doc.Add(new Paragraph("------------------------------------------------------", bodyFont) { SpacingAfter = 10f });
+            doc.Add(new Paragraph($"Nomor Antrean: {invoice.Antrean}", FontFactory.GetFont(FontFactory.HELVETICA, 10)) { SpacingAfter = 5f });
+            doc.Add(new Paragraph($"Tanggal: {invoice.Tanggal.ToString("d MMMM yyyy", new CultureInfo("id-ID"))}", FontFactory.GetFont(FontFactory.HELVETICA, 10)));
+            doc.Add(new Paragraph($"Pelanggan: {invoice.NamaPelanggan}", FontFactory.GetFont(FontFactory.HELVETICA, 10)));
+            doc.Add(new Paragraph($"Kendaraan: {invoice.NamaKendaraan} ({invoice.NoPolisi})", FontFactory.GetFont(FontFactory.HELVETICA, 10)));
+            doc.Add(new Paragraph($"Mekanik: {invoice.NamaMekanik}", FontFactory.GetFont(FontFactory.HELVETICA, 10))); // Tambahan nama mekanik
+            doc.Add(new Paragraph("------------------------------------------------------", FontFactory.GetFont(FontFactory.HELVETICA, 10)) { SpacingAfter = 10f });
+        }
 
-            // Tabel Invoice
-            PdfPTable table = new PdfPTable(4)
-            {
-                WidthPercentage = 100
-            };
+
+        private static void AddInvoiceTable(Document doc, InvoiceModel invoice)
+        {
+            PdfPTable table = new PdfPTable(4) { WidthPercentage = 100 };
             table.SetWidths(new float[] { 50f, 10f, 20f, 20f });
 
-            // Header tabel dengan warna abu-abu
-            PdfPCell cell;
-            BaseColor headerColor = new BaseColor(128, 128, 128); // Warna abu-abu
+            BaseColor headerColor = new BaseColor(128, 128, 128);
+            iTextSharp.text.Font headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10, BaseColor.WHITE);
+            iTextSharp.text.Font bodyFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
 
-            cell = new PdfPCell(new Phrase("Barang / Jasa", headerFont))
+            string[] headers = { "Barang / Jasa", "Jumlah", "Harga", "Total" };
+            foreach (var header in headers)
             {
-                BackgroundColor = headerColor,
-                HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER,
-                Padding = 5f
-            };
-            table.AddCell(cell);
+                PdfPCell cell = new PdfPCell(new Phrase(header, headerFont))
+                {
+                    BackgroundColor = headerColor,
+                    HorizontalAlignment = Element.ALIGN_CENTER,
+                    Padding = 5f
+                };
+                table.AddCell(cell);
+            }
 
-            cell = new PdfPCell(new Phrase("Qty", headerFont))
-            {
-                BackgroundColor = headerColor,
-                HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER,
-                Padding = 5f
-            };
-            table.AddCell(cell);
-
-            cell = new PdfPCell(new Phrase("Harga", headerFont))
-            {
-                BackgroundColor = headerColor,
-                HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER,
-                Padding = 5f
-            };
-            table.AddCell(cell);
-
-            cell = new PdfPCell(new Phrase("Jumlah", headerFont))
-            {
-                BackgroundColor = headerColor,
-                HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER,
-                Padding = 5f
-            };
-            table.AddCell(cell);
-
-            // Data dalam tabel
             for (int i = 0; i < invoice.ListBarang.Count; i++)
             {
                 table.AddCell(new PdfPCell(new Phrase(invoice.ListBarang[i], bodyFont)) { Padding = 5f });
-                table.AddCell(new PdfPCell(new Phrase(invoice.ListQuantity[i].ToString(), bodyFont)) { HorizontalAlignment = iTextSharp.text.Element.ALIGN_CENTER, Padding = 5f });
+                table.AddCell(new PdfPCell(new Phrase(invoice.ListQuantity[i].ToString(), bodyFont)) { HorizontalAlignment = Element.ALIGN_CENTER, Padding = 5f });
                 table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.ListHarga[i]:N0}", bodyFont)) { Padding = 5f });
                 table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.ListQuantity[i] * invoice.ListHarga[i]:N0}", bodyFont)) { Padding = 5f });
             }
-
             doc.Add(table);
             doc.Add(new Paragraph(" "));
+        }
 
-            // Total biaya
-            doc.Add(new Paragraph($"**TOTAL: Rp {invoice.TotalBiaya:N0}**", footerFont) { Alignment = Element.ALIGN_RIGHT, SpacingBefore = 10f });
-            doc.Add(new Paragraph($"Catatan: {invoice.Catatan}", bodyFont) { SpacingBefore = 10f });
+        private static void AddFooter(Document doc, InvoiceModel invoice)
+        {
+            iTextSharp.text.Font footerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+            doc.Add(new Paragraph($"TOTAL: Rp {invoice.TotalBiaya:N0}", footerFont) { Alignment = Element.ALIGN_RIGHT, SpacingBefore = 10f });
+            doc.Add(new Paragraph($"Catatan: {invoice.Catatan}", FontFactory.GetFont(FontFactory.HELVETICA, 10)) { SpacingBefore = 10f });
+        }
+        public static void GenerateLaporan(DateTime tanggal_1, DateTime tanggal_2)
+        {
+            LaporanDal _laporanDal = new LaporanDal();
 
-            doc.Close();
+            var laporan = _laporanDal.ListLaporan(tanggal_1, tanggal_2).ToList();
+            if (laporan.Count == 0 || laporan == null)
+            {
+                PesanBox.Error($"Mohon maaf \nTidak ada data pada rentang tanggal \"{tanggal_1.ToString("dd-MM-yyyy")}\" - \"{tanggal_2.ToString("dd-MM-yyyy")}\". \nSilakan pilih tanggal yang lain.");
+                return;
+            }
 
-            // Buka file PDF setelah dibuat
-            Process.Start(new ProcessStartInfo(filePath) { UseShellExecute = true });
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Laporan Riwayat Servis");
+
+                worksheet.Cell(1, 1).Value = $"Rentang Tanggal : {tanggal_1.ToString("dd-MMMM-yyyy")} - {tanggal_2.ToString("dd-MMMM-yyyy")}";
+
+                // Header
+                worksheet.Cell(2, 1).Value = "Tanggal";
+                worksheet.Cell(2, 2).Value = "No KTP Pelanggan";
+                worksheet.Cell(2, 3).Value = "Nama Pelanggan";
+                worksheet.Cell(2, 4).Value = "Nama Kendaraan";
+                worksheet.Cell(2, 5).Value = "Nama Petugas";
+                worksheet.Cell(2, 6).Value = "Nama Mekanik";
+                worksheet.Cell(2, 7).Value = "Jasa Servis";
+                worksheet.Cell(2, 8).Value = "Nama Sparepart";
+                worksheet.Cell(2, 9).Value = "Keluhan";
+                worksheet.Cell(2, 10).Value = "Catatan";
+                worksheet.Cell(2, 11).Value = "Total Biaya";
+                worksheet.Cell(2, 12).Value = "Status";
+
+                int row = 3;
+
+                foreach (var item in laporan)
+                {
+                    int statusInt = 0; 
+                    int.TryParse(item.status, out statusInt);
+
+                    worksheet.Cell(row, 1).Value = item.tanggal;
+                    worksheet.Cell(row, 2).Value = item.ktp_pelanggan ?? "[Tamu]";
+                    worksheet.Cell(row, 3).Value = item.nama_pelanggan;
+                    worksheet.Cell(row, 4).Value = item.nama_kendaraan;
+                    worksheet.Cell(row, 5).Value = item.nama_admin;
+                    worksheet.Cell(row, 6).Value = item.nama_mekanik;
+                    worksheet.Cell(row, 9).Value = item.keluhan;
+                    worksheet.Cell(row, 10).Value = item.catatan;
+                    worksheet.Cell(row, 11).Value = $"Rp{item.total_harga:N0}";
+                    worksheet.Cell(row, 12).Value = int.TryParse(item.status ?? "0", out int status) && status == 1 ? "Selesai" : "Dibatalkan";
+
+
+                    row++;
+                }
+
+                decimal totalPendapatan = laporan.Sum(item => item.total_harga);
+
+                // Tambahkan total pendapatan di baris terakhir
+                row++;
+                worksheet.Cell(row, 10).Value = "Total Pendapatan Servis:";
+                worksheet.Cell(row, 11).Value = $"Rp{totalPendapatan:N0}";
+
+                // Membuat  style tabel nya
+                var range = worksheet.Range(2, 1, row - 1, 12);
+                var table = range.CreateTable();
+                table.Theme = XLTableTheme.TableStyleLight10;
+
+                // untuk menyesuaikan ukuran kolom secara otomatis
+                worksheet.Columns().AdjustToContents();
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Files|*.xlsx",
+                    Title = "Simpan Laporan",
+                    FileName = $"Laporan_Riwayat_Servis_{tanggal_1:dd-MM-yyyy}_{tanggal_2:dd-MM-yyyy}.xlsx"
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    workbook.SaveAs(saveFileDialog.FileName);
+                }
+            }
         }
     }
 
     public class InvoiceModel
     {
-        public string LogoPath { get; set; } = @"D:\gws.png";
-        public string NamaBengkel { get; set; } = "BENGKEL PROFIX";
-        public string AlamatBengkel { get; set; } = "Jl. Raya No. 123, Indonesia";
-        public string EmailBengkel { get; set; } = "bengkelprofix@gmail.com";
+        public string LogoPath { get; set; } = @"D:\UKK\Bengkel_UKK\Bengkel_UKK\Asset\logo.png";
+        public string NamaBengkel { get; set; } = "TECHNO GARAGE";
+        public string AlamatBengkel { get; set; } = "Jl. Mawar No. 50, Gempolan";
+        public string EmailBengkel { get; set; } = "technogarage@gmail.com";
         public string TelpBengkel { get; set; } = "08123456789";
+        public string NamaMekanik { get; set; } = "John Doe"; // Nama mekanik default
+
 
         public string Antrean { get; set; } = "A123";
         public DateTime Tanggal { get; set; } = DateTime.Now;

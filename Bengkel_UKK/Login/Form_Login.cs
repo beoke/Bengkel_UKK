@@ -25,6 +25,7 @@ namespace Bengkel_UKK.Login
         private readonly PelangganDal _pelangganDal = new PelangganDal();
         private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private bool _showPassword = false;
+
         public Form_Login()
         {
             InitializeComponent();

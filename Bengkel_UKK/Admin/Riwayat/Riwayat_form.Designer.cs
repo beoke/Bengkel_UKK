@@ -29,6 +29,7 @@ namespace Bengkel_UKK.Admin.Riwayat
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Riwayat_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             comboFilterStatus = new ComboBox();
@@ -97,7 +98,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             yogaPanel1.Controls.Add(tgl1);
             yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilterWaktu);
-            yogaPanel1.Controls.Add(btn_ekspor);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
@@ -201,16 +201,21 @@ namespace Bengkel_UKK.Admin.Riwayat
             // 
             btn_ekspor.BackColor = Color.FromArgb(230, 126, 34);
             btn_ekspor.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btn_ekspor.BackgroundImageLayout = ImageLayout.Center;
             btn_ekspor.BorderColor = Color.PaleVioletRed;
             btn_ekspor.BorderRadius = 0;
             btn_ekspor.BorderSize = 0;
             btn_ekspor.FlatAppearance.BorderSize = 0;
             btn_ekspor.FlatStyle = FlatStyle.Flat;
+            btn_ekspor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_ekspor.ForeColor = Color.White;
-            btn_ekspor.Location = new Point(1063, 32);
+            btn_ekspor.Image = (Image)resources.GetObject("btn_ekspor.Image");
+            btn_ekspor.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_ekspor.Location = new Point(1195, 25);
             btn_ekspor.Name = "btn_ekspor";
-            btn_ekspor.Size = new Size(45, 39);
+            btn_ekspor.Size = new Size(174, 44);
             btn_ekspor.TabIndex = 12;
+            btn_ekspor.Text = " Export Laporan";
             btn_ekspor.TextColor = Color.White;
             btn_ekspor.UseVisualStyleBackColor = false;
             // 
@@ -410,6 +415,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             BackColor = SystemColors.Control;
             ClientSize = new Size(1397, 683);
             Controls.Add(yogaPanel1);
+            Controls.Add(btn_ekspor);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Riwayat_form";
             Text = "Tabel";
