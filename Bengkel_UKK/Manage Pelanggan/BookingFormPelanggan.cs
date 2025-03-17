@@ -120,7 +120,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
 
         private void BtnAddData_Click(object? sender, EventArgs e)
         {
-            if (new InputBooking_form().ShowDialog() != DialogResult.OK) return;
+            if (new pelangganbooking().ShowDialog() != DialogResult.OK) return;
             LoadData();
         }
 

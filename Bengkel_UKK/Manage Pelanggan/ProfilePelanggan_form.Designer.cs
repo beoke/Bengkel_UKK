@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            linkReset = new LinkLabel();
+            label4 = new Label();
             lblErrorAlamat = new Label();
             lblErrorTelepon = new Label();
             label8 = new Label();
@@ -49,8 +51,6 @@
             txtNama = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             lblErrorNama = new Label();
             txtPassword = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            linkReset = new LinkLabel();
-            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtNoTelp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNoKTP).BeginInit();
@@ -86,17 +86,38 @@
             panel1.Controls.Add(txtNama);
             panel1.Controls.Add(lblErrorNama);
             panel1.Controls.Add(txtPassword);
-            panel1.Location = new Point(34, 31);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(873, 453);
+            panel1.Size = new Size(1105, 722);
             panel1.TabIndex = 106;
+            // 
+            // linkReset
+            // 
+            linkReset.AutoSize = true;
+            linkReset.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            linkReset.Location = new Point(367, 272);
+            linkReset.Name = "linkReset";
+            linkReset.Size = new Size(40, 17);
+            linkReset.TabIndex = 128;
+            linkReset.TabStop = true;
+            linkReset.Text = "Reset";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(259, 272);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 17);
+            label4.TabIndex = 127;
+            label4.Text = "Lupa password?";
             // 
             // lblErrorAlamat
             // 
             lblErrorAlamat.AutoSize = true;
             lblErrorAlamat.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorAlamat.ForeColor = Color.Red;
-            lblErrorAlamat.Location = new Point(467, 327);
+            lblErrorAlamat.Location = new Point(37, 597);
             lblErrorAlamat.Name = "lblErrorAlamat";
             lblErrorAlamat.Size = new Size(162, 17);
             lblErrorAlamat.TabIndex = 126;
@@ -109,7 +130,7 @@
             lblErrorTelepon.AutoSize = true;
             lblErrorTelepon.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorTelepon.ForeColor = Color.Red;
-            lblErrorTelepon.Location = new Point(467, 237);
+            lblErrorTelepon.Location = new Point(37, 507);
             lblErrorTelepon.Name = "lblErrorTelepon";
             lblErrorTelepon.Size = new Size(218, 17);
             lblErrorTelepon.TabIndex = 125;
@@ -121,7 +142,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(467, 179);
+            label8.Location = new Point(37, 449);
             label8.Name = "label8";
             label8.Size = new Size(123, 21);
             label8.TabIndex = 124;
@@ -131,7 +152,7 @@
             // 
             txtNoTelp.BeforeTouchSize = new Size(370, 31);
             txtNoTelp.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNoTelp.Location = new Point(467, 203);
+            txtNoTelp.Location = new Point(37, 473);
             txtNoTelp.Name = "txtNoTelp";
             txtNoTelp.PlaceholderText = " Masukkan nomor telepon";
             txtNoTelp.Size = new Size(370, 31);
@@ -141,7 +162,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(467, 269);
+            label9.Location = new Point(37, 539);
             label9.Name = "label9";
             label9.Size = new Size(61, 21);
             label9.TabIndex = 122;
@@ -151,7 +172,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(467, 89);
+            label10.Location = new Point(37, 359);
             label10.Name = "label10";
             label10.Size = new Size(98, 21);
             label10.TabIndex = 121;
@@ -161,7 +182,7 @@
             // 
             txtNoKTP.BeforeTouchSize = new Size(370, 31);
             txtNoKTP.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNoKTP.Location = new Point(467, 113);
+            txtNoKTP.Location = new Point(37, 383);
             txtNoKTP.Name = "txtNoKTP";
             txtNoKTP.PlaceholderText = " Masukkan nomor KTP";
             txtNoKTP.Size = new Size(370, 31);
@@ -172,7 +193,7 @@
             lblErrorKTP.AutoSize = true;
             lblErrorKTP.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorKTP.ForeColor = Color.Red;
-            lblErrorKTP.Location = new Point(467, 147);
+            lblErrorKTP.Location = new Point(37, 417);
             lblErrorKTP.Name = "lblErrorKTP";
             lblErrorKTP.Size = new Size(196, 17);
             lblErrorKTP.TabIndex = 120;
@@ -184,7 +205,7 @@
             // 
             txtAlamat.BeforeTouchSize = new Size(370, 31);
             txtAlamat.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtAlamat.Location = new Point(467, 293);
+            txtAlamat.Location = new Point(37, 563);
             txtAlamat.Name = "txtAlamat";
             txtAlamat.PlaceholderText = " Masukkan alamat lengkap";
             txtAlamat.Size = new Size(370, 31);
@@ -263,7 +284,7 @@
             btnRegister.FlatStyle = FlatStyle.Flat;
             btnRegister.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnRegister.ForeColor = Color.White;
-            btnRegister.Location = new Point(699, 380);
+            btnRegister.Location = new Point(269, 650);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(138, 36);
             btnRegister.TabIndex = 3;
@@ -272,12 +293,12 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Dock = DockStyle.Top;
             label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(3, 30);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(867, 37);
+            label1.Size = new Size(1105, 37);
             label1.TabIndex = 0;
             label1.Text = "PROFILE ANDA";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -316,34 +337,13 @@
             txtPassword.Size = new Size(370, 31);
             txtPassword.TabIndex = 1;
             // 
-            // linkReset
-            // 
-            linkReset.AutoSize = true;
-            linkReset.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            linkReset.Location = new Point(367, 272);
-            linkReset.Name = "linkReset";
-            linkReset.Size = new Size(40, 17);
-            linkReset.TabIndex = 128;
-            linkReset.TabStop = true;
-            linkReset.Text = "Reset";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(259, 272);
-            label4.Name = "label4";
-            label4.Size = new Size(103, 17);
-            label4.TabIndex = 127;
-            label4.Text = "Lupa password?";
-            // 
-            // RegisterLanjutan
+            // ProfilePelanggan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(941, 514);
+            ClientSize = new Size(1129, 746);
             Controls.Add(panel1);
-            Name = "RegisterLanjutan";
+            Name = "ProfilePelanggan_form";
             Text = "PROFILE ANDA";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

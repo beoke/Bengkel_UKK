@@ -136,6 +136,8 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaServisPelanggan());
             btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
             btnProfile.Click += (s, e) => ShowFormInPanel2(new ProfilePelanggan_form());
+            
+            btn_kendaraan.Visible = false;
         }
 
 
