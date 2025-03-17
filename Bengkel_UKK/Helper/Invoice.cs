@@ -165,6 +165,8 @@ namespace Bengkel_UKK.Helper
                     worksheet.Cell(row, 4).Value = item.nama_kendaraan;
                     worksheet.Cell(row, 5).Value = item.nama_admin;
                     worksheet.Cell(row, 6).Value = item.nama_mekanik;
+                    worksheet.Cell(row, 7).Value = item.jasa_servis;
+                    worksheet.Cell(row, 8).Value = item.nama_sparepart;
                     worksheet.Cell(row, 9).Value = item.keluhan;
                     worksheet.Cell(row, 10).Value = item.catatan;
                     worksheet.Cell(row, 11).Value = $"Rp{item.total_harga:N0}";

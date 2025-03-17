@@ -2,8 +2,11 @@
 using Bengkel_UKK.Admin.Jasa_Service;
 using Bengkel_UKK.Admin.Karyawan;
 using Bengkel_UKK.Admin.Produk;
+using Bengkel_UKK.Admin.Riwayat;
 using Bengkel_UKK.Helper;
 using Dapper;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,9 +26,11 @@ namespace Bengkel_UKK.Admin.Booking
         private readonly JasaServiceDal _jasaServisDal = new JasaServiceDal();
         private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private readonly ProdukDal _produkDal = new ProdukDal();
+        private readonly RiwayatDal _riwayatDal = new RiwayatDal();
         public static int _id_booking;
         private string _servisKeterangan = "pending";
         private bool _invoiceShow = false;
+        private static int id_kendaraan;
         Color _hijau = Color.FromArgb(0, 192, 0);
         Color _oren = Color.FromArgb(240, 177, 0);
         Color _biru = Color.FromArgb(52, 152, 219);
@@ -34,6 +39,7 @@ namespace Bengkel_UKK.Admin.Booking
         {
             InitializeComponent();
             InitComponent();
+            id_kendaraan = id; 
 
             _id_booking = id;
             RegisterEvent();
@@ -60,8 +66,27 @@ namespace Bengkel_UKK.Admin.Booking
             comboServis.SelectedIndexChanged += async (s, e) => await SaveDataTunggal("jasaServis");
             txtCatatan.Leave += async (s, e) => await SaveDataTunggal("catatan");
         }
+        private void InsertRiwayat()
+        {
+            var data = new RiwayatModel()
+            {
+                ktp_pelanggan = lblNoKTP.Text,
+                nama_pelanggan = lblNama.Text,
+                id_kendaraan = id_kendaraan,
+                no_pol = lblNoPol.Text,
+                ktp_mekanik = comboMekanik.SelectedValue.ToString(),
+                nama_kendaraan = lblKendaraan.Text,
+                tanggal = DateTime.Now,
+                keluhan = lblKeluhan.Text,
+                catatan = txtCatatan.Text,
+                ktp_admin = GlobalVariabel._ktp,
+                id_jasaServis = Convert.ToInt32(comboServis.SelectedValue),
+                status = "Menunggu",
+                total_harga = 0
+            };
+            _riwayatDal.Insert(data);
 
-
+        }
         private void BtnBatalkanPesanan_Click(object? sender, EventArgs e)
         {
             if (txtCatatan.TextLength == 0)
@@ -104,6 +129,7 @@ namespace Bengkel_UKK.Admin.Booking
                 {
                     if (!PesanBox.Konfirmasi("Apakah anda yakin bahwa pesanan ini Sudah Dibayar?\nTindakan ini tidak dapat diurungkan")) return;
                     _servisKeterangan = "selesai";
+                     InsertRiwayat();
                     await KonfirmasiSelesaiServis(true); //insert
                     btnBatalkanPesanan.Visible = false;
                 }
@@ -286,6 +312,7 @@ namespace Bengkel_UKK.Admin.Booking
             var data = _bookingDal.GetData(_id_booking);
             if (data is null) return;
 
+            id_kendaraan = data.id_kendaraan;
             lblIdBooking.Text = data.id_booking.ToString();
             lblNama.Text = data.nama_pelanggan;
             lblNoKTP.Text = data.ktp_pelanggan;

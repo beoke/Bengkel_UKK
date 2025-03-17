@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -169,21 +170,40 @@ namespace Bengkel_UKK.Admin.Pelanggan
         #endregion
 
         #region LOAD DATAGRID
-        private FilterDto Filter()
+        private FilterDto? Filter()
         {
-            string search = txtSearch.Text.Trim();
-            string sql = "";
+            string search = txtSearch.Text;
+            bool dataActive = _btnMain;
+            int indexFilter = comboFilter.SelectedIndex;
 
-            if (!string.IsNullOrEmpty(search))
+            string sql = @"";
+            var dp = new DynamicParameters();
+            List<string> fltr = new List<string>();
+
+            if (search != string.Empty)
             {
-                sql = $" WHERE (ktp_pelanggan LIKE '%{search}%' OR nama_pelanggan LIKE '%{search}%' OR email LIKE '%{search}%' OR alamat LIKE '%{search}%' OR no_telp LIKE '%{search}%')";
+                fltr.Add("(ktp_pelanggan LIKE @search + '%' OR nama_pelanggan LIKE '%' + @search + '%' OR email LIKE '%' + @search + '%' OR alamat LIKE '%' + @search + '%' OR no_telp LIKE '%' + @search + '%')");
+                dp.Add(@"search", search);
             }
 
-            return new FilterDto
+            if (indexFilter == 1) fltr.Add("(no_telp IS NOT NULL)");
+            if (indexFilter == 2) fltr.Add("(no_telp IS NULL)");
+
+            if (dataActive)
+                fltr.Add("(deleted_at IS NULL)");
+            else
+                fltr.Add("(deleted_at IS NOT NULL)");
+
+            if (fltr.Count > 0)
+                sql += " WHERE " + string.Join(" AND ", fltr);
+
+
+            var filterResult = new FilterDto
             {
                 sql = sql,
-                param = null // Tidak menggunakan parameter tambahan
+                param = dp
             };
+            return filterResult;
         }
 
         private void LoadData()
@@ -192,21 +212,16 @@ namespace Bengkel_UKK.Admin.Pelanggan
             var totalRows = _pelangganDal.GetTotalRows(sqlFilter);
 
             int showData = (int)numericEntries.Value;
-            if (showData <= 0) showData = 1; // Pastikan tidak nol atau negatif
-
-            long totalPages = totalRows > 0 ? (long)Math.Ceiling((double)totalRows / showData) : 1;
-            _Totalpage = totalPages > int.MaxValue ? int.MaxValue : (int)totalPages; // Hindari Overflow
-
+            _Totalpage = Convert.ToInt32(Math.Ceiling((double)totalRows / showData));
             int offset = (_page - 1) * showData;
+            sqlFilter.param.Add("@offset", offset);
+            sqlFilter.param.Add("@fetch", showData);
 
             lblHalaman.Text = _page.ToString();
             int toValue = Math.Min(offset + showData, totalRows);
-            lblShowingEntries.Text = totalRows > 0
-                ? $"Showing {offset + 1} to {toValue} of {totalRows} entries"
-                : "No entries found";
+            lblShowingEntries.Text = $"Showing {offset + 1} to {toValue} of {totalRows} entries";
 
-            // ✅ Tambahkan offset dan showData saat memanggil ListData
-            var list = _pelangganDal.ListData(sqlFilter, offset, showData)
+            var list = _pelangganDal.ListData(sqlFilter)
                 .Select((x, index) => new PelangganModel()
                 {
                     No = offset + index + 1,

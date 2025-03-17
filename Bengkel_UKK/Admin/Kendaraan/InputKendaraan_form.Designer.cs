@@ -54,9 +54,12 @@ namespace Bengkel_UKK.Admin.Kendaraan
             pemilik_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label1 = new Label();
             label2 = new Label();
-            tipe_combo = new ComboBox();
             lblErrorTahunMotor = new Label();
             lblPemilik = new Label();
+            button_cari = new DhafaButton();
+            lblerorKtp = new Label();
+            comboTransmisi = new ComboBox();
+            tipeText = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tahun_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kapasitas_text).BeginInit();
@@ -65,6 +68,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             ((System.ComponentModel.ISupportInitialize)noPolisi_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)noKtp_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pemilik_text).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tipeText).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -195,7 +199,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // tahun_text
             // 
             tahun_text.BackColor = Color.White;
-            tahun_text.BeforeTouchSize = new Size(293, 27);
+            tahun_text.BeforeTouchSize = new Size(286, 27);
             tahun_text.BorderColor = Color.FromArgb(209, 211, 212);
             tahun_text.BorderStyle = BorderStyle.FixedSingle;
             tahun_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -233,7 +237,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // kapasitas_text
             // 
             kapasitas_text.BackColor = Color.White;
-            kapasitas_text.BeforeTouchSize = new Size(293, 27);
+            kapasitas_text.BeforeTouchSize = new Size(286, 27);
             kapasitas_text.BorderColor = Color.FromArgb(209, 211, 212);
             kapasitas_text.BorderStyle = BorderStyle.FixedSingle;
             kapasitas_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -247,7 +251,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // Transmisi_text
             // 
             Transmisi_text.BackColor = Color.White;
-            Transmisi_text.BeforeTouchSize = new Size(293, 27);
+            Transmisi_text.BeforeTouchSize = new Size(286, 27);
             Transmisi_text.BorderColor = Color.FromArgb(209, 211, 212);
             Transmisi_text.BorderStyle = BorderStyle.FixedSingle;
             Transmisi_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -285,7 +289,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // merk_text
             // 
             merk_text.BackColor = Color.White;
-            merk_text.BeforeTouchSize = new Size(293, 27);
+            merk_text.BeforeTouchSize = new Size(286, 27);
             merk_text.BorderColor = Color.FromArgb(209, 211, 212);
             merk_text.BorderStyle = BorderStyle.FixedSingle;
             merk_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -299,7 +303,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // noPolisi_text
             // 
             noPolisi_text.BackColor = Color.White;
-            noPolisi_text.BeforeTouchSize = new Size(293, 27);
+            noPolisi_text.BeforeTouchSize = new Size(286, 27);
             noPolisi_text.BorderColor = Color.FromArgb(209, 211, 212);
             noPolisi_text.BorderStyle = BorderStyle.FixedSingle;
             noPolisi_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -337,21 +341,21 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // noKtp_text
             // 
             noKtp_text.BackColor = Color.White;
-            noKtp_text.BeforeTouchSize = new Size(293, 27);
+            noKtp_text.BeforeTouchSize = new Size(286, 27);
             noKtp_text.BorderColor = Color.FromArgb(209, 211, 212);
             noKtp_text.BorderStyle = BorderStyle.FixedSingle;
             noKtp_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             noKtp_text.Location = new Point(136, 66);
             noKtp_text.Name = "noKtp_text";
             noKtp_text.PlaceholderText = " Masukkan No Ktp";
-            noKtp_text.Size = new Size(293, 27);
+            noKtp_text.Size = new Size(240, 27);
             noKtp_text.TabIndex = 112;
             noKtp_text.ThemeName = "Default";
             // 
             // pemilik_text
             // 
             pemilik_text.BackColor = Color.White;
-            pemilik_text.BeforeTouchSize = new Size(293, 27);
+            pemilik_text.BeforeTouchSize = new Size(286, 27);
             pemilik_text.BorderColor = Color.FromArgb(209, 211, 212);
             pemilik_text.BorderStyle = BorderStyle.FixedSingle;
             pemilik_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -386,14 +390,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label2.Text = "Pemilik";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // tipe_combo
-            // 
-            tipe_combo.FormattingEnabled = true;
-            tipe_combo.Location = new Point(581, 68);
-            tipe_combo.Name = "tipe_combo";
-            tipe_combo.Size = new Size(286, 23);
-            tipe_combo.TabIndex = 116;
-            // 
             // lblErrorTahunMotor
             // 
             lblErrorTahunMotor.AutoSize = true;
@@ -420,13 +416,69 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblPemilik.TextAlign = ContentAlignment.MiddleRight;
             lblPemilik.Visible = false;
             // 
+            // button_cari
+            // 
+            button_cari.BackColor = Color.MediumSlateBlue;
+            button_cari.BackgroundColor = Color.MediumSlateBlue;
+            button_cari.BorderColor = Color.PaleVioletRed;
+            button_cari.BorderRadius = 0;
+            button_cari.BorderSize = 0;
+            button_cari.FlatAppearance.BorderSize = 0;
+            button_cari.FlatStyle = FlatStyle.Flat;
+            button_cari.ForeColor = Color.White;
+            button_cari.Location = new Point(382, 66);
+            button_cari.Name = "button_cari";
+            button_cari.Size = new Size(47, 40);
+            button_cari.TabIndex = 118;
+            button_cari.Text = "dhafaButton1";
+            button_cari.TextColor = Color.White;
+            button_cari.UseVisualStyleBackColor = false;
+            // 
+            // lblerorKtp
+            // 
+            lblerorKtp.AutoSize = true;
+            lblerorKtp.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblerorKtp.ForeColor = Color.Red;
+            lblerorKtp.Location = new Point(136, 96);
+            lblerorKtp.Name = "lblerorKtp";
+            lblerorKtp.Size = new Size(203, 17);
+            lblerorKtp.TabIndex = 119;
+            lblerorKtp.Text = "⚠️ Harap mengisi nama Pemilik !";
+            lblerorKtp.TextAlign = ContentAlignment.MiddleRight;
+            lblerorKtp.Visible = false;
+            // 
+            // comboTransmisi
+            // 
+            comboTransmisi.FormattingEnabled = true;
+            comboTransmisi.Location = new Point(303, 200);
+            comboTransmisi.Name = "comboTransmisi";
+            comboTransmisi.Size = new Size(286, 23);
+            comboTransmisi.TabIndex = 120;
+            // 
+            // tipeText
+            // 
+            tipeText.BackColor = Color.White;
+            tipeText.BeforeTouchSize = new Size(286, 27);
+            tipeText.BorderColor = Color.FromArgb(209, 211, 212);
+            tipeText.BorderStyle = BorderStyle.FixedSingle;
+            tipeText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            tipeText.Location = new Point(581, 64);
+            tipeText.Name = "tipeText";
+            tipeText.PlaceholderText = " Masukkan Transmisi";
+            tipeText.Size = new Size(286, 27);
+            tipeText.TabIndex = 121;
+            tipeText.ThemeName = "Default";
+            // 
             // InputKendaraan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(893, 423);
+            Controls.Add(tipeText);
+            Controls.Add(comboTransmisi);
+            Controls.Add(lblerorKtp);
+            Controls.Add(button_cari);
             Controls.Add(lblPemilik);
-            Controls.Add(tipe_combo);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pemilik_text);
@@ -462,6 +514,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             ((System.ComponentModel.ISupportInitialize)noPolisi_text).EndInit();
             ((System.ComponentModel.ISupportInitialize)noKtp_text).EndInit();
             ((System.ComponentModel.ISupportInitialize)pemilik_text).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tipeText).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -492,8 +545,11 @@ namespace Bengkel_UKK.Admin.Kendaraan
         private Syncfusion.Windows.Forms.Tools.TextBoxExt pemilik_text;
         private Label label1;
         private Label label2;
-        private ComboBox tipe_combo;
         private Label lblErrorTahunMotor;
         private Label lblPemilik;
+        private DhafaButton button_cari;
+        private Label lblerorKtp;
+        private ComboBox comboTransmisi;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt tipeText;
     }
 }

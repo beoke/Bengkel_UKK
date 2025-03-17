@@ -18,195 +18,161 @@ namespace Bengkel_UKK.Admin.Kendaraan
     {
         private readonly KendaraanDal _kendaraanDal = new KendaraanDal();
         private readonly PelangganDal _pelangganDal = new PelangganDal();
-        private bool _IsInsert = true;
-        private string _ktp_admin = string.Empty;
-        private int _idkendaraan = 0;
-        private string _ktp_pelanggan = string.Empty;
-        public InputKendaraan_form(string ktp_pelanggan, bool IsInsert = true)
+        public static string _ktp_pelanggan = string.Empty;
+        public int _id_kendaraan = 0;
+        public InputKendaraan_form(int id_kendaraan = 0)
         {
             InitializeComponent();
-            RegisterEvent();
-            InitCombo();
             InitComponent();
-            if (!IsInsert)
+            RegisterEvent();
+            if (id_kendaraan != 0)
             {
-                GetData(ktp_pelanggan);
-                lblHeader.Text = "Edit Pelanggan";
-                _IsInsert = false;
-                _ktp_pelanggan = ktp_pelanggan;
+                _id_kendaraan = id_kendaraan;
+                GetData(id_kendaraan);
             }
         }
         private void RegisterEvent()
         {
-            button_simpan.Click += Button_simpan_Click;
+            noKtp_text.TextChanged += NoKtp_text_TextChanged; ;
+            button_cari.Click += Button_cari_Click; ;
+            button_simpan.Click += (s, e) => SaveData();
+            button_batal.Click += (s, e) => this.Close();
+
         }
 
-        private void Button_simpan_Click(object? sender, EventArgs e)
+        private void Button_cari_Click(object? sender, EventArgs e)
         {
-           SaveData();
+            if(new PilihPelangganForm().ShowDialog() != DialogResult.OK) return;
+            noKtp_text.Text = GlobalVariabel._ktp_pelanggan;
+            GetPelanggan();
         }
 
-        private void InitCombo()
+        private async void NoKtp_text_TextChanged(object? sender, EventArgs e)
         {
-            List<string> list = new List<string>()
-            {
-                "Semua (All)","Advanture","Listrik","Bebek", "Skuter","Spot"
-            };
-            tipe_combo.DataSource = list;
+            await Task.Delay(1500);
+            GetPelanggan();
         }
+
+
         private void InitComponent()
         {
-            noKtp_text.ReadOnly = true;
-            pemilik_text.ReadOnly = false;
-            lblErrorNopol.Visible = false;
-            lblErrorMerk.Visible = false;
-            lblErrorTipe.Visible = false;
-            lblErrorTransmisi.Visible = false;
-            lblErrorKapasitas.Visible = false;
-            lblErrorTahunMotor.Visible = false;
+            List<string> list = new List<string>() { "Manual", "Matic", "Kopling" };
+            comboTransmisi.DataSource = list;
 
-            StyleComponent.TextChangeNull(pemilik_text, lblPemilik, "⚠️ Harap mengisi nama Pemilik !");
-            StyleComponent.TextChangeNull(noPolisi_text, lblErrorNopol, "⚠️ Harap mengisi no polisi !");
-            StyleComponent.TextChangeNull(merk_text, lblErrorMerk, "⚠️ Harap mengisi merk motor !");
-            StyleComponent.TextChangeNull(Transmisi_text, lblErrorTipe, "⚠️ Masukkan Transmisi yang valid !");
-            StyleComponent.TextChangeNull(kapasitas_text, lblErrorKapasitas, "⚠️ Harap mengisi kapasitas motor !");
-            StyleComponent.TextChangeNull(tahun_text, lblErrorTahunMotor, "⚠️ Harap mengisi tahun motor !");
+            noKtp_text.MaxLength = 16;
+            merk_text.MaxLength = 50;
+            tipeText.MaxLength = 50;
+            kapasitas_text.MaxLength = 50;
+            tahun_text.MaxLength = 10;
+            noPolisi_text.MaxLength = 20;
 
-            noKtp_text.InputNumber();
             tahun_text.InputNumber();
+            kapasitas_text.InputNumber();
 
-            pemilik_text.TextChanged += async (s, e) =>
-            {
-                await Task.Delay(2000);
-                string nama = pemilik_text.Text.Trim();
-
-                if (string.IsNullOrEmpty(nama))
-                {
-                    lblPemilik.Text = "⚠️ Nama tidak boleh kosong!";
-                    lblPemilik.Visible = true;
-                    noKtp_text.Text = string.Empty;
-                    return;
-                }
-
-                // Ambil data pelanggan berdasarkan nama
-                string ktp_pelanggan = _pelangganDal.GetKtpByNama(nama);
-
-                if (string.IsNullOrEmpty(ktp_pelanggan))
-                {
-                    lblPemilik.Text = "⚠️ Nama tidak ditemukan!";
-                    lblPemilik.Visible = true;
-                    noKtp_text.Text = string.Empty;
-                    return;
-                }
-
-                // Jika ditemukan, tampilkan KTP pelanggan
-                lblPemilik.Visible = false;
-                noKtp_text.Text = ktp_pelanggan;
-            };
+            StyleComponent.TextChangeNull(noKtp_text, lblerorKtp, "⚠️ Harap mengisi KTP Pemilik!", true);
+            StyleComponent.TextChangeNull(merk_text, lblErrorMerk, "⚠️ Harap mengisi merk kendaraan!");
+            StyleComponent.TextChangeNull(tipeText, lblErrorTipe, "⚠️ Harap mengisi tipe kendaraan!");
+            StyleComponent.TextChangeNull(kapasitas_text, lblErrorKapasitas, "⚠️ Harap mengisi kapasitas mesin!");
+            StyleComponent.TextChangeNull(tahun_text, lblErrorTahunMotor, "⚠️ Harap mengisi tahun produksi!");
+            StyleComponent.TextChangeNull(noPolisi_text, lblErrorNopol, "⚠️ Harap mengisi nomor polisi!", true);
 
             noPolisi_text.TextChanged += async (s, e) =>
             {
                 await Task.Delay(2000);
-                string noPolisi = noPolisi_text.Text.Trim();
-
-                if (string.IsNullOrEmpty(noPolisi))
+                string no_pol = noPolisi_text.Text;
+                string pola = @"^[A-Z]{1,2} \d{1,4} [A-Z]{1,3}$";
+                if (!Regex.IsMatch(no_pol, pola) || no_pol.Length == 0)
                 {
-                    lblErrorNopol.Text = "⚠️ Nomor Polisi tidak boleh kosong!";
+                    lblErrorNopol.Text = "⚠️ Format No Pol tidak valid!";
                     lblErrorNopol.Visible = true;
                     return;
                 }
-
-                bool nopolTerdaftar = _IsInsert
-                    ? _kendaraanDal.CekNomorPolisi(noPolisi)
-                    : _kendaraanDal.CekNomorPolisiUpdate(noPolisi, _idkendaraan);
-
-                if (nopolTerdaftar)
+                bool tersedia = _id_kendaraan == 0 ? _kendaraanDal.CekNoPol(no_pol.Trim())
+                    : _kendaraanDal.CekNoPolUpdate(no_pol.Trim(), _id_kendaraan);
+                if (tersedia)
                 {
-                    lblErrorNopol.Text = "⚠️ Nomor Polisi sudah terdaftar!";
+                    lblErrorNopol.Text = "⚠️ Nomor polisi sudah tersedia!";
                     lblErrorNopol.Visible = true;
                     return;
                 }
-
                 lblErrorNopol.Visible = false;
             };
+
+        }
+        private void GetPelanggan()
+        {
+            string ktp = noKtp_text.Text;
+            var data = _pelangganDal.GetData(ktp);
+            if (data is null)
+            {
+                lblerorKtp.Visible = true;
+                lblerorKtp.Text = "⚠️ Pelanggan tidak ditemukan!";
+                pemilik_text.Clear();
+                return;
+            }
+            lblerorKtp.Visible = false;
+            pemilik_text.Text = data.nama_pelanggan;
+        }
+        private void GetData(int id)
+        {
+            var data = _kendaraanDal.GetData(id);
+            if (data is null) return;
+
+            noKtp_text.Text = data.ktp_pelanggan;
+            pemilik_text.Text = data.nama_pelanggan;
+            merk_text.Text = data.merk;
+            tipeText.Text = data.tipe;
+            kapasitas_text.Text = data.kapasitas.ToString();
+            tahun_text.Text = data.tahun;
+            noPolisi_text.Text = data.no_pol;
+            foreach (var item in comboTransmisi.Items)
+                if ((string)item == (string)data.transmisi)
+                    comboTransmisi.SelectedItem = item;
         }
         private void SaveData()
         {
-            string namaPemilik = pemilik_text.Text.Trim();
-            string nopol = noPolisi_text.Text.Trim();
-            string merk = merk_text.Text.Trim();
-            string tipe = tipe_combo.Text.Trim();
-            string transmisi = Transmisi_text.Text.Trim();
-            string kapasitas = kapasitas_text.Text.Trim();
-            string tahun = tahun_text.Text.Trim();
+            string ktp = noKtp_text.Text;
+            string pemilik = pemilik_text.Text;
+            string merk = merk_text.Text;
+            string tipe = tipeText.Text;
+            string transmisi = comboTransmisi.SelectedValue?.ToString() ?? string.Empty;
+            int kapasitas = Convert.ToInt32(kapasitas_text.Text);
+            string tahun = tahun_text.Text;
+            string noPol = noPolisi_text.Text;
 
-            // Validasi input
-            if (string.IsNullOrEmpty(namaPemilik) || string.IsNullOrEmpty(nopol) ||
-                string.IsNullOrEmpty(merk) || string.IsNullOrEmpty(tipe) ||
-                string.IsNullOrEmpty(transmisi) || string.IsNullOrEmpty(kapasitas) ||
-                string.IsNullOrEmpty(tahun))
+            bool valid = !lblerorKtp.Visible &&
+                !lblErrorMerk.Visible &&
+                !lblErrorTipe.Visible &&
+                !lblErrorKapasitas.Visible &&
+                !lblErrorTahunMotor.Visible &&
+                !lblErrorNopol.Visible;
+
+            if (!valid)
             {
-                PesanBox.Warning("Harap lengkapi semua data kendaraan!");
+                PesanBox.Warning("Data tidak valid, mohon cek kembali!");
                 return;
             }
-
-            int kapasitasMotor;
-            if (!int.TryParse(kapasitas_text.Text, out kapasitasMotor))
-            {
-                PesanBox.Warning("Kapasitas motor harus berupa angka!");
-                return;
-            }
+            if (!PesanBox.Konfirmasi("Apakah anda yakin ingin menyimpan data?")) return;
 
             var kendaraan = new KendaraanModel
             {
-                ktp_pelanggan = _ktp_pelanggan,
-                no_pol = nopol,
+                id_kendaraan = _id_kendaraan,
+                ktp_pelanggan = ktp,
                 merk = merk,
                 tipe = tipe,
                 transmisi = transmisi,
-                kapasitas = kapasitasMotor, 
-                tahun = tahun
+                kapasitas = kapasitas,
+                tahun = tahun,
+                no_pol = noPol
             };
 
-
-
-            if (!PesanBox.Konfirmasi("Apakah Anda yakin ingin menyimpan data kendaraan?")) return;
-
-            bool sukses = _kendaraanDal.TambahKendaraanByNamaPelanggan(namaPemilik, kendaraan);
-
-            if (sukses)
-            {
-                PesanBox.Informasi("Data kendaraan berhasil disimpan!");
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+            if (_id_kendaraan == 0)
+                _kendaraanDal.InsertData(kendaraan);
             else
-            {
-                PesanBox.Error("Gagal menyimpan data kendaraan!");
-            }
+                _kendaraanDal.UpdateData(kendaraan);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
-
-
-        private void GetData(string ktp_pelanggan)
-        {
-            var data = _kendaraanDal.GetDataByKtp(ktp_pelanggan);
-
-            if (data != null)
-            {
-                pemilik_text.Text = data.nama_pelanggan;
-                noKtp_text.Text = Regex.IsMatch(data.ktp_pelanggan, @"[A-Za-z]") ? string.Empty : data.ktp_pelanggan;
-                noPolisi_text.Text = data.no_pol;
-                merk_text.Text = data.merk;
-                tipe_combo.Text = data.tipe;
-                Transmisi_text.Text = data.transmisi;
-                kapasitas_text.Text = data.kapasitas.ToString();
-                tahun_text.Text = data.tahun;
-            }
-            else
-            {
-                MessageBox.Show("Data kendaraan tidak ditemukan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
     }
 }

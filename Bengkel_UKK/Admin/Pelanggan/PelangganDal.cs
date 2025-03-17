@@ -10,23 +10,15 @@ using System.Threading.Tasks;
 namespace Bengkel_UKK.Admin.Pelanggan
 {
     public class PelangganDal
-    {
-        public IEnumerable<PelangganModel> ListData(FilterDto filter, int offset, int fetch)
+    {   
+        public IEnumerable<PelangganModel> ListData(FilterDto filter)
         {
-            string sql = $@"SELECT ktp_pelanggan, nama_pelanggan, email, alamat, no_telp 
-                    FROM Pelanggan {filter.sql} 
-                    ORDER BY created_at DESC
-                    OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
-
+            string sql = $@"SELECT ktp_pelanggan, nama_pelanggan, email, alamat, no_telp FROM Pelanggan {filter.sql} 
+                            ORDER BY created_at DESC
+                            OFFSET @offset ROWS FETCH NEXT @fetch ROWS ONLY";
             using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.Query<PelangganModel>(sql, new
-            {
-                offset,
-                fetch
-            });
+            return koneksi.Query<PelangganModel>(sql, filter.param);
         }
-
-
         public int GetTotalRows(FilterDto filter)
         {
             string sql = $@"SELECT COUNT(*)

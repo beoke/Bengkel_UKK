@@ -95,7 +95,7 @@ CREATE PROCEDURE InsertBooking
     @antrean INT = NULL,
     @ktp_mekanik VARCHAR(30) = NULL,
     @id_jasaServis INT = NULL,
-    @status VARCHAR(20) = 'pending',
+    @status VARCHAR(20) = 'Menunggu',
     @tipe_antrean VARCHAR(20) = 1
 AS
 BEGIN

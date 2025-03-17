@@ -23,7 +23,7 @@ namespace Bengkel_UKK.Helper
             edit.Style.DropDown.HoverForeColor = Color.White;
         }
 
-        public static void TextChangeNull(TextBox txt, Label lbl, string pesan)
+        public static void TextChangeNull(TextBox txt, Label lbl, string pesan, bool lanjutan = false)
         {
             txt.TextChanged += (s, e) =>
             {

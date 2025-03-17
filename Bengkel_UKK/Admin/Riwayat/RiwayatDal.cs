@@ -119,5 +119,12 @@ namespace Bengkel_UKK.Admin.Riwayat
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QuerySingleOrDefault<int>(sql, filter.param);
         }
+        public void Insert (RiwayatModel model)
+        {
+            string sql = @"INSERT INTO Riwayat (ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, nama_kendaraan, tanggal, keluhan, catatan, ktp_admin, ktp_mekanik, id_jasaServis, total_harga, status)
+                            VALUES (@ktp_pelanggan, @nama_pelanggan, @id_kendaraan, @no_pol, @nama_kendaraan, @tanggal, @keluhan, @catatan, @ktp_admin, @ktp_mekanik, @id_jasaServis, @total_harga, @status)";
+            using var koneksi = new SqlConnection(conn.connStr);
+            koneksi.Execute(sql, model);
+        }
     }
 }

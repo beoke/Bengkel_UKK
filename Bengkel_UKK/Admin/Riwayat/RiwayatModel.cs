@@ -26,7 +26,11 @@ namespace Bengkel_UKK.Admin.Riwayat
         public string ktp_admin { get; set; }
         public string nama_admin { get; set; }
 
+        public string ktp_mekanik { get; set; }  
         public string nama_mekanik { get; set; }  
+        public int id_jasaServis { get; set; }
+        public string jasa_servis { get; set; } 
+        public string nama_sparepart { get; set; }
         public string keluhan { get; set; }
         public string catatan { get; set; }
         public int total_harga { get; set; }

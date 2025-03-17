@@ -118,7 +118,7 @@ namespace Bengkel_UKK.Admin.Dashboard
                 this.Hide();
                 Form loginForm = new Form_Login();
                 loginForm.ShowDialog();
-                this.Close();
+                this.Hide();
             }
         }
 

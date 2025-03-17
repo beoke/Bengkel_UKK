@@ -206,7 +206,8 @@ namespace Bengkel_UKK.Admin.Booking
                     id_kendaraan = id_kendaraan,
                     tanggal = tanggal,
                     keluhan = keluhan,
-                    antrean = _antrean
+                    antrean = _antrean,
+                    status = "Menunggu"
                 };
                 _bookingDal.InsertDataBooking(data, true);
                 this.DialogResult = DialogResult.OK;
