@@ -45,12 +45,13 @@ namespace Bengkel_UKK.Admin.Pelanggan
             label3 = new Label();
             label1 = new Label();
             numericEntries = new NumericUpDown();
-            btnAddData = new DhafaButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
             editToolStripMenuItem = new ToolStripMenuItem();
             hapusToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip2 = new ContextMenuStrip(components);
             kembalikanToolStripMenuItem = new ToolStripMenuItem();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            btnAddData = new DhafaButton();
             DataHapus_Button = new DhafaButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
@@ -59,6 +60,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -256,27 +258,6 @@ namespace Bengkel_UKK.Admin.Pelanggan
             numericEntries.TabIndex = 3;
             numericEntries.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
-            // btnAddData
-            // 
-            btnAddData.BackColor = Color.FromArgb(52, 152, 219);
-            btnAddData.BackgroundColor = Color.FromArgb(52, 152, 219);
-            btnAddData.BorderColor = Color.PaleVioletRed;
-            btnAddData.BorderRadius = 0;
-            btnAddData.BorderSize = 0;
-            btnAddData.FlatAppearance.BorderSize = 0;
-            btnAddData.FlatStyle = FlatStyle.Flat;
-            btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAddData.ForeColor = Color.White;
-            btnAddData.Location = new Point(28, 16);
-            btnAddData.Name = "btnAddData";
-            btnAddData.RightToLeft = RightToLeft.No;
-            btnAddData.Size = new Size(132, 42);
-            btnAddData.TabIndex = 1;
-            btnAddData.Text = " ";
-            btnAddData.TextColor = Color.White;
-            btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnAddData.UseVisualStyleBackColor = false;
-            // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -313,22 +294,58 @@ namespace Bengkel_UKK.Admin.Pelanggan
             kembalikanToolStripMenuItem.Size = new Size(179, 30);
             kembalikanToolStripMenuItem.Text = "Kembalikan";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(btnAddData);
+            flowLayoutPanel1.Controls.Add(DataHapus_Button);
+            flowLayoutPanel1.Location = new Point(28, 12);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(345, 57);
+            flowLayoutPanel1.TabIndex = 15;
+            // 
+            // btnAddData
+            // 
+            btnAddData.AutoSize = true;
+            btnAddData.BackColor = Color.FromArgb(52, 152, 219);
+            btnAddData.BackgroundColor = Color.FromArgb(52, 152, 219);
+            btnAddData.BorderColor = Color.PaleVioletRed;
+            btnAddData.BorderRadius = 4;
+            btnAddData.BorderSize = 0;
+            btnAddData.FlatAppearance.BorderSize = 0;
+            btnAddData.FlatStyle = FlatStyle.Flat;
+            btnAddData.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddData.ForeColor = Color.White;
+            btnAddData.Image = Properties.Resources.plusPutih;
+            btnAddData.Location = new Point(3, 3);
+            btnAddData.Name = "btnAddData";
+            btnAddData.Padding = new Padding(10, 0, 0, 0);
+            btnAddData.Size = new Size(165, 42);
+            btnAddData.TabIndex = 1;
+            btnAddData.Text = " Add Kendaraan";
+            btnAddData.TextColor = Color.White;
+            btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddData.UseVisualStyleBackColor = false;
+            // 
             // DataHapus_Button
             // 
-            DataHapus_Button.BackColor = Color.Red;
-            DataHapus_Button.BackgroundColor = Color.Red;
+            DataHapus_Button.BackColor = Color.Transparent;
+            DataHapus_Button.BackgroundColor = Color.Transparent;
             DataHapus_Button.BorderColor = Color.PaleVioletRed;
-            DataHapus_Button.BorderRadius = 0;
+            DataHapus_Button.BorderRadius = 4;
             DataHapus_Button.BorderSize = 0;
             DataHapus_Button.FlatAppearance.BorderSize = 0;
             DataHapus_Button.FlatStyle = FlatStyle.Flat;
-            DataHapus_Button.ForeColor = Color.White;
-            DataHapus_Button.Image = Properties.Resources.sampahPutih;
-            DataHapus_Button.Location = new Point(162, 18);
+            DataHapus_Button.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            DataHapus_Button.ForeColor = SystemColors.ControlDarkDark;
+            DataHapus_Button.Image = Properties.Resources.sampahDark;
+            DataHapus_Button.Location = new Point(174, 3);
             DataHapus_Button.Name = "DataHapus_Button";
-            DataHapus_Button.Size = new Size(44, 40);
-            DataHapus_Button.TabIndex = 13;
-            DataHapus_Button.TextColor = Color.White;
+            DataHapus_Button.Padding = new Padding(10, 0, 0, 0);
+            DataHapus_Button.Size = new Size(153, 42);
+            DataHapus_Button.TabIndex = 2;
+            DataHapus_Button.Text = " Data Dihapus";
+            DataHapus_Button.TextColor = SystemColors.ControlDarkDark;
+            DataHapus_Button.TextImageRelation = TextImageRelation.ImageBeforeText;
             DataHapus_Button.UseVisualStyleBackColor = false;
             // 
             // Pelanggan_form
@@ -337,9 +354,8 @@ namespace Bengkel_UKK.Admin.Pelanggan
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1143, 635);
-            Controls.Add(DataHapus_Button);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(yogaPanel1);
-            Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Pelanggan_form";
             Text = "Tabel";
@@ -351,6 +367,8 @@ namespace Bengkel_UKK.Admin.Pelanggan
             ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             contextMenuStrip2.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -358,7 +376,6 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
-        private DhafaButton btnAddData;
         private NumericUpDown numericEntries;
         private Label label1;
         private TextBox txtSearch;
@@ -376,6 +393,8 @@ namespace Bengkel_UKK.Admin.Pelanggan
         private ToolStripMenuItem hapusToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem kembalikanToolStripMenuItem;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private DhafaButton btnAddData;
         private DhafaButton DataHapus_Button;
     }
 }

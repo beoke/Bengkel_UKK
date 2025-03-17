@@ -69,15 +69,13 @@ namespace Bengkel_UKK.Admin.Booking
             return koneksi.QueryFirstOrDefault<BookingModel2>(sql, new { id_booking = id_booking });
         }
 
-        public IEnumerable<ProdukModel> ListDataProduk(int id_booking)
+        public IEnumerable<BookingSparepartModel> ListDataProduk(int id_booking)
         {
-            const string sql = @"SELECT bs.id_booking,bs.kode_sparepart,bs.jumlah, s.nama_sparepart
-                            FROM BookingSparepart bs
-                            INNER JOIN Sparepart s
-                                ON bs.kode_sparepart = s.kode_sparepart
+            const string sql = @"SELECT kode_sparepart, nama_sparepart, harga, jumlah
+                            FROM Bookingsparepart
                             WHERE id_booking = @id_booking";
             using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.Query<ProdukModel>(sql, new { id_booking = id_booking });
+            return koneksi.Query<BookingSparepartModel>(sql, new { id_booking = id_booking });
         }
 
         public AntreanDto? GetAntrean(DateTime tanggal, int tipe_antrean)
@@ -177,7 +175,7 @@ namespace Bengkel_UKK.Admin.Booking
 
         public void UpdateAntrean(BookingModel2 booking)
         {
-            const string sql = @"UPDATE Bookings SET antrean = @antrean, tipe_antrean = @tipe_antrean WHERE id_booking = @id_booking";
+            const string sql = @"UPDATE Booking SET antrean = @antrean, tipe_antrean = @tipe_antrean WHERE id_booking = @id_booking";
             using var koneksi = new SqlConnection(conn.connStr);
 
             var dp = new DynamicParameters();
@@ -186,6 +184,12 @@ namespace Bengkel_UKK.Admin.Booking
             dp.Add("@id_booking", booking.id_booking);
 
             koneksi.Execute(sql, dp);
+        }
+        public async Task UpdateKonfirmasiBookingAsync(FilterDto data)
+        {
+            using var koneksi = new SqlConnection(conn.connStr);
+
+            await koneksi.ExecuteAsync(data.sql, data.param);
         }
 
         public void UpdateBooking(BookingModel2 booking)
@@ -210,6 +214,30 @@ namespace Bengkel_UKK.Admin.Booking
             koneksi.Execute(sql, dp);
         }
 
-      
+        public async Task SelesaiServisUpdate(DynamicParameters dp)
+        {
+            string sql = @"
+                INSERT INTO Riwayat (
+                    ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, nama_kendaraan, 
+                    tanggal, tanggal_servis, tanggal_selesai, 
+                    ktp_admin, ktp_mekanik, keluhan, catatan, total_harga, 
+                    id_jasaServis, status, pembatalan_oleh, created_at
+                )
+                SELECT 
+                    b.ktp_pelanggan, b.nama_pelanggan, b.id_kendaraan, b.no_pol, b.nama_kendaraan, 
+                    b.tanggal, b.tanggal_servis, GETDATE(),
+                    @ktp_admin, b.ktp_mekanik, b.keluhan, b.catatan, @total_harga, 
+                    b.id_jasaServis, @status, @pembatalan_oleh,
+                    GETDATE()
+                FROM Bookings b
+                WHERE b.id_booking = @id_booking";
+
+            string sqlDelete = @"DELETE FROM Bookings WHERE id_booking = @id_booking";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+
+            await koneksi.ExecuteAsync(sql, dp);
+            await koneksi.ExecuteAsync(sqlDelete, dp);
+        }
     }
 }

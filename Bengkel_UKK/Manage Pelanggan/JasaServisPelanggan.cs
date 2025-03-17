@@ -24,7 +24,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
         private void LoadData()
         {
             int no = 1;
-            var list = _jasaServiceDal.ListData()
+            var list = _jasaServiceDal.ListDataa()
                 .Select(x => new JasaServiceModel
                 {
                     No = no++,

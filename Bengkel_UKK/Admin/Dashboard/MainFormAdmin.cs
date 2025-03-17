@@ -64,7 +64,7 @@ namespace Bengkel_UKK.Admin.Dashboard
         }
         private void RegisterEvent()
         {
-            List<Button> btnStyle = new List<Button> { btnDashboard, btnBooking, btnProduk, btnRiwayat, btnService, btnPelanggan, btnKaryawan, btnKalender };
+            List<Button> btnStyle = new List<Button> { btnDashboard, btnBooking, btnProduk, btnRiwayat, btnService, btnPelanggan, btnKaryawan, btn_kendaraan };
             foreach (var item in btnStyle)
             {
                 item.FlatAppearance.MouseDownBackColor = active;
@@ -85,17 +85,15 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnPelanggan.Click += BtnSideBar_Click;
             btnKaryawan.Click += (s, e) => buttonActiveAfter = 7;
             btnKaryawan.Click += BtnSideBar_Click;
-            btnKalender.Click += (s, e) => buttonActiveAfter = 8;
-            btnKalender.Click += BtnSideBar_Click;
+            btn_kendaraan.Click += (s, e) => buttonActiveAfter = 8;
             btn_kendaraan.Click += BtnSideBar_Click;
-            btn_kendaraan.Click += (s, e) => buttonActiveAfter = 9;
             btnLogout.Click += BtnLogout_Click;
 
             // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
             btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard());
             btnProduk.Click += (s, e) => ShowFormInPanel2(new Produk_form());
             btnKaryawan.Click += (s, e) => ShowFormInPanel2(new Karyawan_form());
-            btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
+           // btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
             btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
@@ -168,7 +166,7 @@ namespace Bengkel_UKK.Admin.Dashboard
                     text = "PEGAWAI";
                     break;
                 case 8:
-                    text = "KALENDER";
+                    text = "KENDARAAN";
                     break;
             }
             _mainForm.lblDisplay.Text = text;

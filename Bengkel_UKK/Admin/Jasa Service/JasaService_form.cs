@@ -50,8 +50,8 @@ namespace Bengkel_UKK.Admin.Jasa_Service
 
             if (confirm == DialogResult.Yes)
             {
-                _jasaServiceDal.DeleteData(idJasaServis); // 🔄 Kirim ID sebagai int
-                LoadData(); // 🔄 Update DataGridView setelah penghapusan
+                _jasaServiceDal.DeleteData(idJasaServis); 
+                LoadData(); 
             }
         }
 
@@ -69,10 +69,9 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             string namaJasa = dataGridView1.CurrentRow.Cells["nama_jasaServis"].Value?.ToString() ?? "";
             int idJasa = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id_jasaServis"].Value);
 
-            // ✅ Buka Form InputJasaService untuk Edit
             if (new InputJasaService_form(namaJasa, false, idJasa).ShowDialog() == DialogResult.OK)
             {
-                LoadData(); // 🔄 Update DataGridView setelah perubahan
+                LoadData(); 
             }
         }
 
@@ -85,14 +84,14 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private void BtnAddData_Click(object? sender, EventArgs e)
         {
             InputJasaService_form form = new InputJasaService_form("", true);
-            form.DataUpdated += LoadData; // 🚀 Hubungkan event ke LoadData
+            form.DataUpdated += LoadData; 
             form.ShowDialog();
         }
 
         private void LoadData()
         {
             int no = 1;
-            var list = _jasaServiceDal.ListData()
+            var list = _jasaServiceDal.ListDataa()
                 .Select(x => new JasaServiceModel
                 {
                     No = no++,

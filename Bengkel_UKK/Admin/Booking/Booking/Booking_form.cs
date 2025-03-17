@@ -443,11 +443,14 @@ namespace Bengkel_UKK.Admin.Booking
         }
 
         #endregion
+        
     }
 }
 public class FilterDto
 {
     public string sql { get; set; } = string.Empty;
+
+    public string sql2 { get; set; } = string.Empty;
     public DynamicParameters param { get; set; } //public Dictionary<string, object> param { get; set; } = new Dictionary<string, object>();
 }
 

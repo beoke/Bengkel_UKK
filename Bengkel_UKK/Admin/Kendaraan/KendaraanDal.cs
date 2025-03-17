@@ -115,7 +115,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
 
         public bool CekNomorPolisiUpdate(string noPolisi, int idKendaraan)
         {
-            const string sql = "SELECT COUNT(1) FROM Kendaraan WHERE no_pol = @no_pol AND id_kendaraan <> @idKendaraan";
+            const string sql = "SELECT COUNT(1) FROM Kendaraan WHERE no_pol = @noPolisi AND id_kendaraan <> @idKendaraan";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.ExecuteScalar<int>(sql, new { noPolisi, idKendaraan }) > 0;
         }

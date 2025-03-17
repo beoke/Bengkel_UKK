@@ -1,8 +1,8 @@
 ﻿using Bengkel_UKK.Custom_Component;
 
-namespace Bengkel_UKK.Admin.Riwayat
+namespace Bengkel_UKK
 {
-    partial class Riwayat_form
+    partial class ujicoba
     {
         // </summary>
         private System.ComponentModel.IContainer components = null;
@@ -29,6 +29,7 @@ namespace Bengkel_UKK.Admin.Riwayat
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ujicoba));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             comboFilterStatus = new ComboBox();
@@ -39,7 +40,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             lblShowingEntries = new Label();
             comboFilterWaktu = new ComboBox();
-            btn_ekspor = new DhafaButton();
+            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -55,10 +56,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             deleteToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             InvoiceStripMenuItem = new ToolStripMenuItem();
-            contextMenuStripEx1 = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
-            detailBookingToolStripMenuItem = new ToolStripMenuItem();
-            editToolStripMenuItem1 = new ToolStripMenuItem();
-            hapusToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -66,7 +63,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip.SuspendLayout();
-            contextMenuStripEx1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -97,7 +93,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             yogaPanel1.Controls.Add(tgl1);
             yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilterWaktu);
-            yogaPanel1.Controls.Add(btn_ekspor);
+            yogaPanel1.Controls.Add(btnSearch);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
@@ -115,7 +111,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             comboFilterStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilterStatus.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilterStatus.FormattingEnabled = true;
-            comboFilterStatus.Location = new Point(335, 33);
+            comboFilterStatus.Location = new Point(376, 33);
             comboFilterStatus.Name = "comboFilterStatus";
             comboFilterStatus.Size = new Size(100, 28);
             comboFilterStatus.TabIndex = 120;
@@ -123,7 +119,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             // panelTanggalFilter
             // 
             panelTanggalFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelTanggalFilter.Location = new Point(638, 66);
+            panelTanggalFilter.Location = new Point(675, 66);
             panelTanggalFilter.Name = "panelTanggalFilter";
             panelTanggalFilter.Size = new Size(382, 5);
             panelTanggalFilter.TabIndex = 119;
@@ -131,7 +127,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             // panelComboFilter
             // 
             panelComboFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelComboFilter.Location = new Point(445, 66);
+            panelComboFilter.Location = new Point(482, 66);
             panelComboFilter.Name = "panelComboFilter";
             panelComboFilter.Size = new Size(176, 5);
             panelComboFilter.TabIndex = 118;
@@ -141,7 +137,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             lblTo.AutoSize = true;
             lblTo.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             lblTo.ForeColor = Color.DimGray;
-            lblTo.Location = new Point(818, 22);
+            lblTo.Location = new Point(855, 22);
             lblTo.Name = "lblTo";
             lblTo.Size = new Size(22, 30);
             lblTo.TabIndex = 117;
@@ -153,13 +149,12 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl2.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             tgl2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             tgl2.Format = "d MMMM yyyy";
-            tgl2.Location = new Point(843, 33);
+            tgl2.Location = new Point(880, 33);
             tgl2.Name = "tgl2";
             tgl2.Size = new Size(177, 28);
             tgl2.Style.BorderColor = Color.FromArgb(64, 64, 64);
             tgl2.TabIndex = 116;
             tgl2.ToolTipText = "";
-            tgl2.Value = new DateTime(2025, 3, 16, 0, 0, 0, 0);
             // 
             // tgl1
             // 
@@ -167,13 +162,12 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl1.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             tgl1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             tgl1.Format = "d MMMM yyyy";
-            tgl1.Location = new Point(638, 33);
+            tgl1.Location = new Point(675, 33);
             tgl1.Name = "tgl1";
             tgl1.Size = new Size(177, 28);
             tgl1.Style.BorderColor = Color.FromArgb(64, 64, 64);
             tgl1.TabIndex = 115;
             tgl1.ToolTipText = "";
-            tgl1.Value = new DateTime(2025, 3, 16, 0, 0, 0, 0);
             // 
             // lblShowingEntries
             // 
@@ -192,27 +186,28 @@ namespace Bengkel_UKK.Admin.Riwayat
             comboFilterWaktu.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilterWaktu.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilterWaktu.FormattingEnabled = true;
-            comboFilterWaktu.Location = new Point(445, 33);
+            comboFilterWaktu.Location = new Point(482, 33);
             comboFilterWaktu.Name = "comboFilterWaktu";
             comboFilterWaktu.Size = new Size(176, 28);
             comboFilterWaktu.TabIndex = 12;
             // 
-            // btn_ekspor
+            // btnSearch
             // 
-            btn_ekspor.BackColor = Color.FromArgb(230, 126, 34);
-            btn_ekspor.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btn_ekspor.BorderColor = Color.PaleVioletRed;
-            btn_ekspor.BorderRadius = 0;
-            btn_ekspor.BorderSize = 0;
-            btn_ekspor.FlatAppearance.BorderSize = 0;
-            btn_ekspor.FlatStyle = FlatStyle.Flat;
-            btn_ekspor.ForeColor = Color.White;
-            btn_ekspor.Location = new Point(1063, 32);
-            btn_ekspor.Name = "btn_ekspor";
-            btn_ekspor.Size = new Size(45, 39);
-            btn_ekspor.TabIndex = 12;
-            btn_ekspor.TextColor = Color.White;
-            btn_ekspor.UseVisualStyleBackColor = false;
+            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BorderColor = Color.PaleVioletRed;
+            btnSearch.BorderRadius = 0;
+            btnSearch.BorderSize = 0;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
+            btnSearch.Location = new Point(323, 33);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(47, 27);
+            btnSearch.TabIndex = 12;
+            btnSearch.TextColor = Color.White;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -377,33 +372,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             InvoiceStripMenuItem.Size = new Size(133, 26);
             InvoiceStripMenuItem.Text = "Invoice";
             // 
-            // contextMenuStripEx1
-            // 
-            contextMenuStripEx1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            contextMenuStripEx1.Items.AddRange(new ToolStripItem[] { detailBookingToolStripMenuItem, editToolStripMenuItem1, hapusToolStripMenuItem });
-            contextMenuStripEx1.MetroColor = Color.FromArgb(204, 236, 249);
-            contextMenuStripEx1.Name = "contextMenuStripEx1";
-            contextMenuStripEx1.Size = new Size(195, 82);
-            // 
-            // detailBookingToolStripMenuItem
-            // 
-            detailBookingToolStripMenuItem.Name = "detailBookingToolStripMenuItem";
-            detailBookingToolStripMenuItem.Size = new Size(194, 26);
-            detailBookingToolStripMenuItem.Text = "Detail Booking";
-            // 
-            // editToolStripMenuItem1
-            // 
-            editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            editToolStripMenuItem1.Size = new Size(194, 26);
-            editToolStripMenuItem1.Text = "Edit";
-            // 
-            // hapusToolStripMenuItem
-            // 
-            hapusToolStripMenuItem.Name = "hapusToolStripMenuItem";
-            hapusToolStripMenuItem.Size = new Size(194, 26);
-            hapusToolStripMenuItem.Text = "Hapus";
-            // 
-            // Riwayat_form
+            // FormRiwayat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -411,7 +380,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             ClientSize = new Size(1397, 683);
             Controls.Add(yogaPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Riwayat_form";
+            Name = "FormRiwayat";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
@@ -421,7 +390,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             contextMenuStrip.ResumeLayout(false);
-            contextMenuStripEx1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -438,7 +406,7 @@ namespace Bengkel_UKK.Admin.Riwayat
         private DhafaButton btnPrevious;
         private Panel panel2;
         private Label lblHalaman;
-        private DhafaButton btn_ekspor;
+        private DhafaButton btnSearch;
         private ComboBox comboFilterWaktu;
         private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;
@@ -453,9 +421,5 @@ namespace Bengkel_UKK.Admin.Riwayat
         private ComboBox comboFilterStatus;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
         private ToolStripMenuItem InvoiceStripMenuItem;
-        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripEx1;
-        private ToolStripMenuItem detailBookingToolStripMenuItem;
-        private ToolStripMenuItem editToolStripMenuItem1;
-        private ToolStripMenuItem hapusToolStripMenuItem;
     }
 }

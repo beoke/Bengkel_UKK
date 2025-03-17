@@ -14,14 +14,20 @@ namespace Bengkel_UKK.Admin.Jasa_Service
     {
         private readonly string _connStr = conn.connStr;
 
-        public IEnumerable<JasaServiceModel> ListData()
+        public IEnumerable<JasaServiceModel> ListData(FilterDto filter)
+        {
+            string sql = $@"SELECT * FROM JasaServis {filter.sql}";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.Query<JasaServiceModel>(sql, filter.param);
+        }
+
+        public IEnumerable<JasaServiceModel> ListDataa()
         {
             const string sql = "SELECT * FROM JasaServis";
             using var koneksi = new SqlConnection(_connStr);
             koneksi.Open();
             return koneksi.Query<JasaServiceModel>(sql);
         }
-
         public int? GetIdJasaByName(string namaJasa)
         {
             const string sql = "SELECT id_jasaServis FROM JasaServis WHERE nama_jasaServis = @namaJasa";

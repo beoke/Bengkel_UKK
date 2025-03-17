@@ -44,13 +44,17 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label3 = new Label();
             label1 = new Label();
             numericEntries = new NumericUpDown();
+            contextMenuStripEx1 = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            HapusToolStripMenuItem = new ToolStripMenuItem();
+            restoreStripMenuItem2 = new ToolStripMenuItem();
             btnAddData = new DhafaButton();
-            contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
+            contextMenuStripEx1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -119,13 +123,11 @@ namespace Bengkel_UKK.Admin.Kendaraan
             btnSearch.BorderSize = 0;
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnSearch.ForeColor = Color.White;
             btnSearch.Location = new Point(323, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;
-            btnSearch.Text = "🔎";
             btnSearch.TextColor = Color.White;
             btnSearch.UseVisualStyleBackColor = false;
             // 
@@ -246,35 +248,56 @@ namespace Bengkel_UKK.Admin.Kendaraan
             numericEntries.Size = new Size(64, 27);
             numericEntries.TabIndex = 3;
             // 
+            // contextMenuStripEx1
+            // 
+            contextMenuStripEx1.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, HapusToolStripMenuItem });
+            contextMenuStripEx1.MetroColor = Color.FromArgb(204, 236, 249);
+            contextMenuStripEx1.Name = "contextMenuStripEx1";
+            contextMenuStripEx1.Size = new Size(127, 60);
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold, GraphicsUnit.Point);
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(180, 28);
+            editToolStripMenuItem.Text = "Edit";
+            // 
+            // HapusToolStripMenuItem
+            // 
+            HapusToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold, GraphicsUnit.Point);
+            HapusToolStripMenuItem.Name = "HapusToolStripMenuItem";
+            HapusToolStripMenuItem.Size = new Size(180, 28);
+            HapusToolStripMenuItem.Text = "Delete";
+            // 
+            // restoreStripMenuItem2
+            // 
+            restoreStripMenuItem2.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold, GraphicsUnit.Point);
+            restoreStripMenuItem2.Name = "restoreStripMenuItem2";
+            restoreStripMenuItem2.Size = new Size(135, 28);
+            restoreStripMenuItem2.Text = "Restore";
+            // 
             // btnAddData
             // 
+            btnAddData.AutoSize = true;
             btnAddData.BackColor = Color.FromArgb(52, 152, 219);
             btnAddData.BackgroundColor = Color.FromArgb(52, 152, 219);
             btnAddData.BorderColor = Color.PaleVioletRed;
-            btnAddData.BorderRadius = 0;
+            btnAddData.BorderRadius = 4;
             btnAddData.BorderSize = 0;
             btnAddData.FlatAppearance.BorderSize = 0;
             btnAddData.FlatStyle = FlatStyle.Flat;
-            btnAddData.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnAddData.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddData.ForeColor = Color.White;
-            btnAddData.Location = new Point(28, 16);
+            btnAddData.Image = Properties.Resources.plusPutih;
+            btnAddData.Location = new Point(28, 27);
             btnAddData.Name = "btnAddData";
             btnAddData.Padding = new Padding(10, 0, 0, 0);
-            btnAddData.Size = new Size(132, 42);
-            btnAddData.TabIndex = 1;
-            btnAddData.Text = "➕  Add Data";
-            btnAddData.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddData.Size = new Size(165, 42);
+            btnAddData.TabIndex = 3;
+            btnAddData.Text = " Add Kendaraan";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;
-            // 
-            // contextMenuStrip
-            // 
-            contextMenuStrip.DropShadowEnabled = false;
-            contextMenuStrip.MetroColor = Color.FromArgb(204, 236, 249);
-            contextMenuStrip.Name = "contextMenuStrip";
-            contextMenuStrip.Size = new Size(61, 4);
-            contextMenuStrip.ThemeName = "Metro";
             // 
             // Kendaraan_form
             // 
@@ -282,8 +305,8 @@ namespace Bengkel_UKK.Admin.Kendaraan
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1143, 635);
-            Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
+            Controls.Add(yogaPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Kendaraan_form";
             Text = "Tabel";
@@ -293,14 +316,15 @@ namespace Bengkel_UKK.Admin.Kendaraan
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
+            contextMenuStripEx1.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
-        private DhafaButton btnAddData;
         private NumericUpDown numericEntries;
         private Label label1;
         private TextBox txtSearch;
@@ -313,6 +337,10 @@ namespace Bengkel_UKK.Admin.Kendaraan
         private DhafaButton btnSearch;
         private ComboBox comboFilter;
         private Label lblShowingEntries;
-        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
+        private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripEx1;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem HapusToolStripMenuItem;
+        private ToolStripMenuItem restoreStripMenuItem2;
+        private DhafaButton btnAddData;
     }
 }

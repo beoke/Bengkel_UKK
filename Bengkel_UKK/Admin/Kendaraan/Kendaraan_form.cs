@@ -1,6 +1,9 @@
-﻿using Bengkel_UKK.Admin.Karyawan;
+﻿using Bengkel_UKK.Admin.Jasa_Service;
+using Bengkel_UKK.Admin.Karyawan;
+using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Helper;
 using Dapper;
+using Syncfusion.Windows.Forms.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +19,9 @@ namespace Bengkel_UKK.Admin.Kendaraan
     public partial class Kendaraan_form : Form
     {
         private readonly KendaraanDal _kendaraanDal = new KendaraanDal();
-
-        private int page = 1;
         private int _page = 1;
         private int _Totalpage = 1;
+        private bool _btnMain = true;
         public Kendaraan_form()
         {
             InitializeComponent();
@@ -31,6 +33,49 @@ namespace Bengkel_UKK.Admin.Kendaraan
         {
             btnAddData.Click += BtnAddData_Click;
             dataGridView1.CellPainting += DataGridView1_CellPainting;
+            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
+            editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
+            HapusToolStripMenuItem.Click += HapusToolStripMenuItem_Click;
+        }
+
+        private void HapusToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Pilih data yang ingin dihapus!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(dataGridView1.SelectedRows[0].Cells["id_kendaraan"].Value.ToString(), out int idkendaraan))
+            {
+                MessageBox.Show("Gagal mendapatkan ID Kendaraan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var confirm = MessageBox.Show("Apakah Anda yakin ingin menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                _kendaraanDal.SoftDeleteData(idkendaraan);
+                LoadData();
+            }
+        }
+
+        private void EditToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            string ktp = dataGridView1.CurrentRow.Cells["ktp_pelanggan"].Value?.ToString() ?? string.Empty;
+            if (new InputKendaraan_form(ktp, false).ShowDialog() != DialogResult.OK) return;
+            LoadData();
+        }
+
+        private void DataGridView1_CellMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                dataGridView1.ClearSelection();
+                dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                contextMenuStripEx1.Show(Cursor.Position);
+            }
         }
 
         private void BtnAddData_Click(object? sender, EventArgs e)
@@ -122,7 +167,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
 
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            // Mengatur bobot lebar kolom berdasarkan kepentingan informasi
             dgv.Columns["No"].FillWeight = 5;                 // Nomor urut (lebih kecil)
             dgv.Columns["nama_kendaraan"].FillWeight = 18;    // Nama Kendaraan / Merk
             dgv.Columns["no_pol"].FillWeight = 18;            // Nomor Polisi

@@ -3,6 +3,7 @@ using Bengkel_UKK.Admin.Jasa_Service;
 using Bengkel_UKK.Admin.Karyawan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Helper;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,10 +24,12 @@ namespace Bengkel_UKK.Admin.Booking
         private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private readonly ProdukDal _produkDal = new ProdukDal();
         public static int _id_booking;
-        private int _servisKeterangan = 0;
+        private string _servisKeterangan = "pending";
+        private bool _invoiceShow = false;
         Color _hijau = Color.FromArgb(0, 192, 0);
         Color _oren = Color.FromArgb(240, 177, 0);
         Color _biru = Color.FromArgb(52, 152, 219);
+        Color _merah = Color.FromArgb(239, 7, 7); //merah
         public BookingDetail_form(int id)
         {
             InitializeComponent();
@@ -36,7 +39,7 @@ namespace Bengkel_UKK.Admin.Booking
             RegisterEvent();
 
             GetData();
-            ProgresServis();
+            ProgresServisGaris();
         }
         private void RegisterEvent()
         {
@@ -45,164 +48,219 @@ namespace Bengkel_UKK.Admin.Booking
                 if (new AddSparepart_form().ShowDialog() != DialogResult.OK) return;
                 GetData();
             };
-            btnServisProses.Click += (s, e) =>
+
+            btnProgressServis.Click += (s, e) =>
             {
-                if (_servisKeterangan == 1)
-                {
-                    btnServisProses.BorderSize = 2;
-                    btnServisProses.BackColor = Color.Transparent;
-                    btnServisProses.ForeColor = SystemColors.ControlDarkDark;
-
-                    _servisKeterangan = 0;
-                    ProgresServis();
-                }
-                else if (_servisKeterangan == 0 || _servisKeterangan == 2)
-                {
-                    btnServisProses.BorderSize = 0;
-                    btnServisProses.BackColor = _oren;
-                    btnServisProses.ForeColor = Color.White;
-
-                    btnServisSelesai.BorderSize = 2;
-                    btnServisSelesai.BackColor = Color.Transparent;
-                    btnServisSelesai.ForeColor = SystemColors.ControlDarkDark;
-
-                    _servisKeterangan = 1;
-                    ProgresServis();
-                }
-
+                ProgresServisButton();
             };
-            btnServisSelesai.Click += (s, e) =>
+
+            btnBatalkanPesanan.Click += BtnBatalkanPesanan_Click;
+            btnSelesai.Click += (s, e) => ProgresServisButton(true);
+            comboMekanik.SelectedIndexChanged += async (s, e) => await SaveDataTunggal("mekanik");
+            comboServis.SelectedIndexChanged += async (s, e) => await SaveDataTunggal("jasaServis");
+            txtCatatan.Leave += async (s, e) => await SaveDataTunggal("catatan");
+        }
+
+
+        private void BtnBatalkanPesanan_Click(object? sender, EventArgs e)
+        {
+            if (txtCatatan.TextLength == 0)
             {
-                if (_servisKeterangan == 2)
-                {
-                    btnServisSelesai.BorderSize = 2;
-                    btnServisSelesai.BackColor = Color.Transparent;
-                    btnServisSelesai.ForeColor = SystemColors.ControlDarkDark;
+                PesanBox.Warning("Mohon mengisi alasan pembatalan pada catatan!");
+                return;
+            }
+            if (!PesanBox.Konfirmasi("Apakah anda yakin ingin membatalkan pesanan ini?\nIsi alasan pembatalan pada catatan")) return;
+            CancelServis();
+        }
 
-                    _servisKeterangan = 0;
-                    ProgresServis();
-                }
-                else if (_servisKeterangan == 1)
-                {
-                    btnServisProses.BorderSize = 2;
-                    btnServisProses.BackColor = Color.Transparent;
-                    btnServisProses.ForeColor = SystemColors.ControlDarkDark;
-
-                    btnServisSelesai.BorderSize = 0;
-                    btnServisSelesai.BackColor = _hijau;
-                    btnServisSelesai.ForeColor = Color.White;
-
-                    _servisKeterangan = 2;
-                    ProgresServis();
-                }
-
-            };
-            btnInvoice.Click += (s, e) =>
+        private async void ProgresServisButton(bool clickFromBtnSelesai = false)
+        {
+            if (_servisKeterangan == "Menunggu")
             {
-                if (_servisKeterangan != 2) return;
+                if (!PesanBox.Konfirmasi("Apakah anda yakin ingin mengubah status menjadi Dikerjakan?\nTindakan ini tidak dapat diurungkan")) return;
+                _servisKeterangan = "dikerjakan";
+            }
+            else if (_servisKeterangan == "dikerjakan")
+            {
+                if (!PesanBox.Konfirmasi("Apakah anda yakin bahwa servis Sudah Selesai?\nTindakan ini tidak dapat diurungkan")) return;
+                _servisKeterangan = "belum bayar";
+            }
+            else if (_servisKeterangan == "belum bayar")
+            {
                 bool valid = comboServis.SelectedIndex != 0
                     && comboMekanik.SelectedIndex != 0
                     && txtCatatan.TextLength != 0
                     && txtCatatan.Text.Trim() != string.Empty;
                 if (!valid)
                 {
-                    PesanBox.Warning("Mohon melengkapi jenis servis, mekanik dan catatan!");
+                    PesanBox.Warning("Mohon melengkapi jenis servis, mekanik dan catatan terlebih dahulu!");
                     return;
                 }
 
+                _invoiceShow = true;
+                btnSelesai.Visible = _invoiceShow;
 
-
-                btnInvoice.BorderSize = 0;
-                btnInvoice.BackColor = _biru;
-                btnInvoice.ForeColor = Color.White;
-            };
-            btn_simpan.Click += Btn_simpan_Click;
-        }
-
-        private void Btn_simpan_Click(object? sender, EventArgs e)
-        {
-            if (comboServis.SelectedItem == null || comboMekanik.SelectedItem == null || string.IsNullOrWhiteSpace(txtCatatan.Text))
-            {
-                MessageBox.Show("Harap isi semua data sebelum menyimpan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            try
-            {
-                var booking = new BookingModel2
+                if (clickFromBtnSelesai)
                 {
-                    id_booking = _id_booking, // ID booking dari form
-                    id_jasaServis = ((JasaServiceModel)comboServis.SelectedItem).id_jasaServis,
-                    ktp_mekanik = ((MekanikModelCombo)comboMekanik.SelectedItem).ktp_mekanik,
-                    status = _servisKeterangan == 0 ? "Menunggu" : _servisKeterangan == 1 ? "Proses" : "Selesai",
-                    catatan = txtCatatan.Text,
-                };
+                    if (!PesanBox.Konfirmasi("Apakah anda yakin bahwa pesanan ini Sudah Dibayar?\nTindakan ini tidak dapat diurungkan")) return;
+                    _servisKeterangan = "selesai";
+                    await KonfirmasiSelesaiServis(true); //insert
+                    btnBatalkanPesanan.Visible = false;
+                }
+                else
+                {
+                    CetakInvoice(_id_booking);
+                }
 
-               _bookingDal.UpdateBooking(booking);
-                MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            ProgresServisGaris();
+            await Task.Delay(1000);
+            await SaveDataTunggal("progress");
+        }
+        private async void CancelServis()
+        {
+            if (_servisKeterangan == "pending")
+                _servisKeterangan = "batal booking";
+            else if (_servisKeterangan == "dikerjakan")
+                _servisKeterangan = "batal servis";
+            else if (_servisKeterangan == "belum bayar")
+                _servisKeterangan = "batal pembayaran";
 
-                // Opsional: Refresh data setelah update
-                GetData();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            ProgresServisGaris();
+            await SaveDataTunggal("progress");
+            await KonfirmasiSelesaiServis(true);
+            btnBatalkanPesanan.Visible = false;
         }
 
-        private void ProgresServis()
+        private void ProgresServisGaris()
         {
-            if (_servisKeterangan == 0)
+            if (_servisKeterangan == "Menunggu")
             {
-                // lblBookingToServis.ForeColor = SystemColors.ControlDarkDark;
+                panelBookingToServis.BackColor = SystemColors.ControlDarkDark;
                 pictureServis.BackgroundImage = null;
                 pictureServis.BorderSize = 2;
-                //   lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
+                panelServisToPembayaran.BackColor = SystemColors.ControlDarkDark;
                 pictureSelesai.BackgroundImage = null;
                 pictureSelesai.BorderSize = 2;
+
+                ButtonStatus(_biru, "Menunggu");
             }
-            else if (_servisKeterangan == 1)
+            else if (_servisKeterangan == "dikerjakan")
             {
-                //  lblBookingToServis.ForeColor = _oren;
-                pictureServis.BackgroundImage = Properties.Resources.gambar_oren;
+                panelBookingToServis.BackColor = _oren;
+                pictureServis.BackColor = _oren;
                 pictureServis.BorderSize = 0;
-                //   lblServisToSelesai.ForeColor = SystemColors.ControlDarkDark;
-                pictureSelesai.BackgroundImage = null;
+                panelServisToPembayaran.BackColor = SystemColors.ControlDarkDark;
+                pictureSelesai.BackColor = Color.Transparent;
                 pictureSelesai.BorderSize = 2;
+
+                lblServis.Visible = true;
+                lblServis.Text = "(Dikerjakan)";
+                lblServis.ForeColor = _oren;
+
+                btnProgressServis.BackColor = _hijau;
+                btnProgressServis.Text = "Selesai Servis";
+
+                ButtonStatus(_oren, "Dikerjakan");
             }
-            else if (_servisKeterangan == 2)
+            else if (_servisKeterangan == "belum bayar")
             {
-                //  lblBookingToServis.ForeColor = _hijau;
-                pictureServis.BackgroundImage = Properties.Resources.gambar_hijau;
+                panelBookingToServis.BackColor = _hijau;
+                pictureServis.BackColor = _hijau;
                 pictureServis.BorderSize = 0;
-                //  lblServisToSelesai.ForeColor = _oren;
-                pictureSelesai.BackgroundImage = Properties.Resources.gambar_oren;
+                panelServisToPembayaran.BackColor = _oren;
+                pictureSelesai.BackColor = _oren;
                 pictureSelesai.BorderSize = 0;
+
+                lblServis.Visible = true;
+                lblServis.Text = "(Selesai)";
+                lblServis.ForeColor = _hijau;
+
+                lblPembayaran.Visible = true;
+                lblPembayaran.Text = "(Belum Bayar)";
+                lblPembayaran.ForeColor = _oren;
+
+                btnProgressServis.BackColor = _biru;
+                btnProgressServis.Text = "Invoice";
+
+                ButtonStatus(_oren, "Belum Bayar");
+            }
+            else if (_servisKeterangan == "batal booking")
+            {
+                lblBooking.Text = "(Dibatalkan)";
+                lblBooking.ForeColor = _merah;
+                pictureBooking.BackColor = _merah;
+
+                ButtonStatus(_merah, "Dibatalkan");
+            }
+            else if (_servisKeterangan == "batal servis")
+            {
+                panelBookingToServis.BackColor = _merah;
+                pictureServis.BackColor = _merah;
+                pictureServis.BorderSize = 0;
+
+                lblServis.Visible = true;
+                lblServis.Text = "(Dibatalkan)";
+                lblServis.ForeColor = _merah;
+
+                ButtonStatus(_merah, "Dibatalkan");
+            }
+            else if (_servisKeterangan == "batal pembayaran")
+            {
+                panelBookingToServis.BackColor = _hijau;
+                pictureServis.BackColor = _hijau;
+                pictureServis.BorderSize = 0;
+
+                panelServisToPembayaran.BackColor = _merah;
+                pictureSelesai.BackColor = _merah;
+                pictureSelesai.BorderSize = 0;
+
+                lblPembayaran.Visible = true;
+                lblPembayaran.Text = "(Dibatalkan)";
+                lblPembayaran.ForeColor = _merah;
+
+                ButtonStatus(_merah, "Dibatalkan");
             }
             else
             {
-                //  lblBookingToServis.ForeColor = _hijau;
-                pictureServis.BackgroundImage = Properties.Resources.gambar_hijau;
+                panelBookingToServis.BackColor = _hijau;
+                pictureServis.BackColor = _hijau;
                 pictureServis.BorderSize = 0;
-                //       lblServisToSelesai.ForeColor = _hijau;
-                pictureSelesai.BackgroundImage = Properties.Resources.gambar_hijau;
-                pictureSelesai.BorderSize = 0;
-            }
-            label19.Text = _servisKeterangan.ToString();
 
+                panelServisToPembayaran.BackColor = _hijau;
+                pictureSelesai.BackColor = _hijau;
+                pictureSelesai.BorderSize = 0;
+
+                lblServis.Visible = true;
+                lblServis.Text = "(Selesai)";
+                lblServis.ForeColor = _hijau;
+
+                lblPembayaran.Visible = true;
+                lblPembayaran.Text = "(Selesai)";
+                lblPembayaran.ForeColor = _hijau;
+
+                ButtonStatus(_hijau, "Selesai");
+
+            }
         }
 
+        private void ButtonStatus(Color warna, string text)
+        {
+            btnStatus.BackColor = warna;
+            btnStatus.Text = text;
+        }
 
         private void InitComponent()
         {
             label1.ForeColor = SystemColors.ControlText;
             label10.ForeColor = SystemColors.ControlText;
+            btnSelesai.Visible = false;
 
             var listServis = new List<JasaServiceModel>()
             {
-                new JasaServiceModel{ id_jasaServis = 0, nama_jasaServis ="--Pilih jasa servis--" }
+                new JasaServiceModel{ id_jasaServis = 0, nama_jasaServis ="--Pilih jasa servis--", harga = 0 }
             };
-            listServis.AddRange(_jasaServisDal.ListData());
+            listServis.AddRange(_jasaServisDal.ListData(new FilterDto()));
             comboServis.DataSource = listServis;
             comboServis.DisplayMember = "nama_jasaServis";
             comboServis.ValueMember = "id_jasaServis";
@@ -226,34 +284,147 @@ namespace Bengkel_UKK.Admin.Booking
         private void GetData()
         {
             var data = _bookingDal.GetData(_id_booking);
-            if (data is null)
-            {
-                MessageBox.Show("Data tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            if (data is null) return;
 
-            MessageBox.Show($"ID Booking: {data.id_booking}\nNama: {data.nama_pelanggan}", "Debug");
-
-            txtIdBooking.Text = data.id_booking.ToString();
-            txtNama.Text = data.nama_pelanggan;
-            txtKTP.Text = data.ktp_pelanggan;
-            txtKendaraan.Text = data.nama_kendaraan;
-            txtNoPol.Text = data.no_pol;
-            txtTanggal.Text = data.tanggal.ToString("d MMMM yyyy", new CultureInfo("id-ID"));
-            txtKeluhan.Text = data.keluhan;
+            lblIdBooking.Text = data.id_booking.ToString();
+            lblNama.Text = data.nama_pelanggan;
+            lblNoKTP.Text = data.ktp_pelanggan;
+            lblKendaraan.Text = data.nama_kendaraan;
+            lblNoPol.Text = data.no_pol;
+            lblTanggal.Text = data.tanggal.ToString("d MMMM yyyy", new CultureInfo("id-ID"));
+            lblKeluhan.Text = data.keluhan;
 
             foreach (var item in comboServis.Items)
-                if (item is JasaServiceModel js && js.id_jasaServis == data.id_jasaServis)
-                    comboServis.SelectedItem = item;
+                if (item is JasaServiceModel js)
+                    if (js.id_jasaServis == data.id_jasaServis)
+                        comboServis.SelectedItem = item;
 
             foreach (var item in comboMekanik.Items)
-                if (item is MekanikModelCombo m && m.ktp_mekanik == data.ktp_mekanik)
-                    comboMekanik.SelectedItem = item;
+                if (item is MekanikModelCombo m)
+                    if (m.ktp_mekanik == data.ktp_mekanik)
+                        comboMekanik.SelectedItem = item;
+            txtCatatan.Text = data.catatan;
+
 
             var listSparepart = _bookingDal.ListDataProduk(_id_booking);
             txtSparepart.Text = string.Join(", ", listSparepart.Select(x => x.nama_sparepart));
+
+
+            lblAntrean.Text = (data.tipe_antrean == 1 ? "A" : "B") + data.antrean.ToString("D3");
+            _servisKeterangan = data.status;
+            ProgresServisGaris();
+        } 
+        private async Task SaveDataTunggal(string component)
+        {
+            var models = new FilterDto();
+            models.param = new Dapper.DynamicParameters();
+            if (component == "mekanik")
+            {
+                string? ktp_mekanik = comboMekanik.SelectedIndex == 0 ? null : comboMekanik.SelectedValue.ToString() ?? string.Empty;
+                models.sql = @"UPDATE Booking SET ktp_mekanik = @ktp WHERE id_booking = @id";
+                models.param.Add("@ktp", ktp_mekanik);
+                models.param.Add("@id", _id_booking);
+            }
+            else if (component == "jasaServis")
+            {
+                int? jasaServis = comboServis.SelectedIndex == 0 ? null : Convert.ToInt32(comboServis.SelectedValue);
+                models.sql = @"UPDATE Booking SET id_jasaServis = @id_jasaServis WHERE id_booking = @id";
+                models.param.Add("@id_jasaServis", jasaServis);
+                models.param.Add("@id", _id_booking);
+            }
+            else if (component == "catatan")
+            {
+                string catatan = txtCatatan.Text;
+                models.sql = @"UPDATE Booking SET catatan = @catatan WHERE id_booking = @id";
+                models.param.Add("@catatan", catatan);
+                models.param.Add("@id", _id_booking);
+            }
+            else if (component == "progress")
+            {
+                if (_servisKeterangan == "dikerjakan")
+                    models.sql = @"UPDATE Booking SET status = @status, tanggal_servis = @tanggal_servis WHERE id_booking = @id";
+                else
+                    models.sql = @"UPDATE Booking SET status = @status WHERE id_booking = @id";
+
+                models.param.Add("@status", _servisKeterangan);
+                models.param.Add("@id", _id_booking);
+                models.param.Add("@tanggal_servis", DateTime.Now);
+            }
+            await _bookingDal.UpdateKonfirmasiBookingAsync(models);
         }
 
+        private void CetakInvoice(int id_boking)
+        {
+            var booking = _bookingDal.GetData(id_boking);
+            var listSparepart = _bookingDal.ListDataProduk(_id_booking);
+            string namaJasaServis = ((JasaServiceModel)comboServis.SelectedItem).nama_jasaServis;
+            int hargaJasaServis = ((JasaServiceModel)comboServis.SelectedItem).harga;
+
+            List<string> listBarangJasa = new List<string>() { namaJasaServis };
+            listBarangJasa.AddRange(listSparepart.Select(x => x.nama_sparepart).ToList());
+
+            List<int> listQtc = new List<int>() { 1 };
+            listQtc.AddRange(listSparepart.Select(x => x.jumlah).ToList());
+
+            List<int> listHarga = new List<int>() { hargaJasaServis };
+            listHarga.AddRange(listSparepart.Select(x => x.harga).ToList());
+
+            if (booking == null) return;
+
+            var invoice = new InvoiceModel()
+            {
+                LogoPath = @"D:\gws.png",
+                NamaBengkel = "BENGKEL PROFIX",
+                AlamatBengkel = "Jl. Yos Sudarso No.16, Paten Srihardono",
+                EmailBengkel = "bengkelprofix@gmail.com",
+                TelpBengkel = "08422426242",
+
+                Antrean = lblAntrean.Text,
+                Tanggal = DateTime.Today,
+                NamaPelanggan = booking.nama_pelanggan,
+                NamaKendaraan = booking.nama_kendaraan,
+                NoPolisi = booking.no_pol,
+                NomorInvoice = $"INV-{_id_booking}-{lblAntrean.Text.Trim()}-{DateTime.Today.ToString("yyyyMMdd")}",
+
+                ListBarang = listBarangJasa,
+                ListQuantity = listQtc,
+                ListHarga = listHarga,
+
+                Catatan = txtCatatan.Text
+            };
+
+            Invoice.GenerateInvoice(invoice);
+        }
+
+        private async Task KonfirmasiSelesaiServis(bool cancel = false)
+        {
+            var listSparepart = _bookingDal.ListDataProduk(_id_booking);
+            int hargaJasaServis = ((JasaServiceModel)comboServis.SelectedItem).harga;
+
+            List<int> listQtc = new List<int>() { 1 };
+            listQtc.AddRange(listSparepart.Select(x => x.jumlah).ToList());
+
+            List<int> listHarga = new List<int>() { hargaJasaServis };
+            listHarga.AddRange(listSparepart.Select(x => x.harga).ToList());
+
+            int total = 0;
+            for (int i = 0; i < listHarga.Count; i++)
+            {
+                total += listQtc[i] * listHarga[i];
+            }
+
+            PesanBox.Warning(_servisKeterangan);
+
+            var dp = new DynamicParameters();
+            dp.Add("@id_booking", _id_booking);
+            dp.Add("@ktp_admin", GlobalVariabel._ktp);
+            dp.Add("@total_harga", total);
+            dp.Add("@status", _servisKeterangan);
+            dp.Add("@pembatalan_oleh", cancel ? "Admin/Petugas" : null);
+
+            await _bookingDal.SelesaiServisUpdate(dp);
+
+        }
     }
 }
 public class MekanikModelCombo
