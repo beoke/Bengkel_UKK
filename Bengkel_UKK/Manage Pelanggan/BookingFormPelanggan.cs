@@ -249,6 +249,11 @@ namespace Bengkel_UKK.Manage_Pelanggan
             string[] columnSort = { "No", "ktp_pelanggan", "nama_pelanggan", "no_pol", "keluhan", "catatan", "statusImg" };
             foreach (var col in columnSort)
                 dgv.Columns[col].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = System.Drawing.Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)

@@ -223,6 +223,12 @@ namespace Bengkel_UKK.Manage_Pelanggan
             dgv.Columns["keterangan_stok"].HeaderText = "Keterangan";
             dgv.Columns["stok_minimum"].HeaderText = "Stok Minimum";
             dgv.Columns["Stok"].HeaderText = "Stok";
+
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
 
         private void SortingData(object? sender, DataGridViewCellMouseEventArgs e)

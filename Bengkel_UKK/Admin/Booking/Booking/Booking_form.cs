@@ -316,6 +316,7 @@ namespace Bengkel_UKK.Admin.Booking
             dgv.Columns["catatan"].HeaderText = "Catatan";
             dgv.Columns["statusImg"].HeaderText = "Status";
 
+
             string[] columnPadding = { "No", "antrean", "ktp_pelanggan", "nama_pelanggan", "no_pol", "nama_kendaraan", "tanggal", "keluhan", "catatan" };
             foreach (var col in columnPadding)
                 dgv.Columns[col].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
@@ -332,6 +333,12 @@ namespace Bengkel_UKK.Admin.Booking
             string[] columnSort = { "No", "ktp_pelanggan", "nama_pelanggan", "no_pol", "keluhan", "catatan", "statusImg" };
             foreach (var col in columnSort)
                 dgv.Columns[col].SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)

@@ -145,6 +145,12 @@ namespace Bengkel_UKK.Manage_Pelanggan
             dataGridView1.Columns["no_pol"].HeaderText = "Nomor Polisi";
 
             dataGridView1.Columns["id_kendaraan"].Visible = false;
+
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)

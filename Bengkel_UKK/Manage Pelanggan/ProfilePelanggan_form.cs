@@ -1,5 +1,8 @@
 ﻿using Bengkel_UKK.Admin.Booking;
+using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Helper;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Sodium;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +20,14 @@ namespace Bengkel_UKK.Admin.Pelanggan
     public partial class ProfilePelanggan_form : Form
     {
         private readonly PelangganDal _pelangganDal = new PelangganDal();
+        private readonly KendaraanDal _kendaraanDal = new KendaraanDal();
         public ProfilePelanggan_form(string noktp)
         {
             InitializeComponent();
             Getdata(noktp);
             RegisterEvent();
-
+            CustomGrid();
+            LoadData();
         }
         private void Getdata(string ktp_pelanggan)
         {
@@ -39,7 +44,8 @@ namespace Bengkel_UKK.Admin.Pelanggan
         private void RegisterEvent()
         {
             btn_edit.Click += Btn_edit_Click;
-            buttonSave.Click += ButtonSave_Click; ;
+            buttonSave.Click += ButtonSave_Click; 
+            dataGridView1.CellPainting += DataGridView1_CellPainting;
         }
 
         private void ButtonSave_Click(object? sender, EventArgs e)
@@ -110,7 +116,66 @@ namespace Bengkel_UKK.Admin.Pelanggan
         }
         private void Btn_save_Click(object? sender, EventArgs e)
         {
-           
+            SaveData();
+        }
+        private void SaveData()
+        {
+            string nama = txtNama.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text.Trim();
+            string noKTP = txtNoKTP.Text.Trim();
+            string noTelp = txtNoTelp.Text.Trim();
+            string alamat = txtAlamat.Text.Trim();
+            string oldKTP = txtNoKTP.Tag?.ToString() ?? string.Empty; // Ambil KTP lama untuk update
+
+            // Validasi input
+            if (string.IsNullOrWhiteSpace(nama) || string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(noKTP) ||
+                string.IsNullOrWhiteSpace(noTelp) || string.IsNullOrWhiteSpace(alamat))
+            {
+                PesanBox.Warning("Semua kolom harus diisi!");
+                return;
+            }
+
+            // Periksa apakah ada perubahan KTP
+            if (noKTP != oldKTP)
+            {
+                var existingData = _pelangganDal.GetDataByKTP(noKTP);
+                if (existingData != null)
+                {
+                    PesanBox.Error("KTP sudah terdaftar! Gunakan KTP lain.");
+                    return;
+                }
+            }
+
+            // Hash password hanya jika berubah
+            var oldData = _pelangganDal.GetDataByKTP(oldKTP);
+            string hashedPassword = (oldData != null && oldData.password == password)
+                                    ? password
+                                    : PasswordHash.ArgonHashString(password);
+
+            var pelanggan = new PelangganModelUpdate
+            {
+                ktp_pelanggan_old = oldKTP, // Gunakan KTP lama untuk referensi update
+                ktp_pelanggan_new = noKTP,
+                nama_pelanggan = nama,
+                email = email,
+                password = hashedPassword,
+                no_telp = noTelp,
+                alamat = alamat
+            };
+
+            bool result = _pelangganDal.UpdateDatabyktp(pelanggan);
+
+            if (result)
+            {
+                PesanBox.Informasi("Data berhasil diperbarui!");
+                this.Close();
+            }
+            else
+            {
+                PesanBox.Error("Gagal memperbarui data!");
+            }
         }
 
         private void Getdataa(string ktp_pelanggan)
@@ -119,16 +184,152 @@ namespace Bengkel_UKK.Admin.Pelanggan
             if (data == null) return;
 
             txtNama.Text = data.nama_pelanggan;
-            txtEmail.Text = data.email.ToString();
-            txtPassword.Text = data.password;  // Tambahkan jika perlu
+            txtEmail.Text = data.email; // Tidak perlu `.ToString()` karena sudah string
+            txtPassword.Text = data.password;
             txtNoKTP.Text = data.ktp_pelanggan;
             txtNoTelp.Text = data.no_telp;
             txtAlamat.Text = data.alamat;
 
-            // Simpan KTP lama untuk referensi saat update
+            // Simpan KTP lama sebagai referensi saat update
             txtNoKTP.Tag = data.ktp_pelanggan;
         }
 
+        private void CustomGrid()
+        {
+          /*  DataGridView dgv = dataGridView1;
+            CustomGrids.CustomDataGrid(dgv);
+
+            List<string> list = new List<string>() { "No", "nama_pelanggan", "no_pol", "merk", "tipe", "kapasitas", "tahun", "transmisi" };
+            foreach (string s in list)
+            {
+                dgv.Columns[s].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+            }
+
+
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv.Columns["No"].FillWeight = 6;
+            dgv.Columns["nama_pelanggan"].FillWeight = 25;
+            dgv.Columns["no_pol"].FillWeight = 13;
+            dgv.Columns["merk"].FillWeight = 15;
+            dgv.Columns["tipe"].FillWeight = 13;
+            dgv.Columns["kapasitas"].FillWeight = 10;
+            dgv.Columns["tahun"].FillWeight = 10;
+            dgv.Columns["transmisi"].FillWeight = 10;
+            dgv.Columns["total_servis"].FillWeight = 13;
+
+            dgv.Columns["nama_pelanggan"].HeaderText = "Pemilik";
+            dgv.Columns["no_pol"].HeaderText = "No. Polisi";
+            dgv.Columns["merk"].HeaderText = "Merk";
+            dgv.Columns["tipe"].HeaderText = "Tipe";
+            dgv.Columns["kapasitas"].HeaderText = "Kapasitas (cc)";
+            dgv.Columns["tahun"].HeaderText = "Tahun";
+            dgv.Columns["transmisi"].HeaderText = "Transmisi";
+            dgv.Columns["total_servis"].HeaderText = " Total Servis";
+
+            dgv.Columns["id_kendaraan"].Visible = false;
+
+            dgv.Columns["total_servis"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+*/
+        }
+        private void LoadData()
+        {
+            string ktp_pelanggan = GlobalVariabel._ktp_pelanggan;
+            // Ambil KTP pelanggan dari sesi global
+            var data = _kendaraanDal.GetdataByKTP(ktp_pelanggan);
+
+            if (data == null) // Jika tidak ada data, tampilkan kosong
+            {
+                dataGridView1.DataSource = new List<object>();
+                return;
+            }
+
+            var list = _kendaraanDal.GetdataByKTP(ktp_pelanggan)
+                .Select((x, index) => new
+                {
+                    No = index + 1,
+                    id_kendaraan = x.id_kendaraan,
+                    nama_pelanggan = x.nama_pelanggan,
+                    no_pol = x.no_pol,
+                    merk = x.merk,
+                    tipe = x.tipe,
+                    transmisi = x.transmisi,
+                    kapasitas = x.kapasitas + "cc",
+                    tahun = x.tahun,
+                    total_servis = x.total_servis
+                }).ToList();
+
+            // Tampilkan di DataGridView
+            dataGridView1.DataSource = list;
+        }
+
+
+
+        private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex >= 0) // Hanya proses header kolom
+            {
+                // Gambar latar belakang header default
+                e.PaintBackground(e.CellBounds, true);
+
+                // Tambahkan padding ke teks header
+                Rectangle paddedBounds = e.CellBounds;
+                paddedBounds.X += 20; // Padding kiri 20 piksel
+                paddedBounds.Width -= 20; // Sesuaikan lebar setelah padding
+
+                // Gambar teks header dengan padding
+                TextFormatFlags flags = TextFormatFlags.Left | TextFormatFlags.VerticalCenter;
+                TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(), e.CellStyle.Font, paddedBounds, e.CellStyle.ForeColor, flags);
+
+                // Jika kolom sedang diurutkan, gambar panah
+                if (dataGridView1.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection != SortOrder.None)
+                {
+                    int arrowWidth = 10; // Lebar panah (ukuran kecil)
+                    int arrowHeight = 10; // Tinggi panah (ukuran kecil)
+                    int textWidth = TextRenderer.MeasureText(e.FormattedValue.ToString(), e.CellStyle.Font).Width;
+                    int arrowX = paddedBounds.Left + textWidth + 2; // Jarak antara teks dan panah (gunakan paddedBounds)
+                    int arrowY = e.CellBounds.Top + (e.CellBounds.Height - arrowHeight) / 2; // Posisi vertikal tengah
+
+                    using (var sortGlyph = CreateSortGlyph(dataGridView1.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection))
+                    {
+                        // Aktifkan interpolasi berkualitas tinggi
+                        e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                        e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                        // Gambar panah dengan ukuran yang disesuaikan
+                        e.Graphics.DrawImage(sortGlyph, arrowX, arrowY, arrowWidth, arrowHeight);
+                    }
+                }
+
+                if (e.RowIndex == -1 && e.ColumnIndex >= 0) // Hanya proses header kolom
+                {
+                    // Daftar kolom yang ingin diterapkan CellPainting
+                    string[] targetColumns = { "total_servis" };
+
+                    // Periksa apakah kolom saat ini termasuk dalam daftar target
+                    if (targetColumns.Contains(dataGridView1.Columns[e.ColumnIndex].Name))
+                    {
+                        // Gambar latar belakang header default
+                        e.PaintBackground(e.CellBounds, true);
+
+                        // Gambar teks header dengan alignment tengah
+                        TextFormatFlags flagss = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak;
+                        TextRenderer.DrawText(e.Graphics, e.FormattedValue.ToString(), e.CellStyle.Font, e.CellBounds, e.CellStyle.ForeColor, flagss);
+
+                        e.Handled = true; // Tandai event sebagai sudah dihandle
+                    }
+                }
+                e.Handled = true; // Tandai event sebagai sudah dihandle
+            }
+        }
+        private Bitmap CreateSortGlyph(SortOrder sortOrder)
+        {
+            if (sortOrder == SortOrder.Ascending)
+                return (Bitmap)Properties.Resources.ArrowUp;
+            else
+                return (Bitmap)Properties.Resources.ArrowDown;
+
+        }
 
     }
 }

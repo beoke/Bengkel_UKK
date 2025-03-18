@@ -140,10 +140,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnBooking.Click += (s, e) => ShowFormInPanel2(new BookingFormPelanggan());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new RiwayatFormPelanggan());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaServisPelanggan());
-            btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
+            btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new KendaraanPelanggan(GlobalVariabel._ktp_pelanggan));
             btnProfile.Click += (s, e) => ShowFormInPanel2(new ProfilePelanggan_form(GlobalVariabel._ktp_pelanggan));
             
-            btn_kendaraan.Visible = false;
         }
 
 

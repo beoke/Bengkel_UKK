@@ -234,6 +234,12 @@ namespace Bengkel_UKK.Admin.Karyawan
 
             dgv.Columns["ktp_admin"].HeaderText = "No KTP";
 
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+
             dgv.Columns["password"].Visible = false;
         }
 

@@ -174,6 +174,12 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             dataGridView1.Columns["nama_jasaServis"].HeaderText = "Nama Jasa";
             dataGridView1.Columns["harga"].HeaderText = "Harga";
             dataGridView1.Columns["keterangan"].HeaderText = "Keterangan";
+
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
     }
 }

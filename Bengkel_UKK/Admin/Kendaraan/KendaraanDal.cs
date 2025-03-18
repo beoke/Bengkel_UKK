@@ -25,6 +25,18 @@ namespace Bengkel_UKK.Admin.Kendaraan
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<KendaraanModel>(sql, filter.param);
         }
+        public IEnumerable<KendaraanModel> ListDataByKtp(string ktpPelanggan)
+        {
+            string sql = @"SELECT k.id_kendaraan, k.merk, k.tipe, k.no_pol, k.transmisi, k.kapasitas, 
+                          k.tahun, k.total_servis, p.nama_pelanggan
+                   FROM Kendaraan k 
+                   INNER JOIN Pelanggan p ON k.ktp_pelanggan = p.ktp_pelanggan
+                   WHERE k.ktp_pelanggan = @ktpPelanggan"; // Tambahkan WHERE
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.Query<KendaraanModel>(sql, new { ktpPelanggan });
+        }
+
         public KendaraanModel? GetData(int id)
         {
             string sql = @"SELECT k.id_kendaraan,k.merk,k.tipe,k.kapasitas,k.no_pol,k.transmisi,k.tahun,k.total_servis,p.nama_pelanggan,k.ktp_pelanggan
@@ -34,6 +46,17 @@ namespace Bengkel_UKK.Admin.Kendaraan
                             WHERE id_kendaraan = @id";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<KendaraanModel>(sql, new { id });
+        }
+
+        public IEnumerable<KendaraanModel> GetdataByKTP(string ktp_pelanggan)
+        {
+            string sql = @"SELECT k.id_kendaraan, k.merk, k.tipe, k.kapasitas, k.no_pol, k.transmisi, k.tahun, 
+                          k.total_servis, p.nama_pelanggan, k.ktp_pelanggan
+                   FROM Kendaraan k  
+                   INNER JOIN Pelanggan p ON k.ktp_pelanggan = p.ktp_pelanggan
+                   WHERE k.ktp_pelanggan = @ktp_pelanggan";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.Query<KendaraanModel>(sql, new { ktp_pelanggan });
         }
 
         public IEnumerable<KendaraanModel> ListDataPelanggan(string ktp_pelanggan)

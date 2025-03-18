@@ -57,6 +57,12 @@ namespace Bengkel_UKK.Manage_Pelanggan
             dataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
             dataGridView1.ForeColor = Color.DimGray;
 
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+
 
             // Menonaktifkan warna seleksi untuk sel
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(240, 240, 240);

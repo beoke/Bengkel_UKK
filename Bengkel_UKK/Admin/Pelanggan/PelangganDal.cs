@@ -2,6 +2,7 @@
 using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -84,6 +85,23 @@ namespace Bengkel_UKK.Admin.Pelanggan
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Query<PelangganModel>("UpdatePelanggan", dp, commandType: System.Data.CommandType.StoredProcedure);
         }
+        public bool UpdateDatabyktp(PelangganModelUpdate pelanggan)
+        {
+            var dp = new DynamicParameters();
+            dp.Add(@"ktp_admin_old", pelanggan.ktp_pelanggan_old);
+            dp.Add(@"ktp_admin_new", pelanggan.ktp_pelanggan_new);
+            dp.Add(@"nama_admin", pelanggan.nama_pelanggan);
+            dp.Add(@"no_telp", pelanggan.no_telp);
+            dp.Add(@"email", pelanggan.email);
+            dp.Add(@"password", pelanggan.password);
+            dp.Add(@"alamat", pelanggan.alamat);
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            int rowsAffected = koneksi.Execute("UpdatePelanggan", dp, commandType: CommandType.StoredProcedure);
+
+            return rowsAffected > 0; // Mengembalikan true jika ada data yang diperbarui
+        }
+
 
         public bool CekEmail(string email)
         {

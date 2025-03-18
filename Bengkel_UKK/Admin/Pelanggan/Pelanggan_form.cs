@@ -275,6 +275,12 @@ namespace Bengkel_UKK.Admin.Pelanggan
             dgv.Columns["no_telp"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
             dgv.Columns["password"].Visible = false;
+
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
 
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
