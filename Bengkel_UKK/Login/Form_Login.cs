@@ -102,7 +102,7 @@ namespace Bengkel_UKK.Login
             else if (loginAdmin)
             {
                 GlobalVariabel.SetSession(dataAdmin?.ktp_admin ?? string.Empty, dataAdmin?.role ?? -1);
-                new MainFormAdmin().Show();
+                new Dashboard_petugas().Show();
                 this.Hide();
             }
             else

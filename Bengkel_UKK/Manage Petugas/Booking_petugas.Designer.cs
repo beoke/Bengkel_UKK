@@ -56,8 +56,8 @@ namespace Bengkel_UKK.Manage_Petugas
             label2 = new Label();
             txtBatas = new TextBox();
             label4 = new Label();
-            text_jamoperasional = new TextBox();
-            textBox1 = new TextBox();
+            jamOperational1 = new TextBox();
+            JamOperational2 = new TextBox();
             label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
@@ -344,29 +344,26 @@ namespace Bengkel_UKK.Manage_Petugas
             label4.Size = new Size(146, 23);
             label4.TabIndex = 16;
             label4.Text = "Jam Operasional :";
-            label4.Visible = false;
             // 
-            // text_jamoperasional
+            // jamOperational1
             // 
-            text_jamoperasional.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            text_jamoperasional.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
-            text_jamoperasional.Location = new Point(1020, 30);
-            text_jamoperasional.Name = "text_jamoperasional";
-            text_jamoperasional.ReadOnly = true;
-            text_jamoperasional.Size = new Size(83, 31);
-            text_jamoperasional.TabIndex = 17;
-            text_jamoperasional.Visible = false;
+            jamOperational1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            jamOperational1.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
+            jamOperational1.Location = new Point(1020, 30);
+            jamOperational1.Name = "jamOperational1";
+            jamOperational1.ReadOnly = true;
+            jamOperational1.Size = new Size(83, 31);
+            jamOperational1.TabIndex = 17;
             // 
-            // textBox1
+            // JamOperational2
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBox1.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(1130, 30);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(83, 31);
-            textBox1.TabIndex = 18;
-            textBox1.Visible = false;
+            JamOperational2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            JamOperational2.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
+            JamOperational2.Location = new Point(1130, 30);
+            JamOperational2.Name = "JamOperational2";
+            JamOperational2.ReadOnly = true;
+            JamOperational2.Size = new Size(83, 31);
+            JamOperational2.TabIndex = 18;
             // 
             // label5
             // 
@@ -379,7 +376,6 @@ namespace Bengkel_UKK.Manage_Petugas
             label5.Size = new Size(22, 23);
             label5.TabIndex = 19;
             label5.Text = "- ";
-            label5.Visible = false;
             // 
             // Booking_petugas
             // 
@@ -388,8 +384,8 @@ namespace Bengkel_UKK.Manage_Petugas
             BackColor = SystemColors.Control;
             ClientSize = new Size(1327, 635);
             Controls.Add(label5);
-            Controls.Add(textBox1);
-            Controls.Add(text_jamoperasional);
+            Controls.Add(JamOperational2);
+            Controls.Add(jamOperational1);
             Controls.Add(label4);
             Controls.Add(txtBatas);
             Controls.Add(label2);
@@ -434,8 +430,8 @@ namespace Bengkel_UKK.Manage_Petugas
         private Label label2;
         private TextBox txtBatas;
         private Label label4;
-        private TextBox text_jamoperasional;
-        private TextBox textBox1;
+        private TextBox jamOperational1;
+        private TextBox JamOperational2;
         private Label label5;
     }
 }

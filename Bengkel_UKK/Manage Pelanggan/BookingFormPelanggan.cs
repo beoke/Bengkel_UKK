@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Bengkel_UKK.Admin.Dashboard;
 using Dapper;
 using Syncfusion.Windows.Forms.Tools;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace Bengkel_UKK.Manage_Pelanggan
 {
@@ -45,6 +46,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             _timer.Interval = 10000;
             _timer.Tick += (s, e) => UpdateAntrean();
             _timer.Start();
+            LoadDataJamOperasional();
         }
         private async void UpdateAntrean()
         {
@@ -65,6 +67,23 @@ namespace Bengkel_UKK.Manage_Pelanggan
             }
             LoadData();
             _timer.Stop();
+        }
+        private void LoadDataJamOperasional()
+        {
+            string hariIni = DateTime.Now.ToString("dddd", new System.Globalization.CultureInfo("id-ID"));
+
+            var data = _jadwalOperasionalDal.GetDataByHari(hariIni);
+
+            if (data != null)
+            {
+                jamOperational1.Text = data.jam_buka.ToString(); // Sesuaikan dengan nama kolom di database
+                JamOperational2.Text = data.jam_tutup.ToString();
+            }
+            else
+            {
+                jamOperational1.Text = "Tidak ada data";
+                JamOperational2.Text = "Tidak ada data";
+            }
         }
         #region EVENT
         private void RegisterEvent()
@@ -188,7 +207,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
         {
             DataGridView dgv = dataGridView1;
             CustomGrids.CustomDataGrid(dgv);
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(255, 0, 0);
 
             dgv.Columns["id_kendaraan"].Visible = false;
 

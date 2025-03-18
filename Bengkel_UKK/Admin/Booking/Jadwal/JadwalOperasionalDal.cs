@@ -37,6 +37,13 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<JadwalOperasionalModel>(sql, new { id });
         }
+        public JadwalOperasionalModel? GetDataByHari(string hari)
+        {
+            const string sql = @"SELECT * FROM JadwalOperasional WHERE hari = @hari";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.QueryFirstOrDefault<JadwalOperasionalModel>(sql, new { hari });
+        }
+
 
         public void InsertData(JadwalOperasionalModel jom)
         {

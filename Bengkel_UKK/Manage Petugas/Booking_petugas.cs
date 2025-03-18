@@ -43,6 +43,8 @@ namespace Bengkel_UKK.Manage_Petugas
             _timer.Interval = 10000;
             _timer.Tick += (s, e) => UpdateAntrean();
             _timer.Start();
+
+            LoadDataOperasional();
         }
         private async void UpdateAntrean()
         {
@@ -63,6 +65,24 @@ namespace Bengkel_UKK.Manage_Petugas
             }
             LoadData();
             _timer.Stop();
+        }
+
+        private void LoadDataOperasional()
+        {
+            string hariIni = DateTime.Now.ToString("dddd", new System.Globalization.CultureInfo("id-ID"));
+
+            var data = _jadwalOperasionalDal.GetDataByHari(hariIni);
+
+            if (data != null)
+            {
+                jamOperational1.Text = data.jam_buka.ToString(); // Sesuaikan dengan nama kolom di database
+                JamOperational2.Text = data.jam_tutup.ToString();
+            }
+            else
+            {
+                jamOperational1.Text = "Tidak ada data";
+                JamOperational2.Text = "Tidak ada data";
+            }
         }
         #region EVENT
         private void RegisterEvent()

@@ -192,7 +192,7 @@ namespace Bengkel_UKK.Admin.Booking
         {
             const string sql = @"
                 SELECT id_booking, antrean, tipe_antrean, status
-                FROM Bookings 
+                FROM Booking 
                 WHERE tanggal <= @tanggal
                 ORDER BY tanggal ASC, antrean ASC";
 

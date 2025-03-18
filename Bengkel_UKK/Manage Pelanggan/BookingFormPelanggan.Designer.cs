@@ -36,6 +36,10 @@ namespace Bengkel_UKK.Manage_Pelanggan
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingFormPelanggan));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
+            label5 = new Label();
+            JamOperational2 = new TextBox();
+            jamOperational1 = new TextBox();
+            label4 = new Label();
             txtSearch = new TextBox();
             btnAddData = new DhafaButton();
             printPreviewDialog1 = new PrintPreviewDialog();
@@ -78,6 +82,50 @@ namespace Bengkel_UKK.Manage_Pelanggan
             yogaPanel1.Name = "yogaPanel1";
             yogaPanel1.Size = new Size(1270, 531);
             yogaPanel1.TabIndex = 11;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.DimGray;
+            label5.Location = new Point(1153, 25);
+            label5.Name = "label5";
+            label5.Size = new Size(22, 23);
+            label5.TabIndex = 23;
+            label5.Text = "- ";
+            // 
+            // JamOperational2
+            // 
+            JamOperational2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            JamOperational2.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
+            JamOperational2.Location = new Point(1174, 20);
+            JamOperational2.Name = "JamOperational2";
+            JamOperational2.ReadOnly = true;
+            JamOperational2.Size = new Size(83, 31);
+            JamOperational2.TabIndex = 22;
+            // 
+            // jamOperational1
+            // 
+            jamOperational1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            jamOperational1.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
+            jamOperational1.Location = new Point(1064, 20);
+            jamOperational1.Name = "jamOperational1";
+            jamOperational1.ReadOnly = true;
+            jamOperational1.Size = new Size(83, 31);
+            jamOperational1.TabIndex = 21;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.DimGray;
+            label4.Location = new Point(912, 25);
+            label4.Name = "label4";
+            label4.Size = new Size(146, 23);
+            label4.TabIndex = 20;
+            label4.Text = "Jam Operasional :";
             // 
             // txtSearch
             // 
@@ -139,7 +187,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(827, 31);
+            label2.Location = new Point(618, 24);
             label2.Name = "label2";
             label2.Size = new Size(188, 23);
             label2.TabIndex = 15;
@@ -149,7 +197,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             // 
             txtBatas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             txtBatas.Font = new Font("Segoe UI", 13.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBatas.Location = new Point(1021, 27);
+            txtBatas.Location = new Point(812, 20);
             txtBatas.Name = "txtBatas";
             txtBatas.Size = new Size(83, 31);
             txtBatas.TabIndex = 15;
@@ -173,8 +221,12 @@ namespace Bengkel_UKK.Manage_Pelanggan
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1327, 635);
+            Controls.Add(label5);
+            Controls.Add(JamOperational2);
             Controls.Add(txtBatas);
             Controls.Add(label2);
+            Controls.Add(jamOperational1);
+            Controls.Add(label4);
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
@@ -202,5 +254,9 @@ namespace Bengkel_UKK.Manage_Pelanggan
         private TextBox txtBatas;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem detailBookingToolStripMenuItem1;
+        private Label label5;
+        private TextBox JamOperational2;
+        private TextBox jamOperational1;
+        private Label label4;
     }
 }
