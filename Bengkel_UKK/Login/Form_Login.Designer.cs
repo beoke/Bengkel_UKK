@@ -31,7 +31,7 @@
             txtEmail = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             txtPassword = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             btnShowPassword = new Button();
-            btnLogin = new Button();
+            btn_masuk = new Button();
             lblErrorEmail = new Label();
             lblErrorPassword = new Label();
             panel1 = new Panel();
@@ -77,19 +77,19 @@
             btnShowPassword.TabIndex = 2;
             btnShowPassword.UseVisualStyleBackColor = true;
             // 
-            // btnLogin
+            // btn_masuk
             // 
-            btnLogin.BackColor = Color.Red;
-            btnLogin.FlatAppearance.BorderSize = 0;
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(37, 280);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(325, 36);
-            btnLogin.TabIndex = 3;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = false;
+            btn_masuk.BackColor = Color.Red;
+            btn_masuk.FlatAppearance.BorderSize = 0;
+            btn_masuk.FlatStyle = FlatStyle.Flat;
+            btn_masuk.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_masuk.ForeColor = Color.White;
+            btn_masuk.Location = new Point(37, 280);
+            btn_masuk.Name = "btn_masuk";
+            btn_masuk.Size = new Size(325, 36);
+            btn_masuk.TabIndex = 3;
+            btn_masuk.Text = "Masuk";
+            btn_masuk.UseVisualStyleBackColor = false;
             // 
             // lblErrorEmail
             // 
@@ -111,9 +111,9 @@
             lblErrorPassword.ForeColor = Color.Red;
             lblErrorPassword.Location = new Point(37, 232);
             lblErrorPassword.Name = "lblErrorPassword";
-            lblErrorPassword.Size = new Size(174, 17);
+            lblErrorPassword.Size = new Size(203, 17);
             lblErrorPassword.TabIndex = 103;
-            lblErrorPassword.Text = "⚠️ No KTP tidak ditemukan!";
+            lblErrorPassword.Text = "⚠️ Password tidak diketemukan !";
             lblErrorPassword.TextAlign = ContentAlignment.MiddleRight;
             lblErrorPassword.Visible = false;
             // 
@@ -126,7 +126,7 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(btnShowPassword);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(btnLogin);
+            panel1.Controls.Add(btn_masuk);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(lblErrorPassword);
             panel1.Controls.Add(txtEmail);
@@ -143,10 +143,10 @@
             linkRegister.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             linkRegister.Location = new Point(227, 340);
             linkRegister.Name = "linkRegister";
-            linkRegister.Size = new Size(56, 17);
+            linkRegister.Size = new Size(44, 17);
             linkRegister.TabIndex = 108;
             linkRegister.TabStop = true;
-            linkRegister.Text = "Register";
+            linkRegister.Text = "Daftar";
             // 
             // label4
             // 
@@ -210,7 +210,7 @@
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtEmail;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPassword;
         private Button btnShowPassword;
-        private Button btnLogin;
+        private Button btn_masuk;
         private Label lblErrorEmail;
         private Label lblErrorPassword;
         private Panel panel1;

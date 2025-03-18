@@ -12,7 +12,7 @@ namespace Bengkel_UKK.Helper
         public static string _ktp_pelanggan = string.Empty;
         public static string _nama_pelanggan = string.Empty;
         public static int _role = 0;
-        public static void SetSession(string ktp, int role = 0)
+        public static void SetSession(string ktp, int role)
         {
             _ktp = ktp;
             _role = role;
@@ -21,6 +21,16 @@ namespace Bengkel_UKK.Helper
         {
             _ktp_pelanggan = ktp;
             _nama_pelanggan = namapelanggan;
+        }
+
+        public static bool IsPetugas()
+        {
+            return _role == 1;
+        }
+
+        public static bool IsSuperAdmin()
+        {
+            return _role == 2;
         }
     }
 }

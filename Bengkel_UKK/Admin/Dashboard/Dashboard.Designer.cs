@@ -38,7 +38,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             label11 = new Label();
             pictureBox5 = new PictureBox();
             pictureBox8 = new PictureBox();
-            label13 = new Label();
+            label_pendapatan = new Label();
             label12 = new Label();
             Panel3 = new DhafaPanel();
             label8 = new Label();
@@ -50,13 +50,13 @@ namespace Bengkel_UKK.Admin.Dashboard
             label1 = new Label();
             pictureBox3 = new PictureBox();
             pictureBox6 = new PictureBox();
-            label7 = new Label();
+            label_totalygdikerjakan = new Label();
             label6 = new Label();
             Panel1 = new DhafaPanel();
             label3 = new Label();
             pictureBox2 = new PictureBox();
             label5 = new Label();
-            label4 = new Label();
+            label_totalbooking = new Label();
             pictureBox1 = new PictureBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             yogaPanel5 = new DhafaPanel();
@@ -125,7 +125,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             Panel4.Controls.Add(label11);
             Panel4.Controls.Add(pictureBox5);
             Panel4.Controls.Add(pictureBox8);
-            Panel4.Controls.Add(label13);
+            Panel4.Controls.Add(label_pendapatan);
             Panel4.Controls.Add(label12);
             Panel4.Dock = DockStyle.Fill;
             Panel4.ForeColor = Color.White;
@@ -169,17 +169,17 @@ namespace Bengkel_UKK.Admin.Dashboard
             pictureBox8.TabIndex = 15;
             pictureBox8.TabStop = false;
             // 
-            // label13
+            // label_pendapatan
             // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.ForeColor = SystemColors.ControlText;
-            label13.Location = new Point(22, 105);
-            label13.Name = "label13";
-            label13.Size = new Size(164, 45);
-            label13.TabIndex = 13;
-            label13.Text = "1.450.000";
+            label_pendapatan.AutoSize = true;
+            label_pendapatan.BackColor = Color.Transparent;
+            label_pendapatan.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label_pendapatan.ForeColor = SystemColors.ControlText;
+            label_pendapatan.Location = new Point(22, 105);
+            label_pendapatan.Name = "label_pendapatan";
+            label_pendapatan.Size = new Size(38, 45);
+            label_pendapatan.TabIndex = 13;
+            label_pendapatan.Text = "0";
             // 
             // label12
             // 
@@ -279,7 +279,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             Panel2.Controls.Add(label1);
             Panel2.Controls.Add(pictureBox3);
             Panel2.Controls.Add(pictureBox6);
-            Panel2.Controls.Add(label7);
+            Panel2.Controls.Add(label_totalygdikerjakan);
             Panel2.Controls.Add(label6);
             Panel2.Dock = DockStyle.Fill;
             Panel2.ForeColor = Color.White;
@@ -297,9 +297,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             label1.ForeColor = SystemColors.ControlText;
             label1.Location = new Point(14, 14);
             label1.Name = "label1";
-            label1.Size = new Size(125, 21);
+            label1.Size = new Size(209, 21);
             label1.TabIndex = 10;
-            label1.Text = "TOTAL SERVICES";
+            label1.Text = "YANG SEDANG DIKERJAKAN";
             // 
             // pictureBox3
             // 
@@ -323,17 +323,17 @@ namespace Bengkel_UKK.Admin.Dashboard
             pictureBox6.TabIndex = 9;
             pictureBox6.TabStop = false;
             // 
-            // label7
+            // label_totalygdikerjakan
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = SystemColors.ControlText;
-            label7.Location = new Point(22, 105);
-            label7.Name = "label7";
-            label7.Size = new Size(56, 45);
-            label7.TabIndex = 7;
-            label7.Text = "12";
+            label_totalygdikerjakan.AutoSize = true;
+            label_totalygdikerjakan.BackColor = Color.Transparent;
+            label_totalygdikerjakan.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label_totalygdikerjakan.ForeColor = SystemColors.ControlText;
+            label_totalygdikerjakan.Location = new Point(22, 105);
+            label_totalygdikerjakan.Name = "label_totalygdikerjakan";
+            label_totalygdikerjakan.Size = new Size(56, 45);
+            label_totalygdikerjakan.TabIndex = 7;
+            label_totalygdikerjakan.Text = "10";
             // 
             // label6
             // 
@@ -356,7 +356,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             Panel1.Controls.Add(label3);
             Panel1.Controls.Add(pictureBox2);
             Panel1.Controls.Add(label5);
-            Panel1.Controls.Add(label4);
+            Panel1.Controls.Add(label_totalbooking);
             Panel1.Controls.Add(pictureBox1);
             Panel1.Dock = DockStyle.Fill;
             Panel1.ForeColor = Color.White;
@@ -400,17 +400,17 @@ namespace Bengkel_UKK.Admin.Dashboard
             label5.TabIndex = 4;
             label5.Text = "12,5%";
             // 
-            // label4
+            // label_totalbooking
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.ForeColor = SystemColors.ControlText;
-            label4.Location = new Point(22, 105);
-            label4.Name = "label4";
-            label4.Size = new Size(56, 45);
-            label4.TabIndex = 3;
-            label4.Text = "23";
+            label_totalbooking.AutoSize = true;
+            label_totalbooking.BackColor = Color.Transparent;
+            label_totalbooking.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            label_totalbooking.ForeColor = SystemColors.ControlText;
+            label_totalbooking.Location = new Point(22, 105);
+            label_totalbooking.Name = "label_totalbooking";
+            label_totalbooking.Size = new Size(38, 45);
+            label_totalbooking.TabIndex = 3;
+            label_totalbooking.Text = "0";
             // 
             // pictureBox1
             // 
@@ -630,7 +630,7 @@ namespace Bengkel_UKK.Admin.Dashboard
         private DhafaPanel Panel3;
         private DhafaPanel Panel2;
         private PictureBox pictureBox1;
-        private Label label4;
+        private Label label_totalbooking;
         private PictureBox pictureBox2;
         private Label label5;
         private Label label3;
@@ -642,13 +642,13 @@ namespace Bengkel_UKK.Admin.Dashboard
         private PictureBox pictureBox4;
         private Label label1;
         private PictureBox pictureBox6;
-        private Label label7;
+        private Label label_totalygdikerjakan;
         private Label label6;
         private DhafaPanel Panel4;
         private Label label11;
         private PictureBox pictureBox5;
         private PictureBox pictureBox8;
-        private Label label13;
+        private Label label_pendapatan;
         private Label label12;
         private TableLayoutPanel tableLayoutPanel2;
         private DhafaPanel yogaPanel5;

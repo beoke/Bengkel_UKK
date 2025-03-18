@@ -40,7 +40,7 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            btnRegister = new Button();
+            btn_daftar = new Button();
             label1 = new Label();
             txtNama = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             lblErrorNama = new Label();
@@ -67,7 +67,7 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(btnRegister);
+            panel1.Controls.Add(btn_daftar);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtNama);
             panel1.Controls.Add(lblErrorNama);
@@ -162,10 +162,10 @@
             linkLogin.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             linkLogin.Location = new Point(254, 526);
             linkLogin.Name = "linkLogin";
-            linkLogin.Size = new Size(40, 17);
+            linkLogin.Size = new Size(46, 17);
             linkLogin.TabIndex = 108;
             linkLogin.TabStop = true;
-            linkLogin.Text = "Login";
+            linkLogin.Text = "Masuk";
             // 
             // label4
             // 
@@ -197,19 +197,19 @@
             label2.TabIndex = 105;
             label2.Text = "Nama";
             // 
-            // btnRegister
+            // btn_daftar
             // 
-            btnRegister.BackColor = Color.Red;
-            btnRegister.FlatAppearance.BorderSize = 0;
-            btnRegister.FlatStyle = FlatStyle.Flat;
-            btnRegister.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRegister.ForeColor = Color.White;
-            btnRegister.Location = new Point(37, 473);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(370, 36);
-            btnRegister.TabIndex = 3;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = false;
+            btn_daftar.BackColor = Color.Red;
+            btn_daftar.FlatAppearance.BorderSize = 0;
+            btn_daftar.FlatStyle = FlatStyle.Flat;
+            btn_daftar.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_daftar.ForeColor = Color.White;
+            btn_daftar.Location = new Point(37, 473);
+            btn_daftar.Name = "btn_daftar";
+            btn_daftar.Size = new Size(370, 36);
+            btn_daftar.TabIndex = 3;
+            btn_daftar.Text = "Daftar";
+            btn_daftar.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -219,7 +219,7 @@
             label1.Name = "label1";
             label1.Size = new Size(437, 37);
             label1.TabIndex = 0;
-            label1.Text = "REGISTER";
+            label1.Text = "DAFTAR";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtNama
@@ -282,7 +282,7 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Button btnRegister;
+        private Button btn_daftar;
         private Label label1;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNama;
         private Label lblErrorNama;

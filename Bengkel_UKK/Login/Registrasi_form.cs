@@ -85,7 +85,7 @@ namespace Bengkel_UKK.Login
                 }
                 lblErrorCPassword.Visible = false;
             };
-            btnRegister.Click += (s, e) => SaveData();
+            btn_daftar.Click += (s, e) => SaveData();
         }
         private void SaveData()
         {

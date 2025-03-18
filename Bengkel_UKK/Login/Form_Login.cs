@@ -2,6 +2,7 @@
 using Bengkel_UKK.Admin.Karyawan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Helper;
+using Bengkel_UKK.Manage_Petugas;
 using Microsoft.Win32;
 using Sodium;
 using System;
@@ -60,7 +61,7 @@ namespace Bengkel_UKK.Login
                 else
                     lblErrorEmail.Visible = false;
             };
-            btnLogin.Click += (s, e) => CekLogin();
+            btn_masuk.Click += (s, e) => CekLogin();
             linkRegister.Click += (s, e) =>
             {
                 new Registrasi_form().Show();

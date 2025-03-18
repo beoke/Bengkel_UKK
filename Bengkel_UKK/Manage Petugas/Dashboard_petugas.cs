@@ -6,6 +6,7 @@ using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
+using Bengkel_UKK.Helper;
 using Bengkel_UKK.Login;
 using Bengkel_UKK.Manage_Pelanggan;
 using Syncfusion.WinForms.Controls;
@@ -24,6 +25,7 @@ namespace Bengkel_UKK.Manage_Petugas
     public partial class Dashboard_petugas : SfForm
     {
         public static Dashboard_petugas _dashboardpetugas { get; private set; }
+        private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private static Dictionary<int, Button> _listButton = new Dictionary<int, Button>();
         private static Label _lblDisplay;
         private static int buttonActiveBefore = 0;
@@ -37,6 +39,40 @@ namespace Bengkel_UKK.Manage_Petugas
             _dashboardpetugas = this;
             InitComponen();
             RegisterEvent();
+            InitialProfile();
+        }
+        private void InitialProfile()
+        {
+            var data = _karyawanDal.GetDataSession(GlobalVariabel._ktp);
+            if (data == null) return;
+            rjCircularPictureBox1.Image = ImageConvert.Image_ByteToImage(data.image_data);
+            label1.Text = data.nama_admin;
+            label2  .Text = data.role == 1 ? "Petugas" : "Super Admin";
+        }
+        private void InitComponen()
+        {
+            AddButton(1, btnDashboard);
+            AddButton(2, btnBooking);
+            AddButton(3, btnProduk);
+            AddButton(4, btnRiwayat);
+            AddButton(5, btnService);
+            AddButton(6, btnPelanggan);
+            AddButton(7, btnKaryawan);
+            AddButton(8, btn_kendaraan);
+
+            flowLayoutPanel2.AutoScroll = true;
+            flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
+            flowLayoutPanel2.HorizontalScroll.Visible = false; // Sembunyikan horizontal scroll bar
+            flowLayoutPanel2.VerticalScroll.Enabled = true;    // Aktifkan vertical scroll bar (opsional)
+            flowLayoutPanel2.VerticalScroll.Visible = true;    // Tampilkan vertical scroll bar (opsional)
+
+            this.Style.ShadowOpacity = 0;
+            this.Style.TitleBar.BackColor = Color.FromArgb(52, 152, 219);
+            this.Style.TitleBar.ForeColor = Color.White;
+            this.Style.TitleBar.BottomBorderColor = Color.White;
+            this.Style.TitleBar.CloseButtonForeColor = Color.White;
+            this.Style.TitleBar.MinimizeButtonForeColor = Color.White;
+            this.Style.TitleBar.MaximizeButtonForeColor = Color.White;
         }
         private void RegisterEvent()
         {
@@ -61,18 +97,17 @@ namespace Bengkel_UKK.Manage_Petugas
             btnPelanggan.Click += BtnSideBar_Click;
             btnKaryawan.Click += (s, e) => buttonActiveAfter = 7;
             btnKaryawan.Click += BtnSideBar_Click;
-            btn_kendaraan.Click += BtnSideBar_Click;
             btn_kendaraan.Click += (s, e) => buttonActiveAfter = 8;
+            btn_kendaraan.Click += BtnSideBar_Click;
             btnLogout.Click += BtnLogout_Click;
 
-            // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
             btnDashboard.Click += (s, e) => ShowFormInPanel2(new Menu_dashboard());
             btnProduk.Click += (s, e) => ShowFormInPanel2(new SparepartFormPelanggan());
             btnKaryawan.Click += (s, e) => ShowFormInPanel2(new karyawan_petugas());
-            btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
+            btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_petugas());
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
-            btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
-            btnService.Click += (s, e) => ShowFormInPanel2(new JasaServisPelanggan());
+            btnRiwayat.Click += (s, e) => ShowFormInPanel2(new RIwayat_petugas());
+            btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
             btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
         }
 
@@ -87,30 +122,7 @@ namespace Bengkel_UKK.Manage_Petugas
                 this.Close();
             }
         }
-        private void InitComponen()
-        {
-            AddButton(1, btnDashboard);
-            AddButton(2, btnBooking);
-            AddButton(3, btnProduk);
-            AddButton(4, btnRiwayat);
-            AddButton(5, btnService);
-            AddButton(6, btnPelanggan);
-            AddButton(7, btnKaryawan);
-
-            flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
-            flowLayoutPanel2.HorizontalScroll.Visible = false; // Sembunyikan horizontal scroll bar
-            flowLayoutPanel2.VerticalScroll.Enabled = true;    // Aktifkan vertical scroll bar (opsional)
-            flowLayoutPanel2.VerticalScroll.Visible = true;    // Tampilkan vertical scroll bar (opsional)
-
-            this.Style.ShadowOpacity = 0;
-            this.Style.TitleBar.BackColor = Color.FromArgb(52, 152, 219);
-            this.Style.TitleBar.ForeColor = Color.White;
-            this.Style.TitleBar.BottomBorderColor = Color.White;
-            this.Style.TitleBar.CloseButtonForeColor = Color.White;
-            this.Style.TitleBar.MinimizeButtonForeColor = Color.White;
-            this.Style.TitleBar.MaximizeButtonForeColor = Color.White;
-        }
+       
         private void AddButton(int key, Button value)
         {
             _listButton.Add(key, value);
@@ -123,7 +135,7 @@ namespace Bengkel_UKK.Manage_Petugas
 
         public static void ControlSideBar()
         {
-            if (MainFormAdmin._mainForm == null) return;
+            if (Dashboard_petugas._dashboardpetugas == null) return;
 
             if (_listButton.ContainsKey(buttonActiveAfter) && buttonActiveBefore != buttonActiveAfter)
             {
@@ -161,6 +173,9 @@ namespace Bengkel_UKK.Manage_Petugas
                     break;
                 case 7:
                     text = "PEGAWAI";
+                    break;
+                case 8:
+                    text = "KENDARAAN";
                     break;
             }
             _dashboardpetugas.lblDisplay.Text = text;

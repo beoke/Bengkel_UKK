@@ -455,7 +455,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             Style.MdiChild.IconHorizontalAlignment = HorizontalAlignment.Center;
             Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
             WindowState = FormWindowState.Maximized;
-            Load += MainFormAdmin_Load_1;
             flowLayoutPanel2.ResumeLayout(false);
             panelLeft.ResumeLayout(false);
             panelLogOut.ResumeLayout(false);

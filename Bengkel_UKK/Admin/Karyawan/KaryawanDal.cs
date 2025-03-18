@@ -45,6 +45,12 @@ namespace Bengkel_UKK.Admin.Karyawan
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { ktp_admin });
         }
+        public KaryawanModel? GetDataSession(string ktp_admin)
+        {
+            const string sql = @"SELECT image_data, nama_admin, role FROM Admin WHERE ktp_admin = @ktp_admin";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.QueryFirstOrDefault<KaryawanModel>(sql, new { ktp_admin });
+        }
 
         public bool CekDataExist(string ktp_admin)
         {

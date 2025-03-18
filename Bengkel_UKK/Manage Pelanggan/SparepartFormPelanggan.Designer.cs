@@ -109,7 +109,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(376, 33);
+            comboFilter.Location = new Point(323, 34);
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
@@ -124,12 +124,13 @@ namespace Bengkel_UKK.Manage_Pelanggan
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(323, 33);
+            btnSearch.Location = new Point(483, 34);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;
             btnSearch.TextColor = Color.White;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Visible = false;
             // 
             // panel1
             // 

@@ -36,7 +36,6 @@ namespace Bengkel_UKK.Admin.Booking
             InitializeComponent();
             InitComponen();
             RegisterEvent();
-            //UpdateAntrean();
             LoadData();
             CustomGrid();
             if (tanggal == default)

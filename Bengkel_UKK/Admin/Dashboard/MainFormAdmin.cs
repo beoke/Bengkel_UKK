@@ -12,6 +12,7 @@ using Syncfusion.WinForms.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Composition;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -25,6 +26,7 @@ namespace Bengkel_UKK.Admin.Dashboard
     public partial class MainFormAdmin : SfForm
     {
         public static MainFormAdmin _mainForm { get; private set; }
+        private readonly KaryawanDal _karyawanDal = new KaryawanDal();
         private static Dictionary<int, Button> _listButton = new Dictionary<int, Button>();
         private static Label _lblDisplay;
         private static int buttonActiveBefore = 0;
@@ -33,13 +35,21 @@ namespace Bengkel_UKK.Admin.Dashboard
         private static Color over = System.Drawing.Color.FromArgb(170, 0, 0);
         private static Color hover = System.Drawing.Color.FromArgb(210, 0, 0);
 
-
         public MainFormAdmin()
         {
             InitializeComponent();
             _mainForm = this;
             InitComponen();
             RegisterEvent();
+            InitialProfile();
+        }
+        private void InitialProfile()
+        {
+            var data = _karyawanDal.GetDataSession(GlobalVariabel._ktp);
+            if (data == null) return;
+            rjCircularPictureBox1.Image = ImageConvert.Image_ByteToImage(data.image_data);
+            label_nama.Text = data.nama_admin;
+            label_role.Text = data.role == 1 ? "Petugas" : "Super Admin";
         }
         private void InitComponen()
         {
@@ -105,6 +115,13 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaService_form());
             btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
+
+            this.FormClosing += MainFormAdmin_FormClosing;
+        }
+
+        private void MainFormAdmin_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void BtnLogout_Click(object? sender, EventArgs e)
@@ -219,12 +236,6 @@ namespace Bengkel_UKK.Admin.Dashboard
 
             // Set gambar yang sudah di-resize ke PictureBox
             pictureBox.Image = resizedImage;
-        }
-
-        private void MainFormAdmin_Load_1(object sender, EventArgs e)
-        {
-            label_nama.Text = Sesion.nama_admin;
-            label_role.Text = Sesion.role.ToString();
         }
     }
 }
