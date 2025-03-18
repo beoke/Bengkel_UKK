@@ -25,6 +25,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
         {
             InitializeComponent();
             InitComponent();
+            RegisterEvent();
 
             if (!IsInsert)
             {
@@ -34,13 +35,23 @@ namespace Bengkel_UKK.Admin.Pelanggan
                 _ktp_pelanggan = ktp_pelanggan;
             }
         }
-     
+        private void RegisterEvent()
+        {
+            button_save.Click += (s, e) => SaveData();
+            button_cancel.Click += (s, e) =>
+            {
+                this.Close();
+            };
+        }
+
         #region INIT COMPONENT
 
         private void InitComponent()
         {
-            password_text.ReadOnly = true;
-            konfirm_text.ReadOnly = true;
+            password_text.PasswordChar = '*';
+            konfirm_text.PasswordChar = '*';
+            password_text.ReadOnly = false;
+            konfirm_text.ReadOnly = false;
             lblErrorNama.Visible = false;
             lblErrorKTP.Visible = false;
             lblErrorTelepon.Visible = false;

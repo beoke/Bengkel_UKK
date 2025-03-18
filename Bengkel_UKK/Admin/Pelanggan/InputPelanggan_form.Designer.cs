@@ -71,7 +71,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(893, 42);
+            panel1.Size = new Size(454, 42);
             panel1.TabIndex = 0;
             // 
             // lblHeader
@@ -82,7 +82,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             lblHeader.ForeColor = Color.White;
             lblHeader.Location = new Point(0, 0);
             lblHeader.Name = "lblHeader";
-            lblHeader.Size = new Size(893, 43);
+            lblHeader.Size = new Size(454, 43);
             lblHeader.TabIndex = 11;
             lblHeader.Text = "Input Pelanggan";
             lblHeader.TextAlign = ContentAlignment.MiddleCenter;
@@ -98,7 +98,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             button_save.FlatStyle = FlatStyle.Flat;
             button_save.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button_save.ForeColor = Color.White;
-            button_save.Location = new Point(766, 370);
+            button_save.Location = new Point(320, 668);
             button_save.Name = "button_save";
             button_save.Size = new Size(108, 36);
             button_save.TabIndex = 37;
@@ -117,7 +117,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             button_cancel.FlatStyle = FlatStyle.Flat;
             button_cancel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button_cancel.ForeColor = SystemColors.ControlDarkDark;
-            button_cancel.Location = new Point(639, 370);
+            button_cancel.Location = new Point(193, 668);
             button_cancel.Name = "button_cancel";
             button_cancel.Size = new Size(108, 36);
             button_cancel.TabIndex = 62;
@@ -130,7 +130,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             lblErrorAlamat.AutoSize = true;
             lblErrorAlamat.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorAlamat.ForeColor = Color.Red;
-            lblErrorAlamat.Location = new Point(581, 286);
+            lblErrorAlamat.Location = new Point(135, 584);
             lblErrorAlamat.Name = "lblErrorAlamat";
             lblErrorAlamat.Size = new Size(166, 17);
             lblErrorAlamat.TabIndex = 112;
@@ -143,7 +143,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             lblErrorCPassword.AutoSize = true;
             lblErrorCPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorCPassword.ForeColor = Color.Red;
-            lblErrorCPassword.Location = new Point(581, 166);
+            lblErrorCPassword.Location = new Point(135, 464);
             lblErrorCPassword.Name = "lblErrorCPassword";
             lblErrorCPassword.Size = new Size(248, 17);
             lblErrorCPassword.TabIndex = 111;
@@ -156,7 +156,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             lblErrorPassword.AutoSize = true;
             lblErrorPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorPassword.ForeColor = Color.Red;
-            lblErrorPassword.Location = new Point(581, 89);
+            lblErrorPassword.Location = new Point(135, 387);
             lblErrorPassword.Name = "lblErrorPassword";
             lblErrorPassword.Size = new Size(184, 17);
             lblErrorPassword.TabIndex = 110;
@@ -223,7 +223,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             alamat_text.BorderColor = Color.FromArgb(209, 211, 212);
             alamat_text.BorderStyle = BorderStyle.FixedSingle;
             alamat_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            alamat_text.Location = new Point(581, 213);
+            alamat_text.Location = new Point(135, 511);
             alamat_text.Multiline = true;
             alamat_text.Name = "alamat_text";
             alamat_text.PlaceholderText = " Masukkan alamat";
@@ -236,7 +236,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = SystemColors.ControlDarkDark;
-            label5.Location = new Point(467, 213);
+            label5.Location = new Point(21, 511);
             label5.Name = "label5";
             label5.Size = new Size(70, 25);
             label5.TabIndex = 104;
@@ -250,7 +250,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             konfirm_text.BorderColor = Color.FromArgb(209, 211, 212);
             konfirm_text.BorderStyle = BorderStyle.FixedSingle;
             konfirm_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            konfirm_text.Location = new Point(581, 136);
+            konfirm_text.Location = new Point(135, 434);
             konfirm_text.Name = "konfirm_text";
             konfirm_text.PlaceholderText = " Masukkan konfirmasi password";
             konfirm_text.Size = new Size(293, 27);
@@ -262,7 +262,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label13.ForeColor = SystemColors.ControlDarkDark;
-            label13.Location = new Point(467, 123);
+            label13.Location = new Point(21, 421);
             label13.Name = "label13";
             label13.Size = new Size(106, 50);
             label13.TabIndex = 102;
@@ -302,7 +302,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             password_text.BorderColor = Color.FromArgb(209, 211, 212);
             password_text.BorderStyle = BorderStyle.FixedSingle;
             password_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            password_text.Location = new Point(581, 59);
+            password_text.Location = new Point(135, 357);
             password_text.Name = "password_text";
             password_text.PlaceholderText = " Masukkan password";
             password_text.Size = new Size(293, 27);
@@ -328,7 +328,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = SystemColors.ControlDarkDark;
-            label9.Location = new Point(467, 59);
+            label9.Location = new Point(21, 357);
             label9.Name = "label9";
             label9.Size = new Size(90, 25);
             label9.TabIndex = 97;
@@ -403,7 +403,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(893, 423);
+            ClientSize = new Size(454, 719);
             Controls.Add(lblErrorAlamat);
             Controls.Add(lblErrorCPassword);
             Controls.Add(lblErrorPassword);

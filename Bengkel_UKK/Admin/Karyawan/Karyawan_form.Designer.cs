@@ -110,7 +110,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(376, 33);
+            comboFilter.Location = new Point(323, 34);
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
@@ -126,7 +126,7 @@ namespace Bengkel_UKK.Admin.Karyawan
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(323, 33);
+            btnSearch.Location = new Point(483, 34);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;

@@ -84,6 +84,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             dp.Add("@kapasitas", kendaraan.kapasitas);
             dp.Add("@tahun", kendaraan.tahun);
             dp.Add("@no_pol", kendaraan.no_pol);
+            dp.Add("@total_servis", kendaraan.total_servis);
 
             koneksi.Query<KendaraanModel>("InsertKendaraan", dp, commandType: System.Data.CommandType.StoredProcedure);
         }

@@ -71,6 +71,7 @@ namespace Bengkel_UKK.Admin.Booking
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
+            button_addKendaraan = new DhafaButton();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -121,6 +122,7 @@ namespace Bengkel_UKK.Admin.Booking
             // tabPage1
             // 
             tabPage1.BackColor = Color.White;
+            tabPage1.Controls.Add(button_addKendaraan);
             tabPage1.Controls.Add(btnCancel);
             tabPage1.Controls.Add(btnSave);
             tabPage1.Controls.Add(btnSearch);
@@ -248,7 +250,7 @@ namespace Bengkel_UKK.Admin.Booking
             comboKendaraan.FormattingEnabled = true;
             comboKendaraan.Location = new Point(140, 164);
             comboKendaraan.Name = "comboKendaraan";
-            comboKendaraan.Size = new Size(293, 28);
+            comboKendaraan.Size = new Size(240, 28);
             comboKendaraan.TabIndex = 109;
             // 
             // txtKeluhan
@@ -321,11 +323,11 @@ namespace Bengkel_UKK.Admin.Booking
             lblErrorKTP.AutoSize = true;
             lblErrorKTP.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorKTP.ForeColor = Color.Red;
-            lblErrorKTP.Location = new Point(140, 56);
+            lblErrorKTP.Location = new Point(125, 59);
             lblErrorKTP.Name = "lblErrorKTP";
-            lblErrorKTP.Size = new Size(174, 17);
+            lblErrorKTP.Size = new Size(313, 17);
             lblErrorKTP.TabIndex = 101;
-            lblErrorKTP.Text = "⚠️ No KTP tidak ditemukan!";
+            lblErrorKTP.Text = "⚠️Data kendaraan Pada No KTP tersebut tidak ada!";
             lblErrorKTP.TextAlign = ContentAlignment.MiddleRight;
             lblErrorKTP.Visible = false;
             // 
@@ -653,6 +655,24 @@ namespace Bengkel_UKK.Admin.Booking
             label15.Text = "Nama";
             label15.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // button_addKendaraan
+            // 
+            button_addKendaraan.BackColor = Color.FromArgb(230, 126, 34);
+            button_addKendaraan.BackgroundColor = Color.FromArgb(230, 126, 34);
+            button_addKendaraan.BorderColor = Color.PaleVioletRed;
+            button_addKendaraan.BorderRadius = 0;
+            button_addKendaraan.BorderSize = 0;
+            button_addKendaraan.FlatAppearance.BorderSize = 0;
+            button_addKendaraan.FlatStyle = FlatStyle.Flat;
+            button_addKendaraan.ForeColor = Color.White;
+            button_addKendaraan.Location = new Point(386, 159);
+            button_addKendaraan.Name = "button_addKendaraan";
+            button_addKendaraan.Size = new Size(52, 33);
+            button_addKendaraan.TabIndex = 119;
+            button_addKendaraan.Text = "🔎";
+            button_addKendaraan.TextColor = Color.White;
+            button_addKendaraan.UseVisualStyleBackColor = false;
+            // 
             // InputBooking_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -723,5 +743,6 @@ namespace Bengkel_UKK.Admin.Booking
         private DhafaButton btnSave;
         private DhafaButton btnCancel2;
         private DhafaButton btnSave2;
+        private DhafaButton button_addKendaraan;
     }
 }

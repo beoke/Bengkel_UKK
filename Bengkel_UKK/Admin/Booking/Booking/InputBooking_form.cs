@@ -2,6 +2,7 @@
 using Bengkel_UKK.Admin.Booking.Booking;
 using Bengkel_UKK.Admin.Booking.Jadwal;
 using Bengkel_UKK.Admin.Kendaraan;
+using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Helper;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,14 @@ namespace Bengkel_UKK.Admin.Booking
             };
             btnSearch.Click += (s, e) => LoadData_Pelanggan();
             btnSave.Click += (s, e) => SaveData_Pelanggan();
+            button_addKendaraan.Click +=(s, e) =>
+            {
+                InputKendaraan_form form = new InputKendaraan_form();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData_Pelanggan();
+                }
+            };
             btnCancel.Click += (s, e) => this.Close();
             TglEditSync.ValueChanged += async (s, e) =>
             {
@@ -63,6 +72,17 @@ namespace Bengkel_UKK.Admin.Booking
             {
                 CekKetersediaanBoking();
             };
+            btnSearch.Click += BtnSearch_Click; ;
+        }
+
+        private void BtnSearch_Click(object? sender, EventArgs e)
+        {
+            PilihPelangganForm pilih = new PilihPelangganForm();
+            if(pilih.ShowDialog() == DialogResult.OK)
+            {
+                txtNoKTP.Text = pilih.ktp_pelanggan;
+                LoadData_Pelanggan();
+            }
         }
 
         private async void CekKetersediaanBoking()
@@ -307,16 +327,7 @@ namespace Bengkel_UKK.Admin.Booking
 }
 public class KendaraanDto
 {
-    public int No { get; set; }
     public int id_kendaraan { get; set; }
     public string nama_kendaraan { get; set; }
     public string no_pol { get; set; }
-    public string tipe { get; set; }
-    public string transmisi { get; set; }
-    public int kapasitas { get; set; }
-    public string tahun { get; set; }
-    public string ktp_pelanggan { get; set; }
-    public int total_servis { get; set; }
-
-    public string nama_pelanggan { get; set; }
 }

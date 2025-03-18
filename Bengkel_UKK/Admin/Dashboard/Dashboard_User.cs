@@ -4,6 +4,7 @@ using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
+using Bengkel_UKK.Helper;
 using Bengkel_UKK.Login;
 using Bengkel_UKK.Manage_Pelanggan;
 using Syncfusion.WinForms.Controls;
@@ -29,12 +30,17 @@ namespace Bengkel_UKK.Admin.Dashboard
         private static Color active = System.Drawing.Color.FromArgb(210, 0, 0);
         private static Color over = System.Drawing.Color.FromArgb(170, 0, 0);
         private static Color hover = System.Drawing.Color.FromArgb(210, 0, 0);
+
+        private readonly PelangganDal _pelangganDal = new PelangganDal();
+        public static string _ktp_pelanggan = string.Empty;
         public Dashboard_User()
         {
             InitializeComponent();
             _userForm = this;
             InitComponen();
             RegisterEvent();
+            GetDataSimulation();
+            label_nama.Text = GlobalVariabel._nama_pelanggan;
         }
         private void AddButton(int key, Button value)
         {
@@ -132,10 +138,10 @@ namespace Bengkel_UKK.Admin.Dashboard
 
             btnProduk.Click += (s, e) => ShowFormInPanel2(new SparepartFormPelanggan());
             btnBooking.Click += (s, e) => ShowFormInPanel2(new BookingFormPelanggan());
-            btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());
+            btnRiwayat.Click += (s, e) => ShowFormInPanel2(new RiwayatFormPelanggan());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaServisPelanggan());
             btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
-            btnProfile.Click += (s, e) => ShowFormInPanel2(new ProfilePelanggan_form());
+            btnProfile.Click += (s, e) => ShowFormInPanel2(new ProfilePelanggan_form(GlobalVariabel._ktp_pelanggan));
             
             btn_kendaraan.Visible = false;
         }
@@ -149,10 +155,17 @@ namespace Bengkel_UKK.Admin.Dashboard
                 this.Hide();
                 Form loginForm = new Form_Login();
                 loginForm.ShowDialog();
-                this.Close();
+                this.Hide();
             }
         }
+        private void GetDataSimulation()
+        {
+            var data = _pelangganDal.GetData(GlobalVariabel._ktp);
+            if (data is null) return;
+            _ktp_pelanggan = data.ktp_pelanggan;
 
+            PesanBox.Warning(GlobalVariabel._ktp);
+        }
         public static void ShowFormInPanel2(Form form)
         {
             if (Dashboard_User._userForm == null || Dashboard_User._userForm.panelMain == null)

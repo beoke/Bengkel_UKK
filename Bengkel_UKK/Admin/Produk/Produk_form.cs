@@ -37,7 +37,7 @@ namespace Bengkel_UKK.Admin.Produk
 
         private void RegisterEvent()
         {
-            yogaPanel1.Resize += (s, e) => yogaPanel1.Invalidate();
+            DhafaPanel.Resize += (s, e) => DhafaPanel.Invalidate();
             dataGridView1.CellPainting += DataGridView1_CellPainting;
             btnNext.Click += BtnNext_Click;
             btnPrevious.Click += BtnPrevious_Click;
@@ -63,6 +63,7 @@ namespace Bengkel_UKK.Admin.Produk
                     LoadData();
                 }
             };
+            btnSearch.Visible = false;
         }
 
 
@@ -370,8 +371,8 @@ namespace Bengkel_UKK.Admin.Produk
         private void BtnSearch_Click(object? sender, EventArgs e)
         {
             // Ukuran asli panel
-            int originalWidth = yogaPanel1.Width;
-            int originalHeight = yogaPanel1.Height;
+            int originalWidth = DhafaPanel.Width;
+            int originalHeight = DhafaPanel.Height;
 
             // Skala yang diinginkan (misalnya, 50% dari ukuran asli)
             float scaleFactor = 0.5f;
@@ -384,7 +385,7 @@ namespace Bengkel_UKK.Admin.Produk
                 using (Graphics g = Graphics.FromImage(originalBitmap))
                 {
                     // Menangkap seluruh isi panel (termasuk yang tidak terlihat di viewport)
-                    g.CopyFromScreen(yogaPanel1.PointToScreen(Point.Empty), Point.Empty, new Size(originalWidth, originalHeight));
+                    g.CopyFromScreen(DhafaPanel.PointToScreen(Point.Empty), Point.Empty, new Size(originalWidth, originalHeight));
                 }
 
                 // Resize gambar ke ukuran lebih kecil

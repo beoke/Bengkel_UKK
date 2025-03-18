@@ -42,8 +42,9 @@ namespace Bengkel_UKK.Admin.Kendaraan
 
         private void Button_cari_Click(object? sender, EventArgs e)
         {
-            if(new PilihPelangganForm().ShowDialog() != DialogResult.OK) return;
-            noKtp_text.Text = GlobalVariabel._ktp_pelanggan;
+            PilihPelangganForm pilih = new PilihPelangganForm();
+            if (pilih.ShowDialog() != DialogResult.OK) return;
+            noKtp_text.Text = pilih.ktp_pelanggan;
             GetPelanggan();
         }
 

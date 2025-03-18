@@ -29,8 +29,11 @@ namespace Bengkel_UKK.Manage_Pelanggan
         {
             InitializeComponent();
             InitComponent_Pelanggan();
+            txtNoKTP.Text = GlobalVariabel._ktp_pelanggan;
+            btnSearch.PerformClick();
             RegisterEvent_Pelanggan();
             CekKetersediaanBoking();
+
         }
         private void RegisterEvent_Pelanggan()
         {

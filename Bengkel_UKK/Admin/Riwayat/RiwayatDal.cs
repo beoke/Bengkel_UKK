@@ -47,6 +47,41 @@ namespace Bengkel_UKK.Admin.Riwayat
 
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<RiwayatModel>(sql, filter.param);
+
+        }
+        public IEnumerable<RiwayatModel> ListDataByktp(string ktp)
+        {
+            string sql = $@"SELECT 
+                        r.id_riwayat,
+                        r.ktp_pelanggan, 
+                        COALESCE(r.nama_pelanggan, p.nama_pelanggan) AS nama_pelanggan, 
+                        r.id_kendaraan, 
+                        COALESCE(r.no_pol, k.no_pol) AS no_pol,
+                        COALESCE(
+                            r.nama_kendaraan, 
+                            CONCAT(k.merk, ' ', k.tipe, ' ', k.kapasitas, 'cc (', k.tahun, ')')
+                        ) AS nama_kendaraan,
+                        r.tanggal,
+                        r.tanggal_servis,
+                        r.tanggal_selesai,
+                        r.keluhan,
+                        r.catatan,
+                        a.nama_admin AS nama_admin,
+                        m.nama_admin AS nama_mekanik,
+                        r.id_jasaServis,
+                        r.status,
+                        r.total_harga,
+                        r.pembatalan_oleh
+                    FROM Riwayat r
+                    LEFT JOIN Pelanggan p ON r.ktp_pelanggan = p.ktp_pelanggan
+                    LEFT JOIN Kendaraan k ON r.id_kendaraan = k.id_kendaraan
+                    LEFT JOIN JasaServis js ON r.id_jasaServis = js.id_jasaServis
+                    LEFT JOIN Admin a ON r.ktp_admin = a.ktp_admin  -- Join untuk admin
+                    LEFT JOIN Admin m ON r.ktp_mekanik = m.ktp_admin  -- Join lagi untuk mekanik
+                    WHERE r.ktp_pelanggan = @ktp_pelanggan";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.Query<RiwayatModel>(sql, new {ktp_pelanggan = ktp});
         }
         public RiwayatModel? GetData(int id_riwayat)
         {

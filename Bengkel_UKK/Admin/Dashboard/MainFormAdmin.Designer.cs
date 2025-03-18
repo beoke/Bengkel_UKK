@@ -395,6 +395,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             rjCircularPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             rjCircularPictureBox1.BorderSize = 2;
             rjCircularPictureBox1.GradientAngle = 50F;
+            rjCircularPictureBox1.Image = (Image)resources.GetObject("rjCircularPictureBox1.Image");
             rjCircularPictureBox1.Location = new Point(18, 30);
             rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             rjCircularPictureBox1.Size = new Size(70, 70);
@@ -453,7 +454,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             Style.InactiveShadowOpacity = 0;
             Style.MdiChild.IconHorizontalAlignment = HorizontalAlignment.Center;
             Style.MdiChild.IconVerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
-            Text = "Application Management";
             WindowState = FormWindowState.Maximized;
             Load += MainFormAdmin_Load_1;
             flowLayoutPanel2.ResumeLayout(false);

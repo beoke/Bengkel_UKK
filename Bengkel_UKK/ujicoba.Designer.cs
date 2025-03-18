@@ -29,302 +29,42 @@ namespace Bengkel_UKK
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ujicoba));
-            dataGridView1 = new DataGridView();
-            yogaPanel1 = new DhafaPanel();
-            comboFilterStatus = new ComboBox();
-            panelTanggalFilter = new Panel();
-            panelComboFilter = new Panel();
-            lblTo = new Label();
-            tgl2 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
-            tgl1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
-            lblShowingEntries = new Label();
-            comboFilterWaktu = new ComboBox();
-            btnSearch = new DhafaButton();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            lblHalaman = new Label();
-            btnNext = new DhafaButton();
-            btnPrevious = new DhafaButton();
-            txtSearch = new TextBox();
-            label3 = new Label();
-            label1 = new Label();
-            numericEntries = new NumericUpDown();
             contextMenuStrip1 = new ContextMenuStrip(components);
             nNToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip = new Syncfusion.Windows.Forms.Tools.ContextMenuStripEx();
             InvoiceStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            yogaPanel1.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericEntries).BeginInit();
+            linkReset = new LinkLabel();
+            label4 = new Label();
+            lblErrorAlamat = new Label();
+            lblErrorTelepon = new Label();
+            label8 = new Label();
+            txtNoTelp = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            label9 = new Label();
+            label10 = new Label();
+            txtNoKTP = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            lblErrorKTP = new Label();
+            txtAlamat = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            lblErrorPassword = new Label();
+            lblErrorEmail = new Label();
+            label5 = new Label();
+            txtEmail = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            label3 = new Label();
+            label2 = new Label();
+            txtNama = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            lblErrorNama = new Label();
+            txtPassword = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            btnRegister = new Button();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtNoTelp).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtNoKTP).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtAlamat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtEmail).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtNama).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtPassword).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = Color.Silver;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.GridColor = SystemColors.Control;
-            dataGridView1.Location = new Point(46, 77);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(1249, 422);
-            dataGridView1.TabIndex = 0;
-            // 
-            // yogaPanel1
-            // 
-            yogaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            yogaPanel1.BackColor = Color.White;
-            yogaPanel1.BorderColor = Color.PaleVioletRed;
-            yogaPanel1.BorderRadius = 0;
-            yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(comboFilterStatus);
-            yogaPanel1.Controls.Add(panelTanggalFilter);
-            yogaPanel1.Controls.Add(panelComboFilter);
-            yogaPanel1.Controls.Add(lblTo);
-            yogaPanel1.Controls.Add(tgl2);
-            yogaPanel1.Controls.Add(tgl1);
-            yogaPanel1.Controls.Add(lblShowingEntries);
-            yogaPanel1.Controls.Add(comboFilterWaktu);
-            yogaPanel1.Controls.Add(btnSearch);
-            yogaPanel1.Controls.Add(panel1);
-            yogaPanel1.Controls.Add(txtSearch);
-            yogaPanel1.Controls.Add(label3);
-            yogaPanel1.Controls.Add(label1);
-            yogaPanel1.Controls.Add(numericEntries);
-            yogaPanel1.Controls.Add(dataGridView1);
-            yogaPanel1.ForeColor = Color.White;
-            yogaPanel1.Location = new Point(29, 75);
-            yogaPanel1.Name = "yogaPanel1";
-            yogaPanel1.Size = new Size(1340, 579);
-            yogaPanel1.TabIndex = 11;
-            // 
-            // comboFilterStatus
-            // 
-            comboFilterStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboFilterStatus.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboFilterStatus.FormattingEnabled = true;
-            comboFilterStatus.Location = new Point(376, 33);
-            comboFilterStatus.Name = "comboFilterStatus";
-            comboFilterStatus.Size = new Size(100, 28);
-            comboFilterStatus.TabIndex = 120;
-            // 
-            // panelTanggalFilter
-            // 
-            panelTanggalFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelTanggalFilter.Location = new Point(675, 66);
-            panelTanggalFilter.Name = "panelTanggalFilter";
-            panelTanggalFilter.Size = new Size(382, 5);
-            panelTanggalFilter.TabIndex = 119;
-            // 
-            // panelComboFilter
-            // 
-            panelComboFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelComboFilter.Location = new Point(482, 66);
-            panelComboFilter.Name = "panelComboFilter";
-            panelComboFilter.Size = new Size(176, 5);
-            panelComboFilter.TabIndex = 118;
-            // 
-            // lblTo
-            // 
-            lblTo.AutoSize = true;
-            lblTo.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTo.ForeColor = Color.DimGray;
-            lblTo.Location = new Point(855, 22);
-            lblTo.Name = "lblTo";
-            lblTo.Size = new Size(22, 30);
-            lblTo.TabIndex = 117;
-            lblTo.Text = "_";
-            // 
-            // tgl2
-            // 
-            tgl2.DateTimeIcon = null;
-            tgl2.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
-            tgl2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tgl2.Format = "d MMMM yyyy";
-            tgl2.Location = new Point(880, 33);
-            tgl2.Name = "tgl2";
-            tgl2.Size = new Size(177, 28);
-            tgl2.Style.BorderColor = Color.FromArgb(64, 64, 64);
-            tgl2.TabIndex = 116;
-            tgl2.ToolTipText = "";
-            // 
-            // tgl1
-            // 
-            tgl1.DateTimeIcon = null;
-            tgl1.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
-            tgl1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tgl1.Format = "d MMMM yyyy";
-            tgl1.Location = new Point(675, 33);
-            tgl1.Name = "tgl1";
-            tgl1.Size = new Size(177, 28);
-            tgl1.Style.BorderColor = Color.FromArgb(64, 64, 64);
-            tgl1.TabIndex = 115;
-            tgl1.ToolTipText = "";
-            // 
-            // lblShowingEntries
-            // 
-            lblShowingEntries.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblShowingEntries.AutoSize = true;
-            lblShowingEntries.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblShowingEntries.ForeColor = Color.DimGray;
-            lblShowingEntries.Location = new Point(46, 522);
-            lblShowingEntries.Name = "lblShowingEntries";
-            lblShowingEntries.Size = new Size(238, 23);
-            lblShowingEntries.TabIndex = 13;
-            lblShowingEntries.Text = "Showing 1 to 14 of 120 entries";
-            // 
-            // comboFilterWaktu
-            // 
-            comboFilterWaktu.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboFilterWaktu.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboFilterWaktu.FormattingEnabled = true;
-            comboFilterWaktu.Location = new Point(482, 33);
-            comboFilterWaktu.Name = "comboFilterWaktu";
-            comboFilterWaktu.Size = new Size(176, 28);
-            comboFilterWaktu.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(323, 33);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(btnNext);
-            panel1.Controls.Add(btnPrevious);
-            panel1.Location = new Point(1132, 515);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(165, 40);
-            panel1.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.RoyalBlue;
-            panel2.Controls.Add(lblHalaman);
-            panel2.Location = new Point(67, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(45, 39);
-            panel2.TabIndex = 10;
-            // 
-            // lblHalaman
-            // 
-            lblHalaman.BackColor = Color.FromArgb(230, 126, 34);
-            lblHalaman.Dock = DockStyle.Fill;
-            lblHalaman.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblHalaman.ForeColor = Color.White;
-            lblHalaman.Location = new Point(0, 0);
-            lblHalaman.Name = "lblHalaman";
-            lblHalaman.Size = new Size(45, 39);
-            lblHalaman.TabIndex = 10;
-            lblHalaman.Text = "1";
-            lblHalaman.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnNext
-            // 
-            btnNext.BackColor = Color.White;
-            btnNext.BackgroundColor = Color.White;
-            btnNext.BorderColor = Color.PaleVioletRed;
-            btnNext.BorderRadius = 0;
-            btnNext.BorderSize = 2;
-            btnNext.FlatAppearance.BorderSize = 0;
-            btnNext.FlatStyle = FlatStyle.Flat;
-            btnNext.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNext.ForeColor = SystemColors.ControlText;
-            btnNext.Location = new Point(105, 0);
-            btnNext.Margin = new Padding(0);
-            btnNext.Name = "btnNext";
-            btnNext.Size = new Size(58, 40);
-            btnNext.TabIndex = 9;
-            btnNext.Text = "Next";
-            btnNext.TextColor = SystemColors.ControlText;
-            btnNext.UseVisualStyleBackColor = false;
-            // 
-            // btnPrevious
-            // 
-            btnPrevious.BackColor = Color.White;
-            btnPrevious.BackgroundColor = Color.White;
-            btnPrevious.BorderColor = Color.PaleVioletRed;
-            btnPrevious.BorderRadius = 0;
-            btnPrevious.BorderSize = 2;
-            btnPrevious.FlatAppearance.BorderSize = 0;
-            btnPrevious.FlatStyle = FlatStyle.Flat;
-            btnPrevious.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPrevious.ForeColor = SystemColors.ControlText;
-            btnPrevious.Location = new Point(0, 0);
-            btnPrevious.Margin = new Padding(0);
-            btnPrevious.Name = "btnPrevious";
-            btnPrevious.Size = new Size(76, 40);
-            btnPrevious.TabIndex = 8;
-            btnPrevious.Text = "Previous";
-            btnPrevious.TextColor = SystemColors.ControlText;
-            btnPrevious.UseVisualStyleBackColor = false;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(46, 33);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = " Search";
-            txtSearch.Size = new Size(271, 27);
-            txtSearch.TabIndex = 6;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(1232, 33);
-            label3.Name = "label3";
-            label3.Size = new Size(61, 23);
-            label3.TabIndex = 5;
-            label3.Text = "entries";
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(1114, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(52, 23);
-            label1.TabIndex = 4;
-            label1.Text = "Show";
-            // 
-            // numericEntries
-            // 
-            numericEntries.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            numericEntries.BackColor = Color.White;
-            numericEntries.BorderStyle = BorderStyle.FixedSingle;
-            numericEntries.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            numericEntries.Location = new Point(1166, 32);
-            numericEntries.Name = "numericEntries";
-            numericEntries.Size = new Size(64, 27);
-            numericEntries.TabIndex = 3;
             // 
             // contextMenuStrip1
             // 
@@ -372,54 +112,309 @@ namespace Bengkel_UKK
             InvoiceStripMenuItem.Size = new Size(133, 26);
             InvoiceStripMenuItem.Text = "Invoice";
             // 
-            // FormRiwayat
+            // linkReset
+            // 
+            linkReset.AutoSize = true;
+            linkReset.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            linkReset.Location = new Point(565, 210);
+            linkReset.Name = "linkReset";
+            linkReset.Size = new Size(40, 17);
+            linkReset.TabIndex = 148;
+            linkReset.TabStop = true;
+            linkReset.Text = "Reset";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(457, 210);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 17);
+            label4.TabIndex = 147;
+            label4.Text = "Lupa password?";
+            // 
+            // lblErrorAlamat
+            // 
+            lblErrorAlamat.AutoSize = true;
+            lblErrorAlamat.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorAlamat.ForeColor = Color.Red;
+            lblErrorAlamat.Location = new Point(235, 535);
+            lblErrorAlamat.Name = "lblErrorAlamat";
+            lblErrorAlamat.Size = new Size(162, 17);
+            lblErrorAlamat.TabIndex = 146;
+            lblErrorAlamat.Text = "⚠️ Harap mengisi alamat!";
+            lblErrorAlamat.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorAlamat.Visible = false;
+            // 
+            // lblErrorTelepon
+            // 
+            lblErrorTelepon.AutoSize = true;
+            lblErrorTelepon.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorTelepon.ForeColor = Color.Red;
+            lblErrorTelepon.Location = new Point(235, 445);
+            lblErrorTelepon.Name = "lblErrorTelepon";
+            lblErrorTelepon.Size = new Size(218, 17);
+            lblErrorTelepon.TabIndex = 145;
+            lblErrorTelepon.Text = "⚠️ Nomor telepon sudah terdaftar!";
+            lblErrorTelepon.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorTelepon.Visible = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(235, 387);
+            label8.Name = "label8";
+            label8.Size = new Size(123, 21);
+            label8.TabIndex = 144;
+            label8.Text = "Nomor telepon";
+            // 
+            // txtNoTelp
+            // 
+            txtNoTelp.BeforeTouchSize = new Size(370, 31);
+            txtNoTelp.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNoTelp.Location = new Point(235, 411);
+            txtNoTelp.Name = "txtNoTelp";
+            txtNoTelp.PlaceholderText = " Masukkan nomor telepon";
+            txtNoTelp.Size = new Size(370, 31);
+            txtNoTelp.TabIndex = 143;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(235, 477);
+            label9.Name = "label9";
+            label9.Size = new Size(61, 21);
+            label9.TabIndex = 142;
+            label9.Text = "Alamat";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.Location = new Point(235, 297);
+            label10.Name = "label10";
+            label10.Size = new Size(98, 21);
+            label10.TabIndex = 141;
+            label10.Text = "Nomor  KTP";
+            // 
+            // txtNoKTP
+            // 
+            txtNoKTP.BeforeTouchSize = new Size(370, 31);
+            txtNoKTP.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNoKTP.Location = new Point(235, 321);
+            txtNoKTP.Name = "txtNoKTP";
+            txtNoKTP.PlaceholderText = " Masukkan nomor KTP";
+            txtNoKTP.Size = new Size(370, 31);
+            txtNoKTP.TabIndex = 138;
+            // 
+            // lblErrorKTP
+            // 
+            lblErrorKTP.AutoSize = true;
+            lblErrorKTP.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorKTP.ForeColor = Color.Red;
+            lblErrorKTP.Location = new Point(235, 355);
+            lblErrorKTP.Name = "lblErrorKTP";
+            lblErrorKTP.Size = new Size(196, 17);
+            lblErrorKTP.TabIndex = 140;
+            lblErrorKTP.Text = "⚠️ Nomor KTP sudah terdaftar!";
+            lblErrorKTP.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorKTP.Visible = false;
+            // 
+            // txtAlamat
+            // 
+            txtAlamat.BeforeTouchSize = new Size(370, 31);
+            txtAlamat.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtAlamat.Location = new Point(235, 501);
+            txtAlamat.Name = "txtAlamat";
+            txtAlamat.PlaceholderText = " Masukkan alamat lengkap";
+            txtAlamat.Size = new Size(370, 31);
+            txtAlamat.TabIndex = 139;
+            // 
+            // lblErrorPassword
+            // 
+            lblErrorPassword.AutoSize = true;
+            lblErrorPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorPassword.ForeColor = Color.Red;
+            lblErrorPassword.Location = new Point(235, 265);
+            lblErrorPassword.Name = "lblErrorPassword";
+            lblErrorPassword.Size = new Size(374, 17);
+            lblErrorPassword.TabIndex = 137;
+            lblErrorPassword.Text = "⚠️ Password minimal 8 karakter, huruf besar, kecil, dan angka.";
+            lblErrorPassword.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorPassword.Visible = false;
+            // 
+            // lblErrorEmail
+            // 
+            lblErrorEmail.AutoSize = true;
+            lblErrorEmail.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorEmail.ForeColor = Color.Red;
+            lblErrorEmail.Location = new Point(235, 175);
+            lblErrorEmail.Name = "lblErrorEmail";
+            lblErrorEmail.Size = new Size(173, 17);
+            lblErrorEmail.TabIndex = 136;
+            lblErrorEmail.Text = "⚠️ Format email tidak valid!";
+            lblErrorEmail.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorEmail.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(235, 117);
+            label5.Name = "label5";
+            label5.Size = new Size(48, 21);
+            label5.TabIndex = 135;
+            label5.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            txtEmail.BeforeTouchSize = new Size(370, 31);
+            txtEmail.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Location = new Point(235, 141);
+            txtEmail.Name = "txtEmail";
+            txtEmail.PlaceholderText = " Masukkan Email";
+            txtEmail.Size = new Size(370, 31);
+            txtEmail.TabIndex = 134;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(235, 207);
+            label3.Name = "label3";
+            label3.Size = new Size(79, 21);
+            label3.TabIndex = 133;
+            label3.Text = "Password";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(235, 27);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 21);
+            label2.TabIndex = 132;
+            label2.Text = "Nama";
+            // 
+            // txtNama
+            // 
+            txtNama.BeforeTouchSize = new Size(370, 31);
+            txtNama.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNama.Location = new Point(235, 51);
+            txtNama.Name = "txtNama";
+            txtNama.PlaceholderText = " Masukkan Nama";
+            txtNama.Size = new Size(370, 31);
+            txtNama.TabIndex = 129;
+            // 
+            // lblErrorNama
+            // 
+            lblErrorNama.AutoSize = true;
+            lblErrorNama.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblErrorNama.ForeColor = Color.Red;
+            lblErrorNama.Location = new Point(235, 85);
+            lblErrorNama.Name = "lblErrorNama";
+            lblErrorNama.Size = new Size(155, 17);
+            lblErrorNama.TabIndex = 131;
+            lblErrorNama.Text = "⚠️ Harap mengisi nama!";
+            lblErrorNama.TextAlign = ContentAlignment.MiddleRight;
+            lblErrorNama.Visible = false;
+            // 
+            // txtPassword
+            // 
+            txtPassword.BeforeTouchSize = new Size(370, 31);
+            txtPassword.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.Location = new Point(235, 231);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = " Masukkan password";
+            txtPassword.ReadOnly = true;
+            txtPassword.Size = new Size(370, 31);
+            txtPassword.TabIndex = 130;
+            // 
+            // btnRegister
+            // 
+            btnRegister.BackColor = Color.FromArgb(74, 92, 110);
+            btnRegister.FlatAppearance.BorderSize = 0;
+            btnRegister.FlatStyle = FlatStyle.Flat;
+            btnRegister.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRegister.ForeColor = Color.White;
+            btnRegister.Location = new Point(632, 51);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(138, 36);
+            btnRegister.TabIndex = 149;
+            btnRegister.Text = "Save";
+            btnRegister.UseVisualStyleBackColor = false;
+            // 
+            // ujicoba
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1397, 683);
-            Controls.Add(yogaPanel1);
+            Controls.Add(btnRegister);
+            Controls.Add(linkReset);
+            Controls.Add(label4);
+            Controls.Add(lblErrorAlamat);
+            Controls.Add(lblErrorTelepon);
+            Controls.Add(label8);
+            Controls.Add(txtNoTelp);
+            Controls.Add(label9);
+            Controls.Add(label10);
+            Controls.Add(txtNoKTP);
+            Controls.Add(lblErrorKTP);
+            Controls.Add(txtAlamat);
+            Controls.Add(lblErrorPassword);
+            Controls.Add(lblErrorEmail);
+            Controls.Add(label5);
+            Controls.Add(txtEmail);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(txtNama);
+            Controls.Add(lblErrorNama);
+            Controls.Add(txtPassword);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormRiwayat";
+            Name = "ujicoba";
             Text = "Tabel";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            yogaPanel1.ResumeLayout(false);
-            yogaPanel1.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)numericEntries).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             contextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)txtNoTelp).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtNoKTP).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtAlamat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtEmail).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtNama).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtPassword).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
-        private DhafaPanel yogaPanel1;
-        private NumericUpDown numericEntries;
-        private Label label1;
-        private TextBox txtSearch;
-        private Label label3;
-        private Panel panel1;
-        private DhafaButton btnNext;
-        private DhafaButton btnPrevious;
-        private Panel panel2;
-        private Label lblHalaman;
-        private DhafaButton btnSearch;
-        private ComboBox comboFilterWaktu;
-        private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem nNToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem;
-        private Syncfusion.WinForms.Input.SfDateTimeEdit tgl2;
-        private Syncfusion.WinForms.Input.SfDateTimeEdit tgl1;
-        private Label lblTo;
-        private Panel panelTanggalFilter;
-        private Panel panelComboFilter;
-        private ComboBox comboFilterStatus;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
         private ToolStripMenuItem InvoiceStripMenuItem;
+        private LinkLabel linkReset;
+        private Label label4;
+        private Label lblErrorAlamat;
+        private Label lblErrorTelepon;
+        private Label label8;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNoTelp;
+        private Label label9;
+        private Label label10;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNoKTP;
+        private Label lblErrorKTP;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtAlamat;
+        private Label lblErrorPassword;
+        private Label lblErrorEmail;
+        private Label label5;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtEmail;
+        private Label label3;
+        private Label label2;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNama;
+        private Label lblErrorNama;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtPassword;
+        private Button btnRegister;
     }
 }

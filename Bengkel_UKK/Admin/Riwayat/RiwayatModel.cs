@@ -25,6 +25,7 @@ namespace Bengkel_UKK.Admin.Riwayat
         public DateTime tanggal { get; set; }
         public string ktp_admin { get; set; }
         public string nama_admin { get; set; }
+        public string nama_petugas { get; set; }
 
         public string ktp_mekanik { get; set; }  
         public string nama_mekanik { get; set; }  

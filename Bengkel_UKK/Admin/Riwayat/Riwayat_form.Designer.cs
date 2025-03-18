@@ -36,11 +36,11 @@ namespace Bengkel_UKK.Admin.Riwayat
             panelTanggalFilter = new Panel();
             panelComboFilter = new Panel();
             lblTo = new Label();
+            btn_ekspor = new DhafaButton();
             tgl2 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             tgl1 = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             lblShowingEntries = new Label();
             comboFilterWaktu = new ComboBox();
-            btn_ekspor = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -94,6 +94,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             yogaPanel1.Controls.Add(panelTanggalFilter);
             yogaPanel1.Controls.Add(panelComboFilter);
             yogaPanel1.Controls.Add(lblTo);
+            yogaPanel1.Controls.Add(btn_ekspor);
             yogaPanel1.Controls.Add(tgl2);
             yogaPanel1.Controls.Add(tgl1);
             yogaPanel1.Controls.Add(lblShowingEntries);
@@ -147,6 +148,29 @@ namespace Bengkel_UKK.Admin.Riwayat
             lblTo.TabIndex = 117;
             lblTo.Text = "_";
             // 
+            // btn_ekspor
+            // 
+            btn_ekspor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_ekspor.BackColor = Color.FromArgb(230, 126, 34);
+            btn_ekspor.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btn_ekspor.BackgroundImageLayout = ImageLayout.Center;
+            btn_ekspor.BorderColor = Color.PaleVioletRed;
+            btn_ekspor.BorderRadius = 0;
+            btn_ekspor.BorderSize = 0;
+            btn_ekspor.FlatAppearance.BorderSize = 0;
+            btn_ekspor.FlatStyle = FlatStyle.Flat;
+            btn_ekspor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_ekspor.ForeColor = Color.White;
+            btn_ekspor.Image = (Image)resources.GetObject("btn_ekspor.Image");
+            btn_ekspor.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_ekspor.Location = new Point(1005, 33);
+            btn_ekspor.Name = "btn_ekspor";
+            btn_ekspor.Size = new Size(155, 28);
+            btn_ekspor.TabIndex = 12;
+            btn_ekspor.Text = "     Export Laporan";
+            btn_ekspor.TextColor = Color.White;
+            btn_ekspor.UseVisualStyleBackColor = false;
+            // 
             // tgl2
             // 
             tgl2.DateTimeIcon = null;
@@ -196,28 +220,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             comboFilterWaktu.Name = "comboFilterWaktu";
             comboFilterWaktu.Size = new Size(176, 28);
             comboFilterWaktu.TabIndex = 12;
-            // 
-            // btn_ekspor
-            // 
-            btn_ekspor.BackColor = Color.FromArgb(230, 126, 34);
-            btn_ekspor.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btn_ekspor.BackgroundImageLayout = ImageLayout.Center;
-            btn_ekspor.BorderColor = Color.PaleVioletRed;
-            btn_ekspor.BorderRadius = 0;
-            btn_ekspor.BorderSize = 0;
-            btn_ekspor.FlatAppearance.BorderSize = 0;
-            btn_ekspor.FlatStyle = FlatStyle.Flat;
-            btn_ekspor.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_ekspor.ForeColor = Color.White;
-            btn_ekspor.Image = (Image)resources.GetObject("btn_ekspor.Image");
-            btn_ekspor.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_ekspor.Location = new Point(1195, 25);
-            btn_ekspor.Name = "btn_ekspor";
-            btn_ekspor.Size = new Size(174, 44);
-            btn_ekspor.TabIndex = 12;
-            btn_ekspor.Text = " Export Laporan";
-            btn_ekspor.TextColor = Color.White;
-            btn_ekspor.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -415,7 +417,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             BackColor = SystemColors.Control;
             ClientSize = new Size(1397, 683);
             Controls.Add(yogaPanel1);
-            Controls.Add(btn_ekspor);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Riwayat_form";
             Text = "Tabel";

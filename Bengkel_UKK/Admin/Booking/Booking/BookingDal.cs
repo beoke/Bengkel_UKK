@@ -38,6 +38,33 @@ namespace Bengkel_UKK.Admin.Booking
                             LEFT JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis {filter.sql}";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<BookingModel2>(sql, filter.param);
+        } 
+        public IEnumerable<BookingModel2> ListDataByKtp(string ktp_pelanggan)
+        {
+            string sql = $@"SELECT 
+                                b.id_booking,
+                                b.ktp_pelanggan, 
+                                COALESCE(b.nama_pelanggan, p.nama_pelanggan) AS nama_pelanggan, 
+                                b.id_kendaraan, 
+                                COALESCE(b.no_pol, k.no_pol) AS no_pol,
+                                COALESCE(
+                                    b.nama_kendaraan, 
+                                    CONCAT(k.merk, ' ', k.tipe, ' ', k.kapasitas, 'cc (', k.tahun, ')')
+                                ) AS nama_kendaraan,
+                                b.tanggal,
+                                b.keluhan,
+                                b.catatan,
+                                b.antrean,
+                                b.ktp_mekanik,
+                                b.id_jasaServis,
+                                b.status
+                            FROM Booking b 
+                            LEFT JOIN Pelanggan p ON b.ktp_pelanggan = p.ktp_pelanggan
+                            LEFT JOIN Kendaraan k ON b.id_kendaraan = k.id_kendaraan
+                            LEFT JOIN JasaServis js ON js.id_jasaServis = b.id_jasaServis
+                            WHERE b.ktp_pelanggan = @ktp_pelanggan";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.Query<BookingModel2>(sql,new {ktp_pelanggan});
         }
        
 
@@ -229,10 +256,10 @@ namespace Bengkel_UKK.Admin.Booking
                     @ktp_admin, b.ktp_mekanik, b.keluhan, b.catatan, @total_harga, 
                     b.id_jasaServis, @status, @pembatalan_oleh,
                     GETDATE()
-                FROM Bookings b
+                FROM Booking b
                 WHERE b.id_booking = @id_booking";
 
-            string sqlDelete = @"DELETE FROM Bookings WHERE id_booking = @id_booking";
+            string sqlDelete = @"DELETE FROM Booking WHERE id_booking = @id_booking";
 
             using var koneksi = new SqlConnection(conn.connStr);
 

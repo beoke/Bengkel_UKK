@@ -272,9 +272,9 @@ namespace Bengkel_UKK.Admin.Booking
             lblNama.ForeColor = SystemColors.ControlDarkDark;
             lblNama.Location = new Point(164, 243);
             lblNama.Name = "lblNama";
-            lblNama.Size = new Size(170, 23);
+            lblNama.Size = new Size(129, 23);
             lblNama.TabIndex = 118;
-            lblNama.Text = ": Rifki Yoga Syahbani";
+            lblNama.Text = ": Dhafa Bintang";
             // 
             // label5
             // 

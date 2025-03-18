@@ -44,6 +44,7 @@ namespace Bengkel_UKK.Admin.Booking
             _timer.Interval = 10000;
             _timer.Tick += (s, e) => UpdateAntrean();
             _timer.Start();
+            btnSearch.Visible = false;
         }
         private async void UpdateAntrean()
         {
@@ -244,7 +245,7 @@ namespace Bengkel_UKK.Admin.Booking
                     tanggal = x.tanggal,
                     keluhan = x.keluhan,
                     catatan = x.catatan == null ? "(Belum ada catatan)" : x.catatan,
-                    statusImg = x.status == "Menunggu" ? _pending :x.status == "Proses" ?  _dikerjakan : _selesai
+                    statusImg = x.status == "Menunggu" ? _pending :x.status == "dikerjakan" ?  _dikerjakan : _selesai
                 }).ToList();
 
             dataGridView1.DataSource = new SortableBindingList<BookingDto>(list);
@@ -451,7 +452,7 @@ public class FilterDto
     public string sql { get; set; } = string.Empty;
 
     public string sql2 { get; set; } = string.Empty;
-    public DynamicParameters param { get; set; } //public Dictionary<string, object> param { get; set; } = new Dictionary<string, object>();
+    public DynamicParameters param { get; set; } 
 }
 
 public class FilterWaktu

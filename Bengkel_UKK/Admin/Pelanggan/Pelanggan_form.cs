@@ -26,6 +26,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             RegisterEvent();
             LoadData();
             CustomGrid();
+            btnSearch.Visible = false;
         }
         #region INIT COMPONENT
 

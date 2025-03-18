@@ -31,447 +31,375 @@ namespace Bengkel_UKK.Manage_Pelanggan
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            comboMekanik = new ComboBox();
-            label26 = new Label();
-            btnSparepart = new Button();
-            txtSparepart = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            comboServis = new ComboBox();
-            label25 = new Label();
-            label24 = new Label();
-            txtCatatan = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            label9 = new Label();
-            label7 = new Label();
-            txtTanggal = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            txtKeluhan = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            label12 = new Label();
-            label6 = new Label();
-            txtIdBooking = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            label5 = new Label();
-            txtNoPol = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            txtNama = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
+            yogaPanel1 = new DhafaPanel();
             label4 = new Label();
-            txtKendaraan = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            label3 = new Label();
-            txtKTP = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            label2 = new Label();
+            btnStatus = new DhafaButton();
+            btnBatalkanPesanan = new DhafaButton();
+            lblKeluhan = new Label();
+            label12 = new Label();
+            lblTanggal = new Label();
+            label16 = new Label();
+            lblKendaraan = new Label();
+            label18 = new Label();
+            lblNoPol = new Label();
+            label7 = new Label();
+            lblNama = new Label();
+            label5 = new Label();
+            lblNoKTP = new Label();
             label1 = new Label();
-            panel3 = new Panel();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)txtSparepart).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtCatatan).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtTanggal).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtKeluhan).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtIdBooking).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtNoPol).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtNama).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtKendaraan).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtKTP).BeginInit();
-            panel3.SuspendLayout();
+            label8 = new Label();
+            gradientPanelExt3 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
+            lblIdBooking = new Label();
+            gradientPanelExt1 = new Syncfusion.Windows.Forms.Tools.GradientPanelExt();
+            pictureBox3 = new PictureBox();
+            lblAntrean = new Label();
+            label2 = new Label();
+            yogaPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanelExt3).BeginInit();
+            gradientPanelExt3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).BeginInit();
+            gradientPanelExt1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // yogaPanel1
             // 
-            panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(comboMekanik);
-            panel1.Controls.Add(label26);
-            panel1.Controls.Add(btnSparepart);
-            panel1.Controls.Add(txtSparepart);
-            panel1.Controls.Add(comboServis);
-            panel1.Controls.Add(label25);
-            panel1.Controls.Add(label24);
-            panel1.Controls.Add(txtCatatan);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(txtTanggal);
-            panel1.Controls.Add(txtKeluhan);
-            panel1.Controls.Add(label12);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(txtIdBooking);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(txtNoPol);
-            panel1.Controls.Add(txtNama);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(txtKendaraan);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(txtKTP);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(10, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(487, 754);
-            panel1.TabIndex = 13;
-            // 
-            // comboMekanik
-            // 
-            comboMekanik.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboMekanik.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboMekanik.FormattingEnabled = true;
-            comboMekanik.Location = new Point(177, 590);
-            comboMekanik.Name = "comboMekanik";
-            comboMekanik.Size = new Size(257, 28);
-            comboMekanik.TabIndex = 56;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label26.ForeColor = SystemColors.ControlDarkDark;
-            label26.Location = new Point(47, 590);
-            label26.Name = "label26";
-            label26.Size = new Size(80, 23);
-            label26.TabIndex = 55;
-            label26.Text = "Mekanik*";
-            // 
-            // btnSparepart
-            // 
-            btnSparepart.BackColor = Color.FromArgb(230, 126, 34);
-            btnSparepart.FlatAppearance.BorderSize = 0;
-            btnSparepart.FlatStyle = FlatStyle.Flat;
-            btnSparepart.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSparepart.ForeColor = Color.White;
-            btnSparepart.Location = new Point(389, 643);
-            btnSparepart.Margin = new Padding(0);
-            btnSparepart.Name = "btnSparepart";
-            btnSparepart.Size = new Size(45, 26);
-            btnSparepart.TabIndex = 54;
-            btnSparepart.Text = "🔎";
-            btnSparepart.UseVisualStyleBackColor = false;
-            // 
-            // txtSparepart
-            // 
-            txtSparepart.BackColor = Color.White;
-            txtSparepart.BeforeTouchSize = new Size(257, 27);
-            txtSparepart.BorderColor = Color.FromArgb(209, 211, 212);
-            txtSparepart.BorderStyle = BorderStyle.FixedSingle;
-            txtSparepart.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSparepart.ForeColor = SystemColors.ControlText;
-            txtSparepart.Location = new Point(177, 642);
-            txtSparepart.Name = "txtSparepart";
-            txtSparepart.ReadOnly = true;
-            txtSparepart.Size = new Size(206, 27);
-            txtSparepart.TabIndex = 53;
-            txtSparepart.ThemeName = "Default";
-            // 
-            // comboServis
-            // 
-            comboServis.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboServis.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboServis.FormattingEnabled = true;
-            comboServis.Location = new Point(177, 538);
-            comboServis.Name = "comboServis";
-            comboServis.Size = new Size(257, 28);
-            comboServis.TabIndex = 51;
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label25.ForeColor = SystemColors.ControlDarkDark;
-            label25.Location = new Point(47, 642);
-            label25.Name = "label25";
-            label25.Size = new Size(84, 23);
-            label25.TabIndex = 49;
-            label25.Text = "Sparepart";
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label24.ForeColor = SystemColors.ControlDarkDark;
-            label24.Location = new Point(47, 693);
-            label24.Name = "label24";
-            label24.Size = new Size(77, 23);
-            label24.TabIndex = 47;
-            label24.Text = "Catatan*";
-            // 
-            // txtCatatan
-            // 
-            txtCatatan.BackColor = Color.White;
-            txtCatatan.BeforeTouchSize = new Size(257, 27);
-            txtCatatan.BorderColor = Color.FromArgb(209, 211, 212);
-            txtCatatan.BorderStyle = BorderStyle.FixedSingle;
-            txtCatatan.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCatatan.ForeColor = SystemColors.ControlText;
-            txtCatatan.Location = new Point(177, 693);
-            txtCatatan.Name = "txtCatatan";
-            txtCatatan.ReadOnly = true;
-            txtCatatan.Size = new Size(257, 27);
-            txtCatatan.TabIndex = 48;
-            txtCatatan.ThemeName = "Default";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.ForeColor = SystemColors.ControlDarkDark;
-            label9.Location = new Point(47, 538);
-            label9.Name = "label9";
-            label9.Size = new Size(101, 23);
-            label9.TabIndex = 42;
-            label9.Text = "Jenis Servis*";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ForeColor = SystemColors.ControlDarkDark;
-            label7.Location = new Point(47, 364);
-            label7.Name = "label7";
-            label7.Size = new Size(69, 23);
-            label7.TabIndex = 40;
-            label7.Text = "Tanggal";
-            // 
-            // txtTanggal
-            // 
-            txtTanggal.BackColor = Color.White;
-            txtTanggal.BeforeTouchSize = new Size(257, 27);
-            txtTanggal.BorderColor = Color.FromArgb(128, 128, 255);
-            txtTanggal.BorderStyle = BorderStyle.FixedSingle;
-            txtTanggal.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTanggal.ForeColor = SystemColors.ControlText;
-            txtTanggal.Location = new Point(177, 364);
-            txtTanggal.Name = "txtTanggal";
-            txtTanggal.ReadOnly = true;
-            txtTanggal.Size = new Size(257, 27);
-            txtTanggal.TabIndex = 39;
-            txtTanggal.Text = "10 November 2024";
-            txtTanggal.ThemeName = "Default";
-            // 
-            // txtKeluhan
-            // 
-            txtKeluhan.BackColor = Color.White;
-            txtKeluhan.BeforeTouchSize = new Size(257, 27);
-            txtKeluhan.BorderColor = Color.FromArgb(128, 128, 255);
-            txtKeluhan.BorderStyle = BorderStyle.FixedSingle;
-            txtKeluhan.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtKeluhan.ForeColor = SystemColors.ControlText;
-            txtKeluhan.Location = new Point(177, 412);
-            txtKeluhan.Multiline = true;
-            txtKeluhan.Name = "txtKeluhan";
-            txtKeluhan.ReadOnly = true;
-            txtKeluhan.Size = new Size(257, 76);
-            txtKeluhan.TabIndex = 33;
-            txtKeluhan.Text = "Lampu injeksi nyala dan tarikan bawah loyo";
-            txtKeluhan.ThemeName = "Default";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.ForeColor = SystemColors.ControlDarkDark;
-            label12.Location = new Point(47, 412);
-            label12.Name = "label12";
-            label12.Size = new Size(72, 23);
-            label12.TabIndex = 38;
-            label12.Text = "Keluhan";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ForeColor = SystemColors.ControlDarkDark;
-            label6.Location = new Point(47, 316);
-            label6.Name = "label6";
-            label6.Size = new Size(61, 23);
-            label6.TabIndex = 32;
-            label6.Text = "No Pol";
-            // 
-            // txtIdBooking
-            // 
-            txtIdBooking.BackColor = Color.White;
-            txtIdBooking.BeforeTouchSize = new Size(257, 27);
-            txtIdBooking.BorderColor = Color.FromArgb(209, 211, 212);
-            txtIdBooking.BorderStyle = BorderStyle.FixedSingle;
-            txtIdBooking.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtIdBooking.ForeColor = SystemColors.ControlText;
-            txtIdBooking.Location = new Point(177, 95);
-            txtIdBooking.Name = "txtIdBooking";
-            txtIdBooking.ReadOnly = true;
-            txtIdBooking.Size = new Size(257, 27);
-            txtIdBooking.TabIndex = 27;
-            txtIdBooking.Text = "1277";
-            txtIdBooking.ThemeName = "Default";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = SystemColors.ControlDarkDark;
-            label5.Location = new Point(47, 268);
-            label5.Name = "label5";
-            label5.Size = new Size(92, 23);
-            label5.TabIndex = 4;
-            label5.Text = "Kendaraan";
-            // 
-            // txtNoPol
-            // 
-            txtNoPol.BackColor = Color.White;
-            txtNoPol.BeforeTouchSize = new Size(257, 27);
-            txtNoPol.BorderColor = Color.FromArgb(128, 128, 255);
-            txtNoPol.BorderStyle = BorderStyle.FixedSingle;
-            txtNoPol.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNoPol.ForeColor = SystemColors.ControlText;
-            txtNoPol.Location = new Point(177, 316);
-            txtNoPol.Name = "txtNoPol";
-            txtNoPol.ReadOnly = true;
-            txtNoPol.Size = new Size(257, 27);
-            txtNoPol.TabIndex = 31;
-            txtNoPol.Text = "AB 8898 FC";
-            txtNoPol.ThemeName = "Default";
-            // 
-            // txtNama
-            // 
-            txtNama.BackColor = Color.White;
-            txtNama.BeforeTouchSize = new Size(257, 27);
-            txtNama.BorderColor = Color.FromArgb(209, 211, 212);
-            txtNama.BorderStyle = BorderStyle.FixedSingle;
-            txtNama.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNama.ForeColor = SystemColors.ControlText;
-            txtNama.Location = new Point(177, 143);
-            txtNama.Name = "txtNama";
-            txtNama.ReadOnly = true;
-            txtNama.Size = new Size(257, 27);
-            txtNama.TabIndex = 28;
-            txtNama.Text = "Dhafa Bintang Ramadhan";
-            txtNama.ThemeName = "Default";
+            yogaPanel1.Anchor = AnchorStyles.None;
+            yogaPanel1.BackColor = Color.White;
+            yogaPanel1.BorderColor = Color.PaleVioletRed;
+            yogaPanel1.BorderRadius = 10;
+            yogaPanel1.BorderSize = 2;
+            yogaPanel1.Controls.Add(label4);
+            yogaPanel1.Controls.Add(btnStatus);
+            yogaPanel1.Controls.Add(btnBatalkanPesanan);
+            yogaPanel1.Controls.Add(lblKeluhan);
+            yogaPanel1.Controls.Add(label12);
+            yogaPanel1.Controls.Add(lblTanggal);
+            yogaPanel1.Controls.Add(label16);
+            yogaPanel1.Controls.Add(lblKendaraan);
+            yogaPanel1.Controls.Add(label18);
+            yogaPanel1.Controls.Add(lblNoPol);
+            yogaPanel1.Controls.Add(label7);
+            yogaPanel1.Controls.Add(lblNama);
+            yogaPanel1.Controls.Add(label5);
+            yogaPanel1.Controls.Add(lblNoKTP);
+            yogaPanel1.Controls.Add(label1);
+            yogaPanel1.Controls.Add(label8);
+            yogaPanel1.Controls.Add(gradientPanelExt3);
+            yogaPanel1.Controls.Add(gradientPanelExt1);
+            yogaPanel1.ForeColor = Color.White;
+            yogaPanel1.Location = new Point(12, 17);
+            yogaPanel1.Name = "yogaPanel1";
+            yogaPanel1.Size = new Size(458, 617);
+            yogaPanel1.TabIndex = 0;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = SystemColors.ControlDarkDark;
-            label4.Location = new Point(47, 189);
+            label4.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(202, 133);
             label4.Name = "label4";
-            label4.Size = new Size(67, 23);
-            label4.TabIndex = 3;
-            label4.Text = "No KTP";
+            label4.Size = new Size(66, 23);
+            label4.TabIndex = 143;
+            label4.Text = "Status :";
             // 
-            // txtKendaraan
+            // btnStatus
             // 
-            txtKendaraan.BackColor = Color.White;
-            txtKendaraan.BeforeTouchSize = new Size(257, 27);
-            txtKendaraan.BorderColor = Color.FromArgb(128, 128, 255);
-            txtKendaraan.BorderStyle = BorderStyle.FixedSingle;
-            txtKendaraan.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtKendaraan.ForeColor = SystemColors.ControlText;
-            txtKendaraan.Location = new Point(177, 268);
-            txtKendaraan.Name = "txtKendaraan";
-            txtKendaraan.ReadOnly = true;
-            txtKendaraan.Size = new Size(257, 27);
-            txtKendaraan.TabIndex = 30;
-            txtKendaraan.Text = "Vario 160";
-            txtKendaraan.ThemeName = "Default";
+            btnStatus.BackColor = Color.FromArgb(4, 120, 244);
+            btnStatus.BackgroundColor = Color.FromArgb(4, 120, 244);
+            btnStatus.BorderColor = Color.PaleVioletRed;
+            btnStatus.BorderRadius = 16;
+            btnStatus.BorderSize = 0;
+            btnStatus.FlatAppearance.BorderSize = 0;
+            btnStatus.FlatStyle = FlatStyle.Flat;
+            btnStatus.Font = new Font("Segoe UI", 10.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnStatus.ForeColor = Color.White;
+            btnStatus.Location = new Point(275, 128);
+            btnStatus.Name = "btnStatus";
+            btnStatus.Size = new Size(124, 33);
+            btnStatus.TabIndex = 142;
+            btnStatus.Text = "Pending";
+            btnStatus.TextColor = Color.White;
+            btnStatus.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // btnBatalkanPesanan
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = SystemColors.ControlDarkDark;
-            label3.Location = new Point(47, 142);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 23);
-            label3.TabIndex = 2;
-            label3.Text = "Nama";
+            btnBatalkanPesanan.Anchor = AnchorStyles.Bottom;
+            btnBatalkanPesanan.BackColor = Color.FromArgb(239, 7, 7);
+            btnBatalkanPesanan.BackgroundColor = Color.FromArgb(239, 7, 7);
+            btnBatalkanPesanan.BorderColor = Color.PaleVioletRed;
+            btnBatalkanPesanan.BorderRadius = 4;
+            btnBatalkanPesanan.BorderSize = 0;
+            btnBatalkanPesanan.FlatAppearance.BorderSize = 0;
+            btnBatalkanPesanan.FlatStyle = FlatStyle.Flat;
+            btnBatalkanPesanan.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBatalkanPesanan.ForeColor = Color.White;
+            btnBatalkanPesanan.Location = new Point(277, 566);
+            btnBatalkanPesanan.Name = "btnBatalkanPesanan";
+            btnBatalkanPesanan.Size = new Size(172, 41);
+            btnBatalkanPesanan.TabIndex = 140;
+            btnBatalkanPesanan.Text = "Batalkan Pesanan";
+            btnBatalkanPesanan.TextColor = Color.White;
+            btnBatalkanPesanan.UseVisualStyleBackColor = false;
             // 
-            // txtKTP
+            // lblKeluhan
             // 
-            txtKTP.BackColor = Color.White;
-            txtKTP.BeforeTouchSize = new Size(257, 27);
-            txtKTP.BorderColor = Color.FromArgb(209, 211, 212);
-            txtKTP.BorderStyle = BorderStyle.FixedSingle;
-            txtKTP.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtKTP.ForeColor = SystemColors.ControlText;
-            txtKTP.Location = new Point(177, 191);
-            txtKTP.Name = "txtKTP";
-            txtKTP.ReadOnly = true;
-            txtKTP.Size = new Size(257, 27);
-            txtKTP.TabIndex = 29;
-            txtKTP.Text = "0183831031831831";
-            txtKTP.ThemeName = "Default";
+            lblKeluhan.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblKeluhan.ForeColor = SystemColors.ControlDarkDark;
+            lblKeluhan.Location = new Point(164, 441);
+            lblKeluhan.Name = "lblKeluhan";
+            lblKeluhan.Size = new Size(271, 113);
+            lblKeluhan.TabIndex = 130;
+            lblKeluhan.Text = ": Mesin sering brebet apalagi saat tarikan bawah";
             // 
-            // label2
+            // label12
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(47, 95);
-            label2.Name = "label2";
-            label2.Size = new Size(94, 23);
-            label2.TabIndex = 1;
-            label2.Text = "ID Booking";
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.Black;
+            label12.Location = new Point(36, 443);
+            label12.Name = "label12";
+            label12.Size = new Size(72, 23);
+            label12.TabIndex = 129;
+            label12.Text = "Keluhan";
+            // 
+            // lblTanggal
+            // 
+            lblTanggal.AutoSize = true;
+            lblTanggal.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTanggal.ForeColor = SystemColors.ControlDarkDark;
+            lblTanggal.Location = new Point(164, 380);
+            lblTanggal.Name = "lblTanggal";
+            lblTanggal.Size = new Size(141, 23);
+            lblTanggal.TabIndex = 126;
+            lblTanggal.Text = ": 17 Agustus 1945";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label16.ForeColor = Color.Black;
+            label16.Location = new Point(36, 381);
+            label16.Name = "label16";
+            label16.Size = new Size(69, 23);
+            label16.TabIndex = 125;
+            label16.Text = "Tanggal";
+            // 
+            // lblKendaraan
+            // 
+            lblKendaraan.AutoSize = true;
+            lblKendaraan.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblKendaraan.ForeColor = SystemColors.ControlDarkDark;
+            lblKendaraan.Location = new Point(164, 342);
+            lblKendaraan.Name = "lblKendaraan";
+            lblKendaraan.Size = new Size(246, 23);
+            lblKendaraan.TabIndex = 124;
+            lblKendaraan.Text = ": Honda Vario LED 125cc (2016)";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label18.ForeColor = Color.Black;
+            label18.Location = new Point(36, 342);
+            label18.Name = "label18";
+            label18.Size = new Size(92, 23);
+            label18.TabIndex = 123;
+            label18.Text = "Kendaraan";
+            // 
+            // lblNoPol
+            // 
+            lblNoPol.AutoSize = true;
+            lblNoPol.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNoPol.ForeColor = SystemColors.ControlDarkDark;
+            lblNoPol.Location = new Point(164, 304);
+            lblNoPol.Name = "lblNoPol";
+            lblNoPol.Size = new Size(95, 23);
+            lblNoPol.TabIndex = 122;
+            lblNoPol.Text = ": AB 123 FC";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(36, 304);
+            label7.Name = "label7";
+            label7.Size = new Size(107, 23);
+            label7.TabIndex = 121;
+            label7.Text = "Nomor Polisi";
+            // 
+            // lblNama
+            // 
+            lblNama.AutoSize = true;
+            lblNama.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNama.ForeColor = SystemColors.ControlDarkDark;
+            lblNama.Location = new Point(164, 243);
+            lblNama.Name = "lblNama";
+            lblNama.Size = new Size(129, 23);
+            lblNama.TabIndex = 118;
+            lblNama.Text = ": Dhafa Bintang";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(36, 243);
+            label5.Name = "label5";
+            label5.Size = new Size(56, 23);
+            label5.TabIndex = 117;
+            label5.Text = "Nama";
+            // 
+            // lblNoKTP
+            // 
+            lblNoKTP.AutoSize = true;
+            lblNoKTP.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNoKTP.ForeColor = SystemColors.ControlDarkDark;
+            lblNoKTP.Location = new Point(164, 205);
+            lblNoKTP.Name = "lblNoKTP";
+            lblNoKTP.Size = new Size(129, 23);
+            lblNoKTP.TabIndex = 116;
+            lblNoKTP.Text = ": 087286383344";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(146, 26);
+            label1.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(210, 36);
             label1.Name = "label1";
-            label1.Size = new Size(186, 30);
-            label1.TabIndex = 0;
-            label1.Text = "DETAIL BOOKING";
+            label1.Size = new Size(95, 23);
+            label1.TabIndex = 115;
+            label1.Text = "ID Booking";
             // 
-            // panel3
+            // label8
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.AutoScroll = true;
-            panel3.Controls.Add(panel1);
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(509, 778);
-            panel3.TabIndex = 79;
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(36, 205);
+            label8.Name = "label8";
+            label8.Size = new Size(71, 23);
+            label8.TabIndex = 114;
+            label8.Text = "No. KTP";
+            // 
+            // gradientPanelExt3
+            // 
+            gradientPanelExt3.BackColor = Color.Transparent;
+            gradientPanelExt3.Border = new Padding(2);
+            gradientPanelExt3.BorderGap = 2;
+            gradientPanelExt3.BorderStyle = BorderStyle.None;
+            gradientPanelExt3.Controls.Add(lblIdBooking);
+            gradientPanelExt3.CornerRadius = 15;
+            gradientPanelExt3.Location = new Point(202, 61);
+            gradientPanelExt3.Margin = new Padding(3, 2, 3, 2);
+            gradientPanelExt3.Name = "gradientPanelExt3";
+            gradientPanelExt3.Size = new Size(234, 46);
+            gradientPanelExt3.TabIndex = 113;
+            // 
+            // lblIdBooking
+            // 
+            lblIdBooking.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblIdBooking.ForeColor = Color.DimGray;
+            lblIdBooking.Location = new Point(8, 9);
+            lblIdBooking.Name = "lblIdBooking";
+            lblIdBooking.Size = new Size(205, 26);
+            lblIdBooking.TabIndex = 106;
+            lblIdBooking.Text = "112334";
+            lblIdBooking.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // gradientPanelExt1
+            // 
+            gradientPanelExt1.BackColor = Color.Transparent;
+            gradientPanelExt1.Border = new Padding(12);
+            gradientPanelExt1.BorderStyle = BorderStyle.None;
+            gradientPanelExt1.Controls.Add(pictureBox3);
+            gradientPanelExt1.Controls.Add(lblAntrean);
+            gradientPanelExt1.Controls.Add(label2);
+            gradientPanelExt1.CornerRadius = 15;
+            gradientPanelExt1.Location = new Point(14, 13);
+            gradientPanelExt1.Name = "gradientPanelExt1";
+            gradientPanelExt1.Size = new Size(168, 181);
+            gradientPanelExt1.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox3.Location = new Point(107, 129);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(41, 29);
+            pictureBox3.TabIndex = 67;
+            pictureBox3.TabStop = false;
+            // 
+            // lblAntrean
+            // 
+            lblAntrean.Font = new Font("Microsoft New Tai Lue", 26F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAntrean.ForeColor = SystemColors.ControlText;
+            lblAntrean.Location = new Point(18, 67);
+            lblAntrean.Name = "lblAntrean";
+            lblAntrean.Size = new Size(133, 41);
+            lblAntrean.TabIndex = 3;
+            lblAntrean.Text = "A012";
+            lblAntrean.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 11.5F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.ControlDarkDark;
+            label2.Location = new Point(22, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 21);
+            label2.TabIndex = 3;
+            label2.Text = "Nomor Antrean";
             // 
             // DetailBookingPelanggan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(509, 778);
-            Controls.Add(panel3);
+            BackColor = Color.FromArgb(230, 235, 240);
+            ClientSize = new Size(488, 647);
+            Controls.Add(yogaPanel1);
             Name = "DetailBookingPelanggan";
-            Text = "FormBookingDetail";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)txtSparepart).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtCatatan).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtTanggal).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtKeluhan).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtIdBooking).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtNoPol).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtNama).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtKendaraan).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtKTP).EndInit();
-            panel3.ResumeLayout(false);
+            Text = "FormDetailBooking";
+            yogaPanel1.ResumeLayout(false);
+            yogaPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)gradientPanelExt3).EndInit();
+            gradientPanelExt3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)gradientPanelExt1).EndInit();
+            gradientPanelExt1.ResumeLayout(false);
+            gradientPanelExt1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Label label6;
-        private Label label5;
-        private Label label4;
-        private Label label3;
+        private DhafaPanel yogaPanel1;
+        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt1;
+        private PictureBox pictureBox3;
+        private Label lblAntrean;
         private Label label2;
+        private Syncfusion.Windows.Forms.Tools.GradientPanelExt gradientPanelExt3;
+        private Label lblIdBooking;
+        private Label lblNoKTP;
         private Label label1;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtKeluhan;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNoPol;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtKendaraan;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtKTP;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtNama;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtIdBooking;
-        private Label label12;
+        private Label label8;
+        private Label lblNoPol;
         private Label label7;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtTanggal;
-        private Label label9;
-        private Label label24;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtCatatan;
-        private Label label25;
-        private ComboBox comboServis;
-        private Button btnSparepart;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt txtSparepart;
-        private ComboBox comboMekanik;
-        private Label label26;
-        private Panel panel3;
+        private Label lblNama;
+        private Label label5;
+        private Label lblKeluhan;
+        private Label label12;
+        private Label lblTanggal;
+        private Label label16;
+        private Label lblKendaraan;
+        private Label label18;
+        private DhafaButton btnBatalkanPesanan;
+        private DhafaButton btnStatus;
+        private Label label4;
     }
 }

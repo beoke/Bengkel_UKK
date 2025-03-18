@@ -21,6 +21,7 @@ namespace Bengkel_UKK.Admin.Booking.Booking
         private BindingList<ProdukAddDto> _bindingListUse = new BindingList<ProdukAddDto>();
         private BindingSource _bindingSourceUse = new BindingSource();
         private readonly BookingDal _bookingDal = new BookingDal();
+        private int _stokBeginEdit = 0;
         public AddSparepart_form()
         {
             InitializeComponent();
@@ -96,8 +97,6 @@ namespace Bengkel_UKK.Admin.Booking.Booking
 
         private void LoadData()
         {
-            string search = txtSearch.Text.ToLower();
-
             var listBookingSparepart = _bookingDal.ListDataProduk(BookingDetail_form._id_booking);
             var bookedKodeSpareparts = listBookingSparepart.Select(x => x.kode_sparepart).ToHashSet();
 
@@ -135,9 +134,54 @@ namespace Bengkel_UKK.Admin.Booking.Booking
                 await Task.Delay(800);
                 Filtering();
             };
+            gridSparepartUse.CellValueChanged += GridSparepartUse_CellValueChanged;
+            gridSparepartUse.EditingControlShowing += GridSparepartUse_EditingControlShowing;
+            gridSparepartUse.CellBeginEdit += GridSparepartUse_CellBeginEdit;
         }
 
-
+        private void GridSparepartUse_CellBeginEdit(object? sender, DataGridViewCellCancelEventArgs e)
+        {
+            int stok = Convert.ToInt32(gridSparepartUse.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+            _stokBeginEdit = stok;
+        }
+        private void GridSparepartUse_EditingControlShowing(object? sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (gridSparepartUse.CurrentCell.ColumnIndex == gridSparepartUse.Columns["Jumlah"].Index)
+            {
+                if (e.Control is TextBox textBox)
+                {
+                    textBox.KeyPress -= TextBox_KeyPress;
+                    textBox.KeyPress += TextBox_KeyPress;
+                }
+            }
+        }
+        private void TextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private async void GridSparepartUse_CellValueChanged(object? sender, DataGridViewCellEventArgs e)
+        {
+            await Task.Delay(500);
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            var indexRow = gridSparepartUse.Rows[e.RowIndex];
+            var currentRow = indexRow.Cells[e.ColumnIndex].Value;
+            if (!int.TryParse(currentRow.ToString(), out int jumlah))
+            {
+                PesanBox.Warning("Jumlah harus berupa angka!");
+            }
+            else
+            {
+                int stok = Convert.ToInt32(indexRow.Cells["Stok"].Value);
+                if (jumlah > stok)
+                {
+                    PesanBox.Warning("Jumlah tidak boleh melebihi sparepart!");
+                    gridSparepartUse.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = _stokBeginEdit;
+                }
+            }
+        }
         private void GridSparepartUse_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0 || _bindingListUse.Count == 0) return;
@@ -183,13 +227,13 @@ namespace Bengkel_UKK.Admin.Booking.Booking
 
         private void SaveComponent()
         {
-            int id_booking = BookingDetail_form._id_booking;
-            _bookingDal.DeleteBookingSparepart(id_booking);
+            _bookingDal.DeleteBookingSparepart(BookingDetail_form._id_booking);
+
             foreach (var item in _bindingListUse)
             {
                 _bookingDal.InsertDataBookingSparepart(new ProdukAddDto
                 {
-                    id_booking = id_booking,
+                    id_booking = BookingDetail_form._id_booking,
                     Kode = item.Kode,
                     Jumlah = item.Jumlah
                 });

@@ -15,21 +15,31 @@ namespace Bengkel_UKK.Admin.Riwayat
         public IEnumerable<RiwayatModel?> ListLaporan(DateTime tanggal_1, DateTime tanggal_2)
         {
             const string sql = @"
-               SELECT rw.tanggal, rw.ktp_pelanggan, COALESCE(pl.nama_pelanggan, rw.nama_pelanggan) AS nama_pelanggan,
-       rw.nama_kendaraan, ad_admin.nama_admin AS nama_petugas, ad_mekanik.nama_admin AS nama_mekanik,
-       js.nama_jasaServis AS JasaServis, COALESCE(STRING_AGG(sp.nama_sparepart, ', '), ' ') AS nama_sparepart,
+               SELECT rw.tanggal, rw.ktp_pelanggan, 
+       COALESCE(pl.nama_pelanggan, rw.nama_pelanggan) AS nama_pelanggan,
+       COALESCE(CONCAT(kd.merk, ' ', kd.tipe, ' ', kd.kapasitas, 'cc (', kd.tahun, ')'), rw.nama_kendaraan) AS nama_kendaraan,
+       ad_admin.nama_admin AS nama_petugas, 
+       ad_mekanik.nama_admin AS nama_mekanik,
+       js.nama_jasaServis AS jasa_servis, 
+       COALESCE(STRING_AGG(sp.nama_sparepart, ', '), ' ') AS nama_sparepart,
        rw.keluhan, rw.catatan, rw.total_harga, rw.status
         FROM Riwayat rw
         LEFT JOIN Pelanggan pl ON rw.ktp_pelanggan = pl.ktp_pelanggan
+        LEFT JOIN Kendaraan kd ON rw.id_kendaraan = kd.id_kendaraan
         LEFT JOIN Admin ad_admin ON rw.ktp_admin = ad_admin.ktp_admin AND ad_admin.role = 1
-        LEFT JOIN Admin ad_mekanik ON rw.ktp_mekanik = ad_mekanik.ktp_admin AND ad_mekanik.role = 2
+        LEFT JOIN Admin ad_mekanik ON rw.ktp_mekanik = ad_mekanik.ktp_admin AND ad_mekanik.role = 0
         LEFT JOIN JasaServis js ON rw.id_jasaServis = js.id_jasaServis
         LEFT JOIN RiwayatSparepart ps ON rw.id_riwayat = ps.id_riwayat
         LEFT JOIN Sparepart sp ON ps.kode_sparepart = sp.kode_sparepart
         WHERE rw.tanggal BETWEEN @tanggal_1 AND @tanggal_2
-        GROUP BY rw.tanggal, rw.ktp_pelanggan, COALESCE(pl.nama_pelanggan, rw.nama_pelanggan),
-         rw.nama_kendaraan, ad_admin.nama_admin, ad_mekanik.nama_admin, js.nama_jasaServis,
-         rw.keluhan, rw.catatan, rw.total_harga, rw.status";
+        GROUP BY rw.tanggal, rw.ktp_pelanggan, 
+         COALESCE(pl.nama_pelanggan, rw.nama_pelanggan),
+         COALESCE(CONCAT(kd.merk, ' ', kd.tipe, ' ', kd.kapasitas, 'cc (', kd.tahun, ')'), rw.nama_kendaraan),
+         ad_admin.nama_admin, 
+         ad_mekanik.nama_admin, 
+         js.nama_jasaServis,
+         rw.keluhan, rw.catatan, rw.total_harga, rw.status;
+";
 
 
             using var connection = new SqlConnection(conn.connStr);

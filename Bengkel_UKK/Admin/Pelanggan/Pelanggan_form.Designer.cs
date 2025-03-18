@@ -115,7 +115,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(376, 33);
+            comboFilter.Location = new Point(323, 33);
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
@@ -131,7 +131,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(323, 33);
+            btnSearch.Location = new Point(483, 34);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(47, 27);
             btnSearch.TabIndex = 12;
@@ -321,7 +321,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             btnAddData.Padding = new Padding(10, 0, 0, 0);
             btnAddData.Size = new Size(165, 42);
             btnAddData.TabIndex = 1;
-            btnAddData.Text = " Add Kendaraan";
+            btnAddData.Text = " Add Pelanggan";
             btnAddData.TextColor = Color.White;
             btnAddData.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddData.UseVisualStyleBackColor = false;

@@ -1,5 +1,6 @@
 ﻿using Bengkel_UKK.Helper;
 using Dapper;
+using Syncfusion.Styles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace Bengkel_UKK.Admin.Pelanggan
         private readonly PelangganDal _pelangganDal = new PelangganDal();
         private int _page = 1;
         private int _Totalpage = 1;
+        public string ktp_pelanggan { get; private set; }
+
         public PilihPelangganForm()
         {
             InitializeComponent();
@@ -58,10 +61,10 @@ namespace Bengkel_UKK.Admin.Pelanggan
         }
         private void SetPelanggan()
         {
-            string ktp = dataGridView1.CurrentRow.Cells["KTP"].Value?.ToString() ?? string.Empty;
-            GlobalVariabel.SetKTPPelanggan(ktp);
+            ktp_pelanggan = dataGridView1.CurrentRow.Cells["KTP"].Value?.ToString() ?? string.Empty;
+            string nama = dataGridView1.CurrentRow.Cells["Nama"].Value?.ToString() ?? string.Empty;
+
             this.DialogResult = DialogResult.OK;
-            this.Close();
         }
 
         private void LoadData()

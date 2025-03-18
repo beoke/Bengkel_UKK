@@ -29,6 +29,7 @@ namespace Bengkel_UKK.Admin.Karyawan
 
             LoadData();
             CustomGrid();
+            btnSearch.Visible = false;
         }
         private void RegisterEvent()
         {

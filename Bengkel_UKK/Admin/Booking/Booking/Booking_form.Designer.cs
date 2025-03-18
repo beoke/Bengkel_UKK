@@ -37,6 +37,7 @@ namespace Bengkel_UKK.Admin.Booking
             comboFilterWaktu = new ComboBox();
             lblShowingEntries = new Label();
             comboFilterStatus = new ComboBox();
+            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -56,7 +57,6 @@ namespace Bengkel_UKK.Admin.Booking
             txtBatas = new TextBox();
             btnEditBatasBooking = new DhafaButton();
             btnJadwal = new DhafaButton();
-            btnSearch = new DhafaButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             yogaPanel1.SuspendLayout();
             panel1.SuspendLayout();
@@ -106,7 +106,7 @@ namespace Bengkel_UKK.Admin.Booking
             comboFilterWaktu.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilterWaktu.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilterWaktu.FormattingEnabled = true;
-            comboFilterWaktu.Location = new Point(482, 33);
+            comboFilterWaktu.Location = new Point(429, 34);
             comboFilterWaktu.Name = "comboFilterWaktu";
             comboFilterWaktu.Size = new Size(123, 28);
             comboFilterWaktu.TabIndex = 14;
@@ -128,10 +128,29 @@ namespace Bengkel_UKK.Admin.Booking
             comboFilterStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilterStatus.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilterStatus.FormattingEnabled = true;
-            comboFilterStatus.Location = new Point(376, 33);
+            comboFilterStatus.Location = new Point(323, 34);
             comboFilterStatus.Name = "comboFilterStatus";
             comboFilterStatus.Size = new Size(100, 28);
             comboFilterStatus.TabIndex = 12;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
+            btnSearch.BorderColor = Color.PaleVioletRed;
+            btnSearch.BorderRadius = 0;
+            btnSearch.BorderSize = 0;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(558, 35);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(47, 27);
+            btnSearch.TabIndex = 12;
+            btnSearch.Text = "🔎";
+            btnSearch.TextColor = Color.White;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -373,25 +392,6 @@ namespace Bengkel_UKK.Admin.Booking
             btnJadwal.Text = "📅 Jadwal";
             btnJadwal.TextColor = Color.White;
             btnJadwal.UseVisualStyleBackColor = false;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(323, 33);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.Text = "🔎";
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
             // 
             // Booking_form
             // 

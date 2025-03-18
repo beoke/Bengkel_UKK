@@ -43,7 +43,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label13 = new Label();
             label12 = new Label();
             kapasitas_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
-            Transmisi_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             label9 = new Label();
             label10 = new Label();
             merk_text = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
@@ -63,7 +62,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tahun_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kapasitas_text).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Transmisi_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)merk_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)noPolisi_text).BeginInit();
             ((System.ComponentModel.ISupportInitialize)noKtp_text).BeginInit();
@@ -247,20 +245,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             kapasitas_text.Size = new Size(293, 27);
             kapasitas_text.TabIndex = 99;
             kapasitas_text.ThemeName = "Default";
-            // 
-            // Transmisi_text
-            // 
-            Transmisi_text.BackColor = Color.White;
-            Transmisi_text.BeforeTouchSize = new Size(286, 27);
-            Transmisi_text.BorderColor = Color.FromArgb(209, 211, 212);
-            Transmisi_text.BorderStyle = BorderStyle.FixedSingle;
-            Transmisi_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Transmisi_text.Location = new Point(581, 132);
-            Transmisi_text.Name = "Transmisi_text";
-            Transmisi_text.PlaceholderText = " Masukkan Transmisi";
-            Transmisi_text.Size = new Size(286, 27);
-            Transmisi_text.TabIndex = 98;
-            Transmisi_text.ThemeName = "Default";
             // 
             // label9
             // 
@@ -450,7 +434,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // comboTransmisi
             // 
             comboTransmisi.FormattingEnabled = true;
-            comboTransmisi.Location = new Point(303, 200);
+            comboTransmisi.Location = new Point(581, 130);
             comboTransmisi.Name = "comboTransmisi";
             comboTransmisi.Size = new Size(286, 23);
             comboTransmisi.TabIndex = 120;
@@ -493,7 +477,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(kapasitas_text);
-            Controls.Add(Transmisi_text);
             Controls.Add(label9);
             Controls.Add(label10);
             Controls.Add(merk_text);
@@ -509,7 +492,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tahun_text).EndInit();
             ((System.ComponentModel.ISupportInitialize)kapasitas_text).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Transmisi_text).EndInit();
             ((System.ComponentModel.ISupportInitialize)merk_text).EndInit();
             ((System.ComponentModel.ISupportInitialize)noPolisi_text).EndInit();
             ((System.ComponentModel.ISupportInitialize)noKtp_text).EndInit();
@@ -534,7 +516,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
         private Label label13;
         private Label label12;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt kapasitas_text;
-        private Syncfusion.Windows.Forms.Tools.TextBoxExt Transmisi_text;
         private Label label9;
         private Label label10;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt merk_text;

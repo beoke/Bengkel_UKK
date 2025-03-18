@@ -6,6 +6,7 @@ using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
 using Bengkel_UKK.Admin.Produk;
 using Bengkel_UKK.Admin.Riwayat;
+using Bengkel_UKK.Helper;
 using Bengkel_UKK.Login;
 using Syncfusion.WinForms.Controls;
 using System;
@@ -49,6 +50,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             AddButton(5, btnService);
             AddButton(6, btnPelanggan);
             AddButton(7, btnKaryawan);
+            AddButton(8, btn_kendaraan);
 
             flowLayoutPanel2.AutoScroll = true;
             flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
@@ -105,11 +107,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new Kendaraan_form());
         }
 
-        private void MainFormAdmin_Load(object sender, EventArgs e)
-        {
-            label_nama.Text = Session.Nama;
-            label_role.Text = Session.Role;
-        }
         private void BtnLogout_Click(object? sender, EventArgs e)
         {
             DialogResult = MessageBox.Show("Yakin ingin keluar dari aplikasi?", "Konfirmasi Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -226,13 +223,8 @@ namespace Bengkel_UKK.Admin.Dashboard
 
         private void MainFormAdmin_Load_1(object sender, EventArgs e)
         {
-
+            label_nama.Text = Sesion.nama_admin;
+            label_role.Text = Sesion.role.ToString();
         }
     }
-}
-public static class Session
-{
-    public static int UserID { get; set; }
-    public static string Nama { get; set; }
-    public static string Role { get; set; }
 }

@@ -29,6 +29,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             RegisterEvent();
             LoadData();
             CustomGrid();
+            btnSearch.Visible = false;
         }
         #region INIT COMPONENT & STYLE GRID
         private void InitComponent()

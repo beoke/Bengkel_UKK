@@ -66,7 +66,7 @@ namespace Bengkel_UKK.Admin.Booking
             comboServis.SelectedIndexChanged += async (s, e) => await SaveDataTunggal("jasaServis");
             txtCatatan.Leave += async (s, e) => await SaveDataTunggal("catatan");
         }
-        private void InsertRiwayat()
+        /*private void InsertRiwayat()
         {
             var data = new RiwayatModel()
             {
@@ -86,7 +86,7 @@ namespace Bengkel_UKK.Admin.Booking
             };
             _riwayatDal.Insert(data);
 
-        }
+        }*/
         private void BtnBatalkanPesanan_Click(object? sender, EventArgs e)
         {
             if (txtCatatan.TextLength == 0)
@@ -129,7 +129,6 @@ namespace Bengkel_UKK.Admin.Booking
                 {
                     if (!PesanBox.Konfirmasi("Apakah anda yakin bahwa pesanan ini Sudah Dibayar?\nTindakan ini tidak dapat diurungkan")) return;
                     _servisKeterangan = "selesai";
-                     InsertRiwayat();
                     await KonfirmasiSelesaiServis(true); //insert
                     btnBatalkanPesanan.Visible = false;
                 }
@@ -445,7 +444,7 @@ namespace Bengkel_UKK.Admin.Booking
 
             var dp = new DynamicParameters();
             dp.Add("@id_booking", _id_booking);
-            dp.Add("@ktp_admin", GlobalVariabel._ktp);
+            dp.Add("@ktp_admin", GlobalVariabel._ktp);  // GlobalVariabel "123456789"
             dp.Add("@total_harga", total);
             dp.Add("@status", _servisKeterangan);
             dp.Add("@pembatalan_oleh", cancel ? "Admin/Petugas" : null);

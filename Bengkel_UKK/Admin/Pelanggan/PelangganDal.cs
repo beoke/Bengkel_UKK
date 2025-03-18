@@ -26,6 +26,12 @@ namespace Bengkel_UKK.Admin.Pelanggan
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QuerySingleOrDefault<int>(sql, filter.param);
         }
+        public PelangganModel? GetDataByKTP(string ktp_pelanggan)
+        {
+            const string sql = @"SELECT * FROM Pelanggan WHERE ktp_pelanggan = @ktp_pelanggan";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { ktp_pelanggan });
+        }
 
         public PelangganModel? GetData(string ktp_pelanggan)
         {
@@ -129,7 +135,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
         }
         public PelangganModel? GetLogin(string email)
         {
-            const string sql = @"SELECT ktp_pelanggan, password FROM Pelanggan
+            const string sql = @"SELECT ktp_pelanggan, nama_pelanggan, password FROM Pelanggan
                         WHERE email = @email";
             using var koneksi = new SqlConnection(conn.connStr);
 
