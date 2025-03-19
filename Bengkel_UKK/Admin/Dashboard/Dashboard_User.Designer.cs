@@ -222,7 +222,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnProfile.TextColor = Color.White;
             btnProfile.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnProfile.UseVisualStyleBackColor = false;
-            btnProfile.Visible = false;
             // 
             // panelLeft
             // 

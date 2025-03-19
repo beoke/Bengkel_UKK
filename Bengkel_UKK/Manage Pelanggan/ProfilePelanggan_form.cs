@@ -196,15 +196,15 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
         private void CustomGrid()
         {
-          /*  DataGridView dgv = dataGridView1;
+            DataGridView dgv = dataGridView1;
             CustomGrids.CustomDataGrid(dgv);
 
             List<string> list = new List<string>() { "No", "nama_pelanggan", "no_pol", "merk", "tipe", "kapasitas", "tahun", "transmisi" };
             foreach (string s in list)
             {
                 dgv.Columns[s].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+                // ada column yang tidak dipanggil / kosong
             }
-
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -216,7 +216,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             dgv.Columns["kapasitas"].FillWeight = 10;
             dgv.Columns["tahun"].FillWeight = 10;
             dgv.Columns["transmisi"].FillWeight = 10;
-            dgv.Columns["total_servis"].FillWeight = 13;
+         // dgv.Columns["total_servis"].FillWeight = 13;
 
             dgv.Columns["nama_pelanggan"].HeaderText = "Pemilik";
             dgv.Columns["no_pol"].HeaderText = "No. Polisi";
@@ -225,12 +225,11 @@ namespace Bengkel_UKK.Admin.Pelanggan
             dgv.Columns["kapasitas"].HeaderText = "Kapasitas (cc)";
             dgv.Columns["tahun"].HeaderText = "Tahun";
             dgv.Columns["transmisi"].HeaderText = "Transmisi";
-            dgv.Columns["total_servis"].HeaderText = " Total Servis";
+         //  dgv.Columns["total_servis"].HeaderText = " Total Servis";
 
             dgv.Columns["id_kendaraan"].Visible = false;
 
-            dgv.Columns["total_servis"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-*/
+         // dgv.Columns["total_servis"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         private void LoadData()
         {
@@ -262,9 +261,6 @@ namespace Bengkel_UKK.Admin.Pelanggan
             // Tampilkan di DataGridView
             dataGridView1.DataSource = list;
         }
-
-
-
         private void DataGridView1_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex == -1 && e.ColumnIndex >= 0) // Hanya proses header kolom
