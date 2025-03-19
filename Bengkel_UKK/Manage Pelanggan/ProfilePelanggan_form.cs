@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Color = System.Drawing.Color;
 
 namespace Bengkel_UKK.Admin.Pelanggan
 {
@@ -115,7 +116,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             buttonSave.Enabled = false;
         }
         private void Btn_save_Click(object? sender, EventArgs e)
-        {
+        {   
             SaveData();
         }
         private void SaveData()
@@ -199,38 +200,62 @@ namespace Bengkel_UKK.Admin.Pelanggan
             DataGridView dgv = dataGridView1;
             CustomGrids.CustomDataGrid(dgv);
 
-            List<string> list = new List<string>() { "No", "nama_pelanggan", "no_pol", "merk", "tipe", "kapasitas", "tahun", "transmisi" };
+             List<string> list = new List<string>() {
+                "nama_pelanggan", "no_pol",
+                "merk", "tipe", "transmisi", "kapasitas",
+                "tahun", "total_servis"  
+            };
+
             foreach (string s in list)
             {
-                dgv.Columns[s].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
-                // ada column yang tidak dipanggil / kosong
+                if (dgv.Columns.Contains(s)) // Cek apakah kolom ada sebelum diakses
+                {
+                    dgv.Columns[s].DefaultCellStyle.Padding = new Padding(20, 0, 0, 0);
+                }
             }
 
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgv.Columns["No"].FillWeight = 6;
-            dgv.Columns["nama_pelanggan"].FillWeight = 25;
-            dgv.Columns["no_pol"].FillWeight = 13;
-            dgv.Columns["merk"].FillWeight = 15;
-            dgv.Columns["tipe"].FillWeight = 13;
-            dgv.Columns["kapasitas"].FillWeight = 10;
-            dgv.Columns["tahun"].FillWeight = 10;
-            dgv.Columns["transmisi"].FillWeight = 10;
-         // dgv.Columns["total_servis"].FillWeight = 13;
+            string[] columnsToFormat = {  "nama_pelanggan", "no_pol", "merk",
+                                 "tipe", "kapasitas", "tahun", "transmisi", "total_servis" };
 
-            dgv.Columns["nama_pelanggan"].HeaderText = "Pemilik";
-            dgv.Columns["no_pol"].HeaderText = "No. Polisi";
-            dgv.Columns["merk"].HeaderText = "Merk";
-            dgv.Columns["tipe"].HeaderText = "Tipe";
-            dgv.Columns["kapasitas"].HeaderText = "Kapasitas (cc)";
-            dgv.Columns["tahun"].HeaderText = "Tahun";
-            dgv.Columns["transmisi"].HeaderText = "Transmisi";
-         //  dgv.Columns["total_servis"].HeaderText = " Total Servis";
+             Dictionary<string, float> fillWeights = new Dictionary<string, float>
+            {
+                { "nama_pelanggan", 25 }, { "no_pol", 13 },
+                { "merk", 15 }, { "tipe", 13 }, { "kapasitas", 10 },
+                { "tahun", 10 }, { "transmisi", 10 }, { "total_servis", 13 }
+            };
 
-            dgv.Columns["id_kendaraan"].Visible = false;
+                    Dictionary<string, string> headers = new Dictionary<string, string>
+            {
+                { "nama_pelanggan", "Pemilik" }, { "no_pol", "No. Polisi" },
+                { "merk", "Merk" }, { "tipe", "Tipe" }, { "kapasitas", "Kapasitas (cc)" },
+                { "tahun", "Tahun" }, { "transmisi", "Transmisi" }, { "total_servis", "Total Servis" }
+            };
 
-         // dgv.Columns["total_servis"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            foreach (var column in columnsToFormat)
+            {
+                if (dgv.Columns.Contains(column))
+                {
+                    dgv.Columns[column].FillWeight = fillWeights[column];
+                    if (headers.ContainsKey(column))
+                        dgv.Columns[column].HeaderText = headers[column];
+                }
+            }
+
+           /* if (dgv.Columns.Contains("id_kendaraan"))
+                dgv.Columns["id_kendaraan"].Visible = false;*/
+
+            if (dgv.Columns.Contains("total_servis"))
+                dgv.Columns["total_servis"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //untuk style
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dataGridView1.GridColor = Color.Gray;
+            dataGridView1.AdvancedCellBorderStyle.All = DataGridViewAdvancedCellBorderStyle.Single;
+            dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
+
         private void LoadData()
         {
             string ktp_pelanggan = GlobalVariabel._ktp_pelanggan;
@@ -247,8 +272,8 @@ namespace Bengkel_UKK.Admin.Pelanggan
                 .Select((x, index) => new
                 {
                     No = index + 1,
-                    id_kendaraan = x.id_kendaraan,
-                    nama_pelanggan = x.nama_pelanggan,
+                //    id_kendaraan = x.id_kendaraan,
+                //  nama_pelanggan = x.nama_pelanggan,
                     no_pol = x.no_pol,
                     merk = x.merk,
                     tipe = x.tipe,

@@ -80,7 +80,7 @@
             panel2.Controls.Add(label4);
             panel2.Location = new Point(449, 82);
             panel2.Name = "panel2";
-            panel2.Size = new Size(645, 537);
+            panel2.Size = new Size(823, 537);
             panel2.TabIndex = 175;
             // 
             // btn_tambah
@@ -98,7 +98,7 @@
             dataGridView1.Location = new Point(2, 34);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(640, 424);
+            dataGridView1.Size = new Size(818, 424);
             dataGridView1.TabIndex = 1;
             // 
             // label4
@@ -107,7 +107,7 @@
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(0, 0);
             label4.Name = "label4";
-            label4.Size = new Size(645, 33);
+            label4.Size = new Size(823, 33);
             label4.TabIndex = 0;
             label4.Text = "KENDARAAN ANDA";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -356,7 +356,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1129, 699);
+            ClientSize = new Size(1284, 699);
             Controls.Add(label6);
             Controls.Add(panel2);
             Controls.Add(buttonSave);
