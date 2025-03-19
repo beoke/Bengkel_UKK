@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            lblEror_ktp = new Label();
+            label8 = new Label();
+            txt_noKtp = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             lblErrorCPassword = new Label();
             lblErrorPassword = new Label();
             lblErrorEmail = new Label();
@@ -46,6 +49,7 @@
             lblErrorNama = new Label();
             txtPassword = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txt_noKtp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCPassword).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNama).BeginInit();
@@ -56,6 +60,9 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(lblEror_ktp);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(txt_noKtp);
             panel1.Controls.Add(lblErrorCPassword);
             panel1.Controls.Add(lblErrorPassword);
             panel1.Controls.Add(lblErrorEmail);
@@ -72,17 +79,50 @@
             panel1.Controls.Add(txtNama);
             panel1.Controls.Add(lblErrorNama);
             panel1.Controls.Add(txtPassword);
-            panel1.Location = new Point(43, 40);
+            panel1.Location = new Point(37, 30);
             panel1.Name = "panel1";
-            panel1.Size = new Size(443, 582);
+            panel1.Size = new Size(443, 660);
             panel1.TabIndex = 105;
+            // 
+            // lblEror_ktp
+            // 
+            lblEror_ktp.AutoSize = true;
+            lblEror_ktp.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            lblEror_ktp.ForeColor = Color.Red;
+            lblEror_ktp.Location = new Point(37, 323);
+            lblEror_ktp.Name = "lblEror_ktp";
+            lblEror_ktp.Size = new Size(160, 17);
+            lblEror_ktp.TabIndex = 121;
+            lblEror_ktp.Text = "⚠️ Format ktp tidak valid!";
+            lblEror_ktp.TextAlign = ContentAlignment.MiddleRight;
+            lblEror_ktp.Visible = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(37, 265);
+            label8.Name = "label8";
+            label8.Size = new Size(62, 21);
+            label8.TabIndex = 120;
+            label8.Text = "No Ktp";
+            // 
+            // txt_noKtp
+            // 
+            txt_noKtp.BeforeTouchSize = new Size(370, 31);
+            txt_noKtp.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_noKtp.Location = new Point(37, 289);
+            txt_noKtp.Name = "txt_noKtp";
+            txt_noKtp.PlaceholderText = "Masukkan No ktp";
+            txt_noKtp.Size = new Size(370, 31);
+            txt_noKtp.TabIndex = 119;
             // 
             // lblErrorCPassword
             // 
             lblErrorCPassword.AutoSize = true;
             lblErrorCPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorCPassword.ForeColor = Color.Red;
-            lblErrorCPassword.Location = new Point(37, 417);
+            lblErrorCPassword.Location = new Point(37, 501);
             lblErrorCPassword.Name = "lblErrorCPassword";
             lblErrorCPassword.Size = new Size(173, 17);
             lblErrorCPassword.TabIndex = 118;
@@ -95,7 +135,7 @@
             lblErrorPassword.AutoSize = true;
             lblErrorPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorPassword.ForeColor = Color.Red;
-            lblErrorPassword.Location = new Point(37, 327);
+            lblErrorPassword.Location = new Point(37, 411);
             lblErrorPassword.Name = "lblErrorPassword";
             lblErrorPassword.Size = new Size(374, 17);
             lblErrorPassword.TabIndex = 117;
@@ -120,7 +160,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(37, 359);
+            label6.Location = new Point(37, 443);
             label6.Name = "label6";
             label6.Size = new Size(161, 21);
             label6.TabIndex = 115;
@@ -130,7 +170,7 @@
             // 
             txtCPassword.BeforeTouchSize = new Size(370, 31);
             txtCPassword.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCPassword.Location = new Point(37, 383);
+            txtCPassword.Location = new Point(37, 467);
             txtCPassword.Name = "txtCPassword";
             txtCPassword.PlaceholderText = " Masukkan Email";
             txtCPassword.Size = new Size(370, 31);
@@ -160,7 +200,7 @@
             // 
             linkLogin.AutoSize = true;
             linkLogin.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            linkLogin.Location = new Point(254, 526);
+            linkLogin.Location = new Point(254, 618);
             linkLogin.Name = "linkLogin";
             linkLogin.Size = new Size(46, 17);
             linkLogin.TabIndex = 108;
@@ -171,7 +211,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(135, 526);
+            label4.Location = new Point(135, 618);
             label4.Name = "label4";
             label4.Size = new Size(120, 17);
             label4.TabIndex = 107;
@@ -181,7 +221,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(37, 269);
+            label3.Location = new Point(37, 353);
             label3.Name = "label3";
             label3.Size = new Size(79, 21);
             label3.TabIndex = 106;
@@ -204,7 +244,7 @@
             btn_daftar.FlatStyle = FlatStyle.Flat;
             btn_daftar.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point);
             btn_daftar.ForeColor = Color.White;
-            btn_daftar.Location = new Point(37, 473);
+            btn_daftar.Location = new Point(37, 565);
             btn_daftar.Name = "btn_daftar";
             btn_daftar.Size = new Size(370, 36);
             btn_daftar.TabIndex = 3;
@@ -249,7 +289,7 @@
             // 
             txtPassword.BeforeTouchSize = new Size(370, 31);
             txtPassword.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassword.Location = new Point(37, 293);
+            txtPassword.Location = new Point(37, 377);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = " Masukkan password";
             txtPassword.Size = new Size(370, 31);
@@ -260,12 +300,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 235, 240);
-            ClientSize = new Size(528, 662);
+            ClientSize = new Size(528, 702);
             Controls.Add(panel1);
             Name = "Registrasi_form";
             Text = "Register";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txt_noKtp).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCPassword).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtEmail).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtNama).EndInit();
@@ -292,5 +333,8 @@
         private Label lblErrorCPassword;
         private Label lblErrorPassword;
         private Label lblErrorEmail;
+        private Label lblEror_ktp;
+        private Label label8;
+        private Syncfusion.Windows.Forms.Tools.TextBoxExt txt_noKtp;
     }
 }

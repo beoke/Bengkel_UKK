@@ -34,6 +34,8 @@ namespace Bengkel_UKK.Admin.Booking
             InitComponent_Tamu();
             RegisterEvent_Tamu();
             CekKetersediaanBoking();
+            TglEditSync.MinDateTime = DateTime.Today;
+            TglEditSync2.MinDateTime = DateTime.Today;  
         }
         #region PELANGGAN
         private void RegisterEvent_Pelanggan()
@@ -218,7 +220,8 @@ namespace Bengkel_UKK.Admin.Booking
                 PesanBox.Warning("Data tidak valid, mohon cek kembali!");
                 return;
             }
-            if (new Antrean_form(tanggal).ShowDialog() == DialogResult.OK)
+            Antrean_form antrean = new Antrean_form(tanggal);
+            if (antrean.ShowDialog() == DialogResult.OK)
             {
                 var data = new BookingModel2
                 {
@@ -226,7 +229,7 @@ namespace Bengkel_UKK.Admin.Booking
                     id_kendaraan = id_kendaraan,
                     tanggal = tanggal,
                     keluhan = keluhan,
-                    antrean = _antrean,
+                    antrean = antrean._antreann,
                     status = "Menunggu"
                 };
                 _bookingDal.InsertDataBooking(data, true);

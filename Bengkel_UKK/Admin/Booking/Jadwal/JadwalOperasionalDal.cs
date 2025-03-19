@@ -44,7 +44,6 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
             return koneksi.QueryFirstOrDefault<JadwalOperasionalModel>(sql, new { hari });
         }
 
-
         public void InsertData(JadwalOperasionalModel jom)
         {
             const string sql = @"INSERT INTO JadwalOperasional (hari, jam_buka, jam_tutup) VALUES (@hari, @jam_buka, @jam_tutup)";
@@ -111,6 +110,9 @@ namespace Bengkel_UKK.Admin.Booking.Jadwal
 
             if (jamTutup == null)
                 return false;
+
+            TimeSpan waktuSekarang = DateTime.Now.TimeOfDay;
+            TimeSpan satujamSebelumTututp = jamTutup.Value - TimeSpan.FromHours(1); 
 
             return DateTime.Now.TimeOfDay >= jamTutup;
         }

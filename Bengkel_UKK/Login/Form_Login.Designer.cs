@@ -47,7 +47,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.BeforeTouchSize = new Size(370, 31);
+            txtEmail.BeforeTouchSize = new Size(325, 31);
             txtEmail.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(37, 105);
             txtEmail.Name = "txtEmail";
@@ -57,7 +57,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.BeforeTouchSize = new Size(370, 31);
+            txtPassword.BeforeTouchSize = new Size(325, 31);
             txtPassword.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.Location = new Point(37, 198);
             txtPassword.Name = "txtPassword";
@@ -183,11 +183,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(153, 32);
+            label1.Location = new Point(144, 31);
             label1.Name = "label1";
-            label1.Size = new Size(97, 37);
+            label1.Size = new Size(111, 37);
             label1.TabIndex = 0;
-            label1.Text = "LOGIN";
+            label1.Text = "MASUK";
             // 
             // Form_Login
             // 

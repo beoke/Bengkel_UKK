@@ -99,10 +99,18 @@ namespace Bengkel_UKK.Login
                 new Dashboard_User().Show();
                 this.Hide();
             }
+
             else if (loginAdmin)
             {
-                GlobalVariabel.SetSession(dataAdmin?.ktp_admin ?? string.Empty, dataAdmin?.role ?? -1);
-                new Dashboard_petugas().Show();
+                GlobalVariabel.SetSession(dataAdmin?.ktp_admin ?? string.Empty, dataAdmin.role);
+                if (GlobalVariabel.CekRole() == 1)
+                {
+                    new Dashboard_petugas().Show();
+                }
+                else 
+                {
+                    new MainFormAdmin().Show();
+                }
                 this.Hide();
             }
             else

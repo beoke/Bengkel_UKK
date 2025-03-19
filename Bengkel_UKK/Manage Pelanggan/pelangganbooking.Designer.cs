@@ -47,6 +47,7 @@
             label4 = new Label();
             label3 = new Label();
             lblHeader = new Label();
+            button_addKendaraan = new Custom_Component.DhafaButton();
             ((System.ComponentModel.ISupportInitialize)txtKeluhan).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNoPol).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtNama).BeginInit();
@@ -155,7 +156,7 @@
             comboKendaraan.FormattingEnabled = true;
             comboKendaraan.Location = new Point(128, 214);
             comboKendaraan.Name = "comboKendaraan";
-            comboKendaraan.Size = new Size(293, 28);
+            comboKendaraan.Size = new Size(240, 28);
             comboKendaraan.TabIndex = 130;
             // 
             // txtKeluhan
@@ -313,11 +314,30 @@
             lblHeader.Text = "Input Booking";
             lblHeader.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // button_addKendaraan
+            // 
+            button_addKendaraan.BackColor = Color.FromArgb(230, 126, 34);
+            button_addKendaraan.BackgroundColor = Color.FromArgb(230, 126, 34);
+            button_addKendaraan.BorderColor = Color.PaleVioletRed;
+            button_addKendaraan.BorderRadius = 0;
+            button_addKendaraan.BorderSize = 0;
+            button_addKendaraan.FlatAppearance.BorderSize = 0;
+            button_addKendaraan.FlatStyle = FlatStyle.Flat;
+            button_addKendaraan.ForeColor = Color.White;
+            button_addKendaraan.Location = new Point(374, 214);
+            button_addKendaraan.Name = "button_addKendaraan";
+            button_addKendaraan.Size = new Size(52, 33);
+            button_addKendaraan.TabIndex = 138;
+            button_addKendaraan.Text = "🔎";
+            button_addKendaraan.TextColor = Color.White;
+            button_addKendaraan.UseVisualStyleBackColor = false;
+            // 
             // pelangganbooking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(444, 633);
+            Controls.Add(button_addKendaraan);
             Controls.Add(lblHeader);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
@@ -368,5 +388,6 @@
         private Label label4;
         private Label label3;
         private Label lblHeader;
+        private Custom_Component.DhafaButton button_addKendaraan;
     }
 }

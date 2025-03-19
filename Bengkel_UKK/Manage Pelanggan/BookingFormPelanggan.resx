@@ -150,4 +150,16 @@
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>318, 17</value>
   </metadata>
+  <data name="detailBookingToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAIQAAACEATCrHSUAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABOUlEQVRIS62VvS4FURRGl0RBotESWgUFt9cqJRIewBvoaehJqDzGbSR0XkChlIhG4qdBFBrxk80+
+        nOzMZ86ZayU7t/j2rO/M3Lm58L9MAn3gxj8n4sIgTANXwEc2R3FpEJaB11DwHJe6YCffBIaAtVByagvD
+        wBZwATy0zHGQTwGXLjv0klUvuQdmbGk73NZfcybkaVLJCjCbFq89XALGW8YuNpq+0DQ7v2f4JgWlNJ08
+        jT2WuXhBTUG13Cgt6CQ3Sgo6y42SAnufozjJf94WRVuB/U5ehDw/+UnD7+SLtoL5ArkhPTJw1rOdN+Bc
+        PBbpkYFjsg1gERiLYYb0yKAS6ZFBJdIjg0qkRwaVSI8MKpGeOw8WYlBBzx23MTD2PHxv+AcrHbvWHLtR
+        bowCB8BTdpu18wjsAyNR/gk8zMECRHYp1AAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

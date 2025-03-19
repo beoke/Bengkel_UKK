@@ -23,14 +23,12 @@ namespace Bengkel_UKK.Helper
             _nama_pelanggan = namapelanggan;
         }
 
-        public static bool IsPetugas()
+        public static int CekRole()
         {
-            return _role == 1;
-        }
-
-        public static bool IsSuperAdmin()
-        {
-            return _role == 2;
+            if (_role == 1)
+                return 1;
+            else
+                return 2;
         }
     }
 }

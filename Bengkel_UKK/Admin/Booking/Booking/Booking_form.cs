@@ -44,6 +44,7 @@ namespace Bengkel_UKK.Admin.Booking
             _timer.Tick += (s, e) => UpdateAntrean();
             _timer.Start();
             btnSearch.Visible = false;
+            deleteToolStripMenuItem.Visible = false;
         }
         private async void UpdateAntrean()
         {

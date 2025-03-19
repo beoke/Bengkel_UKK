@@ -29,6 +29,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
         private byte[] _dikerjakan = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Dikerjakan, 110, 110));
         private byte[] _belum_bayar = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.BelumBayar, 110, 110));
         private byte[] _selesai = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Selesai1, 110, 110));
+        private byte[] _dibatalkan = ImageConvert.ImageToByteArray(ImageConvert.ResizeImageMax(Properties.Resources.Dibatalkan, 110, 110));
         private bool _rangeTanggal = false;
         private int _page = 1;
         private int _Totalpage = 1;
@@ -107,13 +108,8 @@ namespace Bengkel_UKK.Manage_Pelanggan
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id_booking"].Value);
 
             var detailForm = new DetailBookingPelanggan(id);
+            detailForm.StartPosition = FormStartPosition.CenterScreen;
             detailForm.ShowDialog();
-        }
-
-        private void ComboFilterStatus_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            ResetPage();
-            LoadData();
         }
 
         private async void TxtSearch_KeyDown(object? sender, KeyEventArgs e)
@@ -129,26 +125,12 @@ namespace Bengkel_UKK.Manage_Pelanggan
             LoadData();
         }
 
-        private void ComboFilterWaktu_SelectedValueChanged(object? sender, EventArgs e)
-        {
-            _rangeTanggal = false;
-            ResetPage();
-            LoadData();
-        }
-
-        private void Tgl_ValueChanged(object? sender, EventArgs e)
-        {
-            _rangeTanggal = true;
-            ResetPage();
-            LoadData();
-        }
-
         private void DetailBookingToolStripMenuItem1_Click(object? sender, EventArgs e)
         {
             int id = (int)dataGridView1.CurrentRow.Cells[0].Value;
             using (var detailForm = new DetailBookingPelanggan(id))
             {
-                detailForm.StartPosition = FormStartPosition.CenterParent;
+                detailForm.StartPosition = FormStartPosition.CenterScreen;
                 detailForm.ShowDialog(); 
             }
         }
@@ -185,7 +167,10 @@ namespace Bengkel_UKK.Manage_Pelanggan
                     tanggal = x.tanggal,
                     keluhan = x.keluhan,
                     catatan = x.catatan == null ? "(Belum ada catatan)" : x.catatan,
-                    statusImg = x.status == "Menunggu" ? _pending : x.status == "dikerjakan" ? _dikerjakan : _selesai
+                    statusImg = x.status == "Menunggu" ? _pending :
+                                x.status == "Dikerjakan" ? _dikerjakan :
+                                x.status == "Dibatalkan" ? _dibatalkan :
+                                _selesai
                 }).ToList();
 
             dataGridView1.DataSource = new SortableBindingList<BookingDto>(list);

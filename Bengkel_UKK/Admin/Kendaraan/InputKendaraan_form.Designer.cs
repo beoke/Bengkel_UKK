@@ -197,7 +197,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // tahun_text
             // 
             tahun_text.BackColor = Color.White;
-            tahun_text.BeforeTouchSize = new Size(286, 27);
+            tahun_text.BeforeTouchSize = new Size(293, 27);
             tahun_text.BorderColor = Color.FromArgb(209, 211, 212);
             tahun_text.BorderStyle = BorderStyle.FixedSingle;
             tahun_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -235,7 +235,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // kapasitas_text
             // 
             kapasitas_text.BackColor = Color.White;
-            kapasitas_text.BeforeTouchSize = new Size(286, 27);
+            kapasitas_text.BeforeTouchSize = new Size(293, 27);
             kapasitas_text.BorderColor = Color.FromArgb(209, 211, 212);
             kapasitas_text.BorderStyle = BorderStyle.FixedSingle;
             kapasitas_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -273,7 +273,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // merk_text
             // 
             merk_text.BackColor = Color.White;
-            merk_text.BeforeTouchSize = new Size(286, 27);
+            merk_text.BeforeTouchSize = new Size(293, 27);
             merk_text.BorderColor = Color.FromArgb(209, 211, 212);
             merk_text.BorderStyle = BorderStyle.FixedSingle;
             merk_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -287,7 +287,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // noPolisi_text
             // 
             noPolisi_text.BackColor = Color.White;
-            noPolisi_text.BeforeTouchSize = new Size(286, 27);
+            noPolisi_text.BeforeTouchSize = new Size(293, 27);
             noPolisi_text.BorderColor = Color.FromArgb(209, 211, 212);
             noPolisi_text.BorderStyle = BorderStyle.FixedSingle;
             noPolisi_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -325,7 +325,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // noKtp_text
             // 
             noKtp_text.BackColor = Color.White;
-            noKtp_text.BeforeTouchSize = new Size(286, 27);
+            noKtp_text.BeforeTouchSize = new Size(293, 27);
             noKtp_text.BorderColor = Color.FromArgb(209, 211, 212);
             noKtp_text.BorderStyle = BorderStyle.FixedSingle;
             noKtp_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -339,7 +339,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // pemilik_text
             // 
             pemilik_text.BackColor = Color.White;
-            pemilik_text.BeforeTouchSize = new Size(286, 27);
+            pemilik_text.BeforeTouchSize = new Size(293, 27);
             pemilik_text.BorderColor = Color.FromArgb(209, 211, 212);
             pemilik_text.BorderStyle = BorderStyle.FixedSingle;
             pemilik_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -402,19 +402,20 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // 
             // button_cari
             // 
-            button_cari.BackColor = Color.MediumSlateBlue;
-            button_cari.BackgroundColor = Color.MediumSlateBlue;
+            button_cari.BackColor = Color.FromArgb(230, 126, 34);
+            button_cari.BackgroundColor = Color.FromArgb(230, 126, 34);
             button_cari.BorderColor = Color.PaleVioletRed;
             button_cari.BorderRadius = 0;
             button_cari.BorderSize = 0;
             button_cari.FlatAppearance.BorderSize = 0;
             button_cari.FlatStyle = FlatStyle.Flat;
+            button_cari.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button_cari.ForeColor = Color.White;
             button_cari.Location = new Point(382, 66);
             button_cari.Name = "button_cari";
             button_cari.Size = new Size(47, 40);
             button_cari.TabIndex = 118;
-            button_cari.Text = "dhafaButton1";
+            button_cari.Text = "🔎";
             button_cari.TextColor = Color.White;
             button_cari.UseVisualStyleBackColor = false;
             // 
@@ -442,7 +443,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // tipeText
             // 
             tipeText.BackColor = Color.White;
-            tipeText.BeforeTouchSize = new Size(286, 27);
+            tipeText.BeforeTouchSize = new Size(293, 27);
             tipeText.BorderColor = Color.FromArgb(209, 211, 212);
             tipeText.BorderStyle = BorderStyle.FixedSingle;
             tipeText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);

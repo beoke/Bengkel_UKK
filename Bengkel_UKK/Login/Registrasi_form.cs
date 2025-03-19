@@ -85,6 +85,21 @@ namespace Bengkel_UKK.Login
                 }
                 lblErrorCPassword.Visible = false;
             };
+            txt_noKtp.TextChanged += async (s, e) =>
+            {
+                await Task.Delay(2000);
+
+                string noKtp = txt_noKtp.Text.Trim();
+
+                // Validasi panjang KTP harus 16 digit
+                if (noKtp.Length != 16 || !noKtp.All(char.IsDigit))
+                {
+                    lblEror_ktp.Text = "⚠️ Nomor KTP harus 16 digit angka!";
+                    lblEror_ktp.Visible = true;
+                    return;
+                }
+                lblEror_ktp.Visible = false;
+            };
             btn_daftar.Click += (s, e) => SaveData();
         }
         private void SaveData()
@@ -92,23 +107,24 @@ namespace Bengkel_UKK.Login
             string nama = txtNama.Text;
             string email = txtEmail.Text;
             string password = txtPassword.Text.Trim();
+            string ktp = txt_noKtp.Text.Trim();
             string Cpassword = txtCPassword.Text.Trim();
 
             bool valid = !lblErrorNama.Visible
                 && !lblErrorEmail.Visible
                 && !lblErrorPassword.Visible
-                && !lblErrorCPassword.Visible;
+                && !lblErrorCPassword.Visible
+                && !lblEror_ktp.Visible;
             if (!valid)
             {
                 PesanBox.Warning("Data tidak valid, harap melengkapi data!");
                 return;
             }
-
-            string noKtp = _pelangganDal.GenerateUniqueTempKTP();
+            
             string hash = PasswordHash.ArgonHashString(password, PasswordHash.StrengthArgon.Interactive);
             var pelanggan = new PelangganModelUpdate
             {
-                ktp_pelanggan_new = noKtp,
+                ktp_pelanggan_new = ktp,
                 nama_pelanggan = nama,
                 email = email,
                 password = hash,

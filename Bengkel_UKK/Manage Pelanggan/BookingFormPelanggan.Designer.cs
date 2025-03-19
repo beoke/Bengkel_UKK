@@ -36,11 +36,11 @@ namespace Bengkel_UKK.Manage_Pelanggan
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookingFormPelanggan));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
+            txtSearch = new TextBox();
             label5 = new Label();
             JamOperational2 = new TextBox();
             jamOperational1 = new TextBox();
             label4 = new Label();
-            txtSearch = new TextBox();
             btnAddData = new DhafaButton();
             printPreviewDialog1 = new PrintPreviewDialog();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -82,6 +82,15 @@ namespace Bengkel_UKK.Manage_Pelanggan
             yogaPanel1.Name = "yogaPanel1";
             yogaPanel1.Size = new Size(1270, 531);
             yogaPanel1.TabIndex = 11;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(46, 33);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PlaceholderText = " Search";
+            txtSearch.Size = new Size(271, 27);
+            txtSearch.TabIndex = 6;
             // 
             // label5
             // 
@@ -126,15 +135,6 @@ namespace Bengkel_UKK.Manage_Pelanggan
             label4.Size = new Size(146, 23);
             label4.TabIndex = 20;
             label4.Text = "Jam Operasional :";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(46, 33);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = " Search";
-            txtSearch.Size = new Size(271, 27);
-            txtSearch.TabIndex = 6;
             // 
             // btnAddData
             // 
@@ -207,12 +207,14 @@ namespace Bengkel_UKK.Manage_Pelanggan
             contextMenuStrip1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { detailBookingToolStripMenuItem1 });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(195, 30);
+            contextMenuStrip1.Size = new Size(203, 34);
             // 
             // detailBookingToolStripMenuItem1
             // 
+            detailBookingToolStripMenuItem1.Image = (Image)resources.GetObject("detailBookingToolStripMenuItem1.Image");
+            detailBookingToolStripMenuItem1.ImageScaling = ToolStripItemImageScaling.None;
             detailBookingToolStripMenuItem1.Name = "detailBookingToolStripMenuItem1";
-            detailBookingToolStripMenuItem1.Size = new Size(194, 26);
+            detailBookingToolStripMenuItem1.Size = new Size(202, 30);
             detailBookingToolStripMenuItem1.Text = "Detail Booking";
             // 
             // BookingFormPelanggan

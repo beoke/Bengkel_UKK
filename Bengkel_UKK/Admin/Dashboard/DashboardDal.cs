@@ -12,36 +12,25 @@ namespace Bengkel_UKK.Admin.Dashboard
     
     public class DashboardDal
     {
-
-        public int GetTotalBooking()
+        public async Task<DashboardModel> GetDashboardDataAsync()
         {
-            const string sql = "SELECT COUNT(*) FROM Booking";
+            const string sql = @"
+            SELECT
+                (SELECT COUNT(*) FROM Booking WHERE CAST(tanggal AS DATE) = CAST(GETDATE() AS DATE)) AS TotalBookingHariIni,
+                (SELECT COUNT(*) FROM Booking WHERE status = 'Dikerjakan') AS TotalBookingDikerjakan,
+                (SELECT COUNT(*) FROM Pelanggan) AS TotalPelanggan,
+                (SELECT SUM(total_harga) FROM Riwayat) AS TotalPendapatan"
+;
 
             using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.ExecuteScalar<int>(sql);
-        }
-        public int GetYangDikerjakan(string status)
-        {
-            const string sql = "SELECT COUNT(*) FROM Booking WHERE status = @status";
-
-            using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.ExecuteScalar<int>(sql, new {Status = status});
-        }
-
-        public int GetPendapatan()
-        {
-            const string sql = "SELECT SUM(total_harga) FROM Riwayat WHERE status = 'selesai'";
-
-            using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.ExecuteScalar<int>(sql);
+            return await koneksi.QueryFirstOrDefaultAsync<DashboardModel>(sql);
         }
     }
     public class DashboardModel
     {
-        public int TotalBooking { get; set; }
-        public int TotalDikerjakan { get; set; }
-
-        public int pendapatan { get; set; }
-
+        public int TotalBookingHariIni { get; set; }
+        public int TotalBookingDikerjakan { get; set; }
+        public int TotalPelanggan { get; set; }
+        public decimal TotalPendapatan { get; set; }
     }
 }

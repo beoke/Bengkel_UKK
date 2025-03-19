@@ -93,6 +93,7 @@ namespace Bengkel_UKK.Admin.Dashboard
         }
         private void InitComponen()
         {
+            _listButton.Clear();
             AddButton(1, btnBooking);
             AddButton(2, btnProduk);
             AddButton(3, btnRiwayat);

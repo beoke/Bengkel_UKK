@@ -32,6 +32,8 @@ namespace Bengkel_UKK.Manage_Pelanggan
         private void InitializeComponent()
         {
             yogaPanel1 = new DhafaPanel();
+            label3 = new Label();
+            txt_pembatalan = new TextBox();
             label4 = new Label();
             btnStatus = new DhafaButton();
             btnBatalkanPesanan = new DhafaButton();
@@ -69,6 +71,8 @@ namespace Bengkel_UKK.Manage_Pelanggan
             yogaPanel1.BorderColor = Color.PaleVioletRed;
             yogaPanel1.BorderRadius = 10;
             yogaPanel1.BorderSize = 2;
+            yogaPanel1.Controls.Add(label3);
+            yogaPanel1.Controls.Add(txt_pembatalan);
             yogaPanel1.Controls.Add(label4);
             yogaPanel1.Controls.Add(btnStatus);
             yogaPanel1.Controls.Add(btnBatalkanPesanan);
@@ -88,10 +92,31 @@ namespace Bengkel_UKK.Manage_Pelanggan
             yogaPanel1.Controls.Add(gradientPanelExt3);
             yogaPanel1.Controls.Add(gradientPanelExt1);
             yogaPanel1.ForeColor = Color.White;
-            yogaPanel1.Location = new Point(12, 17);
+            yogaPanel1.Location = new Point(12, 8);
             yogaPanel1.Name = "yogaPanel1";
-            yogaPanel1.Size = new Size(458, 617);
+            yogaPanel1.Size = new Size(458, 694);
             yogaPanel1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(38, 485);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 23);
+            label3.TabIndex = 145;
+            label3.Text = "Pembatalan";
+            // 
+            // txt_pembatalan
+            // 
+            txt_pembatalan.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_pembatalan.Location = new Point(38, 511);
+            txt_pembatalan.Multiline = true;
+            txt_pembatalan.Name = "txt_pembatalan";
+            txt_pembatalan.PlaceholderText = "Alasan Pembatalan";
+            txt_pembatalan.Size = new Size(231, 157);
+            txt_pembatalan.TabIndex = 144;
             // 
             // label4
             // 
@@ -135,7 +160,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             btnBatalkanPesanan.FlatStyle = FlatStyle.Flat;
             btnBatalkanPesanan.Font = new Font("Segoe UI", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnBatalkanPesanan.ForeColor = Color.White;
-            btnBatalkanPesanan.Location = new Point(277, 566);
+            btnBatalkanPesanan.Location = new Point(275, 511);
             btnBatalkanPesanan.Name = "btnBatalkanPesanan";
             btnBatalkanPesanan.Size = new Size(172, 41);
             btnBatalkanPesanan.TabIndex = 140;
@@ -147,7 +172,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             // 
             lblKeluhan.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblKeluhan.ForeColor = SystemColors.ControlDarkDark;
-            lblKeluhan.Location = new Point(164, 441);
+            lblKeluhan.Location = new Point(165, 395);
             lblKeluhan.Name = "lblKeluhan";
             lblKeluhan.Size = new Size(271, 113);
             lblKeluhan.TabIndex = 130;
@@ -158,7 +183,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             label12.ForeColor = Color.Black;
-            label12.Location = new Point(36, 443);
+            label12.Location = new Point(36, 395);
             label12.Name = "label12";
             label12.Size = new Size(72, 23);
             label12.TabIndex = 129;
@@ -169,7 +194,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             lblTanggal.AutoSize = true;
             lblTanggal.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblTanggal.ForeColor = SystemColors.ControlDarkDark;
-            lblTanggal.Location = new Point(164, 380);
+            lblTanggal.Location = new Point(164, 354);
             lblTanggal.Name = "lblTanggal";
             lblTanggal.Size = new Size(141, 23);
             lblTanggal.TabIndex = 126;
@@ -180,7 +205,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             label16.ForeColor = Color.Black;
-            label16.Location = new Point(36, 381);
+            label16.Location = new Point(36, 355);
             label16.Name = "label16";
             label16.Size = new Size(69, 23);
             label16.TabIndex = 125;
@@ -191,7 +216,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             lblKendaraan.AutoSize = true;
             lblKendaraan.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblKendaraan.ForeColor = SystemColors.ControlDarkDark;
-            lblKendaraan.Location = new Point(164, 342);
+            lblKendaraan.Location = new Point(164, 316);
             lblKendaraan.Name = "lblKendaraan";
             lblKendaraan.Size = new Size(246, 23);
             lblKendaraan.TabIndex = 124;
@@ -202,7 +227,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             label18.ForeColor = Color.Black;
-            label18.Location = new Point(36, 342);
+            label18.Location = new Point(36, 316);
             label18.Name = "label18";
             label18.Size = new Size(92, 23);
             label18.TabIndex = 123;
@@ -213,7 +238,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             lblNoPol.AutoSize = true;
             lblNoPol.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblNoPol.ForeColor = SystemColors.ControlDarkDark;
-            lblNoPol.Location = new Point(164, 304);
+            lblNoPol.Location = new Point(164, 278);
             lblNoPol.Name = "lblNoPol";
             lblNoPol.Size = new Size(95, 23);
             lblNoPol.TabIndex = 122;
@@ -224,7 +249,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 12.25F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(36, 304);
+            label7.Location = new Point(36, 278);
             label7.Name = "label7";
             label7.Size = new Size(107, 23);
             label7.TabIndex = 121;
@@ -361,7 +386,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 235, 240);
-            ClientSize = new Size(488, 647);
+            ClientSize = new Size(488, 716);
             Controls.Add(yogaPanel1);
             Name = "DetailBookingPelanggan";
             Text = "FormDetailBooking";
@@ -401,5 +426,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
         private DhafaButton btnBatalkanPesanan;
         private DhafaButton btnStatus;
         private Label label4;
+        private TextBox txt_pembatalan;
+        private Label label3;
     }
 }

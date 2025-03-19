@@ -13,6 +13,7 @@ namespace Bengkel_UKK.Admin.Booking.Booking
     public partial class Antrean_form : Form
     {
         private readonly BookingDal _bookingDal = new BookingDal();
+        public int _antreann { get; private set; }
         public Antrean_form(DateTime tanggal)
         {
             InitializeComponent();
@@ -39,7 +40,7 @@ namespace Bengkel_UKK.Admin.Booking.Booking
             btnYa.Click += (s, e) =>
             {
                 this.DialogResult = DialogResult.OK;
-                InputBooking_form._antrean = dataAntrean.Antrean;
+                _antreann = dataAntrean.Antrean;
                 this.Close();
             };
 

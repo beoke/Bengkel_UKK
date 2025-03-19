@@ -38,7 +38,7 @@ namespace Bengkel_UKK.Manage_Petugas
             InitializeComponent();
             _dashboardpetugas = this;
             InitComponen();
-            RegisterEvent();
+            RegisterEvent();    
             InitialProfile();
         }
         private void InitialProfile()

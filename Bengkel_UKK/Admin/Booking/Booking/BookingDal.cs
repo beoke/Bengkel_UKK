@@ -29,6 +29,7 @@ namespace Bengkel_UKK.Admin.Booking
                                 b.keluhan,
                                 b.catatan,
                                 b.antrean,
+                                b.tipe_antrean,
                                 b.ktp_mekanik,
                                 b.id_jasaServis,
                                 b.status
@@ -84,6 +85,7 @@ namespace Bengkel_UKK.Admin.Booking
                                 b.keluhan,
                                 b.catatan,
                                 b.antrean,
+                                b.tipe_antrean,
                                 b.ktp_mekanik,
                                 b.id_jasaServis,
                                 b.status
@@ -103,6 +105,17 @@ namespace Bengkel_UKK.Admin.Booking
                             WHERE id_booking = @id_booking";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.Query<BookingSparepartModel>(sql, new { id_booking = id_booking });
+        }
+        public async Task<bool> CancelServiceAsync(string id_booking)
+        {
+            const string sql = @"UPDATE Booking 
+                         SET status = 'Dibatalkan' 
+                         WHERE id_booking = @id_booking";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            int rowAffected = await koneksi.ExecuteAsync(sql, new { id_booking });
+
+            return rowAffected > 0;
         }
 
         public AntreanDto? GetAntrean(DateTime tanggal, int tipe_antrean)

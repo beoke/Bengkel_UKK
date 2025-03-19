@@ -59,6 +59,14 @@ namespace Bengkel_UKK.Manage_Pelanggan
                 await Task.Delay(500);
                 CekKetersediaanBoking();
             };
+            button_addKendaraan.Click += (s, e) =>
+            {
+                InputKendaraan_form form = new InputKendaraan_form();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData_Pelanggan();
+                }
+            };
         }
         private async void CekKetersediaanBoking()
         {
@@ -154,7 +162,9 @@ namespace Bengkel_UKK.Manage_Pelanggan
                 PesanBox.Warning("Data tidak valid, mohon cek kembali!");
                 return;
             }
-            if (new Antrean_form(tanggal).ShowDialog() == DialogResult.OK)
+
+            Antrean_form nama = new Antrean_form(tanggal);
+            if (nama.ShowDialog() == DialogResult.OK)
             {
                 var data = new BookingModel2
                 {
@@ -162,7 +172,7 @@ namespace Bengkel_UKK.Manage_Pelanggan
                     id_kendaraan = id_kendaraan,
                     tanggal = tanggal,
                     keluhan = keluhan,
-                    antrean = _antrean,
+                    antrean = nama._antreann,
                     status = "Menunggu"
                 };
                 _bookingDal.InsertDataBooking(data, true);

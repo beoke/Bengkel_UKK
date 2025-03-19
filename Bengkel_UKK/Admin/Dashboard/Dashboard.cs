@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bengkel_UKK.Manage_Petugas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,16 +20,14 @@ namespace Bengkel_UKK.Admin.Dashboard
             InitializeComponent();
             LoadDataBooking();
         }
-        private void LoadDataBooking()
+        private async void LoadDataBooking()
         {
-            int totalbooking = _dashboardDal.GetTotalBooking();
-            label_totalbooking.Text = totalbooking.ToString();
+            var dashboard = await _dashboardDal.GetDashboardDataAsync();
 
-            int totaldikerjakan = _dashboardDal.GetYangDikerjakan("Dikerjakan");
-            label_totalbooking.Text = totaldikerjakan.ToString();
-
-            int pendapatan = _dashboardDal.GetPendapatan();
-            label_pendapatan.Text = pendapatan.ToString();
+            label_totalbooking.Text = dashboard.TotalBookingHariIni.ToString();
+            label_totalygdikerjakan.Text = dashboard.TotalBookingDikerjakan.ToString();
+            label10.Text = dashboard.TotalPelanggan.ToString();
+            label_pendapatan.Text = dashboard.TotalPendapatan.ToString("C"); // Format sebagai mata uang
         }
     }
 }
