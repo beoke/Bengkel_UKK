@@ -102,7 +102,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             button_simpan.FlatStyle = FlatStyle.Flat;
             button_simpan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button_simpan.ForeColor = Color.White;
-            button_simpan.Location = new Point(766, 370);
+            button_simpan.Location = new Point(757, 376);
             button_simpan.Name = "button_simpan";
             button_simpan.Size = new Size(108, 36);
             button_simpan.TabIndex = 37;
@@ -121,7 +121,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             button_batal.FlatStyle = FlatStyle.Flat;
             button_batal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button_batal.ForeColor = SystemColors.ControlDarkDark;
-            button_batal.Location = new Point(639, 370);
+            button_batal.Location = new Point(630, 376);
             button_batal.Name = "button_batal";
             button_batal.Size = new Size(108, 36);
             button_batal.TabIndex = 62;
@@ -134,7 +134,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblErrorKapasitas.AutoSize = true;
             lblErrorKapasitas.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorKapasitas.ForeColor = Color.Red;
-            lblErrorKapasitas.Location = new Point(581, 237);
+            lblErrorKapasitas.Location = new Point(572, 243);
             lblErrorKapasitas.Name = "lblErrorKapasitas";
             lblErrorKapasitas.Size = new Size(221, 17);
             lblErrorKapasitas.TabIndex = 110;
@@ -147,7 +147,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblErrorTransmisi.AutoSize = true;
             lblErrorTransmisi.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorTransmisi.ForeColor = Color.Red;
-            lblErrorTransmisi.Location = new Point(581, 162);
+            lblErrorTransmisi.Location = new Point(572, 168);
             lblErrorTransmisi.Name = "lblErrorTransmisi";
             lblErrorTransmisi.Size = new Size(217, 17);
             lblErrorTransmisi.TabIndex = 109;
@@ -160,7 +160,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblErrorTipe.AutoSize = true;
             lblErrorTipe.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorTipe.ForeColor = Color.Red;
-            lblErrorTipe.Location = new Point(581, 94);
+            lblErrorTipe.Location = new Point(572, 100);
             lblErrorTipe.Name = "lblErrorTipe";
             lblErrorTipe.Size = new Size(185, 17);
             lblErrorTipe.TabIndex = 108;
@@ -197,11 +197,11 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // tahun_text
             // 
             tahun_text.BackColor = Color.White;
-            tahun_text.BeforeTouchSize = new Size(293, 27);
+            tahun_text.BeforeTouchSize = new Size(286, 27);
             tahun_text.BorderColor = Color.FromArgb(209, 211, 212);
             tahun_text.BorderStyle = BorderStyle.FixedSingle;
             tahun_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tahun_text.Location = new Point(581, 284);
+            tahun_text.Location = new Point(572, 290);
             tahun_text.Name = "tahun_text";
             tahun_text.PlaceholderText = "Masukkan Tahun Motor";
             tahun_text.Size = new Size(293, 27);
@@ -213,7 +213,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label13.ForeColor = SystemColors.ControlDarkDark;
-            label13.Location = new Point(460, 271);
+            label13.Location = new Point(451, 277);
             label13.Name = "label13";
             label13.Size = new Size(61, 25);
             label13.TabIndex = 102;
@@ -225,7 +225,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label12.ForeColor = SystemColors.ControlDarkDark;
-            label12.Location = new Point(460, 70);
+            label12.Location = new Point(451, 76);
             label12.Name = "label12";
             label12.Size = new Size(48, 25);
             label12.TabIndex = 100;
@@ -235,11 +235,11 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // kapasitas_text
             // 
             kapasitas_text.BackColor = Color.White;
-            kapasitas_text.BeforeTouchSize = new Size(293, 27);
+            kapasitas_text.BeforeTouchSize = new Size(286, 27);
             kapasitas_text.BorderColor = Color.FromArgb(209, 211, 212);
             kapasitas_text.BorderStyle = BorderStyle.FixedSingle;
             kapasitas_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            kapasitas_text.Location = new Point(581, 207);
+            kapasitas_text.Location = new Point(572, 213);
             kapasitas_text.Name = "kapasitas_text";
             kapasitas_text.PlaceholderText = " Masukkan Kapasitas";
             kapasitas_text.Size = new Size(293, 27);
@@ -251,7 +251,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = SystemColors.ControlDarkDark;
-            label9.Location = new Point(460, 207);
+            label9.Location = new Point(451, 213);
             label9.Name = "label9";
             label9.Size = new Size(89, 25);
             label9.TabIndex = 97;
@@ -263,7 +263,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 13F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = SystemColors.ControlDarkDark;
-            label10.Location = new Point(459, 132);
+            label10.Location = new Point(450, 138);
             label10.Name = "label10";
             label10.Size = new Size(90, 25);
             label10.TabIndex = 96;
@@ -273,7 +273,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // merk_text
             // 
             merk_text.BackColor = Color.White;
-            merk_text.BeforeTouchSize = new Size(293, 27);
+            merk_text.BeforeTouchSize = new Size(286, 27);
             merk_text.BorderColor = Color.FromArgb(209, 211, 212);
             merk_text.BorderStyle = BorderStyle.FixedSingle;
             merk_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -287,7 +287,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // noPolisi_text
             // 
             noPolisi_text.BackColor = Color.White;
-            noPolisi_text.BeforeTouchSize = new Size(293, 27);
+            noPolisi_text.BeforeTouchSize = new Size(286, 27);
             noPolisi_text.BorderColor = Color.FromArgb(209, 211, 212);
             noPolisi_text.BorderStyle = BorderStyle.FixedSingle;
             noPolisi_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -325,7 +325,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // noKtp_text
             // 
             noKtp_text.BackColor = Color.White;
-            noKtp_text.BeforeTouchSize = new Size(293, 27);
+            noKtp_text.BeforeTouchSize = new Size(286, 27);
             noKtp_text.BorderColor = Color.FromArgb(209, 211, 212);
             noKtp_text.BorderStyle = BorderStyle.FixedSingle;
             noKtp_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -339,7 +339,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // pemilik_text
             // 
             pemilik_text.BackColor = Color.White;
-            pemilik_text.BeforeTouchSize = new Size(293, 27);
+            pemilik_text.BeforeTouchSize = new Size(286, 27);
             pemilik_text.BorderColor = Color.FromArgb(209, 211, 212);
             pemilik_text.BorderStyle = BorderStyle.FixedSingle;
             pemilik_text.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -379,7 +379,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             lblErrorTahunMotor.AutoSize = true;
             lblErrorTahunMotor.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorTahunMotor.ForeColor = Color.Red;
-            lblErrorTahunMotor.Location = new Point(588, 314);
+            lblErrorTahunMotor.Location = new Point(579, 320);
             lblErrorTahunMotor.Name = "lblErrorTahunMotor";
             lblErrorTahunMotor.Size = new Size(199, 17);
             lblErrorTahunMotor.TabIndex = 111;
@@ -435,7 +435,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // comboTransmisi
             // 
             comboTransmisi.FormattingEnabled = true;
-            comboTransmisi.Location = new Point(581, 130);
+            comboTransmisi.Location = new Point(572, 136);
             comboTransmisi.Name = "comboTransmisi";
             comboTransmisi.Size = new Size(286, 23);
             comboTransmisi.TabIndex = 120;
@@ -443,13 +443,13 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // tipeText
             // 
             tipeText.BackColor = Color.White;
-            tipeText.BeforeTouchSize = new Size(293, 27);
+            tipeText.BeforeTouchSize = new Size(286, 27);
             tipeText.BorderColor = Color.FromArgb(209, 211, 212);
             tipeText.BorderStyle = BorderStyle.FixedSingle;
             tipeText.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            tipeText.Location = new Point(581, 64);
+            tipeText.Location = new Point(572, 70);
             tipeText.Name = "tipeText";
-            tipeText.PlaceholderText = " Masukkan Transmisi";
+            tipeText.PlaceholderText = " Masukkan Tipe";
             tipeText.Size = new Size(286, 27);
             tipeText.TabIndex = 121;
             tipeText.ThemeName = "Default";
@@ -458,7 +458,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(893, 423);
+            ClientSize = new Size(893, 429);
             Controls.Add(tipeText);
             Controls.Add(comboTransmisi);
             Controls.Add(lblerorKtp);

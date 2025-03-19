@@ -105,13 +105,34 @@ namespace Bengkel_UKK.Helper
 
             for (int i = 0; i < invoice.ListBarang.Count; i++)
             {
-                table.AddCell(new PdfPCell(new Phrase(invoice.ListBarang[i], bodyFont)) { Padding = 5f });
-                table.AddCell(new PdfPCell(new Phrase(invoice.ListQuantity[i].ToString(), bodyFont)) { HorizontalAlignment = Element.ALIGN_CENTER, Padding = 5f });
-                table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.ListHarga[i]:N0}", bodyFont)) { Padding = 5f });
-                table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.ListQuantity[i] * invoice.ListHarga[i]:N0}", bodyFont)) { Padding = 5f });
+                table.AddCell(new PdfPCell(new Phrase(invoice.ListBarang[i], bodyFont))
+                {
+                    Padding = 5f,
+                    HorizontalAlignment = Element.ALIGN_LEFT // Nama barang rata kiri
+                });
+
+                table.AddCell(new PdfPCell(new Phrase(invoice.ListQuantity[i].ToString(), bodyFont))
+                {
+                    Padding = 5f,
+                    HorizontalAlignment = Element.ALIGN_CENTER // Jumlah tetap di tengah
+                });
+
+                table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.ListHarga[i]:N0}", bodyFont))
+                {
+                    Padding = 5f,
+                    HorizontalAlignment = Element.ALIGN_RIGHT // Harga satuan rata kanan
+                });
+
+                table.AddCell(new PdfPCell(new Phrase($"Rp {invoice.ListQuantity[i] * invoice.ListHarga[i]:N0}", bodyFont))
+                {
+                    Padding = 5f,
+                    HorizontalAlignment = Element.ALIGN_RIGHT // Total harga rata kanan
+                });
             }
+
             doc.Add(table);
             doc.Add(new Paragraph(" "));
+
         }
 
         private static void AddFooter(Document doc, InvoiceModel invoice)
@@ -214,7 +235,7 @@ namespace Bengkel_UKK.Helper
         public string EmailBengkel { get; set; } = "technogarage@gmail.com";
         public string TelpBengkel { get; set; } = "08123456789";
         public string NamaMekanik { get; set; } = "John Doe"; // Nama mekanik default
-
+        
 
         public string Antrean { get; set; } = "A123";
         public DateTime Tanggal { get; set; } = DateTime.Now;

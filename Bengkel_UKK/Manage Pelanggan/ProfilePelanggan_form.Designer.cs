@@ -80,7 +80,7 @@
             panel2.Controls.Add(label4);
             panel2.Location = new Point(449, 82);
             panel2.Name = "panel2";
-            panel2.Size = new Size(645, 517);
+            panel2.Size = new Size(645, 537);
             panel2.TabIndex = 175;
             // 
             // btn_tambah
