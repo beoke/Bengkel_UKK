@@ -102,8 +102,8 @@ namespace Bengkel_UKK.Admin.Laporan
             // ButtonSimpan
             // 
             ButtonSimpan.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonSimpan.BackColor = Color.SlateBlue;
-            ButtonSimpan.BackgroundColor = Color.SlateBlue;
+            ButtonSimpan.BackColor = Color.FromArgb(230, 126, 34);
+            ButtonSimpan.BackgroundColor = Color.FromArgb(230, 126, 34);
             ButtonSimpan.BorderColor = Color.DarkGray;
             ButtonSimpan.BorderRadius = 5;
             ButtonSimpan.BorderSize = 0;

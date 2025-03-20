@@ -66,6 +66,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Location = new Point(134, 100);
             label6.Name = "label6";
@@ -75,22 +76,26 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.None;
             panel2.Controls.Add(btn_tambah);
             panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(label4);
             panel2.Location = new Point(449, 82);
             panel2.Name = "panel2";
-            panel2.Size = new Size(823, 537);
+            panel2.Size = new Size(823, 501);
             panel2.TabIndex = 175;
             // 
             // btn_tambah
             // 
-            btn_tambah.Location = new Point(553, 474);
+            btn_tambah.BackColor = Color.Red;
+            btn_tambah.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_tambah.ForeColor = Color.BlanchedAlmond;
+            btn_tambah.Location = new Point(724, 464);
             btn_tambah.Name = "btn_tambah";
-            btn_tambah.Size = new Size(75, 23);
+            btn_tambah.Size = new Size(84, 34);
             btn_tambah.TabIndex = 2;
             btn_tambah.Text = "Tambah";
-            btn_tambah.UseVisualStyleBackColor = true;
+            btn_tambah.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -114,6 +119,7 @@
             // 
             // buttonSave
             // 
+            buttonSave.Anchor = AnchorStyles.None;
             buttonSave.BackColor = Color.LightGray;
             buttonSave.FlatAppearance.BorderSize = 0;
             buttonSave.FlatStyle = FlatStyle.Flat;
@@ -128,6 +134,7 @@
             // 
             // btn_edit
             // 
+            btn_edit.Anchor = AnchorStyles.None;
             btn_edit.BackColor = Color.LightGray;
             btn_edit.FlatAppearance.BorderSize = 0;
             btn_edit.FlatStyle = FlatStyle.Flat;
@@ -143,6 +150,7 @@
             // 
             // lblErrorAlamat
             // 
+            lblErrorAlamat.Anchor = AnchorStyles.None;
             lblErrorAlamat.AutoSize = true;
             lblErrorAlamat.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorAlamat.ForeColor = Color.Red;
@@ -156,6 +164,7 @@
             // 
             // lblErrorTelepon
             // 
+            lblErrorTelepon.Anchor = AnchorStyles.None;
             lblErrorTelepon.AutoSize = true;
             lblErrorTelepon.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorTelepon.ForeColor = Color.Red;
@@ -169,6 +178,7 @@
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.None;
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.Black;
@@ -180,7 +190,8 @@
             // 
             // txtNoTelp
             // 
-            txtNoTelp.BeforeTouchSize = new Size(370, 31);
+            txtNoTelp.Anchor = AnchorStyles.None;
+            txtNoTelp.BeforeTouchSize = new Size(286, 27);
             txtNoTelp.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtNoTelp.Location = new Point(35, 478);
             txtNoTelp.Name = "txtNoTelp";
@@ -191,6 +202,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.Black;
@@ -202,6 +214,7 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = Color.Black;
@@ -213,7 +226,8 @@
             // 
             // txtNoKTP
             // 
-            txtNoKTP.BeforeTouchSize = new Size(370, 31);
+            txtNoKTP.Anchor = AnchorStyles.None;
+            txtNoKTP.BeforeTouchSize = new Size(286, 27);
             txtNoKTP.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtNoKTP.Location = new Point(35, 388);
             txtNoKTP.Name = "txtNoKTP";
@@ -224,6 +238,7 @@
             // 
             // lblErrorKTP
             // 
+            lblErrorKTP.Anchor = AnchorStyles.None;
             lblErrorKTP.AutoSize = true;
             lblErrorKTP.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorKTP.ForeColor = Color.Red;
@@ -237,7 +252,8 @@
             // 
             // txtAlamat
             // 
-            txtAlamat.BeforeTouchSize = new Size(370, 31);
+            txtAlamat.Anchor = AnchorStyles.None;
+            txtAlamat.BeforeTouchSize = new Size(286, 27);
             txtAlamat.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtAlamat.Location = new Point(35, 568);
             txtAlamat.Name = "txtAlamat";
@@ -248,6 +264,7 @@
             // 
             // lblErrorPassword
             // 
+            lblErrorPassword.Anchor = AnchorStyles.None;
             lblErrorPassword.AutoSize = true;
             lblErrorPassword.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorPassword.ForeColor = Color.Red;
@@ -261,6 +278,7 @@
             // 
             // lblErrorEmail
             // 
+            lblErrorEmail.Anchor = AnchorStyles.None;
             lblErrorEmail.AutoSize = true;
             lblErrorEmail.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorEmail.ForeColor = Color.Red;
@@ -274,6 +292,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
@@ -285,7 +304,8 @@
             // 
             // txtEmail
             // 
-            txtEmail.BeforeTouchSize = new Size(370, 31);
+            txtEmail.Anchor = AnchorStyles.None;
+            txtEmail.BeforeTouchSize = new Size(286, 27);
             txtEmail.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(35, 208);
             txtEmail.Name = "txtEmail";
@@ -296,6 +316,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
@@ -307,6 +328,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
@@ -318,7 +340,8 @@
             // 
             // txtNama
             // 
-            txtNama.BeforeTouchSize = new Size(370, 31);
+            txtNama.Anchor = AnchorStyles.None;
+            txtNama.BeforeTouchSize = new Size(286, 27);
             txtNama.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtNama.Location = new Point(35, 118);
             txtNama.Name = "txtNama";
@@ -329,6 +352,7 @@
             // 
             // lblErrorNama
             // 
+            lblErrorNama.Anchor = AnchorStyles.None;
             lblErrorNama.AutoSize = true;
             lblErrorNama.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             lblErrorNama.ForeColor = Color.Red;
@@ -342,7 +366,8 @@
             // 
             // txtPassword
             // 
-            txtPassword.BeforeTouchSize = new Size(370, 31);
+            txtPassword.Anchor = AnchorStyles.None;
+            txtPassword.BeforeTouchSize = new Size(286, 27);
             txtPassword.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.Location = new Point(35, 298);
             txtPassword.Name = "txtPassword";

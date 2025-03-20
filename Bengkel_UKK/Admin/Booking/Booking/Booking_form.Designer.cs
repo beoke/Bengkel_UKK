@@ -37,7 +37,6 @@ namespace Bengkel_UKK.Admin.Booking
             comboFilterWaktu = new ComboBox();
             lblShowingEntries = new Label();
             comboFilterStatus = new ComboBox();
-            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -88,7 +87,6 @@ namespace Bengkel_UKK.Admin.Booking
             yogaPanel1.Controls.Add(comboFilterWaktu);
             yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilterStatus);
-            yogaPanel1.Controls.Add(btnSearch);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
@@ -132,25 +130,6 @@ namespace Bengkel_UKK.Admin.Booking
             comboFilterStatus.Name = "comboFilterStatus";
             comboFilterStatus.Size = new Size(100, 28);
             comboFilterStatus.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(558, 35);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.Text = "🔎";
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -445,6 +424,5 @@ namespace Bengkel_UKK.Admin.Booking
         private TextBox txtBatas;
         private DhafaButton btnEditBatasBooking;
         private DhafaButton btnJadwal;
-        private DhafaButton btnSearch;
     }
 }

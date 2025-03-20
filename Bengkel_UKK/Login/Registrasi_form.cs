@@ -88,19 +88,40 @@ namespace Bengkel_UKK.Login
             txt_noKtp.TextChanged += async (s, e) =>
             {
                 await Task.Delay(2000);
-
+                txt_noKtp.Text = new string(txt_noKtp.Text.Where(char.IsDigit).ToArray());
+                txt_noKtp.SelectionStart = txt_noKtp.Text.Length;
                 string noKtp = txt_noKtp.Text.Trim();
-
-                // Validasi panjang KTP harus 16 digit
-                if (noKtp.Length != 16 || !noKtp.All(char.IsDigit))
+                if (noKtp.Length != 16)
                 {
                     lblEror_ktp.Text = "⚠️ Nomor KTP harus 16 digit angka!";
                     lblEror_ktp.Visible = true;
                     return;
                 }
+
                 lblEror_ktp.Visible = false;
             };
+
+            txt_noTelp.TextChanged += async (s, e) =>
+            {
+                await Task.Delay(2000);
+                txt_noTelp.Text = new string(txt_noTelp.Text.Where(char.IsDigit).ToArray());
+                txt_noTelp.SelectionStart = txt_noTelp.Text.Length;
+
+                string noTelp = txt_noTelp.Text;
+                string pattern = @"\d{8,10}$"; // berjumlah 8 - 10 digit angka
+
+                if (!Regex.IsMatch(noTelp, pattern))
+                {
+                    lbl_erorNoTelp.Text = "⚠️ Format nomor telepon tidak valid!";
+                    lbl_erorNoTelp.Visible = true;
+                    return;
+                }
+
+                lbl_erorNoTelp.Visible = false;
+            };
+
             btn_daftar.Click += (s, e) => SaveData();
+
         }
         private void SaveData()
         {
@@ -109,6 +130,8 @@ namespace Bengkel_UKK.Login
             string password = txtPassword.Text.Trim();
             string ktp = txt_noKtp.Text.Trim();
             string Cpassword = txtCPassword.Text.Trim();
+            string Notelp = txt_noTelp.Text;
+            string alamat = txt_alamat.Text;
 
             bool valid = !lblErrorNama.Visible
                 && !lblErrorEmail.Visible
@@ -128,6 +151,8 @@ namespace Bengkel_UKK.Login
                 nama_pelanggan = nama,
                 email = email,
                 password = hash,
+                no_telp = Notelp,
+                alamat = alamat
             };
             _pelangganDal.InsertData(pelanggan);
             PesanBox.Informasi("Registrasi berhasil!, Klik OK untuk melanjutkan ke menu login");

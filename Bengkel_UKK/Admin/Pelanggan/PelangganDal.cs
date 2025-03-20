@@ -3,6 +3,7 @@ using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,15 @@ namespace Bengkel_UKK.Admin.Pelanggan
             const string sql = @"SELECT * FROM Pelanggan WHERE email = @email";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { email });
+        }
+        public bool CekEmailTerdaftar(string email)
+        {
+            string query = "SELECT COUNT(*) FROM pelanggan WHERE email = @Email";
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            int count = koneksi.QueryFirstOrDefault<int>(query, new { Email = email });
+
+            return count > 0; // Jika count > 0 berarti email ditemukan
         }
 
         public PelangganModel? GetData(string ktp_pelanggan)

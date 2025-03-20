@@ -43,7 +43,6 @@ namespace Bengkel_UKK.Admin.Booking
             _timer.Interval = 10000;
             _timer.Tick += (s, e) => UpdateAntrean();
             _timer.Start();
-            btnSearch.Visible = false;
             deleteToolStripMenuItem.Visible = false;
         }
         private async void UpdateAntrean()
@@ -69,10 +68,6 @@ namespace Bengkel_UKK.Admin.Booking
         #region EVENT
         private void RegisterEvent()
         {
-            btnSearch.Click += (s, e) =>
-            {
-                if (txtSearch.Text.Length > 0) LoadData();
-            };
             dataGridView1.CellPainting += DataGridView1_CellPainting;
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             detailBookingToolStripMenuItem.Click += DetailBookingToolStripMenuItem_Click;

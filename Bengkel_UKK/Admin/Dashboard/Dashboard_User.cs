@@ -83,9 +83,6 @@ namespace Bengkel_UKK.Admin.Dashboard
                     text = "JASA SERVIS";
                     break;
                 case 5:
-                    text = "KENDARAAN";
-                    break;
-                case 6:
                     text = "PROFILE";
                     break;
             }
@@ -98,7 +95,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             AddButton(2, btnProduk);
             AddButton(3, btnRiwayat);
             AddButton(4, btnService);
-            AddButton(5, btn_kendaraan);
             AddButton(6, btnProfile);
 
             flowLayoutPanel2.AutoScroll = true;
@@ -131,8 +127,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnRiwayat.Click += BtnSideBar_Click;
             btnService.Click += (s, e) => buttonActiveAfter = 4;
             btnService.Click += BtnSideBar_Click;
-            btn_kendaraan.Click += (s, e) => buttonActiveAfter = 5;
-            btn_kendaraan.Click += BtnSideBar_Click;
             btnProfile.Click += (s, e) => buttonActiveAfter = 6;
             btnProfile.Click += BtnSideBar_Click;
             btnLogout.Click += BtnLogout_Click; 
@@ -141,7 +135,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnBooking.Click += (s, e) => ShowFormInPanel2(new BookingFormPelanggan());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new RiwayatFormPelanggan());
             btnService.Click += (s, e) => ShowFormInPanel2(new JasaServisPelanggan());
-            btn_kendaraan.Click += (s, e) => ShowFormInPanel2(new KendaraanPelanggan(GlobalVariabel._ktp_pelanggan));
             btnProfile.Click += (s, e) => ShowFormInPanel2(new ProfilePelanggan_form(GlobalVariabel._ktp_pelanggan));
             
         }

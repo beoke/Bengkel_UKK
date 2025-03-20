@@ -78,6 +78,9 @@ namespace Bengkel_UKK.Login
             this.Close();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

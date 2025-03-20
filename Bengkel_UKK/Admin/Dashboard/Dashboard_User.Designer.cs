@@ -36,7 +36,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnProduk = new DhafaButton();
             btnRiwayat = new DhafaButton();
             btnService = new DhafaButton();
-            btn_kendaraan = new DhafaButton();
             btnProfile = new DhafaButton();
             panelLeft = new Panel();
             panelLogOut = new Panel();
@@ -62,7 +61,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             flowLayoutPanel2.Controls.Add(btnProduk);
             flowLayoutPanel2.Controls.Add(btnRiwayat);
             flowLayoutPanel2.Controls.Add(btnService);
-            flowLayoutPanel2.Controls.Add(btn_kendaraan);
             flowLayoutPanel2.Controls.Add(btnProfile);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.ForeColor = SystemColors.ControlText;
@@ -173,31 +171,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnService.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnService.UseVisualStyleBackColor = false;
             // 
-            // btn_kendaraan
-            // 
-            btn_kendaraan.BackColor = Color.FromArgb(170, 0, 0);
-            btn_kendaraan.BackgroundColor = Color.FromArgb(170, 0, 0);
-            btn_kendaraan.BorderColor = Color.PaleVioletRed;
-            btn_kendaraan.BorderRadius = 7;
-            btn_kendaraan.BorderSize = 0;
-            btn_kendaraan.FlatAppearance.BorderSize = 0;
-            btn_kendaraan.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            btn_kendaraan.FlatStyle = FlatStyle.Flat;
-            btn_kendaraan.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_kendaraan.ForeColor = Color.White;
-            btn_kendaraan.Image = (Image)resources.GetObject("btn_kendaraan.Image");
-            btn_kendaraan.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_kendaraan.Location = new Point(18, 267);
-            btn_kendaraan.Name = "btn_kendaraan";
-            btn_kendaraan.Padding = new Padding(20, 0, 0, 0);
-            btn_kendaraan.Size = new Size(255, 62);
-            btn_kendaraan.TabIndex = 21;
-            btn_kendaraan.Text = "   Kendaraan";
-            btn_kendaraan.TextAlign = ContentAlignment.MiddleLeft;
-            btn_kendaraan.TextColor = Color.White;
-            btn_kendaraan.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btn_kendaraan.UseVisualStyleBackColor = false;
-            // 
             // btnProfile
             // 
             btnProfile.BackColor = Color.FromArgb(170, 0, 0);
@@ -212,7 +185,7 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnProfile.ForeColor = Color.White;
             btnProfile.Image = (Image)resources.GetObject("btnProfile.Image");
             btnProfile.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProfile.Location = new Point(18, 335);
+            btnProfile.Location = new Point(18, 267);
             btnProfile.Name = "btnProfile";
             btnProfile.Padding = new Padding(20, 0, 0, 0);
             btnProfile.Size = new Size(255, 60);
@@ -222,7 +195,6 @@ namespace Bengkel_UKK.Admin.Dashboard
             btnProfile.TextColor = Color.White;
             btnProfile.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnProfile.UseVisualStyleBackColor = false;
-            btnProfile.Visible = false;
             // 
             // panelLeft
             // 
@@ -378,7 +350,6 @@ namespace Bengkel_UKK.Admin.Dashboard
         private Label label_nama;
         private Label label_role;
         private Label lblDisplay;
-        private DhafaButton btn_kendaraan;
         private DhafaButton btnRiwayat;
         private DhafaButton btnProfile;
     }

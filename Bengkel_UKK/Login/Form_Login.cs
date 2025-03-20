@@ -69,8 +69,22 @@ namespace Bengkel_UKK.Login
             };
             linkLabel1.Click += (s, e) =>
             {
-                new Reset_password(txtEmail.Text.Trim()).Show();
+                string email = txtEmail.Text.Trim();
+                if (string.IsNullOrEmpty(email))
+                {
+                    MessageBox.Show("Silakan masukkan email terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                bool emailTerdaftar = _pelangganDal.CekEmailTerdaftar(email);
+
+                if (!emailTerdaftar)
+                {
+                    MessageBox.Show("Email tidak ditemukan! Silakan daftar terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                new Reset_password(email).Show();
             };
+
         }
         private void InitComponent()
         {

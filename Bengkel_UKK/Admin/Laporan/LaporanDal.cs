@@ -15,68 +15,55 @@ namespace Bengkel_UKK.Admin.Riwayat
         public IEnumerable<RiwayatModel?> ListLaporan(DateTime tanggal_1, DateTime tanggal_2)
         {
             const string sql = @"
-               SELECT rw.tanggal, rw.ktp_pelanggan, 
-       COALESCE(pl.nama_pelanggan, rw.nama_pelanggan) AS nama_pelanggan,
-       COALESCE(CONCAT(kd.merk, ' ', kd.tipe, ' ', kd.kapasitas, 'cc (', kd.tahun, ')'), rw.nama_kendaraan) AS nama_kendaraan,
-       ad_admin.nama_admin AS nama_petugas, 
-       ad_mekanik.nama_admin AS nama_mekanik,
-       js.nama_jasaServis AS jasa_servis, 
-       COALESCE(STRING_AGG(sp.nama_sparepart, ', '), ' ') AS nama_sparepart,
-       rw.keluhan, rw.catatan, rw.total_harga, rw.status
-        FROM Riwayat rw
-        LEFT JOIN Pelanggan pl ON rw.ktp_pelanggan = pl.ktp_pelanggan
-        LEFT JOIN Kendaraan kd ON rw.id_kendaraan = kd.id_kendaraan
-        LEFT JOIN Admin ad_admin ON rw.ktp_admin = ad_admin.ktp_admin AND ad_admin.role = 1
-        LEFT JOIN Admin ad_mekanik ON rw.ktp_mekanik = ad_mekanik.ktp_admin AND ad_mekanik.role = 0
-        LEFT JOIN JasaServis js ON rw.id_jasaServis = js.id_jasaServis
-        LEFT JOIN RiwayatSparepart ps ON rw.id_riwayat = ps.id_riwayat
-        LEFT JOIN Sparepart sp ON ps.kode_sparepart = sp.kode_sparepart
-        WHERE rw.tanggal BETWEEN @tanggal_1 AND @tanggal_2
-        GROUP BY rw.tanggal, rw.ktp_pelanggan, 
-         COALESCE(pl.nama_pelanggan, rw.nama_pelanggan),
-         COALESCE(CONCAT(kd.merk, ' ', kd.tipe, ' ', kd.kapasitas, 'cc (', kd.tahun, ')'), rw.nama_kendaraan),
-         ad_admin.nama_admin, 
-         ad_mekanik.nama_admin, 
-         js.nama_jasaServis,
-         rw.keluhan, rw.catatan, rw.total_harga, rw.status;
+               SELECT
+                    CAST(r.tanggal AS DATE) AS tanggal,
+                    p.ktp_pelanggan,
+                    COALESCE(p.nama_pelanggan, r.nama_pelanggan) AS nama_pelanggan,
+                    CASE 
+                        WHEN (r.no_pol IS NULL OR r.no_pol = '') AND (r.nama_kendaraan IS NULL OR r.nama_kendaraan = '')
+                            THEN CONCAT(k.no_pol, ', ', k.merk)
+                        ELSE CONCAT(r.no_pol, ', ', r.nama_kendaraan)
+                    END AS nama_kendaraan,
+                    a.nama_admin AS nama_petugas,
+                    m.nama_admin AS nama_mekanik,
+                    r.ktp_mekanik,
+                    js.nama_jasaServis AS jasa_servis,
+                    COALESCE(STRING_AGG(s.nama_sparepart, ', '), ' ') AS nama_sparepart,
+                    r.keluhan,
+                    r.catatan,
+                    r.total_harga,
+                    r.status
+                FROM Riwayat r
+                LEFT JOIN Pelanggan p ON r.ktp_pelanggan = p.ktp_pelanggan
+                LEFT JOIN Admin m ON r.ktp_admin = m.ktp_admin
+                LEFT JOIN Kendaraan k ON r.id_kendaraan = k.id_kendaraan
+                LEFT JOIN Admin a ON r.ktp_admin = a.ktp_admin
+                LEFT JOIN JasaServis js ON r.id_jasaServis = js.id_jasaServis
+                LEFT JOIN RiwayatSparepart rs ON r.id_riwayat = rs.id_riwayat
+                LEFT JOIN Sparepart s ON rs.kode_sparepart = s.kode_sparepart
+                
+                GROUP BY
+                    r.tanggal,
+                    p.ktp_pelanggan,
+                    COALESCE(p.nama_pelanggan, r.nama_pelanggan),
+                    CASE  
+                        WHEN (r.no_pol IS NULL OR r.no_pol = '') AND (r.nama_kendaraan IS NULL OR r.nama_kendaraan = '')
+                            THEN CONCAT(k.no_pol, ', ', k.merk)
+                        ELSE CONCAT(r.no_pol, ', ', r.nama_kendaraan)
+                    END,
+                    a.nama_admin,
+                    r.ktp_mekanik,  
+                    m.nama_admin,
+                    js.nama_jasaServis,
+                    r.keluhan,
+                    r.catatan,
+                    r.total_harga,
+                    r.status
 ";
 
 
             using var connection = new SqlConnection(conn.connStr);
             return connection.Query<RiwayatModel>(sql, new { tanggal_1, tanggal_2 });
-        }
-        public List<RiwayatModel> ListData(DateTime tanggal_1, DateTime tanggal_2 = default)
-        {
-            string sql = $@"SELECT 
-                r.id_riwayat,
-                r.ktp_pelanggan, 
-                COALESCE(r.nama_pelanggan, p.nama_pelanggan) AS nama_pelanggan, 
-                r.id_kendaraan, 
-                COALESCE(r.no_pol, k.no_pol) AS no_pol,
-                COALESCE(
-                    r.nama_kendaraan, 
-                    CONCAT(k.merk, ' ', k.tipe, ' ', k.kapasitas, 'cc (', k.tahun, ')')
-                ) AS nama_kendaraan,
-                r.tanggal,
-                r.tanggal_servis,
-                r.tanggal_selesai,
-                r.keluhan,
-                r.catatan,
-                a.nama_admin AS nama_admin,
-                m.nama_admin AS nama_mekanik,
-                r.id_jasaServis,
-                r.status,
-                r.total_harga,
-                r.pembatalan_oleh
-            FROM Riwayat r
-            LEFT JOIN Pelanggan p ON r.ktp_pelanggan = p.ktp_pelanggan
-            LEFT JOIN Kendaraan k ON r.id_kendaraan = k.id_kendaraan
-            LEFT JOIN JasaServis js ON r.id_jasaServis = js.id_jasaServis
-            LEFT JOIN Admin a ON r.ktp_admin = a.ktp_admin  -- Join untuk admin
-            LEFT JOIN Admin m ON r.ktp_mekanik = m.ktp_admin  -- Join lagi untuk mekanik";
-
-            using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.Query<RiwayatModel>(sql, new { tanggal_1, tanggal_2 }).ToList();
         }
     }
 }

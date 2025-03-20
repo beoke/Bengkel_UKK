@@ -47,6 +47,13 @@ namespace Bengkel_UKK.Admin.Pelanggan
             btn_edit.Click += Btn_edit_Click;
             buttonSave.Click += ButtonSave_Click; 
             dataGridView1.CellPainting += DataGridView1_CellPainting;
+            btn_tambah.Click += Btn_tambah_Click; ;
+        }
+
+        private void Btn_tambah_Click(object? sender, EventArgs e)
+        {
+            InputKendaraan_form form = new InputKendaraan_form();
+            form.ShowDialog();
         }
 
         private void ButtonSave_Click(object? sender, EventArgs e)
@@ -63,11 +70,11 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
             var pelanggan = new PelangganModelUpdate
             {
-                ktp_pelanggan_old = txtNoKTP.Tag?.ToString(),  // Simpan KTP lama di Tag saat form dibuka
+                ktp_pelanggan_old = txtNoKTP.Tag?.ToString(),
                 ktp_pelanggan_new = txtNoKTP.Text,
                 nama_pelanggan = txtNama.Text,
                 email = txtEmail.Text,
-                password = txtPassword.Text,  // Jangan lupa menyimpan password jika perlu
+                password = txtPassword.Text,  
                 no_telp = txtNoTelp.Text,
                 alamat = txtAlamat.Text
             };
@@ -99,14 +106,12 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
             if (result == DialogResult.OK)
             {
-                // Aktifkan input untuk diedit
                 txtNama.ReadOnly = false;
                 txtEmail.ReadOnly = false;
                 txtNoKTP.ReadOnly = false;
                 txtNoTelp.ReadOnly = false;
                 txtAlamat.ReadOnly = false;
 
-                // Aktifkan tombol Save
                 buttonSave.Enabled = true;
             }
         }
@@ -127,9 +132,8 @@ namespace Bengkel_UKK.Admin.Pelanggan
             string noKTP = txtNoKTP.Text.Trim();
             string noTelp = txtNoTelp.Text.Trim();
             string alamat = txtAlamat.Text.Trim();
-            string oldKTP = txtNoKTP.Tag?.ToString() ?? string.Empty; // Ambil KTP lama untuk update
+            string oldKTP = txtNoKTP.Tag?.ToString() ?? string.Empty; 
 
-            // Validasi input
             if (string.IsNullOrWhiteSpace(nama) || string.IsNullOrWhiteSpace(email) ||
                 string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(noKTP) ||
                 string.IsNullOrWhiteSpace(noTelp) || string.IsNullOrWhiteSpace(alamat))
@@ -138,7 +142,6 @@ namespace Bengkel_UKK.Admin.Pelanggan
                 return;
             }
 
-            // Periksa apakah ada perubahan KTP
             if (noKTP != oldKTP)
             {
                 var existingData = _pelangganDal.GetDataByKTP(noKTP);
@@ -149,7 +152,6 @@ namespace Bengkel_UKK.Admin.Pelanggan
                 }
             }
 
-            // Hash password hanya jika berubah
             var oldData = _pelangganDal.GetDataByKTP(oldKTP);
             string hashedPassword = (oldData != null && oldData.password == password)
                                     ? password
@@ -157,7 +159,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
             var pelanggan = new PelangganModelUpdate
             {
-                ktp_pelanggan_old = oldKTP, // Gunakan KTP lama untuk referensi update
+                ktp_pelanggan_old = oldKTP, 
                 ktp_pelanggan_new = noKTP,
                 nama_pelanggan = nama,
                 email = email,
@@ -185,13 +187,12 @@ namespace Bengkel_UKK.Admin.Pelanggan
             if (data == null) return;
 
             txtNama.Text = data.nama_pelanggan;
-            txtEmail.Text = data.email; // Tidak perlu `.ToString()` karena sudah string
+            txtEmail.Text = data.email; 
             txtPassword.Text = data.password;
             txtNoKTP.Text = data.ktp_pelanggan;
             txtNoTelp.Text = data.no_telp;
             txtAlamat.Text = data.alamat;
 
-            // Simpan KTP lama sebagai referensi saat update
             txtNoKTP.Tag = data.ktp_pelanggan;
         }
 
