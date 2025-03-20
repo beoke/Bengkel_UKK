@@ -123,35 +123,32 @@ namespace Bengkel_UKK.Admin.Karyawan
         #region LOAD DATAGRID
         private FilterDto? Filter()
         {
-            string search = txtSearch.Text.Trim();
-            int status = comboFilter.SelectedIndex > 0 ? comboFilter.SelectedIndex : -1;
+            string search = txtSearch.Text;
+            int status = comboFilter.SelectedIndex - 1;
 
-            string sql = "SELECT * FROM Admin";
+            string sql = @"";
             var dp = new DynamicParameters();
             List<string> fltr = new List<string>();
 
-            if (!string.IsNullOrEmpty(search))
+            if (search != string.Empty)
             {
-                fltr.Add("(ktp_admin LIKE '%' + @search + '%' OR nama_admin LIKE '%' + @search + '%' OR alamat LIKE '%' + @search + '%' OR email LIKE '%' + @search + '%' OR no_telp LIKE '%' + @search + '%')");
-                dp.Add("search", search);
+                fltr.Add("(ktp_admin LIKE @search + '%' OR nama_admin LIKE '%' + @search + '%' OR alamat LIKE '%' + @search + '%' + @search + '%' OR email LIKE '%' + @search + '%' + @search + '%' OR no_telp LIKE '%' + @search + '%')");
+                dp.Add(@"search", search);
             }
-
-            if (status != -1) // Jika role dipilih
+            if (comboFilter.SelectedIndex != 0)
             {
-                fltr.Add("role = @role");
-                dp.Add("role", status);
+                fltr.Add("(role = @role)");
+                dp.Add(@"role", status);
             }
-
             if (fltr.Count > 0)
-            {
                 sql += " WHERE " + string.Join(" AND ", fltr);
-            }
 
-            return new FilterDto
+            var filterResult = new FilterDto
             {
                 sql = sql,
                 param = dp
             };
+            return filterResult;
         }
 
         private void LoadData()
@@ -186,7 +183,7 @@ namespace Bengkel_UKK.Admin.Karyawan
                         : "Super Admin"
                 }).ToList();
             dataGridView1.DataSource = new SortableBindingList<KaryawanDto>(list);
-        }
+        }   
 
         #endregion
 

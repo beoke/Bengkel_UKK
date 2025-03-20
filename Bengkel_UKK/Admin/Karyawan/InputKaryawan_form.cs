@@ -152,7 +152,23 @@ namespace Bengkel_UKK.Admin.Karyawan
 
             txtNoKTP.TextChanged += async (s, e) =>
             {
-                await Task.Delay(2000);
+                // Batasi input maksimal 16 karakter
+                if (txtNoKTP.Text.Length > 16)
+                {
+                    txtNoKTP.Text = txtNoKTP.Text.Substring(0, 16);
+                    txtNoKTP.SelectionStart = txtNoKTP.Text.Length; // Kembalikan posisi kursor
+                }
+
+                // Jika karakter belum mencapai 16, jangan lakukan validasi
+                if (txtNoKTP.Text.Length < 16)
+                {
+                    lblErrorKTP.Text = "⚠️ Nomor KTP harus 16 karakter!";
+                    lblErrorKTP.Visible = true;
+                    return;
+                }
+
+                await Task.Delay(2000); // Delay untuk validasi
+
                 string noKtp = txtNoKTP.Text;
                 if (noKtp == _ktp_admin) return;
 
@@ -162,8 +178,10 @@ namespace Bengkel_UKK.Admin.Karyawan
                     lblErrorKTP.Visible = true;
                     return;
                 }
+
                 lblErrorKTP.Visible = false;
             };
+
 
             txtKonfirPassword.TextChanged += async (s, e) =>
             {
@@ -177,6 +195,19 @@ namespace Bengkel_UKK.Admin.Karyawan
                     return;
                 }
                 lblErrorCPassword.Visible = false;
+            };
+
+            txtNoTelepon.TextChanged += (s, e) =>
+            {
+                // Hanya izinkan angka dan tanda "+"
+                txtNoTelepon.Text = new string(txtNoTelepon.Text.Where(c => char.IsDigit(c) || c == '+').ToArray());
+
+                // Jika lebih dari 12 karakter, potong
+                if (txtNoTelepon.Text.Length > 15)
+                {
+                    txtNoTelepon.Text = txtNoTelepon.Text.Substring(0, 12);
+                    txtNoTelepon.SelectionStart = txtNoTelepon.Text.Length; // Kembalikan posisi kursor
+                }
             };
 
 

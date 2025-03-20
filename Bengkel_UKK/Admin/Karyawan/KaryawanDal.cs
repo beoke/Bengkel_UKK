@@ -13,9 +13,9 @@ namespace Bengkel_UKK.Admin.Karyawan
     {
         public IEnumerable<KaryawanModel> ListData(FilterDto filter)
         {
-            const string sql = @"SELECT * FROM Admin";
+            string sql = $@"SELECT * FROM Admin {filter.sql}";
             using var koneksi = new SqlConnection(conn.connStr);
-            return koneksi.Query<KaryawanModel>(sql);
+            return koneksi.Query<KaryawanModel>(sql,filter.param);
         }
 
         #region SET HALMAN SESUAI TOTAL LINE

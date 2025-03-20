@@ -21,6 +21,8 @@ namespace Bengkel_UKK.Login
             InitializeComponent();
             GetData(email);
             btn_daftar.Click += Btn_daftar_Click;
+            txtPassword.PasswordChar = '*';
+            txtCPassword.PasswordChar = '*';
         }
 
         private void Btn_daftar_Click(object? sender, EventArgs e)
@@ -42,14 +44,24 @@ namespace Bengkel_UKK.Login
         private void SaveData()
         {
             string passwordBaru = txtPassword.Text.Trim();
+            string konfirmasiPassword = txtCPassword.Text.Trim();
 
+            // Validasi password tidak boleh kosong
             if (string.IsNullOrEmpty(passwordBaru))
             {
                 MessageBox.Show("Password tidak boleh kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string hashedPassword = PasswordHash.ArgonHashString(passwordBaru); // Hash password baru
+            // Validasi konfirmasi password harus sama
+            if (passwordBaru != konfirmasiPassword)
+            {
+                MessageBox.Show("Konfirmasi password tidak sesuai!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Hash password baru sebelum disimpan
+            string hashedPassword = PasswordHash.ArgonHashString(passwordBaru, PasswordHash.StrengthArgon.Interactive);
 
             var data = new PelangganModelUpdate
             {
@@ -57,7 +69,7 @@ namespace Bengkel_UKK.Login
                 ktp_pelanggan_new = txt_noKtp.Text,
                 nama_pelanggan = txtNama.Text,
                 email = txtEmail.Text,
-                password = hashedPassword, // Simpan hash ke database
+                password = hashedPassword,
             };
 
             _pelangganDal.UpdateDataPelanggan(data);
@@ -65,6 +77,7 @@ namespace Bengkel_UKK.Login
             MessageBox.Show("Password berhasil diubah", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
 
     }
 }

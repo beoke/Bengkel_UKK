@@ -22,7 +22,7 @@ CREATE PROCEDURE InsertPelanggan
     @ktp_pelanggan VARCHAR(30),
     @nama_pelanggan VARCHAR(100),
     @email VARCHAR(50),
-    @password VARCHAR(50),
+    @password VARCHAR(255),
     @alamat VARCHAR(100),
     @no_telp VARCHAR(20)
 AS
@@ -39,7 +39,7 @@ CREATE PROCEDURE InsertAdmin
     @ktp_admin VARCHAR(30),
     @nama_admin VARCHAR(100),
     @email VARCHAR(50),
-    @password VARCHAR(50),
+    @password VARCHAR(255),
     @alamat VARCHAR(100),
     @no_telp VARCHAR(20),
     @role INT,
@@ -199,7 +199,7 @@ CREATE PROCEDURE UpdatePelanggan
     @ktp_pelanggan_new VARCHAR(30),  
     @nama_pelanggan VARCHAR(100),
     @email VARCHAR(50),
-    @password VARCHAR(50),
+    @password VARCHAR(255),
     @alamat VARCHAR(100),
     @no_telp VARCHAR(20)
 AS
@@ -235,7 +235,7 @@ CREATE PROCEDURE UpdateAdmin
     @ktp_admin_new VARCHAR(30),  
     @nama_admin VARCHAR(100),
     @email VARCHAR(50),
-    @password VARCHAR(50),
+    @password VARCHAR(255),
     @alamat VARCHAR(100),
     @no_telp VARCHAR(20),
     @role INT,
