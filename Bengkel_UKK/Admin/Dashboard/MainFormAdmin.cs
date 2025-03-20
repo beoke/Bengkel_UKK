@@ -62,10 +62,10 @@ namespace Bengkel_UKK.Admin.Dashboard
             AddButton(8, btn_kendaraan);
 
             flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.HorizontalScroll.Enabled = false; // Matikan horizontal scroll bar
-            flowLayoutPanel2.HorizontalScroll.Visible = false; // Sembunyikan horizontal scroll bar
-            flowLayoutPanel2.VerticalScroll.Enabled = true;    // Aktifkan vertical scroll bar (opsional)
-            flowLayoutPanel2.VerticalScroll.Visible = true;    // Tampilkan vertical scroll bar (opsional)
+            flowLayoutPanel2.HorizontalScroll.Enabled = false; 
+            flowLayoutPanel2.HorizontalScroll.Visible = false; 
+            flowLayoutPanel2.VerticalScroll.Enabled = true;    
+            flowLayoutPanel2.VerticalScroll.Visible = true;    
 
             this.Style.ShadowOpacity = 0;
             this.Style.TitleBar.BackColor = Color.FromArgb(52, 152, 219);

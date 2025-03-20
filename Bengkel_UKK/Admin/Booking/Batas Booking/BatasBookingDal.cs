@@ -26,7 +26,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
         }
         public BatasBookingModel? GetData(int id)
         {
-            const string sql = @"SELECT id_batas_booking, tanggal, batas_booking
+            const string sql = @"SELECT id_batas_booking, tanggal_batas_booking, batas_booking
                                 FROM BatasBooking WHERE id_batas_booking = @id";
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<BatasBookingModel>(sql, new { id });
@@ -60,7 +60,7 @@ namespace Bengkel_UKK.Admin.Booking.Batas_Booking
         public void UpdateData(BatasBookingModel data)
         {
             const string sql = @"UPDATE BatasBooking
-                                SET tanggal = @tanggal_batas_booking, batas_booking = @batas_booking
+                                SET tanggal_batas_booking = @tanggal_batas_booking, batas_booking = @batas_booking
                                 WHERE id_batas_booking = @id_batas_booking";
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Execute(sql, data);

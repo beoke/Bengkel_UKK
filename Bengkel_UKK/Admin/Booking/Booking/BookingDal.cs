@@ -268,13 +268,10 @@ namespace Bengkel_UKK.Admin.Booking
 
             try
             {
-                // 1. Insert ke Riwayat dan ambil ID yang baru dibuat
                 int idRiwayat = await koneksi.QuerySingleAsync<int>(sqlInsertRiwayat, dp, transaksi);
 
-                // 2. Ambil semua sparepart dari BookingSparepart
                 var spareparts = await koneksi.QueryAsync<(string kode_sparepart, int jumlah)>(sqlGetSpareparts, dp, transaksi);
 
-                // 3. Looping setiap sparepart dan insert ke RiwayatSparepart
                 foreach (var sparepart in spareparts)
                 {
                     var paramSparepart = new DynamicParameters();
@@ -285,15 +282,12 @@ namespace Bengkel_UKK.Admin.Booking
                     await koneksi.ExecuteAsync(sqlInsertRiwayatSparepart, paramSparepart, transaksi);
                 }
 
-                // 4. Hapus data Booking setelah semua selesai
                 await koneksi.ExecuteAsync(sqlDeleteBooking, dp, transaksi);
 
-                // Commit transaksi
                 await transaksi.CommitAsync();
             }
             catch
             {
-                // Rollback transaksi jika ada error
                 await transaksi.RollbackAsync();
                 throw;
             }

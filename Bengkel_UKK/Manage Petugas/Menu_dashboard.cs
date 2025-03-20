@@ -27,6 +27,7 @@ namespace Bengkel_UKK.Manage_Petugas
             label7.Text = dashboard.TotalBookingDikerjakan.ToString();
             label10.Text = dashboard.TotalPelanggan.ToString();
             label13.Text = dashboard.TotalPendapatan.ToString("C"); // Format sebagai mata uang
+            chartControl1.Text = "PENDAPATAN";
         }
     }
 }

@@ -70,7 +70,7 @@ namespace Bengkel_UKK.Admin.Booking
 
         private void Button_keluar_Click(object? sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.OK;
         }
 
         /*private void InsertRiwayat()
