@@ -81,6 +81,7 @@ namespace Bengkel_UKK.Admin.Booking
             label19 = new Label();
             label3 = new Label();
             btnSelesai = new DhafaButton();
+            button_keluar = new DhafaButton();
             yogaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gradientPanelExt3).BeginInit();
             gradientPanelExt3.SuspendLayout();
@@ -758,12 +759,33 @@ namespace Bengkel_UKK.Admin.Booking
             btnSelesai.TextColor = Color.White;
             btnSelesai.UseVisualStyleBackColor = false;
             // 
+            // button_keluar
+            // 
+            button_keluar.Anchor = AnchorStyles.None;
+            button_keluar.BackColor = Color.FromArgb(239, 7, 7);
+            button_keluar.BackgroundColor = Color.FromArgb(239, 7, 7);
+            button_keluar.BorderColor = Color.PaleVioletRed;
+            button_keluar.BorderRadius = 5;
+            button_keluar.BorderSize = 0;
+            button_keluar.FlatAppearance.BorderSize = 0;
+            button_keluar.FlatStyle = FlatStyle.Flat;
+            button_keluar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button_keluar.ForeColor = Color.White;
+            button_keluar.Location = new Point(1136, 742);
+            button_keluar.Name = "button_keluar";
+            button_keluar.Size = new Size(123, 40);
+            button_keluar.TabIndex = 143;
+            button_keluar.Text = "Keluar";
+            button_keluar.TextColor = Color.White;
+            button_keluar.UseVisualStyleBackColor = false;
+            // 
             // BookingDetail_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 235, 240);
             ClientSize = new Size(1325, 812);
+            Controls.Add(button_keluar);
             Controls.Add(btnSelesai);
             Controls.Add(label3);
             Controls.Add(yogaPanel2);
@@ -858,5 +880,6 @@ namespace Bengkel_UKK.Admin.Booking
         private DhafaButton btnStatus;
         private Label label4;
         private DhafaButton btnSelesai;
+        private DhafaButton button_keluar;
     }
 }

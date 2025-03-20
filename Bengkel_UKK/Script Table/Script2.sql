@@ -434,8 +434,6 @@ END;
 
 
 
-
-
 GO;
 
 		--TRIGGER Pelanggan--

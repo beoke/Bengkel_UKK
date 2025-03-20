@@ -65,28 +65,35 @@ namespace Bengkel_UKK.Admin.Booking
             comboMekanik.SelectedIndexChanged += async (s, e) => await SaveDataTunggal("mekanik");
             comboServis.SelectedIndexChanged += async (s, e) => await SaveDataTunggal("jasaServis");
             txtCatatan.Leave += async (s, e) => await SaveDataTunggal("catatan");
+            button_keluar.Click += Button_keluar_Click;
         }
-        /*private void InsertRiwayat()
-        {
-            var data = new RiwayatModel()
-            {
-                ktp_pelanggan = lblNoKTP.Text,
-                nama_pelanggan = lblNama.Text,
-                id_kendaraan = id_kendaraan,
-                no_pol = lblNoPol.Text,
-                ktp_mekanik = comboMekanik.SelectedValue.ToString(),
-                nama_kendaraan = lblKendaraan.Text,
-                tanggal = DateTime.Now,
-                keluhan = lblKeluhan.Text,
-                catatan = txtCatatan.Text,
-                ktp_admin = GlobalVariabel._ktp,
-                id_jasaServis = Convert.ToInt32(comboServis.SelectedValue),
-                status = "Menunggu",
-                total_harga = 0
-            };
-            _riwayatDal.Insert(data);
 
-        }*/
+        private void Button_keluar_Click(object? sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /*private void InsertRiwayat()
+{
+   var data = new RiwayatModel()
+   {
+       ktp_pelanggan = lblNoKTP.Text,
+       nama_pelanggan = lblNama.Text,
+       id_kendaraan = id_kendaraan,
+       no_pol = lblNoPol.Text,
+       ktp_mekanik = comboMekanik.SelectedValue.ToString(),
+       nama_kendaraan = lblKendaraan.Text,
+       tanggal = DateTime.Now,
+       keluhan = lblKeluhan.Text,
+       catatan = txtCatatan.Text,
+       ktp_admin = GlobalVariabel._ktp,
+       id_jasaServis = Convert.ToInt32(comboServis.SelectedValue),
+       status = "Menunggu",
+       total_harga = 0
+   };
+   _riwayatDal.Insert(data);
+
+}*/
         private void BtnBatalkanPesanan_Click(object? sender, EventArgs e)
         {
             if (txtCatatan.TextLength == 0)
@@ -444,7 +451,7 @@ namespace Bengkel_UKK.Admin.Booking
 
             var dp = new DynamicParameters();
             dp.Add("@id_booking", _id_booking);
-            dp.Add("@ktp_admin", GlobalVariabel._ktp);  // GlobalVariabel "123456789"
+            dp.Add("@ktp_admin", GlobalVariabel._ktp); 
             dp.Add("@total_harga", total);
             dp.Add("@status", _servisKeterangan);
             dp.Add("@pembatalan_oleh", cancel ? "Admin/Petugas" : null);

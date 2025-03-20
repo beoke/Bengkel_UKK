@@ -232,52 +232,71 @@ namespace Bengkel_UKK.Admin.Booking
             await koneksi.ExecuteAsync(data.sql, data.param);
         }
 
-        public void UpdateBooking(BookingModel2 booking)
-        {
-            const string sql = @"
-        UPDATE Booking 
-        SET id_jasaServis = @id_jasaServis, 
-            ktp_mekanik = @ktp_mekanik, 
-            status = @status, 
-            catatan = @catatan 
-        WHERE id_booking = @id_booking";
-
-            using var koneksi = new SqlConnection(conn.connStr);
-            var dp = new DynamicParameters();
-
-            dp.Add("@id_jasaServis", booking.id_jasaServis);
-            dp.Add("@ktp_mekanik", booking.ktp_mekanik);
-            dp.Add("@status", booking.status);
-            dp.Add("@catatan", booking.catatan);
-            dp.Add("@id_booking", booking.id_booking);
-
-            koneksi.Execute(sql, dp);
-        }
 
         public async Task SelesaiServisUpdate(DynamicParameters dp)
         {
-            string sql = @"
-                INSERT INTO Riwayat (
-                    ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, nama_kendaraan, 
-                    tanggal, tanggal_servis, tanggal_selesai, 
-                    ktp_admin, ktp_mekanik, keluhan, catatan, total_harga, 
-                    id_jasaServis, status, pembatalan_oleh, created_at
-                )
-                SELECT 
-                    b.ktp_pelanggan, b.nama_pelanggan, b.id_kendaraan, b.no_pol, b.nama_kendaraan, 
-                    b.tanggal, b.tanggal_servis, GETDATE(),
-                    @ktp_admin, b.ktp_mekanik, b.keluhan, b.catatan, @total_harga, 
-                    b.id_jasaServis, @status, @pembatalan_oleh,
-                    GETDATE()
-                FROM Booking b
-                WHERE b.id_booking = @id_booking";
+            string sqlInsertRiwayat = @"
+        INSERT INTO Riwayat (
+            ktp_pelanggan, nama_pelanggan, id_kendaraan, no_pol, nama_kendaraan, 
+            tanggal, tanggal_servis, tanggal_selesai, 
+            ktp_admin, ktp_mekanik, keluhan, catatan, total_harga, 
+            id_jasaServis, status, pembatalan_oleh, created_at
+        )
+        SELECT 
+            b.ktp_pelanggan, b.nama_pelanggan, b.id_kendaraan, b.no_pol, b.nama_kendaraan, 
+            b.tanggal, b.tanggal_servis, GETDATE(),
+            @ktp_admin, b.ktp_mekanik, b.keluhan, b.catatan, @total_harga, 
+            b.id_jasaServis, @status, @pembatalan_oleh,
+            GETDATE()
+        FROM Booking b
+        WHERE b.id_booking = @id_booking;
 
-            string sqlDelete = @"DELETE FROM Booking WHERE id_booking = @id_booking";
+        SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+            string sqlGetSpareparts = @"SELECT kode_sparepart, jumlah FROM BookingSparepart WHERE id_booking = @id_booking";
+
+            string sqlInsertRiwayatSparepart = @"
+        INSERT INTO RiwayatSparepart (id_riwayat, kode_sparepart, jumlah) 
+        VALUES (@id_riwayat, @kode_sparepart, @jumlah);";
+
+            string sqlDeleteBooking = @"DELETE FROM Booking WHERE id_booking = @id_booking";
 
             using var koneksi = new SqlConnection(conn.connStr);
+            await koneksi.OpenAsync();
 
-            await koneksi.ExecuteAsync(sql, dp);
-            await koneksi.ExecuteAsync(sqlDelete, dp);
+            using var transaksi = await koneksi.BeginTransactionAsync();
+
+            try
+            {
+                // 1. Insert ke Riwayat dan ambil ID yang baru dibuat
+                int idRiwayat = await koneksi.QuerySingleAsync<int>(sqlInsertRiwayat, dp, transaksi);
+
+                // 2. Ambil semua sparepart dari BookingSparepart
+                var spareparts = await koneksi.QueryAsync<(string kode_sparepart, int jumlah)>(sqlGetSpareparts, dp, transaksi);
+
+                // 3. Looping setiap sparepart dan insert ke RiwayatSparepart
+                foreach (var sparepart in spareparts)
+                {
+                    var paramSparepart = new DynamicParameters();
+                    paramSparepart.Add("@id_riwayat", idRiwayat);
+                    paramSparepart.Add("@kode_sparepart", sparepart.kode_sparepart);
+                    paramSparepart.Add("@jumlah", sparepart.jumlah);
+
+                    await koneksi.ExecuteAsync(sqlInsertRiwayatSparepart, paramSparepart, transaksi);
+                }
+
+                // 4. Hapus data Booking setelah semua selesai
+                await koneksi.ExecuteAsync(sqlDeleteBooking, dp, transaksi);
+
+                // Commit transaksi
+                await transaksi.CommitAsync();
+            }
+            catch
+            {
+                // Rollback transaksi jika ada error
+                await transaksi.RollbackAsync();
+                throw;
+            }
         }
     }
 }
