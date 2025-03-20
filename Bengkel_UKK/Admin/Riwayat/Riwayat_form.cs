@@ -42,7 +42,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             panelComboFilter.Visible = true;
             panelTanggalFilter.Visible = false;
 
-            comboFilterStatus.DataSource = new List<string>() { "Semua(All)", "Pending", "Dikerjakan" };
 
             DateTime now = DateTime.Today;
             var listFilterWaktu = new List<FilterWaktu>()
@@ -78,7 +77,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             txtSearch.KeyDown += TxtSearch_KeyDown;
 
             comboFilterWaktu.SelectedValueChanged += ComboFilterWaktu_SelectedValueChanged;
-            comboFilterStatus.SelectedIndexChanged += ComboFilterStatus_SelectedIndexChanged;
 
             tgl1.ValueChanged += (s, e) => ControlTgl1();
             tgl2.ValueChanged += (s, e) => ControlTgl2();
@@ -174,7 +172,6 @@ namespace Bengkel_UKK.Admin.Riwayat
         private FilterDto? Filter()
         {
             string search = txtSearch.Text;
-            string status = comboFilterStatus.SelectedItem?.ToString()?.ToLower() ?? string.Empty;
 
             DateTime filterWaktu1 = ((FilterWaktu)comboFilterWaktu.SelectedItem).waktu1;
             DateTime filterWaktu2 = ((FilterWaktu)comboFilterWaktu.SelectedItem).waktu2;
@@ -191,11 +188,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             {
                 fltr.Add("(r.ktp_pelanggan LIKE @search + '%' OR COALESCE(r.no_pol, k.no_pol) LIKE '%' + @search + '%' OR COALESCE(r.nama_pelanggan, p.nama_pelanggan) LIKE '%' + @search + '%')");
                 dp.Add(@"search", search);
-            }
-            if (status != string.Empty && comboFilterStatus.SelectedIndex != 0)
-            {
-                fltr.Add("(r.status = @status)");
-                dp.Add(@"status", status);
             }
             if (comboFilterWaktu.SelectedIndex != 0 && !_filterTanggal)
             {

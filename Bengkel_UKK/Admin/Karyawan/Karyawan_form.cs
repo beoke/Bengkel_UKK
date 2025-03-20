@@ -29,7 +29,6 @@ namespace Bengkel_UKK.Admin.Karyawan
 
             LoadData();
             CustomGrid();
-            btnSearch.Visible = false;
         }
         private void RegisterEvent()
         {
@@ -124,35 +123,35 @@ namespace Bengkel_UKK.Admin.Karyawan
         #region LOAD DATAGRID
         private FilterDto? Filter()
         {
-            string search = txtSearch.Text;
-            int status = comboFilter.SelectedIndex - 1;
+            string search = txtSearch.Text.Trim();
+            int status = comboFilter.SelectedIndex > 0 ? comboFilter.SelectedIndex : -1;
 
-
-            string sql = @"";
+            string sql = "SELECT * FROM Admin";
             var dp = new DynamicParameters();
             List<string> fltr = new List<string>();
 
-            if (search != string.Empty)
+            if (!string.IsNullOrEmpty(search))
             {
-                fltr.Add("(ktp_admin LIKE @search + '%' OR nama_admin LIKE '%' + @search + '%' OR alamat LIKE '%' + @search + '%' + @search + '%' OR email LIKE '%' + @search + '%' + @search + '%' OR no_telp LIKE '%' + @search + '%')");
-                dp.Add(@"search", search);
+                fltr.Add("(ktp_admin LIKE '%' + @search + '%' OR nama_admin LIKE '%' + @search + '%' OR alamat LIKE '%' + @search + '%' OR email LIKE '%' + @search + '%' OR no_telp LIKE '%' + @search + '%')");
+                dp.Add("search", search);
             }
-            if (comboFilter.SelectedIndex != 0)
+
+            if (status != -1) // Jika role dipilih
             {
-                fltr.Add("(role = @role)");
-                dp.Add(@"role", status);
+                fltr.Add("role = @role");
+                dp.Add("role", status);
             }
 
             if (fltr.Count > 0)
+            {
                 sql += " WHERE " + string.Join(" AND ", fltr);
+            }
 
-
-            var filterResult = new FilterDto
+            return new FilterDto
             {
                 sql = sql,
                 param = dp
             };
-            return filterResult;
         }
 
         private void LoadData()

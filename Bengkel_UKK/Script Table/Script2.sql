@@ -1,4 +1,4 @@
-﻿-- STORE PROCEDURE INSERT--
+﻿    -- STORE PROCEDURE INSERT--
 
 CREATE PROCEDURE InsertSparepart
     @kode_sparepart VARCHAR(20),

@@ -33,6 +33,12 @@ namespace Bengkel_UKK.Admin.Pelanggan
             using var koneksi = new SqlConnection(conn.connStr);
             return koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { ktp_pelanggan });
         }
+        public PelangganModel? GetDataByEMail(string email)
+        {
+            const string sql = @"SELECT * FROM Pelanggan WHERE email = @email";
+            using var koneksi = new SqlConnection(conn.connStr);
+            return koneksi.QueryFirstOrDefault<PelangganModel>(sql, new { email });
+        }
 
         public PelangganModel? GetData(string ktp_pelanggan)
         {
@@ -70,7 +76,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Query<PelangganModel>("InsertPelanggan", dp, commandType: System.Data.CommandType.StoredProcedure);
         }
-
+            
         public void UpdateData(PelangganModelUpdate pelanggan)
         {
             var dp = new DynamicParameters();
@@ -84,6 +90,20 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
             using var koneksi = new SqlConnection(conn.connStr);
             koneksi.Query<PelangganModel>("UpdatePelanggan", dp, commandType: System.Data.CommandType.StoredProcedure);
+        }
+        public void UpdateDataPelanggan(PelangganModelUpdate pelanggan)
+        {
+            var dp = new DynamicParameters();
+            dp.Add(@"ktp_pelanggan_old", pelanggan.ktp_pelanggan_old);
+            dp.Add(@"ktp_pelanggan_new", pelanggan.ktp_pelanggan_new);
+            dp.Add(@"nama_pelanggan", pelanggan.nama_pelanggan);
+            dp.Add(@"no_telp", pelanggan.no_telp);
+            dp.Add(@"email", pelanggan.email);
+            dp.Add(@"password", pelanggan.password);
+            dp.Add(@"alamat", pelanggan.alamat);
+
+            using var koneksi = new SqlConnection(conn.connStr);
+            koneksi.Execute("UpdatePelanggan", dp, commandType: System.Data.CommandType.StoredProcedure);
         }
         public bool UpdateDatabyktp(PelangganModelUpdate pelanggan)
         {

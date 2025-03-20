@@ -176,7 +176,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
             }
             else
             {
-                _pelangganDal.UpdateData(dataPelanggan);
+                _pelangganDal.UpdateDataPelanggan(dataPelanggan);
             }
 
 

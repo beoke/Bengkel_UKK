@@ -144,20 +144,6 @@
         gg==
 </value>
   </data>
-  <data name="btnKalender.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGcSURBVEhLtZVN
-        LwNRFIZr3y6kVeHHWLCjhIS/opVYVHz8HglBSDU2LKjEr2AjFBsJHjny3ro97TAz4UluMvPe95xzP+be
-        KRQSAM6sed2T1jcAwuuetD4zzgNt4CUE5cBiT4GaT77jnX/AVjxy4xVYBSb7qmfAYoG6chk1E21ZjLoP
-        yAvQUM6WvTzrZcIb82K5lPMp/VeQkV7e8JCStk+URAj4zwK2t+1cSwSMAmvAOXAL3AEX0ka9OVMBYA64
-        781pEOv7PmhB7cuSgM7Mm0JOgFlgXM2ej9X3DiyEoFQFgDLwIPsmMOI9BrAhj3nLWQo0ZT10+sBtChzI
-        28xS4FrWGacPxJtHcmeoYRhAV9aS0wPVSCtJ62YpEK6UotMvpV9FWq4CN7JOOb1qyYGjSJuW92uJwsh+
-        vKaBbfl2fZ8H2Jf3a5PtD2Q0vDFG3/rTb15gXZ5HoGJCTYL9JOweT5wJsAJ8yL+npSiq2XMYuR20xThw
-        Sx1J9C45YDn6ooZhI1/qJY8CbSataE9i+m5RYEyn2c6G+W3pOjrFldj7CRd6ECXlFsp2AAAAAElFTkSu
-        QmCC
-</value>
-  </data>
   <data name="btnProduk.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

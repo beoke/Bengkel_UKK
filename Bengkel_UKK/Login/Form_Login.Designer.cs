@@ -40,6 +40,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            linkLabel1 = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)txtEmail).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtPassword).BeginInit();
             panel1.SuspendLayout();
@@ -121,6 +122,7 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(linkRegister);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
@@ -189,6 +191,17 @@
             label1.TabIndex = 0;
             label1.Text = "MASUK";
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
+            linkLabel1.Location = new Point(260, 260);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(102, 17);
+            linkLabel1.TabIndex = 110;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Lupa Password?";
+            // 
             // Form_Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -219,5 +232,6 @@
         private Label label2;
         private LinkLabel linkRegister;
         private Label label4;
+        private LinkLabel linkLabel1;
     }
 }

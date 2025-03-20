@@ -1,6 +1,5 @@
 ﻿using Bengkel_UKK.Admin.Booking;
 using Bengkel_UKK.Admin.Jasa_Service;
-using Bengkel_UKK.Admin.Kalender;
 using Bengkel_UKK.Admin.Karyawan;
 using Bengkel_UKK.Admin.Kendaraan;
 using Bengkel_UKK.Admin.Pelanggan;
@@ -105,11 +104,9 @@ namespace Bengkel_UKK.Admin.Dashboard
             btn_kendaraan.Click += BtnSideBar_Click;
             btnLogout.Click += BtnLogout_Click;
 
-            // btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard2());
             btnDashboard.Click += (s, e) => ShowFormInPanel2(new Dashboard());
             btnProduk.Click += (s, e) => ShowFormInPanel2(new Produk_form());
             btnKaryawan.Click += (s, e) => ShowFormInPanel2(new Karyawan_form());
-            // btnKalender.Click += (s, e) => ShowFormInPanel2(new Kalender_form());
             btnBooking.Click += (s, e) => ShowFormInPanel2(new Booking_form());
             btnPelanggan.Click += (s, e) => ShowFormInPanel2(new Pelanggan_form());
             btnRiwayat.Click += (s, e) => ShowFormInPanel2(new Riwayat_form());

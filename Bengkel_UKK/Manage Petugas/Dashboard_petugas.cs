@@ -125,6 +125,7 @@ namespace Bengkel_UKK.Manage_Petugas
        
         private void AddButton(int key, Button value)
         {
+            _listButton.Clear();
             _listButton.Add(key, value);
         }
 

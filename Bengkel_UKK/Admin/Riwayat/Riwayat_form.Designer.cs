@@ -32,7 +32,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Riwayat_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
-            comboFilterStatus = new ComboBox();
             panelTanggalFilter = new Panel();
             panelComboFilter = new Panel();
             lblTo = new Label();
@@ -90,7 +89,6 @@ namespace Bengkel_UKK.Admin.Riwayat
             yogaPanel1.BorderColor = Color.PaleVioletRed;
             yogaPanel1.BorderRadius = 0;
             yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(comboFilterStatus);
             yogaPanel1.Controls.Add(panelTanggalFilter);
             yogaPanel1.Controls.Add(panelComboFilter);
             yogaPanel1.Controls.Add(lblTo);
@@ -111,20 +109,10 @@ namespace Bengkel_UKK.Admin.Riwayat
             yogaPanel1.Size = new Size(1340, 579);
             yogaPanel1.TabIndex = 11;
             // 
-            // comboFilterStatus
-            // 
-            comboFilterStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboFilterStatus.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboFilterStatus.FormattingEnabled = true;
-            comboFilterStatus.Location = new Point(335, 33);
-            comboFilterStatus.Name = "comboFilterStatus";
-            comboFilterStatus.Size = new Size(100, 28);
-            comboFilterStatus.TabIndex = 120;
-            // 
             // panelTanggalFilter
             // 
             panelTanggalFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelTanggalFilter.Location = new Point(638, 66);
+            panelTanggalFilter.Location = new Point(516, 66);
             panelTanggalFilter.Name = "panelTanggalFilter";
             panelTanggalFilter.Size = new Size(382, 5);
             panelTanggalFilter.TabIndex = 119;
@@ -132,7 +120,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             // panelComboFilter
             // 
             panelComboFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelComboFilter.Location = new Point(445, 66);
+            panelComboFilter.Location = new Point(323, 66);
             panelComboFilter.Name = "panelComboFilter";
             panelComboFilter.Size = new Size(176, 5);
             panelComboFilter.TabIndex = 118;
@@ -142,7 +130,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             lblTo.AutoSize = true;
             lblTo.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             lblTo.ForeColor = Color.DimGray;
-            lblTo.Location = new Point(818, 22);
+            lblTo.Location = new Point(696, 22);
             lblTo.Name = "lblTo";
             lblTo.Size = new Size(22, 30);
             lblTo.TabIndex = 117;
@@ -177,7 +165,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl2.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             tgl2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             tgl2.Format = "d MMMM yyyy";
-            tgl2.Location = new Point(843, 33);
+            tgl2.Location = new Point(721, 33);
             tgl2.Name = "tgl2";
             tgl2.Size = new Size(177, 28);
             tgl2.Style.BorderColor = Color.FromArgb(64, 64, 64);
@@ -191,7 +179,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             tgl1.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             tgl1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             tgl1.Format = "d MMMM yyyy";
-            tgl1.Location = new Point(638, 33);
+            tgl1.Location = new Point(516, 33);
             tgl1.Name = "tgl1";
             tgl1.Size = new Size(177, 28);
             tgl1.Style.BorderColor = Color.FromArgb(64, 64, 64);
@@ -216,7 +204,7 @@ namespace Bengkel_UKK.Admin.Riwayat
             comboFilterWaktu.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilterWaktu.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilterWaktu.FormattingEnabled = true;
-            comboFilterWaktu.Location = new Point(445, 33);
+            comboFilterWaktu.Location = new Point(323, 33);
             comboFilterWaktu.Name = "comboFilterWaktu";
             comboFilterWaktu.Size = new Size(176, 28);
             comboFilterWaktu.TabIndex = 12;
@@ -457,7 +445,6 @@ namespace Bengkel_UKK.Admin.Riwayat
         private Label lblTo;
         private Panel panelTanggalFilter;
         private Panel panelComboFilter;
-        private ComboBox comboFilterStatus;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStrip;
         private ToolStripMenuItem InvoiceStripMenuItem;
         private Syncfusion.Windows.Forms.Tools.ContextMenuStripEx contextMenuStripEx1;

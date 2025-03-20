@@ -67,6 +67,10 @@ namespace Bengkel_UKK.Login
                 new Registrasi_form().Show();
                 this.Hide();
             };
+            linkLabel1.Click += (s, e) =>
+            {
+                new Reset_password(txtEmail.Text.Trim()).Show();
+            };
         }
         private void InitComponent()
         {
@@ -77,7 +81,7 @@ namespace Bengkel_UKK.Login
         private void CekLogin()
         {
             string email = txtEmail.Text;
-            string password = txtPassword.Text;
+            string password = txtPassword.Text.Trim();
             if (email == string.Empty || password == string.Empty || lblErrorEmail.Visible)
             {
                 PesanBox.Warning("Data tidak valid, mohon cek kembali!");

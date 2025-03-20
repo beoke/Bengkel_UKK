@@ -110,7 +110,7 @@ namespace Bengkel_UKK.Manage_Petugas
             // panelTanggalFilter
             // 
             panelTanggalFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelTanggalFilter.Location = new Point(638, 66);
+            panelTanggalFilter.Location = new Point(519, 66);
             panelTanggalFilter.Name = "panelTanggalFilter";
             panelTanggalFilter.Size = new Size(382, 5);
             panelTanggalFilter.TabIndex = 119;
@@ -118,7 +118,7 @@ namespace Bengkel_UKK.Manage_Petugas
             // panelComboFilter
             // 
             panelComboFilter.BackColor = Color.FromArgb(62, 162, 229);
-            panelComboFilter.Location = new Point(445, 66);
+            panelComboFilter.Location = new Point(326, 66);
             panelComboFilter.Name = "panelComboFilter";
             panelComboFilter.Size = new Size(176, 5);
             panelComboFilter.TabIndex = 118;
@@ -128,7 +128,7 @@ namespace Bengkel_UKK.Manage_Petugas
             lblTo.AutoSize = true;
             lblTo.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold, GraphicsUnit.Point);
             lblTo.ForeColor = Color.DimGray;
-            lblTo.Location = new Point(818, 22);
+            lblTo.Location = new Point(699, 22);
             lblTo.Name = "lblTo";
             lblTo.Size = new Size(22, 30);
             lblTo.TabIndex = 117;
@@ -140,7 +140,7 @@ namespace Bengkel_UKK.Manage_Petugas
             tgl2.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             tgl2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             tgl2.Format = "d MMMM yyyy";
-            tgl2.Location = new Point(843, 33);
+            tgl2.Location = new Point(724, 33);
             tgl2.Name = "tgl2";
             tgl2.Size = new Size(177, 28);
             tgl2.Style.BorderColor = Color.FromArgb(64, 64, 64);
@@ -154,7 +154,7 @@ namespace Bengkel_UKK.Manage_Petugas
             tgl1.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.Custom;
             tgl1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             tgl1.Format = "d MMMM yyyy";
-            tgl1.Location = new Point(638, 33);
+            tgl1.Location = new Point(519, 33);
             tgl1.Name = "tgl1";
             tgl1.Size = new Size(177, 28);
             tgl1.Style.BorderColor = Color.FromArgb(64, 64, 64);
@@ -179,7 +179,7 @@ namespace Bengkel_UKK.Manage_Petugas
             comboFilterWaktu.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilterWaktu.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilterWaktu.FormattingEnabled = true;
-            comboFilterWaktu.Location = new Point(445, 33);
+            comboFilterWaktu.Location = new Point(326, 33);
             comboFilterWaktu.Name = "comboFilterWaktu";
             comboFilterWaktu.Size = new Size(176, 28);
             comboFilterWaktu.TabIndex = 12;

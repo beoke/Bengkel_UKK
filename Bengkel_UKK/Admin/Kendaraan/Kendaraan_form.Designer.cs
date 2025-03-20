@@ -30,12 +30,10 @@ namespace Bengkel_UKK.Admin.Kendaraan
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kendaraan_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
             lblShowingEntries = new Label();
             comboFilter = new ComboBox();
-            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -85,7 +83,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             yogaPanel1.BorderSize = 0;
             yogaPanel1.Controls.Add(lblShowingEntries);
             yogaPanel1.Controls.Add(comboFilter);
-            yogaPanel1.Controls.Add(btnSearch);
             yogaPanel1.Controls.Add(panel1);
             yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(label3);
@@ -115,28 +112,10 @@ namespace Bengkel_UKK.Admin.Kendaraan
             comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(376, 33);
+            comboFilter.Location = new Point(323, 33);
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(323, 33);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -319,7 +298,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold, GraphicsUnit.Point);
-            editToolStripMenuItem.Image = (Image)resources.GetObject("editToolStripMenuItem.Image");
             editToolStripMenuItem.Name = "editToolStripMenuItem";
             editToolStripMenuItem.Size = new Size(126, 28);
             editToolStripMenuItem.Text = "Edit";
@@ -327,7 +305,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold, GraphicsUnit.Point);
-           deleteToolStripMenuItem.Image = Properties.Resources.sampahDark;
+            deleteToolStripMenuItem.Image = Properties.Resources.sampahDark;
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(126, 28);
             deleteToolStripMenuItem.Text = "Delete";
@@ -337,17 +315,16 @@ namespace Bengkel_UKK.Admin.Kendaraan
             contextMenuStripEx2.Items.AddRange(new ToolStripItem[] { restoreStripMenuItem2 });
             contextMenuStripEx2.MetroColor = Color.FromArgb(204, 236, 249);
             contextMenuStripEx2.Name = "contextMenuStripEx1";
-            contextMenuStripEx2.Size = new Size(181, 54);
+            contextMenuStripEx2.Size = new Size(136, 32);
             // 
             // restoreStripMenuItem2
             // 
             restoreStripMenuItem2.Font = new Font("Segoe UI Semibold", 12.5F, FontStyle.Bold, GraphicsUnit.Point);
-            restoreStripMenuItem2.Image = (Image)resources.GetObject("restoreStripMenuItem2.Image");
             restoreStripMenuItem2.Name = "restoreStripMenuItem2";
-            restoreStripMenuItem2.Size = new Size(180, 28);
+            restoreStripMenuItem2.Size = new Size(135, 28);
             restoreStripMenuItem2.Text = "Restore";
             // 
-            // FormKendaraan
+            // Kendaraan_form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -356,7 +333,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             Controls.Add(flowLayoutPanel1);
             Controls.Add(yogaPanel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FormKendaraan";
+            Name = "Kendaraan_form";
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
@@ -384,7 +361,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
         private DhafaButton btnPrevious;
         private Panel panel2;
         private Label lblHalaman;
-        private DhafaButton btnSearch;
         private ComboBox comboFilter;
         private Label lblShowingEntries;
         private FlowLayoutPanel flowLayoutPanel1;

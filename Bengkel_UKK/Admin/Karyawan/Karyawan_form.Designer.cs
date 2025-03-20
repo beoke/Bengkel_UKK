@@ -36,7 +36,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             DhafaPanel = new DhafaPanel();
             lblShowingEntries = new Label();
             comboFilter = new ComboBox();
-            btnSearch = new DhafaButton();
             panel1 = new Panel();
             panel2 = new Panel();
             lblHalaman = new Label();
@@ -80,7 +79,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             DhafaPanel.BorderSize = 0;
             DhafaPanel.Controls.Add(lblShowingEntries);
             DhafaPanel.Controls.Add(comboFilter);
-            DhafaPanel.Controls.Add(btnSearch);
             DhafaPanel.Controls.Add(panel1);
             DhafaPanel.Controls.Add(txtSearch);
             DhafaPanel.Controls.Add(label3);
@@ -114,25 +112,6 @@ namespace Bengkel_UKK.Admin.Karyawan
             comboFilter.Name = "comboFilter";
             comboFilter.Size = new Size(154, 28);
             comboFilter.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            btnSearch.BackColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BackgroundColor = Color.FromArgb(230, 126, 34);
-            btnSearch.BorderColor = Color.PaleVioletRed;
-            btnSearch.BorderRadius = 0;
-            btnSearch.BorderSize = 0;
-            btnSearch.FlatAppearance.BorderSize = 0;
-            btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(483, 34);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(47, 27);
-            btnSearch.TabIndex = 12;
-            btnSearch.Text = "🔎";
-            btnSearch.TextColor = Color.White;
-            btnSearch.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -332,7 +311,6 @@ namespace Bengkel_UKK.Admin.Karyawan
         private DhafaButton btnPrevious;
         private Panel panel2;
         private Label lblHalaman;
-        private DhafaButton btnSearch;
         private ComboBox comboFilter;
         private Label lblShowingEntries;
         private ContextMenuStrip contextMenuStrip1;

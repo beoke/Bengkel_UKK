@@ -34,8 +34,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JasaService_form));
             dataGridView1 = new DataGridView();
             yogaPanel1 = new DhafaPanel();
-            comboFilter = new ComboBox();
-            txtSearch = new TextBox();
             btnAddData = new DhafaButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
             editToolStripMenuItem = new ToolStripMenuItem();
@@ -52,10 +50,10 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.GridColor = SystemColors.Control;
-            dataGridView1.Location = new Point(46, 77);
+            dataGridView1.Location = new Point(23, 18);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(995, 374);
+            dataGridView1.Size = new Size(1042, 424);
             dataGridView1.TabIndex = 0;
             // 
             // yogaPanel1
@@ -65,33 +63,12 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             yogaPanel1.BorderColor = Color.PaleVioletRed;
             yogaPanel1.BorderRadius = 0;
             yogaPanel1.BorderSize = 0;
-            yogaPanel1.Controls.Add(comboFilter);
-            yogaPanel1.Controls.Add(txtSearch);
             yogaPanel1.Controls.Add(dataGridView1);
             yogaPanel1.ForeColor = Color.White;
             yogaPanel1.Location = new Point(28, 75);
             yogaPanel1.Name = "yogaPanel1";
-            yogaPanel1.Size = new Size(1086, 531);
+            yogaPanel1.Size = new Size(1086, 470);
             yogaPanel1.TabIndex = 11;
-            // 
-            // comboFilter
-            // 
-            comboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboFilter.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            comboFilter.FormattingEnabled = true;
-            comboFilter.Location = new Point(323, 33);
-            comboFilter.Name = "comboFilter";
-            comboFilter.Size = new Size(154, 28);
-            comboFilter.TabIndex = 12;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(46, 33);
-            txtSearch.Name = "txtSearch";
-            txtSearch.PlaceholderText = " Search";
-            txtSearch.Size = new Size(271, 27);
-            txtSearch.TabIndex = 6;
             // 
             // btnAddData
             // 
@@ -127,7 +104,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             editToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             editToolStripMenuItem.Image = (Image)resources.GetObject("editToolStripMenuItem.Image");
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(180, 26);
+            editToolStripMenuItem.Size = new Size(123, 26);
             editToolStripMenuItem.Text = "Edit";
             // 
             // hapusToolStripMenuItem
@@ -143,7 +120,7 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1143, 635);
+            ClientSize = new Size(1143, 576);
             Controls.Add(yogaPanel1);
             Controls.Add(btnAddData);
             FormBorderStyle = FormBorderStyle.None;
@@ -151,7 +128,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
             Text = "Tabel";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             yogaPanel1.ResumeLayout(false);
-            yogaPanel1.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -161,8 +137,6 @@ namespace Bengkel_UKK.Admin.Jasa_Service
         private DataGridView dataGridView1;
         private DhafaPanel yogaPanel1;
         private DhafaButton btnAddData;
-        private ComboBox comboFilter;
-        private TextBox txtSearch;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem hapusToolStripMenuItem;

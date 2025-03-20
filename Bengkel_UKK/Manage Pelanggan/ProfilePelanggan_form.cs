@@ -74,7 +74,7 @@ namespace Bengkel_UKK.Admin.Pelanggan
 
             try
             {
-                _pelangganDal.UpdateData(pelanggan);
+                _pelangganDal.UpdateDataPelanggan(pelanggan);
                 MessageBox.Show("Data berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Kunci kembali inputan

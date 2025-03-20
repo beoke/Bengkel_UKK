@@ -29,7 +29,6 @@ namespace Bengkel_UKK.Admin.Kendaraan
             RegisterEvent();
             LoadData();
             CustomGrid();
-            btnSearch.Visible = false;
         }
         #region INIT COMPONENT & STYLE GRID
         private void InitComponent()
@@ -169,7 +168,7 @@ namespace Bengkel_UKK.Admin.Kendaraan
             if (_btnMain)
             {
                 Image img = Properties.Resources.plusPutih;
-                StyleComponent.ControlButtonMainDelete(btnAddData, btnDataDihapus, img, false, "Pegawai");
+                StyleComponent.ControlButtonMainDelete(btnAddData, btnDataDihapus, img, false, "Kendaraan");
                 _btnMain = false;
                 LoadData();
             }
